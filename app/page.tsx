@@ -6,10 +6,12 @@ import { ProblemSection } from '@/components/sections/ProblemSection';
 import { SolutionSection } from '@/components/sections/SolutionSection';
 import { MobileAdvantage } from '@/components/sections/MobileAdvantage';
 import { FoundingOffer } from '@/components/sections/FoundingOffer';
+import { WaitlistForm } from '@/components/sections/WaitlistForm';
 import { ServicesOverview } from '@/components/sections/ServicesOverview';
 import { LeadMagnetSection } from '@/components/sections/LeadMagnetSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { FinalCTA } from '@/components/sections/FinalCTA';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 export const metadata: Metadata = {
   title: "Home | Kai's Run — Mobile Dog Gym Destin FL",
@@ -45,10 +47,12 @@ export default function Home() {
       <SolutionSection />
       <MobileAdvantage />
       <FoundingOffer />
+      <WaitlistForm />
       <ServicesOverview />
       <LeadMagnetSection />
       <AboutSection />
       <FinalCTA />
+      <ContactFormSection />
     </>
   );
 }

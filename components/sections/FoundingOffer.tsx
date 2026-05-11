@@ -75,7 +75,7 @@ export function FoundingOffer() {
           </motion.ul>
 
           <motion.div variants={fadeUp} className="mb-6">
-            <Button href="/book?offer=founding" variant="primary" className="text-base px-12 py-5 w-full sm:w-auto">
+            <Button href="/book" variant="primary" className="text-base px-12 py-5 w-full sm:w-auto">
               Claim Your Founding Spot
             </Button>
           </motion.div>

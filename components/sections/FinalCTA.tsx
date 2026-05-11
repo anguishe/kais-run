@@ -32,10 +32,10 @@ export function FinalCTA() {
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
-          <Button href="/book?type=intro" variant="secondary" className="text-base px-10 py-4">
+          <Button href="/book" variant="secondary" className="text-base px-10 py-4">
             Book Intro Session — $35
           </Button>
-          <Button href="/book?offer=founding" variant="primary" className="text-base px-10 py-4">
+          <Button href="/book" variant="primary" className="text-base px-10 py-4">
             Join the Founding 20
           </Button>
         </motion.div>

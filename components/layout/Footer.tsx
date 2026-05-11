@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WaitlistForm } from '@/components/sections/WaitlistForm';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -113,6 +114,10 @@ export default function Footer() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mb-12 flex justify-center md:justify-start">
+          <WaitlistForm variant="footer" />
         </div>
 
         {/* Bottom Bar */}

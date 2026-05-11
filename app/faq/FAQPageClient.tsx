@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import LeadMagnetForm from '@/components/ui/LeadMagnetForm';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const faqItems = [
   {
@@ -115,37 +116,7 @@ export function FAQPageClient() {
         </motion.div>
       </section>
 
-      {/* Still Have Questions CTA */}
-      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="text-4xl md:text-5xl font-display tracking-tight mb-6"
-          >
-            Still Have Questions?
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="text-brand-gray font-body text-lg mb-8"
-          >
-            We're here to help. Call or text anytime.
-          </motion.p>
-          <motion.div variants={fadeUp}>
-            <a
-              href="tel:8502185855"
-              className="inline-block bg-brand-teal text-white px-10 py-4 font-medium text-base tracking-wide transition-colors hover:bg-brand-teal/90"
-            >
-              Call or Text: 850-218-5855
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
+      <ContactFormSection />
 
       {/* Lead Magnet */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">

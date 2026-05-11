@@ -61,10 +61,10 @@ export function Hero() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-          <Button href="/book?offer=founding" variant="primary" className="text-base px-10 py-4">
+          <Button href="/book" variant="primary" className="text-base px-10 py-4">
             Claim Founding Spot — 20 Only
           </Button>
-          <Button href="/book?type=intro" variant="secondary" className="text-base px-10 py-4">
+          <Button href="/book" variant="secondary" className="text-base px-10 py-4">
             Book Intro Session — $35
           </Button>
         </motion.div>

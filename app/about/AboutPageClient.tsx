@@ -285,7 +285,7 @@ export function AboutPageClient() {
             Experience the difference structured conditioning makes.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/book?type=intro" variant="primary" className="px-10 py-4">
+            <Button href="/book" variant="primary" className="px-10 py-4">
               Book Intro — $35
             </Button>
             <Button href="/pricing" variant="secondary" className="px-10 py-4">
