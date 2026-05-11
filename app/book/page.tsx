@@ -1,49 +1,49 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import { OG_IMAGE_URL } from '@/lib/site-images';
-import BookingContent from '@/app/book/BookingContent';
-
-export const metadata: Metadata = {
-  title: 'Book | Kai\'s Run — Mobile Dog Gym Destin FL',
-  description:
-    'Book your mobile dog gym session online. Structured slatmill conditioning delivered to your driveway. Serving Destin, Fort Walton Beach & Niceville FL.',
-  openGraph: {
-    title: 'Book | Kai\'s Run — Mobile Dog Gym Destin FL',
-    description:
-      'Book your mobile dog gym session online. Structured slatmill conditioning delivered to your driveway. Serving Destin, Fort Walton Beach & Niceville FL.',
-    type: 'website',
-    locale: 'en_US',
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
-      },
-    ],
-  },
-};
-
-const SQUARE_WIDGET_SRC =
-  'https://square.site/appointments/buyer/widget/x06wxfzw47ogj7/LY4W4QTX4A1PF.js';
+'use client'
+import { useEffect, useRef } from 'react'
 
 export default function BookPage() {
+  const widgetHostRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const host = widgetHostRef.current
+    if (!host) return
+
+    const existing = document.getElementById('square-widget-script')
+    if (existing) existing.remove()
+
+    const script = document.createElement('script')
+    script.id = 'square-widget-script'
+    script.src = 'https://square.site/appointments/buyer/widget/x06wxfzw47ogj7/LY4W4QTX4A1PF.js'
+    script.async = true
+    host.appendChild(script)
+
+    return () => {
+      const s = document.getElementById('square-widget-script')
+      if (s) s.remove()
+    }
+  }, [])
+
   return (
-    <>
-      <Script src={SQUARE_WIDGET_SRC} strategy="lazyOnload" />
-      <header className="bg-[#0F1117] pt-32 pb-10 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="font-display text-6xl text-brand-offwhite tracking-tight">
-            Book Your Session
-          </h1>
-          <div className="w-12 h-px bg-brand-teal mt-4 mb-4" aria-hidden />
-          <p className="font-body text-brand-gray text-base md:text-lg max-w-2xl leading-relaxed">
-            New dogs start with the Kai&apos;s Run Welcome — $35. Select your session type below.
-          </p>
-        </div>
-      </header>
-      <div id="square-appointments" className="min-h-[700px] w-full bg-brand-black px-6" />
-      <BookingContent />
-    </>
-  );
+    <main className="min-h-screen bg-[#0F1117] pt-24">
+      <div className="max-w-4xl mx-auto px-6 pb-12 text-center">
+        <p className="text-[#0A5C52] font-sans text-sm tracking-[0.25em] uppercase mb-3">
+          Destin · Fort Walton Beach · Niceville
+        </p>
+        <h1 className="font-display text-6xl md:text-8xl text-[#F0EDE6] mb-4">
+          BOOK YOUR SESSION
+        </h1>
+        <p className="text-[#9A9590] text-lg max-w-xl mx-auto">
+          New dogs start with the Kai's Run Welcome — $35.
+          Select your session type below.
+        </p>
+        <div className="w-16 h-px bg-[#0A5C52] mx-auto mt-6" />
+      </div>
+
+      <div
+        ref={widgetHostRef}
+        className="max-w-4xl mx-auto px-6 pb-24"
+        style={{ minHeight: '700px', width: '100%' }}
+      />
+    </main>
+  )
 }
