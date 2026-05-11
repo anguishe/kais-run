@@ -7,7 +7,7 @@ export const fadeUp = {
 
 export const stagger = {
   hidden:  {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 } as const;
 
 export const scaleIn = {

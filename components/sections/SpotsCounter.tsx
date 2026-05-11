@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
-// UPDATE MANUALLY AS SPOTS SELL
 const SPOTS_REMAINING = 20;
 const TOTAL_SPOTS = 20;
 
@@ -12,12 +11,12 @@ export function SpotsCounter() {
   const pct = (sold / TOTAL_SPOTS) * 100;
 
   return (
-    <section className="bg-brand-charcoal py-8 px-6">
+    <section className="bg-brand-charcoal py-24 md:py-32 px-6">
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-100px' }}
         className="max-w-3xl mx-auto text-center"
       >
         <motion.p

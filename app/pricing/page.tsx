@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE_URL } from '@/lib/site-images';
 import { PricingPageClient } from './PricingPageClient';
 
 export const metadata: Metadata = {
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
       'Transparent pricing for mobile dog conditioning in Destin FL. Intro sessions, bundles, and memberships. Military, first responder, and teacher discounts available.',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1600,
+        height: 900,
+        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+      },
+    ],
   },
 };
 

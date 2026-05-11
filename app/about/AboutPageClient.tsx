@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { UNSPLASH_SECONDARY_DOG } from '@/lib/site-images';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 
@@ -28,7 +29,7 @@ export function AboutPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -57,12 +58,12 @@ export function AboutPageClient() {
       </section>
 
       {/* Origin Story */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-5xl mx-auto"
         >
           <motion.div
@@ -93,12 +94,12 @@ export function AboutPageClient() {
       </section>
 
       {/* Kai the Dog */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-5xl mx-auto"
         >
           <motion.p
@@ -116,9 +117,12 @@ export function AboutPageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <div className="w-full aspect-square bg-brand-charcoal border border-brand-teal/10 rounded-xl flex items-center justify-center">
-                <span className="text-brand-gray text-sm">{'<!-- KAI PHOTO HERE -->'}</span>
-              </div>
+              <div
+                className="w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${UNSPLASH_SECONDARY_DOG})` }}
+                role="img"
+                aria-label="Kai — athletic dog in motion placeholder"
+              />
             </motion.div>
 
             <motion.div variants={fadeUp} className="space-y-6">
@@ -154,12 +158,12 @@ export function AboutPageClient() {
       </section>
 
       {/* Why We're Different */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-6xl mx-auto"
         >
           <motion.p
@@ -219,12 +223,12 @@ export function AboutPageClient() {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-5xl mx-auto"
         >
           <motion.p
@@ -260,12 +264,12 @@ export function AboutPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2

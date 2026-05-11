@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { UNSPLASH_ABOUT_PORTRAIT } from '@/lib/site-images';
 import { fadeUp, stagger } from '@/lib/variants';
 
 const trustSignals = [
@@ -13,20 +14,22 @@ const trustSignals = [
 
 export function AboutSection() {
   return (
-    <section className="py-section px-6 bg-brand-charcoal">
+    <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-100px' }}
         className="max-w-6xl mx-auto"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div variants={fadeUp}>
-            {/* <!-- REPLACE WITH REAL PHOTO --> */}
-            <div className="w-full aspect-[4/5] bg-brand-black border border-brand-teal/10 rounded-xl flex items-center justify-center">
-              <span className="text-brand-gray text-sm">Travis + Kai photo</span>
-            </div>
+            <div
+              className="w-full aspect-[4/5] rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-black bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${UNSPLASH_ABOUT_PORTRAIT})` }}
+              role="img"
+              aria-label="Travis and Kai — placeholder portrait"
+            />
           </motion.div>
 
           <div>

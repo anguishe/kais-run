@@ -72,7 +72,7 @@ export function FAQPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -101,12 +101,12 @@ export function FAQPageClient() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto"
         >
           <motion.div variants={fadeUp}>
@@ -116,12 +116,12 @@ export function FAQPageClient() {
       </section>
 
       {/* Still Have Questions CTA */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2
@@ -148,12 +148,12 @@ export function FAQPageClient() {
       </section>
 
       {/* Lead Magnet */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto"
         >
           <motion.div variants={fadeUp} className="text-center mb-10">

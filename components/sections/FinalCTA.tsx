@@ -6,12 +6,12 @@ import Button from '@/components/ui/Button';
 
 export function FinalCTA() {
   return (
-    <section className="py-section px-6 bg-brand-black">
+    <section className="py-24 md:py-32 px-6 bg-brand-black">
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-100px' }}
         className="max-w-4xl mx-auto text-center"
       >
         <motion.h2

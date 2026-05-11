@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { fadeUp } from '@/lib/variants';
 
-// UPDATE MANUALLY AS SPOTS SELL
 const SPOTS_REMAINING = 20;
 const TOTAL_SPOTS = 20;
 

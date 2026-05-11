@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE_URL } from '@/lib/site-images';
 import { Hero } from '@/components/sections/Hero';
 import { SpotsCounter } from '@/components/sections/SpotsCounter';
 import { ProblemSection } from '@/components/sections/ProblemSection';
@@ -21,6 +22,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://kaisrun.com',
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1600,
+        height: 900,
+        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+      },
+    ],
   },
   alternates: {
     canonical: 'https://kaisrun.com',

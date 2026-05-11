@@ -118,7 +118,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-brand-black/50">
           <p className="text-brand-gray text-sm text-center">
-            © 2025 Kai&apos;s Run. All rights reserved. | Licensed &amp; Insured
+            © {new Date().getFullYear()} Kai&apos;s Run. All rights reserved. | Licensed &amp; Insured
           </p>
         </div>
       </div>

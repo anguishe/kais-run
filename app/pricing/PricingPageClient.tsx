@@ -173,7 +173,7 @@ export function PricingPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -208,7 +208,7 @@ export function PricingPageClient() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-100px' }}
             className="max-w-3xl mx-auto text-center"
           >
             <motion.p
@@ -238,13 +238,13 @@ export function PricingPageClient() {
       )}
 
       {/* Pricing Grid */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-100px' }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {tiers.map((tier) => (
@@ -313,12 +313,12 @@ export function PricingPageClient() {
       </section>
 
       {/* Snowbird Package */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto"
         >
           <motion.div
@@ -350,12 +350,12 @@ export function PricingPageClient() {
       </section>
 
       {/* Discounts */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-5xl mx-auto"
         >
           <motion.p
@@ -400,12 +400,12 @@ export function PricingPageClient() {
       </section>
 
       {/* Referral Program */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto"
         >
           <motion.div
@@ -445,12 +445,12 @@ export function PricingPageClient() {
       </section>
 
       {/* FAQ */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto"
         >
           <motion.p
@@ -473,12 +473,12 @@ export function PricingPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2

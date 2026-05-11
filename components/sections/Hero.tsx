@@ -1,31 +1,49 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { UNSPLASH_HERO } from '@/lib/site-images';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-brand-black overflow-hidden">
-      {/* <!-- REPLACE WITH KAI HERO PHOTO --> */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/60 via-brand-black/40 to-brand-black" />
+    <section className="grain-overlay relative min-h-screen flex items-end bg-brand-black overflow-hidden">
+      {/* Cinematic radial gradient — always visible as fallback */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 40%, #1A1F2E 0%, #0F1117 70%)',
+        }}
+      />
+
+      {/* Hero image layer — renders above gradient when image exists */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url(${UNSPLASH_HERO})` }}
+      />
+
+      {/* Gradient overlay for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
 
       <motion.div
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+        className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-32"
       >
+        {/* Teal accent rule */}
+        <motion.div variants={fadeUp} className="w-16 h-px bg-brand-teal mb-6" />
+
         <motion.p
           variants={fadeUp}
-          className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-8"
+          className="text-brand-teal font-body text-xs tracking-[0.3em] uppercase mb-8"
         >
-          DESTIN · FORT WALTON BEACH · NICEVILLE
+          Destin · Fort Walton Beach · Niceville
         </motion.p>
 
         <motion.h1
           variants={fadeUp}
-          className="font-display text-7xl md:text-9xl tracking-tight leading-[0.9] mb-8"
+          className="font-display text-7xl md:text-[120px] lg:text-[160px] tracking-tight leading-[0.85] mb-8 text-brand-offwhite"
         >
           YOUR DOG
           <br />
@@ -36,14 +54,13 @@ export function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="text-base md:text-lg font-body text-brand-gray max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-base md:text-lg font-body text-brand-gray max-w-xl mb-12 leading-relaxed"
         >
-          Structured canine conditioning. Delivered to your driveway.
-          <br className="hidden md:block" />
+          Structured canine conditioning. Delivered to your driveway.{' '}
           Not a dog walk. A performance session.
         </motion.p>
 
-        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
           <Button href="/book?offer=founding" variant="primary" className="text-base px-10 py-4">
             Claim Founding Spot — 20 Only
           </Button>

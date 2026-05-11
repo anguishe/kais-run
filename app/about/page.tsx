@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE_URL } from '@/lib/site-images';
 import { AboutPageClient } from './AboutPageClient';
 
 export const metadata: Metadata = {
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
       "Travis and Kai's story — born and raised in Destin. The slatmill changed everything. Now we bring structured canine conditioning to the Emerald Coast.",
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1600,
+        height: 900,
+        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+      },
+    ],
   },
 };
 

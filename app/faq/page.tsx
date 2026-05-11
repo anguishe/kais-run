@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE_URL } from '@/lib/site-images';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
       'Common questions about slatmill sessions, booking, pricing, and what to expect. Mobile dog conditioning in Destin, Fort Walton Beach & Niceville FL.',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1600,
+        height: 900,
+        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+      },
+    ],
   },
 };
 

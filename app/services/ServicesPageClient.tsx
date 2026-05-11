@@ -104,7 +104,7 @@ export function ServicesPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -134,7 +134,7 @@ export function ServicesPageClient() {
       </section>
 
       {/* Service Details */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <div className="max-w-5xl mx-auto space-y-12">
           {services.map((service) => (
             <motion.div
@@ -142,7 +142,7 @@ export function ServicesPageClient() {
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: '-100px' }}
               className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8 md:p-10"
             >
               <motion.p
@@ -233,12 +233,12 @@ export function ServicesPageClient() {
       </section>
 
       {/* How It Works */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-5xl mx-auto"
         >
           <motion.p
@@ -278,12 +278,12 @@ export function ServicesPageClient() {
       </section>
 
       {/* Session Protocol */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto"
         >
           <motion.p
@@ -318,12 +318,12 @@ export function ServicesPageClient() {
       </section>
 
       {/* Tired Dog Guarantee */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div
@@ -344,12 +344,12 @@ export function ServicesPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2

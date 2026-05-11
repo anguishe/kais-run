@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE_URL } from '@/lib/site-images';
 import { ServiceAreaPageClient } from './ServiceAreaPageClient';
 
 export const metadata: Metadata = {
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
       "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar & surrounding Okaloosa County with mobile dog conditioning.",
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: 1600,
+        height: 900,
+        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+      },
+    ],
   },
 };
 

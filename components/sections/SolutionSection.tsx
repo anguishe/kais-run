@@ -43,12 +43,12 @@ const pillars = [
 
 export function SolutionSection() {
   return (
-    <section className="py-section px-6 bg-brand-black">
+    <section className="py-24 md:py-32 px-6 bg-brand-black">
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-100px' }}
         className="max-w-6xl mx-auto"
       >
         <motion.h2

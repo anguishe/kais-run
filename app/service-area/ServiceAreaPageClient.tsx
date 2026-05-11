@@ -65,7 +65,7 @@ export function ServiceAreaPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -95,7 +95,7 @@ export function ServiceAreaPageClient() {
       </section>
 
       {/* Location Cards */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <div className="max-w-6xl mx-auto space-y-8">
           {locations.map((location, index) => (
             <motion.div
@@ -103,7 +103,7 @@ export function ServiceAreaPageClient() {
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: '-100px' }}
             >
               <motion.div
                 variants={fadeUp}
@@ -122,12 +122,12 @@ export function ServiceAreaPageClient() {
       </section>
 
       {/* Routing Note */}
-      <section className="py-section px-6 bg-brand-charcoal">
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-4xl mx-auto"
         >
           <motion.div
@@ -161,12 +161,12 @@ export function ServiceAreaPageClient() {
       </section>
 
       {/* Not Sure CTA */}
-      <section className="py-section px-6 bg-brand-black">
+      <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2

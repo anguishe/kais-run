@@ -35,7 +35,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-brand-black/90 backdrop-blur-md' : 'bg-transparent'
+          isScrolled ? 'bg-brand-black/80 backdrop-blur-sm' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -43,7 +43,7 @@ export default function Navbar() {
             {/* Wordmark */}
             <Link
               href="/"
-              className="font-display tracking-widest text-2xl text-brand-offwhite hover:text-white transition-colors"
+              className="font-display tracking-widest text-xl text-brand-offwhite hover:text-white transition-colors"
             >
               KAI&apos;S RUN
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/book"
-                className="bg-brand-teal text-white px-5 py-2 font-medium text-sm tracking-wide hover:bg-brand-teal/90 transition-colors"
+                className="bg-brand-teal text-white px-5 py-2 font-medium text-sm tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
               >
                 Book Now
               </Link>
