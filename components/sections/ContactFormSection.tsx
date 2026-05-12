@@ -49,6 +49,17 @@ export function ContactFormSection() {
         setDogName('');
         setDogBreed('');
         setMessage('');
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            name: name,
+            tags: ['contact-inquiry'],
+          }),
+        }).catch(() => {
+          // silent fail — Mailchimp sync is non-blocking
+        });
         setStatus('success');
       } else {
         setStatus('error');

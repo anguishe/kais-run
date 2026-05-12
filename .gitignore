@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Kai's Run — explicit local env filename (see also .env* above)
+.env.local
+
+INTEGRATIONS.md

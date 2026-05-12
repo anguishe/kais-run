@@ -2,9 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 
-// REPLACE YOUR_FORM_ID with your actual Formspree form ID
-// Go to formspree.io, create account, new form, copy the form ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
 
 interface FormData {
   firstName: string;
@@ -35,22 +33,41 @@ export default function LeadMagnetForm() {
         },
         body: JSON.stringify({
           ...formData,
-          _subject: "New Lead - Kai's Run Energy Guide",
+          _subject: "New Energy Guide Request — Kai's Run",
+          _replyto: formData.email,
         }),
       });
 
       if (response.ok) {
-        setStatus('success');
+        const subscribeEmail = formData.email;
+        const subscribeName = formData.firstName;
         setFormData({
           firstName: '',
           dogName: '',
           dogBreed: '',
           email: '',
         });
+        setStatus('success');
+        try {
+          fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              email: subscribeEmail,
+              name: subscribeName,
+              tags: ['energy-guide'],
+            }),
+          }).catch(() => {});
+        } catch {
+          /* fire-and-forget */
+        }
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -142,6 +159,7 @@ export default function LeadMagnetForm() {
             value={formData.firstName}
             onChange={handleChange}
             required
+            disabled={status === 'submitting'}
             className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
             placeholder="Your name"
           />
@@ -159,6 +177,7 @@ export default function LeadMagnetForm() {
             value={formData.dogName}
             onChange={handleChange}
             required
+            disabled={status === 'submitting'}
             className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
             placeholder="Your dog's name"
           />
@@ -176,6 +195,7 @@ export default function LeadMagnetForm() {
             value={formData.dogBreed}
             onChange={handleChange}
             required
+            disabled={status === 'submitting'}
             className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
             placeholder="e.g. Belgian Malinois"
           />
@@ -193,6 +213,7 @@ export default function LeadMagnetForm() {
             value={formData.email}
             onChange={handleChange}
             required
+            disabled={status === 'submitting'}
             className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
             placeholder="you@example.com"
           />

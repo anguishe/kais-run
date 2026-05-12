@@ -4,10 +4,8 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
-const MAILCHIMP_ACTION =
-  'https://xyz.us4.list-manage.com/subscribe/post?u=cfc3dccd2c21b015ecc30e2a5&id=334201f588&f_id=00b60fe3f0';
-
-const HONEYPOT_NAME = 'b_cfc3dccd2c21b015ecc30e2a5_334201f588';
+const FORMSPREE_FOUNDING_ENDPOINT = 'https://formspree.io/f/mojrrvdd';
+const FORMSPREE_FOOTER_ENDPOINT = 'https://formspree.io/f/mvzllpwg';
 
 const inputClass =
   'w-full bg-brand-charcoal border border-white/10 focus:border-brand-teal focus:outline-none text-brand-offwhite placeholder:text-brand-gray rounded-none py-3 px-4 font-body';
@@ -18,24 +16,8 @@ type Variant = 'full' | 'footer';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-function HoneypotField() {
-  return (
-    <input
-      type="text"
-      name={HONEYPOT_NAME}
-      tabIndex={-1}
-      defaultValue=""
-      autoComplete="off"
-      className="absolute left-[-5000px] h-px w-px overflow-hidden opacity-0"
-      aria-hidden="true"
-    />
-  );
-}
-
-function appendHoneypot(params: URLSearchParams, form: HTMLFormElement) {
-  const hp = form.elements.namedItem(HONEYPOT_NAME) as HTMLInputElement | null;
-  if (hp?.name) params.set(hp.name, hp.value);
-}
+const foundingSuccessCopy =
+  "You're in. Travis will reach out personally to confirm your spot.";
 
 export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
   const idPrefix = variant === 'full' ? 'waitlist-full' : 'waitlist-footer';
@@ -48,36 +30,55 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
   const [merge7, setMerge7] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
 
-  const submitMailchimp = async (form: HTMLFormElement, params: URLSearchParams) => {
-    appendHoneypot(params, form);
-    await fetch(MAILCHIMP_ACTION, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
-    });
-  };
-
   const handleFullSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
     try {
-      const form = e.currentTarget;
-      const params = new URLSearchParams();
-      params.set('FNAME', fname);
-      params.set('EMAIL', email);
-      params.set('PHONE', phone);
-      params.set('DOGNAME', dogName);
-      params.set('DOGBREED', dogBreed);
-      params.set('MMERGE7', merge7);
-      await submitMailchimp(form, params);
-      setFname('');
-      setEmail('');
-      setPhone('');
-      setDogName('');
-      setDogBreed('');
-      setMerge7('');
-      setStatus('success');
+      const res = await fetch(FORMSPREE_FOUNDING_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: fname,
+          email,
+          phone,
+          dog_name: dogName,
+          dog_breed: dogBreed,
+          location: merge7,
+          _replyto: email,
+          _subject: "Founding Athlete Signup — Kai's Run",
+        }),
+      });
+
+      if (res.ok) {
+        try {
+          fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              name: fname,
+              tags: ['founding-20'],
+            }),
+          }).catch(() => {});
+        } catch {
+          /* fire-and-forget */
+        }
+        setFname('');
+        setEmail('');
+        setPhone('');
+        setDogName('');
+        setDogBreed('');
+        setMerge7('');
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
     } catch {
       setStatus('error');
     }
@@ -87,19 +88,44 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
     e.preventDefault();
     setStatus('submitting');
     try {
-      const form = e.currentTarget;
-      const params = new URLSearchParams();
-      params.set('EMAIL', email);
-      await submitMailchimp(form, params);
-      setEmail('');
-      setStatus('success');
+      const res = await fetch(FORMSPREE_FOOTER_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          _subject: "Footer Signup — Kai's Run",
+        }),
+      });
+
+      if (res.ok) {
+        try {
+          fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              name: '',
+              tags: ['footer-signup'],
+            }),
+          }).catch(() => {});
+        } catch {
+          /* fire-and-forget */
+        }
+        setEmail('');
+        setStatus('success');
+      } else {
+        setStatus('idle');
+      }
     } catch {
-      setStatus('error');
+      setStatus('idle');
     }
   };
-
-  const successCopy =
-    "You're on the list. Travis will reach out personally before spots open to the public.";
 
   if (variant === 'footer') {
     return (
@@ -112,9 +138,9 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: -8 }}
-              className="font-body text-sm sm:text-base text-brand-teal leading-snug"
+              className="font-body text-sm sm:text-base text-brand-gray leading-snug"
             >
-              {successCopy}
+              You&apos;re on the list.
             </motion.p>
           ) : (
             <motion.form
@@ -126,22 +152,12 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
               onSubmit={handleFooterSubmit}
               className="flex flex-col sm:flex-row gap-2 sm:items-stretch relative"
             >
-              {status === 'error' && (
-                <p
-                  className="font-body text-sm text-amber-400 sm:absolute sm:-top-8 left-0 w-full"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  Something went wrong. Email us at kaisrunmobile@gmail.com
-                </p>
-              )}
-              <HoneypotField />
               <label htmlFor={`${idPrefix}-email`} className="sr-only">
                 Email Address
               </label>
               <input
                 id={`${idPrefix}-email`}
-                name="EMAIL"
+                name="email"
                 type="email"
                 autoComplete="email"
                 required
@@ -204,7 +220,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
               exit={{ opacity: 0, y: -8 }}
               className="font-body text-lg text-brand-teal"
             >
-              {successCopy}
+              {foundingSuccessCopy}
             </motion.p>
           ) : (
             <motion.form
@@ -228,7 +244,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <input
                   id={`${idPrefix}-fname`}
-                  name="FNAME"
+                  name="first_name"
                   type="text"
                   autoComplete="given-name"
                   value={fname}
@@ -245,7 +261,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <input
                   id={`${idPrefix}-email`}
-                  name="EMAIL"
+                  name="email"
                   type="email"
                   autoComplete="email"
                   required
@@ -263,7 +279,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <input
                   id={`${idPrefix}-phone`}
-                  name="PHONE"
+                  name="phone"
                   type="tel"
                   autoComplete="tel"
                   value={phone}
@@ -280,7 +296,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <input
                   id={`${idPrefix}-dogname`}
-                  name="DOGNAME"
+                  name="dog_name"
                   type="text"
                   value={dogName}
                   onChange={(e) => setDogName(e.target.value)}
@@ -296,7 +312,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <input
                   id={`${idPrefix}-dogbreed`}
-                  name="DOGBREED"
+                  name="dog_breed"
                   type="text"
                   value={dogBreed}
                   onChange={(e) => setDogBreed(e.target.value)}
@@ -312,7 +328,7 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                 </label>
                 <select
                   id={`${idPrefix}-location`}
-                  name="MMERGE7"
+                  name="location"
                   value={merge7}
                   onChange={(e) => setMerge7(e.target.value)}
                   className={inputClass}
@@ -325,8 +341,6 @@ export function WaitlistForm({ variant = 'full' }: { variant?: Variant }) {
                   <option value="Other">Other</option>
                 </select>
               </div>
-
-              <HoneypotField />
 
               <button
                 type="submit"
