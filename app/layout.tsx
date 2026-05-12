@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import GoogleAdSense from "@/components/analytics/GoogleAdSense";
 import GoogleAds from "@/components/GoogleAds";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -98,6 +97,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6289405922667797"
+          crossOrigin="anonymous"
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
@@ -105,7 +109,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-body">
         <GoogleAnalytics />
-        <GoogleAdSense />
         <Navbar />
         <main className="flex-1">
           <LenisProvider>{children}</LenisProvider>
