@@ -128,6 +128,15 @@ export default function Footer() {
           <WaitlistForm variant="footer" buttonLabel="Join the List" />
         </div>
 
+        <div className="mt-4 pt-4 border-t border-brand-teal/20 text-center">
+          <a
+            href="/privacy"
+            className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors"
+          >
+            Privacy Policy
+          </a>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-brand-black/50">
           <p className="text-brand-gray text-sm text-center">
