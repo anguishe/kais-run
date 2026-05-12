@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
+import { event } from '@/lib/gtag';
 import Button from '@/components/ui/Button';
 
 const preparationSteps = [
@@ -39,6 +41,13 @@ const preparationSteps = [
 ];
 
 export default function ThankYouContent() {
+  useEffect(() => {
+    event('booking_complete', {
+      event_category: 'conversion',
+      event_label: 'booking_thank_you_page',
+    });
+  }, []);
+
   const shareText = encodeURIComponent(
     "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://kaisrun.com"
   );

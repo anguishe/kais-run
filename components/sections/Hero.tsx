@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import { event } from '@/lib/gtag';
 
 export function Hero() {
   return (
@@ -66,7 +67,14 @@ export function Hero() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-          <Button href="/book" variant="primary" className="text-base px-10 py-4">
+          <Button
+            href="/book"
+            variant="primary"
+            className="text-base px-10 py-4"
+            onClick={() =>
+              event('cta_click', { event_label: 'hero_book_now' })
+            }
+          >
             Claim Founding Spot — 20 Only
           </Button>
           <Button href="/book" variant="secondary" className="text-base px-10 py-4">

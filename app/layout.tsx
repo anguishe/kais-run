@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import GoogleAdSense from "@/components/analytics/GoogleAdSense";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LenisProvider } from "@/components/providers/LenisProvider";
@@ -98,20 +99,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1P5ST40L2E"
-          strategy="beforeInteractive"
-        />
-        <Script id="google-analytics-gtag" strategy="beforeInteractive">
-          {`
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-1P5ST40L2E');
-`}
-        </Script>
       </head>
       <body className="min-h-full flex flex-col font-body">
+        <GoogleAnalytics />
+        <GoogleAdSense />
         <Navbar />
         <main className="flex-1">
           <LenisProvider>{children}</LenisProvider>

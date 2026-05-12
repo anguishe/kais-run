@@ -9,6 +9,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
+  onClick?: () => void;
 }
 
 const base =
@@ -21,19 +22,19 @@ const variantStyles = {
     'border border-white/20 text-brand-offwhite hover:border-brand-teal hover:text-white',
 };
 
-export default function Button({ href, variant, children, className, fullWidth }: ButtonProps) {
+export default function Button({ href, variant, children, className, fullWidth, onClick }: ButtonProps) {
   const classes = cn(base, variantStyles[variant], fullWidth && 'w-full', className);
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={classes}>
+    <button type="button" className={classes} onClick={onClick}>
       {children}
     </button>
   );
