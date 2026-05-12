@@ -24,5 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  return <PricingPageClient />;
+  return (
+    <>
+      {/* Google Ads placements: pricing-top, pricing-mid, pricing-bottom — see PricingPageClient */}
+      <PricingPageClient />
+    </>
+  );
 }

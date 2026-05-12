@@ -10,6 +10,8 @@ const DEFAULT_MAILCHIMP_TAG = 'contact-inquiry';
 export type ContactFormSectionProps = {
   endpoint?: string;
   tag?: string;
+  /** Invoked after Formspree returns OK and before success UI (e.g. Google Ads). */
+  onSuccess?: () => void;
 };
 
 const inputClass =
@@ -24,6 +26,7 @@ const LOCATION_OPTIONS = ['Destin', 'Fort Walton Beach', 'Niceville', 'Other'] a
 export function ContactFormSection({
   endpoint,
   tag,
+  onSuccess,
 }: ContactFormSectionProps = {}) {
   const formspreeUrl = endpoint ?? DEFAULT_FORMSPREE_ENDPOINT;
   const mailchimpTag = tag ?? DEFAULT_MAILCHIMP_TAG;
@@ -86,6 +89,11 @@ export function ContactFormSection({
         }).catch(() => {
           // silent fail — Mailchimp sync is non-blocking
         });
+        try {
+          onSuccess?.();
+        } catch {
+          /* conversion helpers are self-contained */
+        }
         setStatus('success');
       } else {
         setStatus('error');

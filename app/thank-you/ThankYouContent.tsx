@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import { event } from '@/lib/gtag';
 import Button from '@/components/ui/Button';
+import ThankYouConversionTracker from '@/app/thank-you/ThankYouConversionTracker';
 
 const preparationSteps = [
   {
@@ -54,6 +55,9 @@ export default function ThankYouContent() {
 
   return (
     <div className="min-h-screen bg-brand-black pt-32 pb-20 px-6">
+      <Suspense fallback={null}>
+        <ThankYouConversionTracker />
+      </Suspense>
       <motion.div
         variants={stagger}
         initial="hidden"

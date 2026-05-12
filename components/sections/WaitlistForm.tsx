@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
+import { trackFoundingAthlete } from '@/lib/googleAds';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojrrvdd';
 const FORMSPREE_SUBJECT = "New inquiry — Founding Athlete signup — Kai's Run website";
@@ -75,6 +76,11 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
             tags: ['founding-20'],
           }),
         }).catch(() => {});
+        try {
+          trackFoundingAthlete(200);
+        } catch {
+          /* lib/googleAds is defensive */
+        }
         setName('');
         setEmail('');
         setPhone('');

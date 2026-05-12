@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { trackLeadCapture } from '@/lib/googleAds';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
 const FORMSPREE_SUBJECT = "New inquiry — Energy Guide — Kai's Run website";
@@ -76,6 +77,11 @@ export default function LeadMagnetForm() {
             tags: ['energy-guide'],
           }),
         }).catch(() => {});
+        try {
+          trackLeadCapture();
+        } catch {
+          /* defensive */
+        }
       } else {
         setStatus('error');
       }

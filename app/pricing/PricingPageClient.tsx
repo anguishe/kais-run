@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import FAQAccordion from '@/components/ui/FAQAccordion';
+import AdBlock from '@/components/ads/AdBlock';
+import AdSection from '@/components/ads/AdSection';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 // Match SpotsCounter value
@@ -202,6 +204,15 @@ export function PricingPageClient() {
         </motion.div>
       </section>
 
+      {/* Google Ads — premium billboard above tier cards (highest intent). */}
+      <section
+        className="w-full"
+        data-ad-placement="pricing-above-tier-cards"
+        aria-label="Sponsored content — pricing top billboard"
+      >
+        <AdBlock slot="pricing-top" format="billboard" />
+      </section>
+
       {/* Founding Athlete Banner */}
       {SPOTS_REMAINING > 0 && (
         <section className="bg-brand-charcoal py-8 px-6">
@@ -237,6 +248,13 @@ export function PricingPageClient() {
           </motion.div>
         </section>
       )}
+
+      {/* Google Ads — after founding callout, before standard tier grid (rectangle). */}
+      <AdSection
+        slot="pricing-mid"
+        format="rectangle"
+        placement="pricing-after-founding-before-grid"
+      />
 
       {/* Pricing Grid */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
@@ -304,6 +322,7 @@ export function PricingPageClient() {
                   href={tier.disabled ? undefined : `/book?tier=${tier.id}`}
                   variant={tier.id === 'founding' || tier.id === '8pack' ? 'primary' : 'secondary'}
                   className={`text-center w-full ${tier.disabled ? 'pointer-events-none opacity-50' : ''}`}
+                  bookIntentSource={tier.disabled ? undefined : `pricing-tier-${tier.id}`}
                 >
                   {tier.disabled ? 'Sold Out' : 'Select'}
                 </Button>
@@ -342,7 +361,12 @@ export function PricingPageClient() {
               </p>
             </div>
             <div className="flex-shrink-0">
-              <Button href="/book?tier=snowbird" variant="primary" className="px-8 py-4">
+              <Button
+                href="/book?tier=snowbird"
+                variant="primary"
+                className="px-8 py-4"
+                bookIntentSource="pricing-snowbird"
+              >
                 Book Snowbird Package
               </Button>
             </div>
@@ -495,12 +519,24 @@ export function PricingPageClient() {
             Book your first session and experience the difference.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <Button href="/book" variant="primary" className="px-12 py-5 text-base">
+            <Button
+              href="/book"
+              variant="primary"
+              className="px-12 py-5 text-base"
+              bookIntentSource="pricing-footer-cta"
+            >
               Book Now
             </Button>
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Google Ads — end of page rail before contact / site footer (horizontal). */}
+      <AdSection
+        slot="pricing-bottom"
+        format="horizontal"
+        placement="pricing-bottom-before-contact"
+      />
 
       <ContactFormSection
         endpoint="https://formspree.io/f/mojrrvdd"

@@ -116,6 +116,7 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {/* Google Ads placements: services-top, services-mid, services-sidebar — see ServicesPageClient */}
       <ServicesPageClient />
     </>
   );

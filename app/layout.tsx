@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import GoogleAdSense from "@/components/analytics/GoogleAdSense";
+import GoogleAds from "@/components/GoogleAds";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LenisProvider } from "@/components/providers/LenisProvider";
+import DevTools from "@/components/DevTools";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://kais-run.com"),
@@ -99,6 +101,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>
       <body className="min-h-full flex flex-col font-body">
         <GoogleAnalytics />
@@ -108,6 +111,7 @@ export default function RootLayout({
           <LenisProvider>{children}</LenisProvider>
         </main>
         <Footer />
+        {process.env.NODE_ENV === "development" ? <DevTools /> : null}
       </body>
     </html>
   );

@@ -1,8 +1,11 @@
 'use client';
 
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import AdBlock from '@/components/ads/AdBlock';
+import AdSection from '@/components/ads/AdSection';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const services = [
@@ -134,18 +137,26 @@ export function ServicesPageClient() {
         </motion.div>
       </section>
 
-      {/* Service Details */}
+      {/* Google Ads — after intro, before service cards: horizontal leaderboard. */}
+      <AdSection
+        slot="services-top"
+        format="horizontal"
+        placement="services-after-intro-before-cards"
+      />
+
+      {/* Service Details + desktop sticky rail */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
-        <div className="max-w-5xl mx-auto space-y-12">
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-100px' }}
-              className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8 md:p-10"
-            >
+        <div className="mx-auto flex max-w-7xl flex-col gap-0 lg:flex-row lg:items-start lg:gap-10">
+          <div className="min-w-0 flex-1 space-y-12 lg:max-w-[calc(100%-300px-2.5rem)]">
+            {services.map((service, index) => (
+              <Fragment key={service.id}>
+                <motion.div
+                  variants={stagger}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-100px' }}
+                  className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8 md:p-10"
+                >
               <motion.p
                 variants={fadeUp}
                 className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase mb-3"
@@ -228,8 +239,32 @@ export function ServicesPageClient() {
                 <span className="text-brand-offwhite font-medium">Best for:</span>{' '}
                 {service.bestFor}
               </motion.p>
-            </motion.div>
-          ))}
+                </motion.div>
+
+                {/* Google Ads — between card groups after the 2nd service (rectangle). */}
+                {index === 1 ? (
+                  <AdSection
+                    slot="services-mid"
+                    format="rectangle"
+                    placement="services-after-second-card"
+                  />
+                ) : null}
+              </Fragment>
+            ))}
+          </div>
+
+          {/* Google Ads — desktop-only 300×600 rail; sticky while scrolling main column. */}
+          <aside
+            className="hidden shrink-0 self-start lg:block lg:w-[300px] lg:sticky lg:top-24"
+            data-ad-placement="services-sidebar-desktop"
+            aria-label="Sponsored content — services sidebar"
+          >
+            <AdBlock
+              slot="services-sidebar"
+              format="vertical"
+              className="mx-0 my-0 max-w-none px-0"
+            />
+          </aside>
         </div>
       </section>
 
@@ -366,7 +401,7 @@ export function ServicesPageClient() {
             Book your intro session and see the difference structured conditioning makes.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/book" variant="primary" className="px-10 py-4">
+            <Button href="/book" variant="primary" className="px-10 py-4" bookIntentSource="services-cta">
               Book a Session
             </Button>
             <Button href="/pricing" variant="secondary" className="px-10 py-4">
