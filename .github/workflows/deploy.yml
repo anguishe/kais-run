@@ -16,6 +16,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # NEXT_PUBLIC_ADSENSE_PUB_ID must match your AdSense publisher id (ca-pub-…); set in repo → Settings → Secrets → Actions.
       - name: Build
         run: npm run build
         env:

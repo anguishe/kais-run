@@ -2,6 +2,8 @@
 
 This project loads **Google Ads gtag.js** in the root layout (`components/GoogleAds.tsx`) and fires conversions from `lib/googleAds.ts` (founding athlete, intro session, membership, lead capture). AdSense display units are separate (`components/analytics/GoogleAdSense.tsx`).
 
+**AdSense publisher ID:** set `NEXT_PUBLIC_ADSENSE_PUB_ID` to your `ca-pub-…` value in `.env.local` and, for GitHub Pages, in the **`NEXT_PUBLIC_ADSENSE_PUB_ID`** Actions secret (see `README.md`).
+
 For a concise env reference, see [README.md](../README.md#google-ads-integration). This document is the full operational guide.
 
 ---

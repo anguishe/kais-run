@@ -25,6 +25,12 @@ Conversion tracking uses **gtag.js** with your Google Ads **conversion ID** (`AW
 | `NEXT_PUBLIC_MEMBERSHIP_LABEL` | Membership conversion label |
 | `NEXT_PUBLIC_LEAD_CAPTURE_LABEL` | Lead / email capture conversion label |
 
+## Google AdSense
+
+Display ads use **`NEXT_PUBLIC_ADSENSE_PUB_ID`** (your `ca-pub-…` id). It is read by [`components/analytics/GoogleAdSense.tsx`](components/analytics/GoogleAdSense.tsx) (loads `adsbygoogle.js?client=…`) and by [`components/ads/AdBlock.tsx`](components/ads/AdBlock.tsx) (`data-ad-client` on each unit).
+
+Set it in `.env.local` for local dev. For **GitHub Pages** builds, set the repository secret **`NEXT_PUBLIC_ADSENSE_PUB_ID`** (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) to the same value in GitHub: **Settings → Secrets and variables → Actions**.
+
 ### Testing utilities
 
 - **`lib/googleAds.test.ts`** — `isGtagLoaded()`, `simulateTestConversion()`, `MOCK_CONVERSION_SCENARIOS`, `createGoogleAdsDebugLogger()`, plus re-exports for the dev conversion log (`getAdsDevEventLog`, `clearAdsDevEventLog`, `GOOGLE_ADS_DEV_LOG_EVENT`).
