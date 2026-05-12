@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const locations = [
   {
@@ -192,6 +193,11 @@ export function ServiceAreaPageClient() {
           </motion.div>
         </motion.div>
       </section>
+
+      <ContactFormSection
+        endpoint="https://formspree.io/f/xykolrrr"
+        tag="contact-inquiry"
+      />
     </>
   );
 }

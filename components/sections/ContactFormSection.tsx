@@ -4,7 +4,13 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
+const DEFAULT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
+const DEFAULT_MAILCHIMP_TAG = 'contact-inquiry';
+
+export type ContactFormSectionProps = {
+  endpoint?: string;
+  tag?: string;
+};
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -13,11 +19,20 @@ const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-export function ContactFormSection() {
+const LOCATION_OPTIONS = ['Destin', 'Fort Walton Beach', 'Niceville', 'Other'] as const;
+
+export function ContactFormSection({
+  endpoint,
+  tag,
+}: ContactFormSectionProps = {}) {
+  const formspreeUrl = endpoint ?? DEFAULT_FORMSPREE_ENDPOINT;
+  const mailchimpTag = tag ?? DEFAULT_MAILCHIMP_TAG;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [dogName, setDogName] = useState('');
   const [dogBreed, setDogBreed] = useState('');
+  const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
 
@@ -26,7 +41,7 @@ export function ContactFormSection() {
     setStatus('submitting');
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(formspreeUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,8 +50,10 @@ export function ContactFormSection() {
         body: JSON.stringify({
           name,
           email,
+          phone,
           dog_name: dogName,
           dog_breed: dogBreed,
+          location,
           message,
           _replyto: email,
           _subject: "Kai's Run — website contact",
@@ -46,8 +63,10 @@ export function ContactFormSection() {
       if (res.ok) {
         setName('');
         setEmail('');
+        setPhone('');
         setDogName('');
         setDogBreed('');
+        setLocation('');
         setMessage('');
         fetch('/api/subscribe', {
           method: 'POST',
@@ -55,7 +74,7 @@ export function ContactFormSection() {
           body: JSON.stringify({
             email: email,
             name: name,
-            tags: ['contact-inquiry'],
+            tags: [mailchimpTag],
           }),
         }).catch(() => {
           // silent fail — Mailchimp sync is non-blocking
@@ -120,74 +139,120 @@ export function ContactFormSection() {
                 </p>
               )}
 
-              <div>
-                <label htmlFor="contact-name" className={labelClass}>
-                  Your Name
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="First name is fine"
-                  className={inputClass}
-                  disabled={status === 'submitting'}
-                />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="contact-name" className={labelClass}>
+                    Your Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="First name is fine"
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-email" className={labelClass}>
+                    Your Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Where should we reply?"
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="contact-email" className={labelClass}>
-                  Your Email
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Where should we reply?"
-                  className={inputClass}
-                  disabled={status === 'submitting'}
-                />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="contact-phone" className={labelClass}>
+                    Phone Number
+                  </label>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+1 850 218 5855"
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-dog-name" className={labelClass}>
+                    Dog&apos;s Name
+                  </label>
+                  <input
+                    id="contact-dog-name"
+                    name="dog_name"
+                    type="text"
+                    required
+                    value={dogName}
+                    onChange={(e) => setDogName(e.target.value)}
+                    placeholder="What do we call the athlete?"
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="contact-dog-name" className={labelClass}>
-                  Dog&apos;s Name
-                </label>
-                <input
-                  id="contact-dog-name"
-                  name="dog_name"
-                  type="text"
-                  required
-                  value={dogName}
-                  onChange={(e) => setDogName(e.target.value)}
-                  placeholder="What do we call the athlete?"
-                  className={inputClass}
-                  disabled={status === 'submitting'}
-                />
-              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="contact-dog-breed" className={labelClass}>
+                    Dog&apos;s Breed
+                  </label>
+                  <input
+                    id="contact-dog-breed"
+                    name="dog_breed"
+                    type="text"
+                    required
+                    value={dogBreed}
+                    onChange={(e) => setDogBreed(e.target.value)}
+                    placeholder="e.g. Labrador, German Shepherd, Mixed"
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="contact-dog-breed" className={labelClass}>
-                  Dog&apos;s Breed
-                </label>
-                <input
-                  id="contact-dog-breed"
-                  name="dog_breed"
-                  type="text"
-                  required
-                  value={dogBreed}
-                  onChange={(e) => setDogBreed(e.target.value)}
-                  placeholder="e.g. Labrador, German Shepherd, Mixed"
-                  className={inputClass}
-                  disabled={status === 'submitting'}
-                />
+                <div>
+                  <label htmlFor="contact-location" className={labelClass}>
+                    City / Location
+                  </label>
+                  <select
+                    id="contact-location"
+                    name="location"
+                    required
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className={inputClass}
+                    disabled={status === 'submitting'}
+                  >
+                    <option value="">Select your city</option>
+                    {LOCATION_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               <div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { UNSPLASH_SECONDARY_DOG } from '@/lib/site-images';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const comparison = [
   { attribute: 'Comes to you', kaisRun: 'YES', walker: 'YES', daycare: 'No' },
@@ -294,6 +295,11 @@ export function AboutPageClient() {
           </motion.div>
         </motion.div>
       </section>
+
+      <ContactFormSection
+        endpoint="https://formspree.io/f/xykolrrr"
+        tag="contact-inquiry"
+      />
     </>
   );
 }

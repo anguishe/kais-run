@@ -4,21 +4,25 @@ import { useState, FormEvent } from 'react';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
 
-interface FormData {
-  firstName: string;
-  dogName: string;
-  dogBreed: string;
-  email: string;
-}
+const inputClass =
+  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
+
+const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2 font-body';
+
+const LOCATION_OPTIONS = ['Destin', 'Fort Walton Beach', 'Niceville', 'Other'] as const;
+
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function LeadMagnetForm() {
-  const [formData, setFormData] = useState<FormData>({
-    firstName: '',
-    dogName: '',
-    dogBreed: '',
-    email: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [dogName, setDogName] = useState('');
+  const [dogBreed, setDogBreed] = useState('');
+  const [location, setLocation] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [successDisplayName, setSuccessDisplayName] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,38 +36,42 @@ export default function LeadMagnetForm() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
+          name,
+          email,
+          phone,
+          dog_name: dogName,
+          dog_breed: dogBreed,
+          location,
+          message,
           _subject: "New Energy Guide Request — Kai's Run",
-          _replyto: formData.email,
+          _replyto: email,
         }),
       });
 
       if (response.ok) {
-        const subscribeEmail = formData.email;
-        const subscribeName = formData.firstName;
-        setFormData({
-          firstName: '',
-          dogName: '',
-          dogBreed: '',
-          email: '',
-        });
+        const trimmedName = name.trim();
+        const subscribeEmail = email;
+        const subscribeName = trimmedName;
+
+        setSuccessDisplayName(trimmedName);
+        setName('');
+        setEmail('');
+        setPhone('');
+        setDogName('');
+        setDogBreed('');
+        setLocation('');
+        setMessage('');
         setStatus('success');
-        try {
-          fetch('/api/subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify({
-              email: subscribeEmail,
-              name: subscribeName,
-              tags: ['energy-guide'],
-            }),
-          }).catch(() => {});
-        } catch {
-          /* fire-and-forget */
-        }
+
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: subscribeEmail,
+            name: subscribeName,
+            tags: ['energy-guide'],
+          }),
+        }).catch(() => {});
       } else {
         setStatus('error');
       }
@@ -72,168 +80,172 @@ export default function LeadMagnetForm() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  if (status === 'success') {
-    return (
-      <div className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8 text-center">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-brand-teal/20 flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-brand-teal"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-display tracking-tight text-brand-offwhite mb-3">
-          Check your email!
-        </h3>
-        <p className="text-brand-gray font-body text-base">
-          Your guide is on the way. We&apos;ll also send you info on the Founding Athlete Program.
-        </p>
-      </div>
-    );
-  }
-
-  if (status === 'error') {
-    return (
-      <div className="bg-brand-charcoal border border-red-500/30 rounded-xl p-8 text-center">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-500/20 flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-red-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-display tracking-tight text-brand-offwhite mb-3">
-          Something went wrong.
-        </h3>
-        <p className="text-brand-gray font-body text-base mb-6">
-          Call or text us at{' '}
-          <a href="tel:850-218-5855" className="text-brand-teal hover:text-brand-teal/80">
-            850-218-5855
-          </a>
-        </p>
-        <button
-          onClick={() => setStatus('idle')}
-          className="text-brand-teal font-body text-sm hover:text-brand-teal/80 transition-colors"
-        >
-          Try again
-        </button>
-      </div>
-    );
-  }
+  const successMessage =
+    successDisplayName !== ''
+      ? `Guide is on its way. Check your inbox, ${successDisplayName}.`
+      : 'Guide is on its way. Check your inbox.';
 
   return (
-    <form onSubmit={handleSubmit} className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8">
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* First Name */}
-        <div>
-          <label htmlFor="firstName" className="block text-brand-offwhite font-body text-sm mb-2">
-            First Name *
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
+    <div className="space-y-6">
+      {status === 'success' ? (
+        <p className="font-body text-base md:text-lg text-[#0A5C52] text-center">{successMessage}</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {status === 'error' && (
+            <p className="font-body text-sm md:text-base text-[#C9963A] text-center" role="alert" aria-live="polite">
+              Something went wrong. Call or text us at{' '}
+              <a href="tel:850-218-5855" className="underline underline-offset-2 hover:opacity-90">
+                850-218-5855
+              </a>
+              .
+            </p>
+          )}
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="lead-name" className={labelClass}>
+                Your Name
+              </label>
+              <input
+                id="lead-name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="First name is fine"
+                className={inputClass}
+                disabled={status === 'submitting'}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="lead-email" className={labelClass}>
+                Email Address
+              </label>
+              <input
+                id="lead-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Where should we send the guide?"
+                className={inputClass}
+                disabled={status === 'submitting'}
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="lead-phone" className={labelClass}>
+                Phone Number
+              </label>
+              <input
+                id="lead-phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="+1 850 218 5855"
+                className={inputClass}
+                disabled={status === 'submitting'}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="lead-dog-name" className={labelClass}>
+                Dog&apos;s Name
+              </label>
+              <input
+                id="lead-dog-name"
+                name="dog_name"
+                type="text"
+                required
+                value={dogName}
+                onChange={(e) => setDogName(e.target.value)}
+                placeholder="What do we call the athlete?"
+                className={inputClass}
+                disabled={status === 'submitting'}
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="lead-dog-breed" className={labelClass}>
+                Dog&apos;s Breed
+              </label>
+              <input
+                id="lead-dog-breed"
+                name="dog_breed"
+                type="text"
+                required
+                value={dogBreed}
+                onChange={(e) => setDogBreed(e.target.value)}
+                placeholder="e.g. Belgian Malinois, Lab, Mixed"
+                className={inputClass}
+                disabled={status === 'submitting'}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="lead-location" className={labelClass}>
+                City / Location
+              </label>
+              <select
+                id="lead-location"
+                name="location"
+                required
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className={inputClass}
+                disabled={status === 'submitting'}
+              >
+                <option value="">Select your city</option>
+                {LOCATION_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="lead-message" className={labelClass}>
+              Message
+            </label>
+            <textarea
+              id="lead-message"
+              name="message"
+              rows={4}
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Tell us what you struggle with most — leash pulling, reactivity, boredom, or anything else we should know."
+              className={`${inputClass} resize-y min-h-[6.5rem]`}
+              disabled={status === 'submitting'}
+            />
+          </div>
+
+          <button
+            type="submit"
             disabled={status === 'submitting'}
-            className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
-            placeholder="Your name"
-          />
-        </div>
-
-        {/* Dog's Name */}
-        <div>
-          <label htmlFor="dogName" className="block text-brand-offwhite font-body text-sm mb-2">
-            Dog&apos;s Name *
-          </label>
-          <input
-            type="text"
-            id="dogName"
-            name="dogName"
-            value={formData.dogName}
-            onChange={handleChange}
-            required
-            disabled={status === 'submitting'}
-            className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
-            placeholder="Your dog's name"
-          />
-        </div>
-
-        {/* Dog's Breed */}
-        <div>
-          <label htmlFor="dogBreed" className="block text-brand-offwhite font-body text-sm mb-2">
-            Dog&apos;s Breed *
-          </label>
-          <input
-            type="text"
-            id="dogBreed"
-            name="dogBreed"
-            value={formData.dogBreed}
-            onChange={handleChange}
-            required
-            disabled={status === 'submitting'}
-            className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
-            placeholder="e.g. Belgian Malinois"
-          />
-        </div>
-
-        {/* Email Address */}
-        <div>
-          <label htmlFor="email" className="block text-brand-offwhite font-body text-sm mb-2">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            disabled={status === 'submitting'}
-            className="w-full px-4 py-3 bg-brand-black border border-brand-teal/30 rounded-lg text-brand-offwhite font-body text-base focus:outline-none focus:border-brand-teal transition-colors"
-            placeholder="you@example.com"
-          />
-        </div>
-      </div>
-
-      {/* Submit Button */}
-      <div className="mt-6">
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-          className="w-full bg-brand-teal text-white px-8 py-4 font-medium text-base tracking-wide transition-colors hover:bg-brand-teal/90 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {status === 'submitting' ? 'Sending...' : 'Get the Free Guide'}
-        </button>
-      </div>
-
-      <p className="text-brand-gray font-body text-xs text-center mt-4">
+            className="w-full bg-[#0A5C52] text-white font-display text-xl rounded-none min-h-[52px] px-4 py-3 tracking-wide hover:opacity-95 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {status === 'submitting' ? 'Sending…' : 'Get the Free Guide'}
+          </button>
+        </form>
+      )}
+      <p className="text-brand-gray font-body text-xs text-center">
         No spam. Just useful info on keeping high-drive dogs balanced.
       </p>
-    </form>
+    </div>
   );
 }

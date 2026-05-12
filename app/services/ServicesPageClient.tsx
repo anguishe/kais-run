@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const services = [
   {
@@ -374,6 +375,11 @@ export function ServicesPageClient() {
           </motion.div>
         </motion.div>
       </section>
+
+      <ContactFormSection
+        endpoint="https://formspree.io/f/mojrrvdd"
+        tag="founding-20"
+      />
     </>
   );
 }
