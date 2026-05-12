@@ -132,8 +132,8 @@ export function AboutPageClient() {
             <motion.div variants={fadeUp}>
               <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal">
                 <Image
-                  src="/images/profile/kai-profile-1.jpg"
-                  alt="Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
+                  src="/images/about/travis-kai-1.png"
+                  alt="Travis and Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
                   fill
                   className="object-cover"
                   unoptimized
