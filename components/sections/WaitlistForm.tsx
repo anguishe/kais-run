@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojrrvdd';
+const FORMSPREE_SUBJECT = "New inquiry — Founding Athlete signup — Kai's Run website";
+const FORMSPREE_FORM_TAG = 'founding-20';
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -57,7 +59,9 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
           location,
           message,
           _replyto: email,
-          _subject: "Founding Athlete Signup — Kai's Run",
+          _honeypot: '',
+          _subject: FORMSPREE_SUBJECT,
+          _tag: FORMSPREE_FORM_TAG,
         }),
       });
 
@@ -257,6 +261,10 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
               onSubmit={handleSubmit}
               className="space-y-6 relative"
             >
+              {/* Hidden fields — not visible to user */}
+              <input type="hidden" name="_honeypot" defaultValue="" />
+              <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
+              <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
               {status === 'error' && (
                 <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
                   Something went wrong. Email us at kaisrunmobile@gmail.com
@@ -321,6 +329,10 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
               onSubmit={handleSubmit}
               className="space-y-6 relative"
             >
+              {/* Hidden fields — not visible to user */}
+              <input type="hidden" name="_honeypot" defaultValue="" />
+              <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
+              <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
               {status === 'error' && (
                 <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
                   Something went wrong. Email us at kaisrunmobile@gmail.com

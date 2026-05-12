@@ -1,28 +1,37 @@
 import type { Metadata } from "next";
-import { OG_IMAGE_URL } from "@/lib/site-images";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://kais-run.com"),
   title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
   description:
     "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
   keywords:
     "mobile dog gym Destin FL, dog treadmill service Destin, dog exercise Fort Walton Beach, slatmill dog Okaloosa County, canine conditioning Niceville Florida",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/logos/favicon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/images/logos/favicon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
     description:
       "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
     type: "website",
     locale: "en_US",
+    siteName: "Kai's Run",
     images: [
       {
-        url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+        url: "/images/profile/kr-vertical.png",
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Mobile Dog Gym",
       },
     ],
   },
@@ -31,7 +40,7 @@ export const metadata: Metadata = {
     title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
     description:
       "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
-    images: [OG_IMAGE_URL],
+    images: ["/images/profile/kr-vertical.png"],
   },
 };
 

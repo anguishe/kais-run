@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -40,12 +41,17 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Wordmark */}
-            <Link
-              href="/"
-              className="font-display tracking-widest text-xl text-brand-offwhite hover:text-white transition-colors"
-            >
-              KAI&apos;S RUN
+            {/* Logo */}
+            <Link href="/" className="relative h-10 w-44 flex-shrink-0">
+              <Image
+                src="/images/logos/kr-logo-2.jpg"
+                alt="Kai's Run - Mobile Dog Gym"
+                fill
+                className="object-contain"
+                unoptimized
+                priority
+                sizes="(max-width: 768px) 150px, 200px"
+              />
             </Link>
 
             {/* Desktop Navigation */}

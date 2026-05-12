@@ -27,6 +27,11 @@ export function ContactFormSection({
 }: ContactFormSectionProps = {}) {
   const formspreeUrl = endpoint ?? DEFAULT_FORMSPREE_ENDPOINT;
   const mailchimpTag = tag ?? DEFAULT_MAILCHIMP_TAG;
+  const formspreeSubject =
+    mailchimpTag === 'founding-20'
+      ? "New inquiry — Founding 20 — Kai's Run website"
+      : "New inquiry — Kai's Run website";
+  const formspreeIntegrationTag = mailchimpTag === 'founding-20' ? 'founding-20' : 'contact-form';
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -56,7 +61,9 @@ export function ContactFormSection({
           location,
           message,
           _replyto: email,
-          _subject: "Kai's Run — website contact",
+          _honeypot: '',
+          _subject: formspreeSubject,
+          _tag: formspreeIntegrationTag,
         }),
       });
 
@@ -129,6 +136,10 @@ export function ContactFormSection({
               onSubmit={handleSubmit}
               className="space-y-6"
             >
+              {/* Hidden fields — not visible to user */}
+              <input type="hidden" name="_honeypot" defaultValue="" />
+              <input type="hidden" name="_subject" defaultValue={formspreeSubject} />
+              <input type="hidden" name="_tag" defaultValue={formspreeIntegrationTag} />
               {status === 'error' && (
                 <p
                   className="font-body text-sm md:text-base text-[#C9963A]"

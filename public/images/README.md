@@ -1,46 +1,57 @@
-# Image Assets for Kai's Run
+# Kai's Run Image Assets
 
-This folder contains placeholder files for image assets. Replace these with real photos before launch.
+## Directory Structure
 
-## Required Images
+- `hero/` - Homepage hero and page backgrounds
+- `logos/` - Brand logos and favicon
+- `about/` - About page portraits
+- `banners/` - Full-width banner images
+- `profile/` - Social media and OG images
 
-### kai-hero.jpg
-- **Description**: Kai running on slatmill
-- **Orientation**: Landscape
-- **Minimum Size**: 1920×1080px
-- **Usage**: Hero section on homepage
-- **Notes**: Should show the slatmill in action with good lighting
+## Usage in Components
 
-### kai-running.jpg
-- **Description**: Kai in motion
-- **Orientation**: Square crop
-- **Minimum Size**: 1200×1200px
-- **Usage**: Social media sharing, About page
-- **Notes**: Action shot showing energy and athleticism
+All images should use Next.js Image component:
 
-### travis-kai.jpg
-- **Description**: Travis with Kai
-- **Orientation**: Portrait
-- **Minimum Size**: 800×1200px
-- **Usage**: About page, team section
-- **Notes**: Should show personal connection, professional appearance
+```typescript
+import Image from 'next/image';
 
-### van-exterior.jpg
-- **Description**: Van exterior (mobile gym unit)
-- **Orientation**: Landscape
-- **Minimum Size**: 1920×1080px
-- **Usage**: Mobile advantage section, service pages
-- **Notes**: Clean, professional photo of the branded van
+<Image
+  src="/images/[folder]/[filename]"
+  alt="Descriptive alt text"
+  fill // or width/height
+  className="object-cover"
+  unoptimized
+  priority // only for above-fold images
+/>
+```
 
-### og-image.jpg
-- **Description**: Social sharing image
-- **Dimensions**: Exactly 1200×630px
-- **Usage**: OpenGraph social media previews (Facebook, Twitter, LinkedIn)
-- **Notes**: Include logo and tagline, high contrast, readable on small screens
+Canonical path strings also live in `lib/site-images.ts` (e.g. `HERO_MAIN`, `OG_IMAGE_URL`) for reuse in metadata and future refactors.
 
-## Image Optimization Guidelines
+## Image Reference
 
-- Use WebP format when possible for better compression
-- Keep file sizes under 500KB for hero images
-- Use descriptive alt text in components
-- All images must use `next/image` component with `unoptimized: true` (static export requirement)
+### Hero Images
+
+- `hero-main.png` - Primary homepage hero (dog on treadmill in van)
+- `hero-2.png` - Athletic portrait (muscle definition)
+- `hero-3.png` - Dynamic motion capture
+
+### Logos
+
+- `kr-logo-2.jpg` - Primary horizontal logo (navbar)
+- `kr-logo-1.jpg` - Alternate logo (footer)
+- `favicon.png` - Browser favicon
+
+### About
+
+- `travis-kai-2.png` - Cinematic portrait (recommended)
+- `travis-kai-1.png` - Clean illustrated version
+
+### Profile/Social
+
+- `kr-vertical.png` - OpenGraph/Twitter card image
+
+## Notes
+
+- All images are unoptimized for GitHub Pages compatibility (`next.config.js` sets `images.unoptimized`, or set `unoptimized` on `<Image>`).
+- Favicon exists in three locations: `/favicon.ico`, `app/favicon.ico`, `images/logos/favicon.png`
+- Use `priority` prop only for above-the-fold images

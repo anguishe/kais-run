@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
 
@@ -56,13 +57,20 @@ export default function Footer() {
     <footer className="bg-brand-charcoal">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Column 1: Brand */}
+          {/* Column 1: Brand & Logo */}
           <div className="space-y-4">
-            <h2 className="font-display text-2xl tracking-widest text-brand-offwhite">
-              KAI&apos;S RUN
-            </h2>
+            <Link href="/" className="relative h-12 w-40 block">
+              <Image
+                src="/images/logos/kr-logo-1.jpg"
+                alt="Kai's Run Logo"
+                fill
+                className="object-contain object-left"
+                unoptimized
+              />
+            </Link>
             <p className="text-brand-gray font-medium leading-relaxed">
-              Equinox for dogs, delivered to your driveway.
+              Structured canine conditioning.<br />
+              Delivered to your driveway.
             </p>
             <p className="text-brand-gray text-sm leading-relaxed">
               Destin · Fort Walton Beach · Niceville, FL

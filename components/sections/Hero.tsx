@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { UNSPLASH_HERO } from '@/lib/site-images';
+import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 
@@ -16,14 +16,19 @@ export function Hero() {
         }}
       />
 
-      {/* Hero image layer — renders above gradient when image exists */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{ backgroundImage: `url(${UNSPLASH_HERO})` }}
-      />
-
-      {/* Gradient overlay for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
+      {/* Background hero image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero/hero-main.png"
+          alt="Kai running at full speed on professional dog treadmill"
+          fill
+          className="object-cover opacity-40"
+          priority
+          unoptimized
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
+      </div>
 
       <motion.div
         variants={stagger}

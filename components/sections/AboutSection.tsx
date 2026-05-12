@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { UNSPLASH_ABOUT_PORTRAIT } from '@/lib/site-images';
+import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 
 const trustSignals = [
@@ -22,13 +22,21 @@ export function AboutSection() {
         viewport={{ once: true, margin: '-100px' }}
         className="max-w-6xl mx-auto"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={fadeUp}>
-            <div
-              className="w-full aspect-[4/5] rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-black bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${UNSPLASH_ABOUT_PORTRAIT})` }}
-              role="img"
-              aria-label="Travis and Kai — placeholder portrait"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden"
+          >
+            <Image
+              src="/images/about/travis-kai-2.png"
+              alt="Travis and Kai - Founders of Kai's Run mobile dog gym"
+              fill
+              className="object-cover"
+              unoptimized
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
 

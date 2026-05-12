@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { UNSPLASH_SECONDARY_DOG } from '@/lib/site-images';
+import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
@@ -30,12 +30,24 @@ export function AboutPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 md:py-32 px-6 bg-brand-black">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero/hero-2.png"
+            alt="High-performance dog training at Kai's Run"
+            fill
+            className="object-cover opacity-30"
+            unoptimized
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/50 to-brand-black" />
+        </div>
+
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl mx-auto text-center"
+          className="relative z-10 max-w-4xl mx-auto text-center py-24 md:py-32"
         >
           <motion.p
             variants={fadeUp}
@@ -118,12 +130,16 @@ export function AboutPageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <div
-                className="w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${UNSPLASH_SECONDARY_DOG})` }}
-                role="img"
-                aria-label="Kai — athletic dog in motion placeholder"
-              />
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal">
+                <Image
+                  src="/images/profile/kai-profile-1.jpg"
+                  alt="Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </motion.div>
 
             <motion.div variants={fadeUp} className="space-y-6">

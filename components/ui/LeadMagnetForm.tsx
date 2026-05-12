@@ -3,6 +3,8 @@
 import { useState, FormEvent } from 'react';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
+const FORMSPREE_SUBJECT = "New inquiry — Energy Guide — Kai's Run website";
+const FORMSPREE_FORM_TAG = 'energy-guide';
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -43,8 +45,10 @@ export default function LeadMagnetForm() {
           dog_breed: dogBreed,
           location,
           message,
-          _subject: "New Energy Guide Request — Kai's Run",
           _replyto: email,
+          _honeypot: '',
+          _subject: FORMSPREE_SUBJECT,
+          _tag: FORMSPREE_FORM_TAG,
         }),
       });
 
@@ -91,6 +95,10 @@ export default function LeadMagnetForm() {
         <p className="font-body text-base md:text-lg text-[#0A5C52] text-center">{successMessage}</p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Hidden fields — not visible to user */}
+          <input type="hidden" name="_honeypot" defaultValue="" />
+          <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
+          <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
           {status === 'error' && (
             <p className="font-body text-sm md:text-base text-[#C9963A] text-center" role="alert" aria-live="polite">
               Something went wrong. Call or text us at{' '}
