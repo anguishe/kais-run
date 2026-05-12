@@ -27,9 +27,9 @@ Conversion tracking uses **gtag.js** with your Google Ads **conversion ID** (`AW
 
 ## Google AdSense
 
-Display ads use **`NEXT_PUBLIC_ADSENSE_PUB_ID`** (your `ca-pub-…` id). It is read by [`components/analytics/GoogleAdSense.tsx`](components/analytics/GoogleAdSense.tsx) (loads `adsbygoogle.js?client=…`) and by [`components/ads/AdBlock.tsx`](components/ads/AdBlock.tsx) (`data-ad-client` on each unit).
+The global **`adsbygoogle.js`** loader is a plain `<script>` tag in [`app/layout.tsx`](app/layout.tsx) inside `<head>`, with a hardcoded `client=ca-pub-6289405922667797` on the `src` URL.
 
-Set it in `.env.local` for local dev. For **GitHub Pages** builds, set the repository secret **`NEXT_PUBLIC_ADSENSE_PUB_ID`** (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) to the same value in GitHub: **Settings → Secrets and variables → Actions**.
+Ad units are rendered by [`components/ads/AdBlock.tsx`](components/ads/AdBlock.tsx), which sets `data-ad-client` from **`NEXT_PUBLIC_ADSENSE_PUB_ID`** when set, and otherwise falls back to the same publisher id so static export builds (including GitHub Actions) do not require that variable.
 
 ### Testing utilities
 

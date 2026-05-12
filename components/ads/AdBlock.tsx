@@ -15,7 +15,8 @@ export type AdBlockProps = {
   showSponsoredLabel?: boolean;
 };
 
-const AD_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID?.trim();
+const AD_CLIENT =
+  process.env.NEXT_PUBLIC_ADSENSE_PUB_ID?.trim() || "ca-pub-6289405922667797";
 
 /** Outer frame: responsive min box per spec (mobile / md+). */
 const FORMAT_FRAME: Record<AdFormat, string> = {
