@@ -1,8 +1,6 @@
 # Google Ads — Conversion tracking setup (Kai's Run)
 
-This project loads **Google Ads gtag.js** in the root layout (`components/GoogleAds.tsx`) and fires conversions from `lib/googleAds.ts` (founding athlete, intro session, membership, lead capture). AdSense display units are separate (`components/analytics/GoogleAdSense.tsx`).
-
-**AdSense publisher ID:** set `NEXT_PUBLIC_ADSENSE_PUB_ID` to your `ca-pub-…` value in `.env.local` and, for GitHub Pages, in the **`NEXT_PUBLIC_ADSENSE_PUB_ID`** Actions secret (see `README.md`).
+This project loads **Google Ads gtag.js** in the root layout (`components/GoogleAds.tsx`) and fires conversions from `lib/googleAds.ts` (founding athlete, intro session, membership, lead capture).
 
 For a concise env reference, see [README.md](../README.md#google-ads-integration). This document is the full operational guide.
 
@@ -97,16 +95,12 @@ Never commit `.env.local`. Labels are not as sensitive as API secrets but should
 Use this list before pointing paid traffic at the site.
 
 - [ ] gtag.js script loads on all pages
-- [ ] No console errors related to ads
-- [ ] Ad blocks render with correct styling
-- [ ] Ads are responsive (test mobile + desktop)
+- [ ] No console errors related to conversion tags
 - [ ] Founding athlete conversion fires on form submit
 - [ ] Intro session conversion fires on booking
 - [ ] Email capture conversion fires on form submit
 - [ ] Conversion values are correct
 - [ ] Environment variables are properly loaded
-- [ ] No layout shift when ads load
-- [ ] Ads don't appear on `/book` page
 - [ ] Static export builds successfully (`npm run build`)
 
 **Conversion value sanity (matches app today):**
@@ -126,8 +120,6 @@ Use this list before pointing paid traffic at the site.
 | gtag loads but no conversion in dev log | Missing `NEXT_PUBLIC_*_LABEL` or `NEXT_PUBLIC_GOOGLE_ADS_ID`; label must not include `AW-` or `/`. |
 | `send_to` errors in console | ID/label mismatch — regenerate snippet from Google Ads and compare. |
 | Double counting | Thank-you page uses a ref to fire once per load; booking flow uses `sessionStorage` helpers in `lib/bookIntent.ts` for intro — do not remove dedupe without a replacement. |
-| Ad block blank / “adsbygoogle.push error” | AdSense `client` id and slot markup; ad blockers; consent. |
-| Layout jump when ad fills | `AdSection` / `AdBlock` reserve min-height — compare before/after in Performance panel. |
 | Build fails on CI | Ensure all `NEXT_PUBLIC_*` used in client code exist in CI env if you gate builds on them (optional pattern). |
 
 **Official references**
@@ -146,4 +138,3 @@ Use this list before pointing paid traffic at the site.
 | `lib/googleAds.test.ts` | Dev helpers: `isGtagLoaded`, `simulateTestConversion`, mock scenarios, debug logger |
 | `app/thank-you/ThankYouConversionTracker.tsx` | Query-param driven conversions |
 | `components/DevTools.tsx` | Dev-only UI panel |
-| `components/ads/AdBlock.tsx` | AdSense units (not the same as conversion tags) |

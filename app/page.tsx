@@ -12,7 +12,6 @@ import { LeadMagnetSection } from '@/components/sections/LeadMagnetSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
-import AdSection from '@/components/ads/AdSection';
 
 export const metadata: Metadata = {
   title: "Home | Kai's Run — Mobile Dog Gym Destin FL",
@@ -45,34 +44,13 @@ export default function Home() {
       <Hero />
       <SpotsCounter />
 
-      {/* Google Ads — below hero + social proof: value prop seen, high awareness (horizontal leaderboard). */}
-      <AdSection
-        slot="homepage-top"
-        format="horizontal"
-        placement="homepage-after-hero-spots"
-      />
-
       <ProblemSection />
-
-      {/* Google Ads — between problem and solution: pain acknowledged, higher intent (medium rectangle). */}
-      <AdSection
-        slot="homepage-mid-1"
-        format="rectangle"
-        placement="homepage-between-problem-solution"
-      />
 
       <SolutionSection />
       <MobileAdvantage />
       <FoundingOffer />
       <WaitlistForm />
       <ServicesOverview />
-
-      {/* Google Ads — after services grid, before story/lead paths: offerings seen, decision-oriented (horizontal leaderboard). */}
-      <AdSection
-        slot="homepage-mid-2"
-        format="horizontal"
-        placement="homepage-after-services-before-about"
-      />
 
       <LeadMagnetSection />
       <AboutSection />

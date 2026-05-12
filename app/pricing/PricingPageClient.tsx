@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import FAQAccordion from '@/components/ui/FAQAccordion';
-import AdBlock from '@/components/ads/AdBlock';
-import AdSection from '@/components/ads/AdSection';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 // Match SpotsCounter value
@@ -204,15 +202,6 @@ export function PricingPageClient() {
         </motion.div>
       </section>
 
-      {/* Google Ads — premium billboard above tier cards (highest intent). */}
-      <section
-        className="w-full"
-        data-ad-placement="pricing-above-tier-cards"
-        aria-label="Sponsored content — pricing top billboard"
-      >
-        <AdBlock slot="pricing-top" format="billboard" />
-      </section>
-
       {/* Founding Athlete Banner */}
       {SPOTS_REMAINING > 0 && (
         <section className="bg-brand-charcoal py-8 px-6">
@@ -248,13 +237,6 @@ export function PricingPageClient() {
           </motion.div>
         </section>
       )}
-
-      {/* Google Ads — after founding callout, before standard tier grid (rectangle). */}
-      <AdSection
-        slot="pricing-mid"
-        format="rectangle"
-        placement="pricing-after-founding-before-grid"
-      />
 
       {/* Pricing Grid */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
@@ -530,13 +512,6 @@ export function PricingPageClient() {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Google Ads — end of page rail before contact / site footer (horizontal). */}
-      <AdSection
-        slot="pricing-bottom"
-        format="horizontal"
-        placement="pricing-bottom-before-contact"
-      />
 
       <ContactFormSection
         endpoint="https://formspree.io/f/mojrrvdd"

@@ -25,12 +25,6 @@ Conversion tracking uses **gtag.js** with your Google Ads **conversion ID** (`AW
 | `NEXT_PUBLIC_MEMBERSHIP_LABEL` | Membership conversion label |
 | `NEXT_PUBLIC_LEAD_CAPTURE_LABEL` | Lead / email capture conversion label |
 
-## Google AdSense
-
-The global **`adsbygoogle.js`** loader is a plain `<script>` tag in [`app/layout.tsx`](app/layout.tsx) inside `<head>`, with a hardcoded `client=ca-pub-6289405922667797` on the `src` URL.
-
-Ad units are rendered by [`components/ads/AdBlock.tsx`](components/ads/AdBlock.tsx), which sets `data-ad-client` from **`NEXT_PUBLIC_ADSENSE_PUB_ID`** when set, and otherwise falls back to the same publisher id so static export builds (including GitHub Actions) do not require that variable.
-
 ### Testing utilities
 
 - **`lib/googleAds.test.ts`** — `isGtagLoaded()`, `simulateTestConversion()`, `MOCK_CONVERSION_SCENARIOS`, `createGoogleAdsDebugLogger()`, plus re-exports for the dev conversion log (`getAdsDevEventLog`, `clearAdsDevEventLog`, `GOOGLE_ADS_DEV_LOG_EVENT`).

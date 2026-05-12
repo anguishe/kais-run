@@ -4,8 +4,6 @@ import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
-import AdBlock from '@/components/ads/AdBlock';
-import AdSection from '@/components/ads/AdSection';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 const services = [
@@ -137,18 +135,11 @@ export function ServicesPageClient() {
         </motion.div>
       </section>
 
-      {/* Google Ads — after intro, before service cards: horizontal leaderboard. */}
-      <AdSection
-        slot="services-top"
-        format="horizontal"
-        placement="services-after-intro-before-cards"
-      />
-
-      {/* Service Details + desktop sticky rail */}
+      {/* Service Details */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
-        <div className="mx-auto flex max-w-7xl flex-col gap-0 lg:flex-row lg:items-start lg:gap-10">
-          <div className="min-w-0 flex-1 space-y-12 lg:max-w-[calc(100%-300px-2.5rem)]">
-            {services.map((service, index) => (
+        <div className="mx-auto max-w-7xl">
+          <div className="min-w-0 flex-1 space-y-12">
+            {services.map((service) => (
               <Fragment key={service.id}>
                 <motion.div
                   variants={stagger}
@@ -240,31 +231,9 @@ export function ServicesPageClient() {
                 {service.bestFor}
               </motion.p>
                 </motion.div>
-
-                {/* Google Ads — between card groups after the 2nd service (rectangle). */}
-                {index === 1 ? (
-                  <AdSection
-                    slot="services-mid"
-                    format="rectangle"
-                    placement="services-after-second-card"
-                  />
-                ) : null}
               </Fragment>
             ))}
           </div>
-
-          {/* Google Ads — desktop-only 300×600 rail; sticky while scrolling main column. */}
-          <aside
-            className="hidden shrink-0 self-start lg:block lg:w-[300px] lg:sticky lg:top-24"
-            data-ad-placement="services-sidebar-desktop"
-            aria-label="Sponsored content — services sidebar"
-          >
-            <AdBlock
-              slot="services-sidebar"
-              format="vertical"
-              className="mx-0 my-0 max-w-none px-0"
-            />
-          </aside>
         </div>
       </section>
 

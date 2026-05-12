@@ -2,11 +2,6 @@ import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { blogMdxComponents } from '@/components/blog/blogMdxComponents';
-import BlogAdInset from '@/components/blog/BlogAdInset';
-import {
-  getBlogAdInsertionPlan,
-  splitArticleBody,
-} from '@/lib/blog/splitArticleForAds';
 
 export type BlogPostWithAdsProps = {
   slug: string;
@@ -16,65 +11,14 @@ export type BlogPostWithAdsProps = {
 };
 
 /**
- * Renders MDX in segment chunks and injects AdSense units after paragraph 2, at the mid-article
- * break (desktop only — mobile keeps top + bottom only), and after the article body.
+ * Renders blog MDX plus related posts and book CTA.
  */
-export default async function BlogPostWithAds({ slug, body, related }: BlogPostWithAdsProps) {
-  const { segments, proseParagraphCount } = splitArticleBody(body);
-  const { topTriggerProseIndex, midTriggerProseIndex } = getBlogAdInsertionPlan(proseParagraphCount);
-
-  const nodes: React.ReactNode[] = [];
-  let proseIdx = -1;
-  let i = 0;
-
-  for (const seg of segments) {
-    nodes.push(
-      <div key={`seg-${i}`} className="blog-mdx-segment">
-        {await MDXRemote({ source: seg.source, components: blogMdxComponents })}
-      </div>
-    );
-
-    if (seg.isProseParagraph) {
-      proseIdx += 1;
-
-      if (proseIdx === topTriggerProseIndex) {
-        nodes.push(
-          <BlogAdInset
-            key={`ad-blog-top-${slug}`}
-            slot="blog-top"
-            format="rectangle"
-            placement={`blog-${slug}-after-paragraph-2`}
-          />
-        );
-      }
-
-      if (midTriggerProseIndex !== null && proseIdx === midTriggerProseIndex) {
-        nodes.push(
-          <div key={`ad-blog-mid-wrap-${slug}`} className="hidden md:block">
-            <BlogAdInset
-              slot="blog-mid"
-              format="horizontal"
-              placement={`blog-${slug}-mid-article`}
-            />
-          </div>
-        );
-      }
-    }
-    i += 1;
-  }
-
-  nodes.push(
-    <BlogAdInset
-      key={`ad-blog-bottom-${slug}`}
-      slot="blog-bottom"
-      format="rectangle"
-      placement={`blog-${slug}-before-related`}
-    />
-  );
-
+export default async function BlogPostWithAds({ body, related }: BlogPostWithAdsProps) {
   return (
     <>
-      <div className="blog-article-body">{nodes}</div>
+      <div className="blog-article-body">
+        {await MDXRemote({ source: body, components: blogMdxComponents })}
+      </div>
 
       <section className="mt-16 border-t border-brand-teal/20 pt-16" aria-labelledby="related-heading">
         <h2 id="related-heading" className="font-display text-3xl tracking-wide text-brand-offwhite md:text-4xl">
