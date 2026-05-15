@@ -39,7 +39,7 @@ const socialLinks = [
   },
   {
     name: 'Facebook',
-    href: 'https://www.facebook.com/kaisrun',
+    href: 'https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/',
     ariaLabel: 'Follow us on Facebook',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

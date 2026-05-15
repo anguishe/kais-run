@@ -56,7 +56,7 @@ const localBusinessJsonLd = {
     "Mobile canine conditioning and slatmill service. Structured athletic sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.",
   url: "https://kaisrun.xyz",
   telephone: "+1-850-218-5855",
-  email: "hello@kaisrun.xyz",
+  email: "kaisrunmobile@gmail.com",
   areaServed: [
     { "@type": "City", name: "Destin", containedInPlace: { "@type": "State", name: "Florida" } },
     { "@type": "City", name: "Fort Walton Beach", containedInPlace: { "@type": "State", name: "Florida" } },
