@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },

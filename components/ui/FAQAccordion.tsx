@@ -1,12 +1,55 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, type ReactNode } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface FAQItem {
   question: string;
   answer: string;
+}
+
+function LinkedAnswer({ text }: { text: string }) {
+  const paragraphs = text.split('\n\n').filter(Boolean);
+  return (
+    <div className="space-y-3">
+      {paragraphs.map((para, j) => (
+        <p key={j} className="text-brand-gray font-body text-sm leading-relaxed">
+          {splitAnswerLinks(para)}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function splitAnswerLinks(part: string): ReactNode[] {
+  const re = /\[\[LINK:([^|]+)\|([^\]]+)\]\]/g;
+  const out: ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(part)) !== null) {
+    if (m.index > last) {
+      out.push(<span key={key++}>{part.slice(last, m.index)}</span>);
+    }
+    const href = m[1];
+    const label = m[2];
+    out.push(
+      <Link
+        key={key++}
+        href={href}
+        className="text-brand-teal underline underline-offset-2 hover:text-brand-offwhite transition-colors"
+      >
+        {label}
+      </Link>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < part.length) {
+    out.push(<span key={key++}>{part.slice(last)}</span>);
+  }
+  return out.length ? out : [<span key={0}>{part}</span>];
 }
 
 interface FAQAccordionProps {
@@ -25,6 +68,10 @@ export default function FAQAccordion({ items, className }: FAQAccordionProps) {
           className="bg-brand-charcoal border border-brand-teal/20 rounded-xl overflow-hidden"
         >
           <button
+            id={`faq-trigger-${index}`}
+            type="button"
+            aria-expanded={openIndex === index}
+            aria-controls={`faq-panel-${index}`}
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full px-6 py-5 flex items-center justify-between text-left"
           >
@@ -37,20 +84,19 @@ export default function FAQAccordion({ items, className }: FAQAccordionProps) {
               +
             </motion.span>
           </button>
-          <AnimatePresence>
-            {openIndex === index && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="px-6 pb-5 text-brand-gray font-body text-sm leading-relaxed">
-                  {item.answer}
-                </div>
-              </motion.div>
+          <div
+            id={`faq-panel-${index}`}
+            role="region"
+            aria-labelledby={`faq-trigger-${index}`}
+            className={cn(
+              'overflow-hidden transition-[max-height,opacity] duration-300 ease-out',
+              openIndex === index ? 'max-h-[3200px] opacity-100' : 'max-h-0 opacity-0',
             )}
-          </AnimatePresence>
+          >
+            <div className="px-6 pb-5">
+              <LinkedAnswer text={item.answer} />
+            </div>
+          </div>
         </div>
       ))}
     </div>

@@ -8,7 +8,8 @@ import { LenisProvider } from "@/components/providers/LenisProvider";
 import DevTools from "@/components/DevTools";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://kaisrun.com"),
+  metadataBase: new URL("https://kaisrun.xyz"),
+  manifest: "/manifest.json",
   title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
   description:
     "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville, FL. Book your intro session today.",
@@ -17,22 +18,20 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/icon-192x192.png", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512x512.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Kai's Run | Mobile Dog Gym",
-    description: "Performance conditioning for dogs. Delivered to your driveway.",
-    url: "https://kaisrun.com",
+    description: "Structured canine conditioning delivered to your driveway.",
+    url: "https://kaisrun.xyz",
     siteName: "Kai's Run",
     images: [
       {
-        url: "https://kaisrun.com/images/og-image.png",
+        url: "https://kaisrun.xyz/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
@@ -43,49 +42,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kai's Run | Mobile Dog Gym",
-    description: "Performance conditioning for dogs. Delivered to your driveway.",
-    images: ["https://kaisrun.com/images/og-image.png"],
+    title: "Kai's Run | Mobile Dog Gym — Destin FL",
+    description: "Structured canine conditioning delivered to your driveway.",
+    images: ["https://kaisrun.xyz/images/og-image.png"],
   },
 };
 
-const jsonLd = {
+const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Kai's Run",
   description:
-    "Mobile canine conditioning service offering structured slatmill sessions for high-drive dogs.",
-  telephone: "850-218-5855",
+    "Mobile canine conditioning and slatmill service. Structured athletic sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.",
+  url: "https://kaisrun.xyz",
+  telephone: "+1-850-218-5855",
+  email: "hello@kaisrun.xyz",
   areaServed: [
-    {
-      "@type": "City",
-      name: "Destin",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Destin",
-        addressRegion: "FL",
-      },
-    },
-    {
-      "@type": "City",
-      name: "Fort Walton Beach",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Fort Walton Beach",
-        addressRegion: "FL",
-      },
-    },
-    {
-      "@type": "City",
-      name: "Niceville",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Niceville",
-        addressRegion: "FL",
-      },
-    },
+    { "@type": "City", name: "Destin", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "City", name: "Fort Walton Beach", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "City", name: "Niceville", containedInPlace: { "@type": "State", name: "Florida" } },
   ],
-  serviceType: ["Dog Exercise", "Canine Conditioning", "Mobile Dog Gym", "Slatmill Training"],
+  priceRange: "$$",
+  image: "https://kaisrun.xyz/images/og-image.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Destin",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.3935,
+    longitude: -86.4958,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "07:00",
+    closes: "18:00",
+  },
+  sameAs: [] as string[],
 };
 
 export default function RootLayout({
@@ -100,7 +96,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>

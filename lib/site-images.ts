@@ -1,7 +1,7 @@
 /** Central paths for Kai's Run brand imagery (GitHub Pages / static export). */
 
-// Social / OG Image
-export const OG_IMAGE_URL = '/images/profile/kr-vertical.png';
+// Social / OG Image (1200×630 — see scripts/generate-og.mjs)
+export const OG_IMAGE_URL = '/images/og-image.png';
 
 // Hero images (local files)
 export const HERO_MAIN = '/images/hero/hero-main.png';

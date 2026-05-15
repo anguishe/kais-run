@@ -5,19 +5,19 @@ import { AboutPageClient } from './AboutPageClient';
 export const metadata: Metadata = {
   title: "About | Kai's Run — Mobile Dog Gym Destin FL",
   description:
-    "Travis and Kai's story — born and raised in Destin. The slatmill changed everything. Now we bring structured canine conditioning to the Emerald Coast.",
+    "Meet Travis, Kai the ridgeback mix, and the mobile gym built after one dog's energy finally met its match—then learn how Kai's Run compares to walkers and daycare for Okaloosa County athletes.",
   openGraph: {
     title: "About | Kai's Run — Mobile Dog Gym Destin FL",
     description:
-      "Travis and Kai's story — born and raised in Destin. The slatmill changed everything. Now we bring structured canine conditioning to the Emerald Coast.",
+      "Meet Travis, Kai the ridgeback mix, and the mobile gym built after one dog's energy finally met its match—then learn how Kai's Run compares to walkers and daycare for Okaloosa County athletes.",
     type: 'website',
     locale: 'en_US',
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },

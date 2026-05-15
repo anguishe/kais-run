@@ -11,10 +11,11 @@ const quickLinks = [
   { href: '/faq', label: 'FAQ' },
 ];
 
+// TODO: Confirm social handles and Google Business Profile URL with Travis
 const socialLinks = [
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/kaisrun',
     ariaLabel: 'Follow us on Instagram',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -28,7 +29,7 @@ const socialLinks = [
   },
   {
     name: 'TikTok',
-    href: '#',
+    href: 'https://www.tiktok.com/@kaisrun',
     ariaLabel: 'Follow us on TikTok',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -38,7 +39,7 @@ const socialLinks = [
   },
   {
     name: 'Facebook',
-    href: '#',
+    href: 'https://www.facebook.com/kaisrun',
     ariaLabel: 'Follow us on Facebook',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -47,6 +48,16 @@ const socialLinks = [
           d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
           clipRule="evenodd"
         />
+      </svg>
+    ),
+  },
+  {
+    name: 'Google Business',
+    href: 'https://www.google.com/maps/search/?api=1&query=Kai%27s%20Run%20Destin%20FL',
+    ariaLabel: "Find Kai's Run on Google Maps",
+    icon: (
+      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
       </svg>
     ),
   },

@@ -1,6 +1,6 @@
 ---
 description: SEO rules, metadata patterns, schema markup, and keyword targets. Reference when building any page.tsx or layout.tsx.
-globs: ["app/**/page.tsx", "app/**/layout.tsx", "app/sitemap.ts", "app/robots.ts"]
+globs: ["app/**/page.tsx", "app/**/layout.tsx", "public/sitemap.xml", "public/robots.txt"]
 alwaysApply: false
 ---
 
@@ -43,7 +43,7 @@ alwaysApply: false
   "@type": "LocalBusiness",
   "name": "Kai's Run",
   "description": "Mobile canine conditioning and slatmill service in Destin FL",
-  "url": "https://kaisrun.com",
+  "url": "https://kaisrun.xyz",
   "telephone": "850-218-5855",
   "areaServed": ["Destin FL", "Fort Walton Beach FL", "Niceville FL", "Miramar Beach FL"],
   "priceRange": "$$",
@@ -76,5 +76,5 @@ export const metadata: Metadata = {
 ```
 
 ## Sitemap Routes
-`/` · `/services` · `/pricing` · `/about` · `/service-area` · `/faq` · `/book`
-Base URL: `https://kaisrun.com` (placeholder until domain purchased)
+`/` · `/services` · `/pricing` · `/about` · `/service-area` · `/faq` · `/book` · `/blog` · `/privacy`
+Base URL: `https://kaisrun.xyz`

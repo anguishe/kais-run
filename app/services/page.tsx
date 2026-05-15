@@ -5,19 +5,19 @@ import { ServicesPageClient } from './ServicesPageClient';
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
   description:
-    'Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL.',
+    "Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL. Intro sessions from $35.",
   openGraph: {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
     description:
-      'Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL.',
+      "Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL. Intro sessions from $35.",
     type: 'website',
     locale: 'en_US',
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },

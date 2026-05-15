@@ -27,8 +27,9 @@ Push to GitHub — site rebuilds automatically.
 
 ## Connecting Custom Domain (when ready)
 
-1. Buy domain at Namecheap (kaisrun.com recommended)
-2. In `next.config.js`: remove `basePath` entirely
-3. GitHub: Settings → Pages → Custom Domain → enter domain
-4. Namecheap DNS: add CNAME record → YOUR_USERNAME.github.io
-5. Enable "Enforce HTTPS" in GitHub Pages settings
+Production domain: **kaisrun.xyz** (`public/CNAME` must list `kaisrun.xyz`).
+
+1. In `next.config.js`: remove `basePath` entirely (if it was set for the GitHub Pages subpath).
+2. GitHub: Settings → Pages → Custom domain → enter `kaisrun.xyz`.
+3. At your DNS registrar: add a **CNAME** for `@` or `www` as required by GitHub Pages (often `www` → `YOUR_USERNAME.github.io`; apex may use A/ALIAS per GitHub docs).
+4. Enable **Enforce HTTPS** in GitHub Pages settings after DNS validates.

@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           dangerouslySetInnerHTML={{
             __html: `<span data-custom-class="title">Privacy Policy</span><br><br>
 <span data-custom-class="subtitle">Last updated: May 12, 2026</span><br><br>
-<span data-custom-class="body_text">This Privacy Policy describes how Kai&apos;s Run (&quot;Kai&apos;s Run,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information when you visit <a href="https://kaisrun.com/" data-custom-class="link">kaisrun.com</a> (our &quot;Site&quot;), contact us, join our waitlist or email list, or otherwise interact with our mobile canine conditioning services in Destin, Fort Walton Beach, Niceville, and nearby areas of Florida.</span><br><br>
+<span data-custom-class="body_text">This Privacy Policy describes how Kai&apos;s Run (&quot;Kai&apos;s Run,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information when you visit <a href="https://kaisrun.xyz/" data-custom-class="link">kaisrun.xyz</a> (our &quot;Site&quot;), contact us, join our waitlist or email list, or otherwise interact with our mobile canine conditioning services in Destin, Fort Walton Beach, Niceville, and nearby areas of Florida.</span><br><br>
 <span data-custom-class="heading_1">Information we collect</span><br><br>
 <span data-custom-class="heading_2">Information you provide</span><br><br>
 <span data-custom-class="body_text">We may collect information that you voluntarily provide, including but not limited to your name, email address, phone number, mailing or service address, messages you send us, and details you share about your dog or scheduling preferences when you fill out a form (such as contact, booking, waitlist, or lead magnet requests), call or text us, or communicate with us by email or social media.</span><br><br>
@@ -32,7 +32,11 @@ export default function PrivacyPage() {
 <li><span data-custom-class="body_text">Comply with law, enforce our terms, and protect rights and safety</span></li>
 </ul>
 <span data-custom-class="heading_1">How we share information</span><br><br>
-<span data-custom-class="body_text">We may share information with service providers who assist us (for example, form delivery, email marketing, hosting, or analytics), when required by law, or in connection with a business transaction such as a merger or sale of assets. We do not sell your personal information for monetary consideration.</span><br><br>
+<span data-custom-class="body_text">We may share information with service providers who assist us. Our website contact, waitlist, founding, and lead magnet forms are delivered through Formspree, Inc., which processes submissions on our behalf. If you join our email list or receive marketing updates, your contact information may be stored and sent through Mailchimp (or a comparable ESP we configure) so we can honor unsubscribe requests and measure engagement. We use Google Analytics on this Site to understand aggregate traffic patterns (for example, which pages are viewed and from what general regions). We do not sell your personal information for monetary consideration, and we do not allow these vendors to use your information for their own independent advertising except as described in their respective policies.</span><br><br>
+<span data-custom-class="heading_1">Cookies and analytics</span><br><br>
+<span data-custom-class="body_text">Google Analytics and similar technologies may set cookies or read technical data such as device type, approximate location derived from IP address, and on-site navigation paths. You can install a browser add-on to limit Google Analytics, adjust ad personalization settings in your Google account, or use browser controls to block cookies where supported.</span><br><br>
+<span data-custom-class="heading_1">Florida and U.S. visitors</span><br><br>
+<span data-custom-class="body_text">Kai&apos;s Run is based in Florida and primarily serves customers in the United States. If you contact us from another country, note that your information may be processed in the United States where privacy laws may differ from those where you live.</span><br><br>
 <span data-custom-class="heading_1">Email marketing and subscriptions</span><br><br>
 <span data-custom-class="body_text">If you join our list or request updates, we may process your contact information through our email or marketing tools. You can unsubscribe using the link in marketing emails or by contacting us using the information below.</span><br><br>
 <span data-custom-class="heading_1">Data retention</span><br><br>
@@ -49,7 +53,7 @@ export default function PrivacyPage() {
 <span data-custom-class="body_text">If you have questions about this Privacy Policy or our practices, contact us:</span><br><br>
 <ul>
 <li><span data-custom-class="body_text"><span data-custom-class="link">Phone:</span> <a href="tel:850-218-5855" data-custom-class="link">850-218-5855</a></span></li>
-<li><span data-custom-class="body_text">Kai&apos;s Run — Mobile canine conditioning serving Destin, Fort Walton Beach, Niceville, FL</span></li>
+<li><span data-custom-class="body_text"><span data-custom-class="link">Email:</span> <a href="mailto:kaisrunmobile@gmail.com" data-custom-class="link">kaisrunmobile@gmail.com</a></span></li>
 </ul>`,
           }}
         />

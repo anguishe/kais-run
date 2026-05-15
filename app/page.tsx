@@ -23,18 +23,18 @@ export const metadata: Metadata = {
       "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
     type: 'website',
     locale: 'en_US',
-    url: 'https://kaisrun.com',
+    url: 'https://kaisrun.xyz',
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1600,
-        height: 900,
-        alt: "Athletic dog in motion — Kai's Run mobile dog gym",
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },
   alternates: {
-    canonical: 'https://kaisrun.com',
+    canonical: 'https://kaisrun.xyz',
   },
 };
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
@@ -19,6 +20,8 @@ const services = [
       'Progress photo texted',
     ],
     bestFor: 'First-time clients, skeptical owners, proof-of-concept session',
+    narrative:
+      "The intro is not a sales pitch in disguise — it is a structured evaluation. We watch how your dog loads into the harness, how they respond to the moving surface, and how quickly they find a sustainable rhythm. You leave with a Run Profile card that captures baseline fitness notes, behavior cues we noticed, and a recommended cadence if you decide to continue.\n\nBecause we operate on routed schedules, the intro also confirms your address fits the day’s geography without guessing. If the slatmill is not the right tool for your dog, we will tell you directly rather than pushing another package.",
   },
   {
     id: 'ondemand',
@@ -32,6 +35,8 @@ const services = [
       'Book anytime',
     ],
     bestFor: 'Owners who want flexibility without a package commitment',
+    narrative:
+      "Performance sessions are for dogs that already understand the work and need consistent output between adventures. We still warm up and cool down every time — skipping those edges is how soft-tissue issues creep in — but we can push working intervals once your dog’s cardiovascular baseline is established.\n\nUse this tier when travel, shift work, or hunting season makes memberships feel too rigid. Pair it with the Tired Dog Guarantee so you always have a standard for what “enough run” feels like at home afterward.",
   },
   {
     id: 'bundles',
@@ -52,6 +57,8 @@ const services = [
       },
     ],
     bestFor: 'Consistent conditioning without monthly commitment',
+    narrative:
+      "Bundles exist for owners who know the slatmill works for their dog and want the per-session economics without a calendar contract. Credits never expire, so snowbirds, military families on rotation, or anyone juggling travel can bank work and deploy it when life stabilizes.\n\nWhen you redeem a bundle visit, you still get the same private session protocol — the only difference is checkout math. If you are comparing bundles versus memberships, read the side-by-side on our pricing page before you buy so the cadence matches reality, not optimism.",
   },
   {
     id: 'memberships',
@@ -73,6 +80,8 @@ const services = [
       },
     ],
     bestFor: 'Serious athletes who want consistent scheduling',
+    narrative:
+      "Memberships are the discipline layer. Coastal keeps a dog honest every other week; Emerald is for working dogs that unravel quickly without weekly output. Both tiers include priority booking windows so you are not competing with the entire route when school breaks or holidays stack up.\n\nMembership is not a lock-in trap — cancel with 30-day notice — but it is the fastest way to make conditioning as automatic as trash day. If you are on the fence, start with a bundle, prove the cadence, then graduate once the calendar feels honest.",
   },
 ];
 
@@ -130,7 +139,16 @@ export function ServicesPageClient() {
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             Performance conditioning for high-drive dogs. Not dog walking. Not daycare.
-            Structured athletic sessions — at your door.
+            Structured athletic sessions — at your door. When you are ready to compare rates
+            or lock a time, jump to{' '}
+            <Link href="/pricing/" className="text-brand-teal underline-offset-2 hover:underline">
+              pricing
+            </Link>{' '}
+            or{' '}
+            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+              booking
+            </Link>
+            .
           </motion.p>
         </motion.div>
       </section>
@@ -230,6 +248,19 @@ export function ServicesPageClient() {
                 <span className="text-brand-offwhite font-medium">Best for:</span>{' '}
                 {service.bestFor}
               </motion.p>
+
+              {'narrative' in service && service.narrative ? (
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-6 space-y-4 border-t border-brand-teal/15 pt-6 text-brand-gray font-body text-sm leading-relaxed"
+                >
+                  {String(service.narrative)
+                    .split('\n\n')
+                    .map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                </motion.div>
+              ) : null}
                 </motion.div>
               </Fragment>
             ))}
@@ -319,6 +350,61 @@ export function ServicesPageClient() {
               ))}
             </ul>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* What to Expect — session narrative */}
+      <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="max-w-3xl mx-auto space-y-6 text-brand-gray font-body text-base md:text-lg leading-relaxed"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center"
+          >
+            WHAT TO EXPECT
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="text-4xl md:text-5xl font-display tracking-tight text-center text-brand-offwhite"
+          >
+            Inside a Kai&apos;s Run visit
+          </motion.h2>
+          <motion.p variants={fadeUp}>
+            When the rig stops at your curb we level it, open climate control, and walk your dog through a
+            short introduction to the sound of the slats and the feel of the belt underfoot. There is no
+            crowd cheering them on — just clear cues, steady rewards, and a handler who reads pant, tail
+            set, and foot placement the same way a track coach reads splits.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            Warm-up is non-negotiable: a few minutes of loose-leash movement, figure eights, or controlled
+            turns so tendons are awake before we ask for power. Working sets are intervals of self-paced
+            trotting or running with planned micro-breaks for water and reset. Cool-down mirrors warm-up
+            in reverse so the dog walks away loose instead of crated-tight.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            After we pack up you receive a photo plus a plain-language recap — distance estimates when
+            helpful, attitude notes, and what we would adjust next visit. That feedback loop is how owners
+            see progress stack week over week instead of guessing from zoomies alone. If anything felt off,
+            read the{' '}
+            <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+              FAQ
+            </Link>{' '}
+            or message us before the next booking.
+          </motion.p>
+          <motion.p variants={fadeUp} className="text-center text-brand-offwhite">
+            <Link href="/book/" className="text-brand-teal font-medium underline-offset-4 hover:underline">
+              Book your intro
+            </Link>{' '}
+            ·{' '}
+            <Link href="/pricing/" className="text-brand-teal font-medium underline-offset-4 hover:underline">
+              View pricing
+            </Link>
+          </motion.p>
         </motion.div>
       </section>
 

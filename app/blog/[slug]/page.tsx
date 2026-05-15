@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kais-run.com';
+const baseUrl = 'https://kaisrun.xyz';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
