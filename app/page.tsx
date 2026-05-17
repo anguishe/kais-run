@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { Hero } from '@/components/sections/Hero';
 import { SpotsCounter } from '@/components/sections/SpotsCounter';
@@ -53,6 +54,14 @@ export default function Home() {
       <ServicesOverview />
 
       <LeadMagnetSection />
+      <section className="bg-brand-black px-6 pb-16 text-center">
+        <p className="mx-auto max-w-2xl font-body text-base text-brand-gray">
+          Want more on conditioning and session philosophy?{' '}
+          <Link href="/blog/" className="text-brand-teal underline-offset-2 hover:underline">
+            Read the blog
+          </Link>
+        </p>
+      </section>
       <AboutSection />
       <FinalCTA />
       <ContactFormSection />

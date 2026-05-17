@@ -4,11 +4,13 @@ import { WaitlistForm } from '@/components/sections/WaitlistForm';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/about', label: 'About' },
-  { href: '/book', label: 'Book Now' },
-  { href: '/faq', label: 'FAQ' },
+  { href: '/services/', label: 'Services' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/about/', label: 'About' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/service-area/', label: 'Service Area' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/book/', label: 'Book Now' },
 ];
 
 const socialLinks = [
@@ -140,7 +142,7 @@ export default function Footer() {
 
         <div className="mt-4 pt-4 border-t border-brand-teal/20 text-center">
           <a
-            href="/privacy"
+            href="/privacy/"
             className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors"
           >
             Privacy Policy

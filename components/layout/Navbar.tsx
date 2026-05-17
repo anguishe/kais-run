@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '/services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/about', label: 'About' },
-  { href: '/faq', label: 'FAQ' },
+  { href: '/services/', label: 'Services' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/about/', label: 'About' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/service-area/', label: 'Service Area' },
+  { href: '/blog/', label: 'Blog' },
 ];
 
 export default function Navbar() {
@@ -66,7 +68,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/book"
+                href="/book/"
                 className="bg-brand-teal text-white px-5 py-2 font-medium text-sm tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
               >
                 Book Now
@@ -135,7 +137,7 @@ export default function Navbar() {
                 transition={{ delay: 0.6 }}
               >
                 <Link
-                  href="/book"
+                  href="/book/"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="bg-brand-teal text-white px-8 py-3 font-display text-2xl tracking-wider hover:bg-brand-teal/90 transition-colors inline-block"
                 >

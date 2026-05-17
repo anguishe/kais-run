@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 
 const trustSignals = [
@@ -66,6 +67,11 @@ export function AboutSection() {
               </p>
               <p>
                 Travis built Kai&apos;s Run to bring that same solution to every high-drive dog on the Emerald Coast.
+              </p>
+              <p>
+                <Link href="/about/" className="text-brand-teal underline-offset-2 hover:underline">
+                  Read the full story →
+                </Link>
               </p>
             </motion.div>
 
