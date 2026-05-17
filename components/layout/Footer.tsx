@@ -11,7 +11,6 @@ const quickLinks = [
   { href: '/faq', label: 'FAQ' },
 ];
 
-// TODO: Confirm social handles and Google Business Profile URL with Travis
 const socialLinks = [
   {
     name: 'Instagram',

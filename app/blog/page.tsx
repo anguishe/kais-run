@@ -5,6 +5,7 @@ import { getAllPostMeta } from '@/lib/blog/posts';
 export const metadata: Metadata = {
   title: "Blog | Kai's Run — Mobile Dog Gym",
   description: 'Field notes on canine conditioning, slatmill sessions, and life on the Emerald Coast.',
+  alternates: { canonical: 'https://kaisrun.xyz/blog/' },
 };
 
 export default function BlogIndexPage() {

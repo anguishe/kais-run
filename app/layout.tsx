@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "PetCare"],
   name: "Kai's Run",
   description:
     "Mobile canine conditioning and slatmill service. Structured athletic sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.",
@@ -58,9 +58,12 @@ const localBusinessJsonLd = {
   telephone: "+1-850-218-5855",
   email: "kaisrunmobile@gmail.com",
   areaServed: [
-    { "@type": "City", name: "Destin", containedInPlace: { "@type": "State", name: "Florida" } },
-    { "@type": "City", name: "Fort Walton Beach", containedInPlace: { "@type": "State", name: "Florida" } },
-    { "@type": "City", name: "Niceville", containedInPlace: { "@type": "State", name: "Florida" } },
+    "Destin FL",
+    "Fort Walton Beach FL",
+    "Niceville FL",
+    "Miramar Beach FL",
+    "Shalimar FL",
+    "Sandestin FL",
   ],
   priceRange: "$$",
   image: "https://kaisrun.xyz/images/og-image.png",
@@ -81,7 +84,11 @@ const localBusinessJsonLd = {
     opens: "07:00",
     closes: "18:00",
   },
-  sameAs: [] as string[],
+  sameAs: [
+    "https://www.instagram.com/kaisrun",
+    "https://www.tiktok.com/@kaisrun",
+    "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
+  ],
 };
 
 export default function RootLayout({

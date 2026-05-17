@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Pricing | Kai's Run — Mobile Dog Gym Destin FL",
   description:
     "Compare intro welcomes, walk-up performance sessions, never-expire bundles, Coastal and Emerald memberships, and seasonal snowbird packages—all with clear per-session math before you book.",
+  alternates: { canonical: 'https://kaisrun.xyz/pricing/' },
   openGraph: {
     title: "Pricing | Kai's Run — Mobile Dog Gym Destin FL",
     description:
@@ -20,6 +21,13 @@ export const metadata: Metadata = {
         alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Kai's Run Pricing | Mobile Dog Gym Sessions Destin FL",
+    description:
+      'Intro sessions from $35. Bundles, memberships, and Founding Athlete Program. Mobile dog gym serving Destin, Fort Walton Beach & Niceville FL.',
+    images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
 

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "FAQ | Kai's Run — Mobile Dog Gym Destin FL",
   description:
     "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, memberships, and military or teacher discounts—specifically for Kai's Run's driveway-based model.",
+  alternates: { canonical: 'https://kaisrun.xyz/faq/' },
   openGraph: {
     title: "FAQ | Kai's Run — Mobile Dog Gym Destin FL",
     description:
@@ -21,6 +22,13 @@ export const metadata: Metadata = {
         alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "FAQ | Kai's Run Mobile Dog Gym Destin FL",
+    description:
+      "Answers on slatmill safety, reactive dogs, session prep, memberships, and military discounts for Kai's Run mobile dog gym.",
+    images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
 
