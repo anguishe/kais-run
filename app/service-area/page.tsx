@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Service Area | Kai's Run — Mobile Dog Gym Destin FL",
   description:
     "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar & surrounding Okaloosa County with mobile dog conditioning.",
+  alternates: { canonical: 'https://kaisrun.xyz/service-area/' },
   openGraph: {
     title: "Service Area | Kai's Run — Mobile Dog Gym Destin FL",
     description:

@@ -15,11 +15,11 @@ import { FinalCTA } from '@/components/sections/FinalCTA';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 export const metadata: Metadata = {
-  title: "Home | Kai's Run — Mobile Dog Gym Destin FL",
+  title: "Kai's Run | Mobile Dog Gym Destin FL — Slatmill Sessions at Your Door",
   description:
     "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
   openGraph: {
-    title: "Home | Kai's Run — Mobile Dog Gym Destin FL",
+    title: "Kai's Run | Mobile Dog Gym Destin FL — Slatmill Sessions at Your Door",
     description:
       "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
     type: 'website',

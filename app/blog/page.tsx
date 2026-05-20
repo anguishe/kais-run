@@ -4,12 +4,13 @@ import { getAllPostMeta } from '@/lib/blog/posts';
 
 export const metadata: Metadata = {
   title: "Blog | Kai's Run — Mobile Dog Gym",
-  description: 'Field notes on canine conditioning, slatmill sessions, and life on the Emerald Coast.',
+  description:
+    "Canine conditioning tips, slatmill education, and mobile dog gym updates from Kai's Run — serving Destin, Fort Walton Beach & Niceville FL.",
   alternates: { canonical: 'https://kaisrun.xyz/blog/' },
 };
 
 export default function BlogIndexPage() {
-  const posts = getAllPostMeta();
+  const posts = getAllPostMeta().sort((a, b) => (a.date < b.date ? 1 : -1));
 
   return (
     <div className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">

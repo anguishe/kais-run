@@ -2,16 +2,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
 
 const baseUrl = 'https://kaisrun.xyz';
+
+/** Posts with a dedicated route under app/blog/<slug>/ — omit from dynamic static params. */
+const DEDICATED_POST_SLUGS = new Set(['how-to-tire-out-a-high-energy-dog']);
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return getPostSlugs().map((slug) => ({ slug }));
+  return getPostSlugs()
+    .filter((slug) => !DEDICATED_POST_SLUGS.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -38,10 +44,21 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const related = getRelatedPosts(slug, 3);
+  const articleSchema = buildArticleSchema({
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    slug,
+  });
 
   return (
-    <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
-      <div className="mx-auto max-w-3xl px-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
+        <div className="mx-auto max-w-3xl px-6">
         <nav aria-label="Breadcrumb" className="mb-10 font-body text-sm text-brand-gray">
           <Link href="/" className="text-brand-teal hover:text-brand-offwhite">
             Home
@@ -78,7 +95,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="pt-12">
           <BlogPostWithAds slug={slug} body={post.body} related={related} />
         </div>
-      </div>
-    </article>
+        </div>
+      </article>
+    </>
   );
 }

@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
-import { FAQ_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
+import { FAQ_SCHEMA_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
-  title: "FAQ | Kai's Run — Mobile Dog Gym Destin FL",
+  title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
   description:
-    "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, memberships, and military or teacher discounts—specifically for Kai's Run's driveway-based model.",
+    "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
   alternates: { canonical: 'https://kaisrun.xyz/faq/' },
   openGraph: {
-    title: "FAQ | Kai's Run — Mobile Dog Gym Destin FL",
+    title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, memberships, and military or teacher discounts—specifically for Kai's Run's driveway-based model.",
+      "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
     type: 'website',
     locale: 'en_US',
     images: [
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "FAQ | Kai's Run Mobile Dog Gym Destin FL",
+    title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Answers on slatmill safety, reactive dogs, session prep, memberships, and military discounts for Kai's Run mobile dog gym.",
+      "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: FAQ_ENTRIES.map((e) => ({
+  mainEntity: FAQ_SCHEMA_ENTRIES.map((e) => ({
     '@type': 'Question',
     name: e.q,
     acceptedAnswer: {

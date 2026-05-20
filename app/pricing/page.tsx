@@ -3,14 +3,14 @@ import { OG_IMAGE_URL } from '@/lib/site-images';
 import { PricingPageClient } from './PricingPageClient';
 
 export const metadata: Metadata = {
-  title: "Pricing | Kai's Run — Mobile Dog Gym Destin FL",
+  title: 'Pricing | Mobile Dog Gym Destin FL',
   description:
-    "Compare intro welcomes, walk-up performance sessions, never-expire bundles, Coastal and Emerald memberships, and seasonal snowbird packages—all with clear per-session math before you book.",
+    'Intro sessions from $35. Performance sessions $65. Bundle packs and monthly memberships available. Founding Athlete Program: $200 for 5 sessions — limited to 20 spots. Mobile dog gym serving Destin, Fort Walton Beach & Niceville FL.',
   alternates: { canonical: 'https://kaisrun.xyz/pricing/' },
   openGraph: {
-    title: "Pricing | Kai's Run — Mobile Dog Gym Destin FL",
+    title: 'Pricing | Mobile Dog Gym Destin FL',
     description:
-      "Compare intro welcomes, walk-up performance sessions, never-expire bundles, Coastal and Emerald memberships, and seasonal snowbird packages—all with clear per-session math before you book.",
+      'Intro sessions from $35. Performance sessions $65. Bundle packs and monthly memberships available. Founding Athlete Program: $200 for 5 sessions — limited to 20 spots. Mobile dog gym serving Destin, Fort Walton Beach & Niceville FL.',
     type: 'website',
     locale: 'en_US',
     images: [
@@ -24,16 +24,63 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Kai's Run Pricing | Mobile Dog Gym Sessions Destin FL",
+    title: 'Pricing | Mobile Dog Gym Destin FL',
     description:
-      'Intro sessions from $35. Bundles, memberships, and Founding Athlete Program. Mobile dog gym serving Destin, Fort Walton Beach & Niceville FL.',
+      'Intro sessions from $35. Performance sessions $65. Bundle packs and monthly memberships available. Founding Athlete Program: $200 for 5 sessions — limited to 20 spots. Mobile dog gym serving Destin, Fort Walton Beach & Niceville FL.',
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
+};
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Mobile Dog Gym Conditioning',
+  provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
+  areaServed: 'Okaloosa County, FL',
+  offers: [
+    { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Intro Session (2 dogs)', price: '55', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Performance Session (1 dog)', price: '65', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Performance Session (2 dogs)', price: '85', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '4-Session Bundle (1 dog)', price: '220', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '4-Session Bundle (2 dogs)', price: '300', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '8-Session Bundle (1 dog)', price: '400', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '8-Session Bundle (2 dogs)', price: '560', priceCurrency: 'USD' },
+    {
+      '@type': 'Offer',
+      name: 'Coastal Member — bi-weekly (1 dog)',
+      price: '120',
+      priceCurrency: 'USD',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Coastal Member — bi-weekly (2 dogs)',
+      price: '170',
+      priceCurrency: 'USD',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Emerald Member — weekly (1 dog)',
+      price: '220',
+      priceCurrency: 'USD',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Emerald Member — weekly (2 dogs)',
+      price: '300',
+      priceCurrency: 'USD',
+    },
+  ],
 };
 
 export default function PricingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+      />
       {/* Google Ads placements: pricing-top, pricing-mid, pricing-bottom — see PricingPageClient */}
       <PricingPageClient />
     </>

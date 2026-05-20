@@ -76,6 +76,34 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   },
 ];
 
+/** Six primary FAQs for FAQPage JSON-LD (slatmill, safety, reactive, session, service area, founding). */
+export const FAQ_SCHEMA_ENTRIES: FaqEntry[] = [
+  {
+    q: 'What is a slatmill and how is it different from a motorized treadmill?',
+    a: 'A slatmill is a non-motorized treadmill your dog drives with their own gait. There is no motor setting a minimum speed. Dogs self-select cadence, adjust stride length naturally, and can decelerate instantly. Sessions build cardiovascular fitness and mental satisfaction without forcing speed.',
+  },
+  {
+    q: 'Is the slatmill safe for my dog?',
+    a: 'Yes. Sessions are one-on-one in a climate-controlled mobile unit, harnessed with Julius K9 gear. We cap intensity to what the dog can hold with good form and require current rabies vaccination and a completed digital waiver before the first session.',
+  },
+  {
+    q: 'What if my dog is reactive, anxious, or noise-sensitive?',
+    a: 'Private driveway sessions are the default — no lobby, no pack of unfamiliar dogs. Many reactive dogs relax faster when the only job is forward motion in a controlled space. We let the dog investigate the unit, reward small wins, and build trust before asking for sustained running.',
+  },
+  {
+    q: 'How long is a session?',
+    a: 'Sessions are 30–45 minutes door-to-door. Inside that window we warm up, complete working time on the slatmill, cool down, and log notes. Most dogs accumulate 15–30 minutes of actual mill work depending on fitness level.',
+  },
+  {
+    q: 'What area do you serve?',
+    a: "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar, and nearby Okaloosa County addresses. We route geographically and confirm most addresses within 2 hours of booking.",
+  },
+  {
+    q: 'What is the Founding Athlete Program?',
+    a: 'The Founding Athlete Program offers five full sessions for $200 ($40/session effective rate) — limited to 20 dogs total. This is a one-time introductory offer that will never be repeated. Standard sessions start at $65.',
+  },
+];
+
 export function faqAnswerPlainForSchema(text: string): string {
   const withUrls = text.replace(
     /\[\[LINK:([^|]+)\|([^\]]+)\]\]/g,

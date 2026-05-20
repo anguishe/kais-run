@@ -5,12 +5,12 @@ import { ServicesPageClient } from './ServicesPageClient';
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
   description:
-    "Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL. Intro sessions from $35.",
+    'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
   alternates: { canonical: 'https://kaisrun.xyz/services/' },
   openGraph: {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
     description:
-      "Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL. Intro sessions from $35.",
+      'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
     type: 'website',
     locale: 'en_US',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kai's Run Services | Mobile Dog Gym Destin FL",
     description:
-      'Performance conditioning for high-drive dogs. Mobile slatmill sessions delivered to your door in Destin, Fort Walton Beach & Niceville FL.',
+      'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
@@ -34,87 +34,29 @@ export const metadata: Metadata = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'Dog Exercise and Conditioning',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'Kai\'s Run',
-    telephone: '850-218-5855',
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Destin',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Destin',
-          addressRegion: 'FL',
-        },
-      },
-      {
-        '@type': 'City',
-        name: 'Fort Walton Beach',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Fort Walton Beach',
-          addressRegion: 'FL',
-        },
-      },
-      {
-        '@type': 'City',
-        name: 'Niceville',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Niceville',
-          addressRegion: 'FL',
-        },
-      },
-    ],
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Mobile Dog Gym Services',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Intro Session',
-          description: 'First-time fitness assessment with personalized Run Profile card and progress photo.',
-        },
-        price: '35',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Performance Session',
-          description: 'On-demand mobile slatmill conditioning session with no commitment required.',
-        },
-        price: '65',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Session Bundles',
-          description: 'Pre-purchased session packages that never expire. Available in 4-pack and 8-pack options.',
-        },
-        price: '220',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Monthly Memberships',
-          description: 'Recurring membership plans with priority booking. Coastal Member (bi-weekly) and Emerald Member (weekly) options.',
-        },
-        price: '120',
-        priceCurrency: 'USD',
-      },
-    ],
-  },
+  serviceType: 'Dog Conditioning Session',
+  provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
+  areaServed: 'Okaloosa County, FL',
+  offers: [
+    { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Intro Session (2 dogs)', price: '55', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Performance Session (1 dog)', price: '65', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Performance Session (2 dogs)', price: '85', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '4-Session Bundle (1 dog)', price: '220', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '8-Session Bundle (1 dog)', price: '400', priceCurrency: 'USD' },
+    {
+      '@type': 'Offer',
+      name: 'Monthly Membership Coastal (bi-weekly, 1 dog)',
+      price: '120',
+      priceCurrency: 'USD',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Monthly Membership Emerald (weekly, 1 dog)',
+      price: '220',
+      priceCurrency: 'USD',
+    },
+  ],
 };
 
 export default function ServicesPage() {

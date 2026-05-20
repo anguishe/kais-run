@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
   description:
     "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville, FL. Book your intro session today.",
-  keywords:
-    "mobile dog gym Destin FL, dog treadmill service Destin, dog exercise Fort Walton Beach, slatmill dog Okaloosa County, canine conditioning Niceville Florida",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -50,44 +48,50 @@ export const metadata: Metadata = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "PetCare"],
+  "@type": "LocalBusiness",
   name: "Kai's Run",
   description:
-    "Mobile canine conditioning and slatmill service. Structured athletic sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.",
+    "Mobile canine conditioning and slatmill service in Destin, Fort Walton Beach, and Niceville FL. Structured athletic sessions delivered to your driveway.",
   url: "https://kaisrun.xyz",
-  telephone: "+1-850-218-5855",
+  telephone: "850-218-5855",
   email: "kaisrunmobile@gmail.com",
-  areaServed: [
-    "Destin FL",
-    "Fort Walton Beach FL",
-    "Niceville FL",
-    "Miramar Beach FL",
-    "Shalimar FL",
-    "Sandestin FL",
-  ],
-  priceRange: "$$",
+  logo: "https://kaisrun.xyz/images/logos/kr-logo-1.jpg",
   image: "https://kaisrun.xyz/images/og-image.png",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Destin",
-    addressRegion: "FL",
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 30.3935,
-    longitude: -86.4958,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "07:00",
-    closes: "18:00",
-  },
+  priceRange: "$$",
+  currenciesAccepted: "USD",
+  paymentAccepted: "Cash, Credit Card, Apple Pay, Google Pay",
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Destin",
+      containedInPlace: { "@type": "State", name: "Florida" },
+    },
+    {
+      "@type": "City",
+      name: "Fort Walton Beach",
+      containedInPlace: { "@type": "State", name: "Florida" },
+    },
+    {
+      "@type": "City",
+      name: "Niceville",
+      containedInPlace: { "@type": "State", name: "Florida" },
+    },
+    {
+      "@type": "City",
+      name: "Miramar Beach",
+      containedInPlace: { "@type": "State", name: "Florida" },
+    },
+    {
+      "@type": "City",
+      name: "Shalimar",
+      containedInPlace: { "@type": "State", name: "Florida" },
+    },
+  ],
+  serviceType: "Mobile Dog Gym",
   sameAs: [
+    "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
     "https://www.instagram.com/kaisrun",
     "https://www.tiktok.com/@kaisrun",
-    "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
   ],
 };
 
