@@ -7,7 +7,7 @@
 3. Paste the contents of `subscribe-worker.js` into the editor
 4. Under Settings → Variables → add Environment Variable:
    - Name: MAILCHIMP_API_KEY
-   - Value: YOUR_MAILCHIMP_API_KEY_HERE
+   - Value: YOUR_MAILCHIMP_API_KEY
    - Mark as Secret
 5. Deploy
 6. Copy the Worker URL (format: kaisrun-subscribe.YOUR-SUBDOMAIN.workers.dev)
