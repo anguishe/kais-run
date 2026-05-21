@@ -79,7 +79,7 @@ export function Hero() {
             Claim Founding Spot — 20 Only
           </Button>
           <Button
-            href="/book"
+            href="/book/"
             variant="secondary"
             className="text-base px-10 py-4"
             bookIntentSource="hero-intro"

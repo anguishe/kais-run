@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import LeadMagnetForm from '@/components/ui/LeadMagnetForm';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
 import { FAQ_ENTRIES } from '@/lib/faq-data';
 
 const faqItems = FAQ_ENTRIES.map((e) => ({ question: e.q, answer: e.a }));
@@ -55,8 +54,6 @@ export function FAQPageClient() {
           </motion.div>
         </motion.div>
       </section>
-
-      <ContactFormSection />
 
       {/* Lead Magnet */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">

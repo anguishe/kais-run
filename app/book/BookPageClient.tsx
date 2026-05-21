@@ -2,7 +2,6 @@
 
 import { Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
 import { trackFoundingAthlete, trackIntroSession } from '@/lib/googleAds';
 import {
   BOOK_INTENT_KEY,
@@ -160,8 +159,6 @@ function BookPageInner() {
           style={{ minHeight: '700px', width: '100%' }}
         />
       </main>
-
-      <ContactFormSection endpoint="https://formspree.io/f/mojrrvdd" tag="founding-20" />
     </>
   );
 }

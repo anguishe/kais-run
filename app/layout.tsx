@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     description: "Structured canine conditioning delivered to your driveway.",
     images: ["https://kaisrun.xyz/images/og-image.png"],
   },
+  verification: {
+    google: "suiO-1Ptv6S8pmMU60QJiNoNnlwQfzXBV2F0UurKxrg",
+  },
 };
 
 const localBusinessJsonLd = {
@@ -51,7 +54,7 @@ const localBusinessJsonLd = {
   "@type": "LocalBusiness",
   name: "Kai's Run",
   description:
-    "Mobile canine conditioning and slatmill service in Destin, Fort Walton Beach, and Niceville FL. Structured athletic sessions delivered to your driveway.",
+    "Mobile canine conditioning service. Slatmill sessions delivered to your driveway in Destin, Fort Walton Beach, and Niceville FL.",
   url: "https://kaisrun.xyz",
   telephone: "850-218-5855",
   email: "kaisrunmobile@gmail.com",
@@ -88,6 +91,17 @@ const localBusinessJsonLd = {
     },
   ],
   serviceType: "Mobile Dog Gym",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.3935,
+    longitude: -86.4958,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
   sameAs: [
     "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
     "https://www.instagram.com/kaisrun",

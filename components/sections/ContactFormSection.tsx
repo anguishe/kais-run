@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
-const DEFAULT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
+const DEFAULT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzllpwg';
 const DEFAULT_MAILCHIMP_TAG = 'contact-inquiry';
 
 export type ContactFormSectionProps = {

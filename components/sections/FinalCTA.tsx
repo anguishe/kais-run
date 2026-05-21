@@ -33,7 +33,7 @@ export function FinalCTA() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
           <Button
-            href="/book"
+            href="/book/"
             variant="secondary"
             className="text-base px-10 py-4"
             bookIntentSource="final-cta-intro"

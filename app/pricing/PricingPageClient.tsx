@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import FAQAccordion from '@/components/ui/FAQAccordion';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
-
 // Match SpotsCounter value
 const SPOTS_REMAINING: number = 20;
 const TOTAL_SPOTS: number = 20;
@@ -550,7 +548,7 @@ export function PricingPageClient() {
           </motion.p>
           <motion.div variants={fadeUp}>
             <Button
-              href="/book"
+              href="/book/"
               variant="primary"
               className="px-12 py-5 text-base"
               bookIntentSource="pricing-footer-cta"
@@ -561,10 +559,6 @@ export function PricingPageClient() {
         </motion.div>
       </section>
 
-      <ContactFormSection
-        endpoint="https://formspree.io/f/mojrrvdd"
-        tag="founding-20"
-      />
     </>
   );
 }

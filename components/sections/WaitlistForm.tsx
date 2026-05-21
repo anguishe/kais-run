@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import { trackFoundingAthlete } from '@/lib/googleAds';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojrrvdd';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
 const FORMSPREE_SUBJECT = "New inquiry — Founding Athlete signup — Kai's Run website";
 const FORMSPREE_FORM_TAG = 'founding-20';
 

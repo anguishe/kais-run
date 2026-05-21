@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
-
 const services = [
   {
     id: 'intro',
@@ -456,7 +454,7 @@ export function ServicesPageClient() {
             Book your intro session and see the difference structured conditioning makes.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/book" variant="primary" className="px-10 py-4" bookIntentSource="services-cta">
+            <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="services-cta">
               Book a Session
             </Button>
             <Button href="/pricing" variant="secondary" className="px-10 py-4">
@@ -466,10 +464,6 @@ export function ServicesPageClient() {
         </motion.div>
       </section>
 
-      <ContactFormSection
-        endpoint="https://formspree.io/f/mojrrvdd"
-        tag="founding-20"
-      />
     </>
   );
 }

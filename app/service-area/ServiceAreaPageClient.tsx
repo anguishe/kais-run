@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
-
 const locations = [
   {
     city: 'Destin',
@@ -147,7 +145,7 @@ export function ServiceAreaPageClient() {
               within 2 hours of booking.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/book" variant="primary" className="px-10 py-4" bookIntentSource="service-area-cta">
+              <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="service-area-cta">
                 Book Your Session
               </Button>
               <a
@@ -194,10 +192,6 @@ export function ServiceAreaPageClient() {
         </motion.div>
       </section>
 
-      <ContactFormSection
-        endpoint="https://formspree.io/f/xykolrrr"
-        tag="contact-inquiry"
-      />
     </>
   );
 }
