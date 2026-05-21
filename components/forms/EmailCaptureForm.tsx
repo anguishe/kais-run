@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { trackLeadCapture } from '@/lib/googleAds';
+import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -21,7 +22,7 @@ export type EmailCaptureFormProps = {
 
 /**
  * Minimal email capture for newsletter / lead magnets. Posts to Formspree, optionally syncs
- * `/api/subscribe`, and fires {@link trackLeadCapture} only after a successful submission.
+ * Mailchimp via {@link subscribeToMailchimp}, and fires {@link trackLeadCapture} only after a successful submission.
  */
 export default function EmailCaptureForm({
   formspreeEndpoint,
@@ -64,15 +65,7 @@ export default function EmailCaptureForm({
         } catch {
           /* tracked in lib */
         }
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: trimmedEmail,
-            name: trimmedName,
-            tags: mailchimpTags,
-          }),
-        }).catch(() => {});
+        subscribeToMailchimp(trimmedEmail, trimmedName, mailchimpTags).catch(() => {});
         setEmail('');
         setName('');
         setStatus('success');

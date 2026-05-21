@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
+import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const DEFAULT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzllpwg';
 const DEFAULT_MAILCHIMP_TAG = 'contact-inquiry';
@@ -78,15 +79,7 @@ export function ContactFormSection({
         setDogBreed('');
         setLocation('');
         setMessage('');
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: email,
-            name: name,
-            tags: [mailchimpTag],
-          }),
-        }).catch(() => {
+        subscribeToMailchimp(email, name, [mailchimpTag]).catch(() => {
           // silent fail — Mailchimp sync is non-blocking
         });
         try {

@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { trackFoundingAthlete, trackIntroSession } from '@/lib/googleAds';
+import { subscribeToMailchimp } from '@/lib/subscribe';
 import {
   BOOK_INTENT_KEY,
   getIntroSessionValue,
@@ -200,15 +201,7 @@ function FoundingInlineForm() {
         } catch {
           /* defensive */
         }
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: email.trim(),
-            name: name.trim(),
-            tags: ['founding-20'],
-          }),
-        }).catch(() => {});
+        subscribeToMailchimp(email.trim(), name.trim(), ['founding-athlete']).catch(() => {});
         setName('');
         setEmail('');
         setPhone('');

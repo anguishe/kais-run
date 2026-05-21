@@ -1,3 +1,8 @@
+// NOTE: This route is non-functional in production (output: 'export').
+// Mailchimp subscriptions in production are handled via Cloudflare Worker.
+// See cloudflare-worker/subscribe-worker.js
+// This file is retained for local development reference only.
+
 import { NextRequest, NextResponse } from 'next/server';
 
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY!;

@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import { trackFoundingAthlete } from '@/lib/googleAds';
+import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
 const FORMSPREE_SUBJECT = "New inquiry — Founding Athlete signup — Kai's Run website";
@@ -67,15 +68,8 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
       });
 
       if (res.ok) {
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email,
-            name,
-            tags: ['founding-20'],
-          }),
-        }).catch(() => {});
+        const mailchimpTags = variant === 'footer' ? ['waitlist'] : ['founding-20'];
+        subscribeToMailchimp(email, name, mailchimpTags).catch(() => {});
         try {
           trackFoundingAthlete(200);
         } catch {

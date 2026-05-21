@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { trackLeadCapture } from '@/lib/googleAds';
+import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
 const FORMSPREE_SUBJECT = "New inquiry — Energy Guide — Kai's Run website";
@@ -26,6 +27,7 @@ export default function LeadMagnetForm() {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
   const [successDisplayName, setSuccessDisplayName] = useState('');
+  const [showPdfDownload, setShowPdfDownload] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,15 +70,10 @@ export default function LeadMagnetForm() {
         setMessage('');
         setStatus('success');
 
-        fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: subscribeEmail,
-            name: subscribeName,
-            tags: ['energy-guide'],
-          }),
-        }).catch(() => {});
+        const mcResult = await subscribeToMailchimp(subscribeEmail, subscribeName, ['energy-guide']);
+        if (mcResult.success) {
+          setShowPdfDownload(true);
+        }
         try {
           trackLeadCapture();
         } catch {
@@ -98,7 +95,19 @@ export default function LeadMagnetForm() {
   return (
     <div className="space-y-6">
       {status === 'success' ? (
-        <p className="font-body text-base md:text-lg text-[#0A5C52] text-center">{successMessage}</p>
+        <div className="text-center">
+          <p className="font-body text-base md:text-lg text-[#0A5C52]">{successMessage}</p>
+          {showPdfDownload ? (
+            <a
+              href="https://mcusercontent.com/cfc3dccd2c21b015ecc30e2a5/files/4a070690-30ae-ea53-89d8-042f167eb554/emerald_coast_dog_energy_guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-6 py-3 bg-brand-teal text-brand-offwhite font-body font-semibold rounded-lg hover:bg-brand-teal/80 transition-colors"
+            >
+              Download Your Energy Guide →
+            </a>
+          ) : null}
+        </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Hidden fields — not visible to user */}
