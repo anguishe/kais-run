@@ -89,7 +89,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-brand-gray text-xs font-body"
           >
-            Once these 20 spots are gone, standard sessions start at $65.
+            Standard session pricing will be announced after the Founding Athlete program closes.
           </motion.p>
         </motion.div>
       </motion.div>

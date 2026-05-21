@@ -267,7 +267,7 @@ export function AboutPageClient() {
             variants={fadeUp}
             className="text-5xl md:text-6xl font-display tracking-tight text-center mb-12"
           >
-            Why We're Different
+            Why We&apos;re Different
           </motion.h2>
 
           <motion.div variants={fadeUp} className="overflow-x-auto">
@@ -278,7 +278,7 @@ export function AboutPageClient() {
                     Attribute
                   </th>
                   <th className="text-center py-4 px-4 text-brand-gold font-display text-lg md:text-xl">
-                    Kai's Run
+                    Kai&apos;s Run
                   </th>
                   <th className="text-center py-4 px-4 text-brand-gray font-body text-sm md:text-base">
                     Dog Walker

@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+
 const services = [
   {
     id: 'intro',
     label: 'INTRO SESSION',
-    title: "Kai's Run Welcome",
+    title: 'Intro Session',
     price: '$35 one dog / $55 two dogs',
     duration: '30–45 min',
     includes: [
@@ -19,67 +20,37 @@ const services = [
     ],
     bestFor: 'First-time clients, skeptical owners, proof-of-concept session',
     narrative:
-      "The intro is not a sales pitch in disguise — it is a structured evaluation. We watch how your dog loads into the harness, how they respond to the moving surface, and how quickly they find a sustainable rhythm. You leave with a Run Profile card that captures baseline fitness notes, behavior cues we noticed, and a recommended cadence if you decide to continue.\n\nBecause we operate on routed schedules, the intro also confirms your address fits the day’s geography without guessing. If the slatmill is not the right tool for your dog, we will tell you directly rather than pushing another package.",
+      "The intro is not a sales pitch in disguise — it is a structured evaluation. We watch how your dog loads into the harness, how they respond to the moving surface, and how quickly they find a sustainable rhythm. You leave with a Run Profile card that captures baseline fitness notes, behavior cues we noticed, and a recommended cadence if you decide to continue.\n\nBecause we operate on routed schedules, the intro also confirms your address fits the day's geography without guessing. If the slatmill is not the right tool for your dog, we will tell you directly rather than pushing another package.",
   },
   {
-    id: 'ondemand',
-    label: 'ON-DEMAND',
-    title: 'Performance Session',
-    price: '$65 one dog / $85 two dogs',
+    id: 'founding',
+    label: 'LIMITED — 20 SPOTS',
+    title: 'Founding Athlete',
+    price: '$200 for 5 sessions ($40/session)',
+    duration: '30–45 min per session',
+    includes: [
+      '5 full conditioning sessions',
+      'Lowest rate ever offered',
+      'Never available again',
+    ],
+    bestFor: 'Owners ready to commit before standard pricing is announced',
+    narrative:
+      "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. You lock in $40 per session — a rate that will never exist again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate.",
+  },
+  {
+    id: 'standard',
+    label: 'STANDARD SESSION',
+    title: 'Standard Session',
+    price: 'Pricing TBD',
     duration: '30–45 min',
     includes: [
-      'No commitment required',
-      'Walk-up rate',
-      'Book anytime',
+      'Structured conditioning session',
+      'Walk-up booking when available',
+      'Same private session protocol',
     ],
-    bestFor: 'Owners who want flexibility without a package commitment',
+    bestFor: 'Returning clients after the Founding Athlete program closes',
     narrative:
-      "Performance sessions are for dogs that already understand the work and need consistent output between adventures. We still warm up and cool down every time — skipping those edges is how soft-tissue issues creep in — but we can push working intervals once your dog’s cardiovascular baseline is established.\n\nUse this tier when travel, shift work, or hunting season makes memberships feel too rigid. Pair it with the Tired Dog Guarantee so you always have a standard for what “enough run” feels like at home afterward.",
-  },
-  {
-    id: 'bundles',
-    label: 'NEVER EXPIRE',
-    title: 'Session Bundles',
-    price: null,
-    duration: '30–45 min per session',
-    tiers: [
-      {
-        name: '4-Pack',
-        price: '$220 one dog / $300 two dogs',
-        perSession: '$55/$75 per session — save $40',
-      },
-      {
-        name: '8-Pack',
-        price: '$400 one dog / $560 two dogs',
-        perSession: '$50/$70 per session — best value',
-      },
-    ],
-    bestFor: 'Consistent conditioning without monthly commitment',
-    narrative:
-      "Bundles exist for owners who know the slatmill works for their dog and want the per-session economics without a calendar contract. Credits never expire, so snowbirds, military families on rotation, or anyone juggling travel can bank work and deploy it when life stabilizes.\n\nWhen you redeem a bundle visit, you still get the same private session protocol — the only difference is checkout math. If you are comparing bundles versus memberships, read the side-by-side on our pricing page before you buy so the cadence matches reality, not optimism.",
-  },
-  {
-    id: 'memberships',
-    label: 'PRIORITY BOOKING',
-    title: 'Monthly Memberships',
-    price: null,
-    duration: 'Cancel anytime with 30-day notice',
-    tiers: [
-      {
-        name: 'Coastal Member',
-        subtitle: 'Bi-weekly (2×/mo)',
-        price: '$120/mo one dog / $170/mo two dogs',
-      },
-      {
-        name: 'Emerald Member',
-        subtitle: 'Weekly (4×/mo)',
-        price: '$220/mo one dog / $300/mo two dogs',
-        highlight: 'Priority booking window',
-      },
-    ],
-    bestFor: 'Serious athletes who want consistent scheduling',
-    narrative:
-      "Memberships are the discipline layer. Coastal keeps a dog honest every other week; Emerald is for working dogs that unravel quickly without weekly output. Both tiers include priority booking windows so you are not competing with the entire route when school breaks or holidays stack up.\n\nMembership is not a lock-in trap — cancel with 30-day notice — but it is the fastest way to make conditioning as automatic as trash day. If you are on the fence, start with a bundle, prove the cadence, then graduate once the calendar feels honest.",
+      "Standard walk-up pricing has not been announced yet. It will be set after the Founding Athlete program closes and will reflect ongoing operating costs, route density, and the value of consistent conditioning.\n\nIf you want a known rate today, book an intro session or claim a Founding Athlete spot while they remain. Standard sessions will use the same session protocol — warm-up, working sets, cool-down, and post-session feedback — once pricing goes live.",
   },
 ];
 
@@ -180,7 +151,9 @@ export function ServicesPageClient() {
               {service.price && (
                 <motion.p
                   variants={fadeUp}
-                  className="text-brand-gold font-body text-lg font-medium mb-2"
+                  className={`font-body text-lg font-medium mb-2 ${
+                    service.id === 'standard' ? 'text-brand-gray italic' : 'text-brand-gold'
+                  }`}
                 >
                   {service.price}
                 </motion.p>
@@ -206,39 +179,6 @@ export function ServicesPageClient() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
-              )}
-
-              {service.tiers && (
-                <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {service.tiers.map((tier) => (
-                    <div
-                      key={tier.name}
-                      className="bg-brand-black/50 border border-brand-teal/10 rounded-lg p-5"
-                    >
-                      <p className="text-brand-offwhite font-body font-medium mb-1">
-                        {tier.name}
-                      </p>
-                      {'subtitle' in tier && tier.subtitle && (
-                        <p className="text-brand-gray font-body text-xs mb-2">
-                          {tier.subtitle}
-                        </p>
-                      )}
-                      <p className="text-brand-gold font-body text-sm mb-1">
-                        {tier.price}
-                      </p>
-                      {'perSession' in tier && tier.perSession && (
-                        <p className="text-brand-gray font-body text-xs">
-                          {tier.perSession}
-                        </p>
-                      )}
-                      {'highlight' in tier && tier.highlight && (
-                        <p className="text-brand-teal font-body text-xs mt-2">
-                          {tier.highlight}
-                        </p>
-                      )}
-                    </div>
-                  ))}
                 </motion.div>
               )}
 

@@ -88,7 +88,7 @@ export function ServiceAreaPageClient() {
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             Mobile canine conditioning across the Emerald Coast. No facility. No commute. Just book online
-            and we'll arrive at your driveway.
+            and we&apos;ll arrive at your driveway.
           </motion.p>
         </motion.div>
       </section>
@@ -96,7 +96,7 @@ export function ServiceAreaPageClient() {
       {/* Location Cards */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
         <div className="max-w-6xl mx-auto space-y-8">
-          {locations.map((location, index) => (
+          {locations.map((location) => (
             <motion.div
               key={location.city}
               variants={stagger}
@@ -140,7 +140,7 @@ export function ServiceAreaPageClient() {
               Route-Based Scheduling
             </h2>
             <p className="text-brand-gray font-body text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-              We route geographically to maximize efficiency and availability. Book online and we\'ll
+              We route geographically to maximize efficiency and availability. Book online and we&apos;ll
               confirm your area is available for your chosen time slot. Most addresses are confirmed
               within 2 hours of booking.
             </p>
@@ -178,7 +178,7 @@ export function ServiceAreaPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-8"
           >
-            We\'re expanding coverage regularly. If your city isn\'t listed, reach out — we may already
+            We&apos;re expanding coverage regularly. If your city isn&apos;t listed, reach out — we may already
             serve your area or can add you to our expansion waitlist.
           </motion.p>
           <motion.div variants={fadeUp}>

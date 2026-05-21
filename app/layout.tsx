@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import GoogleAds from "@/components/GoogleAds";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
   description:
-    "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville, FL. Book your intro session today.",
+    "Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL. Structured canine conditioning delivered to your driveway. Book today.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -47,6 +48,12 @@ export const metadata: Metadata = {
   verification: {
     google: "suiO-1Ptv6S8pmMU60QJiNoNnlwQfzXBV2F0UurKxrg",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0F1117",
 };
 
 const localBusinessJsonLd = {
@@ -127,6 +134,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-body">
         <GoogleAnalytics />
+        <MicrosoftClarity />
         <Navbar />
         <main className="flex-1">
           <LenisProvider>{children}</LenisProvider>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import FAQAccordion from '@/components/ui/FAQAccordion';
@@ -52,6 +53,16 @@ export function FAQPageClient() {
           <motion.div variants={fadeUp}>
             <FAQAccordion items={faqItems} />
           </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-12 text-center text-base md:text-lg font-body text-brand-gray"
+          >
+            Ready to book?{' '}
+            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+              Intro sessions start at $35 →
+            </Link>
+          </motion.p>
         </motion.div>
       </section>
 

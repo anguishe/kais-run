@@ -2,15 +2,16 @@ import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { ServicesPageClient } from './ServicesPageClient';
 
+const SERVICES_DESCRIPTION =
+  'Mobile slatmill conditioning for high-drive dogs in Destin, Fort Walton Beach & Niceville FL. Intro session from $35. Founding Athlete: $200 for 5 sessions — 20 spots only.';
+
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
-  description:
-    'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
+  description: SERVICES_DESCRIPTION,
   alternates: { canonical: 'https://kaisrun.xyz/services/' },
   openGraph: {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
-    description:
-      'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
+    description: SERVICES_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
     images: [
@@ -25,8 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Kai's Run Services | Mobile Dog Gym Destin FL",
-    description:
-      'Mobile slatmill conditioning sessions for high-drive dogs. Intro sessions $35, performance sessions from $65. Private, climate-controlled sessions delivered to your driveway in Destin, Fort Walton Beach & Niceville FL.',
+    description: SERVICES_DESCRIPTION,
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
@@ -40,22 +40,7 @@ const serviceSchema = {
   offers: [
     { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Intro Session (2 dogs)', price: '55', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Performance Session (1 dog)', price: '65', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Performance Session (2 dogs)', price: '85', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '4-Session Bundle (1 dog)', price: '220', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '8-Session Bundle (1 dog)', price: '400', priceCurrency: 'USD' },
-    {
-      '@type': 'Offer',
-      name: 'Monthly Membership Coastal (bi-weekly, 1 dog)',
-      price: '120',
-      priceCurrency: 'USD',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Monthly Membership Emerald (weekly, 1 dog)',
-      price: '220',
-      priceCurrency: 'USD',
-    },
+    { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
   ],
 };
 

@@ -1,39 +1,26 @@
 'use client';
 
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import FAQAccordion from '@/components/ui/FAQAccordion';
-// Match SpotsCounter value
-const SPOTS_REMAINING: number = 20;
-const TOTAL_SPOTS: number = 20;
-const sold = TOTAL_SPOTS - SPOTS_REMAINING;
-const pct = (sold / TOTAL_SPOTS) * 100;
 
-const foundingTier = {
-  id: 'founding',
-  label: 'LIMITED',
-  name: 'Founding Athlete',
-  price: '$200',
-  unit: '5 sessions',
-  perSession: '$40/session',
-  features: [
-    '5 full sessions',
-    'Lowest rate ever offered',
-    'Never available again',
-  ],
-  highlight: SPOTS_REMAINING === 0 ? 'SOLD OUT' : `${SPOTS_REMAINING} of ${TOTAL_SPOTS} remaining`,
-  highlightColor: SPOTS_REMAINING === 0 ? 'text-brand-gray' : 'text-brand-gold',
-  disabled: SPOTS_REMAINING === 0,
+const FALLBACK_TOTAL = 20;
+const FALLBACK_REMAINING = 20;
+
+type FoundingSpots = {
+  total: number;
+  remaining: number;
 };
 
 const standardTiers = [
   {
     id: 'intro',
     label: 'INTRO SESSION',
-    title: "Kai's Run Welcome",
+    title: 'Intro Session',
     price: '$35 one dog / $55 two dogs',
+    tagline: 'Your first session. Includes fitness assessment.',
     duration: '30–45 min session',
     includes: [
       'Fitness assessment',
@@ -43,60 +30,17 @@ const standardTiers = [
     bestFor: 'First-time clients, proof-of-concept session',
   },
   {
-    id: 'ondemand',
-    label: 'ON-DEMAND PERFORMANCE SESSION',
-    title: 'Performance Session',
-    price: '$65 one dog / $85 two dogs',
+    id: 'standard',
+    label: 'STANDARD SESSION',
+    title: 'Standard Session',
+    comingSoon: true,
     duration: '30–45 min session',
     includes: [
-      'No commitment required',
-      'Walk-up rate',
-      'Book anytime',
+      'Structured conditioning session',
+      'Walk-up booking when available',
+      'Same private session protocol',
     ],
-    bestFor: 'Owners who want flexibility without a package commitment',
-  },
-  {
-    id: 'bundles',
-    label: 'SESSION BUNDLES',
-    title: 'Session Bundles',
-    duration: '30–45 min per session · Sessions never expire · No commitment',
-    tiers: [
-      {
-        id: 'bundle-4',
-        name: '4-Session Pack',
-        price: '$220 one dog / $300 two dogs',
-        perSession: '$55/$75 per session — save $40',
-      },
-      {
-        id: 'bundle-8',
-        name: '8-Session Pack',
-        price: '$400 one dog / $560 two dogs',
-        perSession: '$50/$70 per session — best value',
-      },
-    ],
-    bestFor: 'Consistent conditioning without monthly commitment',
-  },
-  {
-    id: 'memberships',
-    label: 'MONTHLY MEMBERSHIPS',
-    title: 'Monthly Memberships',
-    duration: 'Cancel anytime with 30-day notice',
-    tiers: [
-      {
-        id: 'coastal',
-        name: 'Coastal Member',
-        subtitle: 'Bi-weekly (2×/month)',
-        price: '$120/mo one dog / $170/mo two dogs',
-      },
-      {
-        id: 'emerald',
-        name: 'Emerald Member',
-        subtitle: 'Weekly (4×/month)',
-        price: '$220/mo one dog / $300/mo two dogs',
-        highlight: 'Priority booking window + 10% service add-on discount',
-      },
-    ],
-    bestFor: 'Serious athletes who want consistent scheduling',
+    bestFor: 'Returning clients after the Founding Athlete program closes',
   },
 ];
 
@@ -124,12 +68,8 @@ const faqItems = [
     answer: 'We accept all major credit cards, Apple Pay, and Google Pay through Square. Payment is collected at time of booking or at the session for walk-ups.',
   },
   {
-    question: 'Do session bundles expire?',
-    answer: 'No, bundles never expire. Use them at your own pace — whether that\'s weekly or once a month.',
-  },
-  {
-    question: 'Can I cancel my membership?',
-    answer: 'Yes, memberships can be cancelled anytime with 30 days notice. No contracts, no cancellation fees.',
+    question: 'When will standard session pricing be announced?',
+    answer: 'Standard walk-up pricing will be announced after the Founding Athlete program closes. Intro sessions and Founding Athlete spots are available now.',
   },
   {
     question: 'What if my dog doesn\'t take to the slatmill?',
@@ -142,6 +82,50 @@ const faqItems = [
 ];
 
 export function PricingPageClient() {
+  const [spots, setSpots] = useState<FoundingSpots>({
+    total: FALLBACK_TOTAL,
+    remaining: FALLBACK_REMAINING,
+  });
+
+  useEffect(() => {
+    fetch('/data/config.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to load spots config');
+        return res.json();
+      })
+      .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
+        const fs = data.foundingSpots;
+        setSpots({
+          total: fs?.total ?? FALLBACK_TOTAL,
+          remaining: fs?.remaining ?? FALLBACK_REMAINING,
+        });
+      })
+      .catch(() => {
+        setSpots({ total: FALLBACK_TOTAL, remaining: FALLBACK_REMAINING });
+      });
+  }, []);
+
+  const { total: TOTAL_SPOTS, remaining: SPOTS_REMAINING } = spots;
+  const sold = TOTAL_SPOTS - SPOTS_REMAINING;
+  const pct = (sold / TOTAL_SPOTS) * 100;
+
+  const foundingTier = {
+    id: 'founding',
+    label: 'LIMITED',
+    name: 'Founding Athlete',
+    price: '$200',
+    unit: '5 sessions',
+    perSession: '$40/session',
+    features: [
+      '5 full sessions',
+      'Limited to 20 dogs',
+      'Never offered again',
+    ],
+    highlight: SPOTS_REMAINING === 0 ? 'SOLD OUT' : `${SPOTS_REMAINING} of ${TOTAL_SPOTS} remaining`,
+    highlightColor: SPOTS_REMAINING === 0 ? 'text-brand-gray' : 'text-brand-gold',
+    disabled: SPOTS_REMAINING === 0,
+  };
+
   return (
     <>
       {/* Hero */}
@@ -168,8 +152,8 @@ export function PricingPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Founding Athlete spots are limited — then standard rates apply. Intro sessions from $35,
-            performance from $65, bundles, and memberships below. Transparent pricing, no surprises.
+            Intro sessions from $35. Founding Athlete: $200 for 5 sessions — limited to 20 dogs.
+            Standard walk-up pricing coming soon.
           </motion.p>
         </motion.div>
       </section>
@@ -284,13 +268,13 @@ export function PricingPageClient() {
               variants={fadeUp}
               className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-4"
             >
-              STANDARD RATES
+              SESSION OPTIONS
             </motion.p>
             <motion.h2
               variants={fadeUp}
               className="text-5xl md:text-6xl font-display tracking-tight"
             >
-              All Pricing Tiers
+              Current Pricing
             </motion.h2>
           </motion.div>
 
@@ -302,20 +286,41 @@ export function PricingPageClient() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
-                  className={`bg-brand-black border border-brand-teal/20 rounded-xl p-8 flex flex-col ${
-                    tier.id === 'bundles' || tier.id === 'memberships' ? 'lg:col-span-2' : ''
+                  className={`bg-brand-black border rounded-xl p-8 flex flex-col ${
+                    tier.comingSoon
+                      ? 'border-brand-gray/30 opacity-90'
+                      : 'border-brand-teal/20'
                   }`}
                 >
-                  <p className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase mb-3">
-                    {tier.label}
-                  </p>
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <p className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase">
+                      {tier.label}
+                    </p>
+                    {tier.comingSoon && (
+                      <span className="inline-flex items-center rounded-full border border-brand-gray/40 bg-brand-charcoal px-3 py-1 text-brand-gray font-body text-xs tracking-wider uppercase">
+                        Coming soon
+                      </span>
+                    )}
+                  </div>
                   <h3 className="font-display text-3xl md:text-4xl tracking-tight text-brand-offwhite mb-4">
                     {tier.title}
                   </h3>
 
+                  {'tagline' in tier && tier.tagline && (
+                    <p className="text-brand-gray font-body text-sm mb-4">
+                      {tier.tagline}
+                    </p>
+                  )}
+
                   {'price' in tier && tier.price && (
                     <p className="text-brand-gold font-body text-lg font-medium mb-2">
                       {tier.price}
+                    </p>
+                  )}
+
+                  {tier.comingSoon && (
+                    <p className="text-brand-gray font-body text-lg font-medium mb-2 italic">
+                      Pricing coming soon
                     </p>
                   )}
 
@@ -339,53 +344,12 @@ export function PricingPageClient() {
                     </div>
                   )}
 
-                  {'tiers' in tier && tier.tiers && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                      {tier.tiers.map((subTier) => (
-                        <div
-                          key={subTier.id}
-                          className="bg-brand-charcoal/50 border border-brand-teal/10 rounded-lg p-5 flex flex-col"
-                        >
-                          <p className="text-brand-offwhite font-body font-medium mb-1">
-                            {subTier.name}
-                          </p>
-                          {'subtitle' in subTier && subTier.subtitle && (
-                            <p className="text-brand-gray font-body text-xs mb-2">
-                              {subTier.subtitle}
-                            </p>
-                          )}
-                          <p className="text-brand-gold font-body text-sm mb-1">
-                            {subTier.price}
-                          </p>
-                          {'perSession' in subTier && subTier.perSession && (
-                            <p className="text-brand-gray font-body text-xs mb-4">
-                              {subTier.perSession}
-                            </p>
-                          )}
-                          {'highlight' in subTier && subTier.highlight && (
-                            <p className="text-brand-teal font-body text-xs mb-4">
-                              {subTier.highlight}
-                            </p>
-                          )}
-                          <Button
-                            href={`/book?tier=${subTier.id}`}
-                            variant="secondary"
-                            className="text-center w-full mt-auto"
-                            bookIntentSource={`pricing-tier-${subTier.id}`}
-                          >
-                            Book
-                          </Button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
                   <p className="text-brand-gray font-body text-sm mb-6">
                     <span className="text-brand-offwhite font-medium">Best for:</span>{' '}
                     {tier.bestFor}
                   </p>
 
-                  {!('tiers' in tier && tier.tiers) && (
+                  {!tier.comingSoon && (
                     <Button
                       href={`/book?tier=${tier.id}`}
                       variant="secondary"

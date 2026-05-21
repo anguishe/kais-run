@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp } from '@/lib/variants';
@@ -8,7 +8,7 @@ import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
 const FORMSPREE_SUBJECT = "Waitlist signup — Kai's Run website";
-const FORMSPREE_FORM_TAG = 'waitlist';
+const FORMSPREE_FORM_TAG = 'footer-signup';
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -26,8 +26,7 @@ type WaitlistFormProps = {
   buttonLabel?: string;
 };
 
-export function WaitlistForm({ buttonLabel = 'Join the Waitlist' }: WaitlistFormProps) {
-  const pathname = usePathname();
+function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormProps) {
   const idPrefix = 'waitlist-footer';
 
   const [name, setName] = useState('');
@@ -38,17 +37,6 @@ export function WaitlistForm({ buttonLabel = 'Join the Waitlist' }: WaitlistForm
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
-
-  useEffect(() => {
-    setStatus('idle');
-    setName('');
-    setEmail('');
-    setPhone('');
-    setDogName('');
-    setDogBreed('');
-    setLocation('');
-    setMessage('');
-  }, [pathname]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,7 +64,7 @@ export function WaitlistForm({ buttonLabel = 'Join the Waitlist' }: WaitlistForm
       });
 
       if (res.ok) {
-        subscribeToMailchimp(email, name, ['waitlist']).catch(() => {});
+        subscribeToMailchimp(email, name, ['footer-signup']).catch(() => {});
         setName('');
         setEmail('');
         setPhone('');
@@ -276,4 +264,9 @@ export function WaitlistForm({ buttonLabel = 'Join the Waitlist' }: WaitlistForm
       </AnimatePresence>
     </div>
   );
+}
+
+export function WaitlistForm(props: WaitlistFormProps) {
+  const pathname = usePathname();
+  return <WaitlistFormFields key={pathname} {...props} />;
 }

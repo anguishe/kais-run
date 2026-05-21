@@ -193,7 +193,7 @@ function FoundingInlineForm() {
           _replyto: email.trim(),
           _honeypot: '',
           _subject: "Founding Athlete — booking page — Kai's Run",
-          _tag: 'founding-athlete',
+          _tag: 'founding-20',
         }),
       });
       if (res.ok) {
@@ -202,7 +202,7 @@ function FoundingInlineForm() {
         } catch {
           /* defensive */
         }
-        subscribeToMailchimp(email.trim(), name.trim(), ['founding-athlete']).catch(() => {});
+        subscribeToMailchimp(email.trim(), name.trim(), ['founding-20']).catch(() => {});
         setName('');
         setEmail('');
         setPhone('');

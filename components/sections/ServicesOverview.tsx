@@ -7,27 +7,21 @@ import { fadeUp, stagger } from '@/lib/variants';
 const services = [
   {
     category: 'INTRO SESSION',
-    title: "Kai's Run Welcome",
+    title: 'Intro Session',
     price: '$35 / $55 (2 dogs)',
-    description: 'First session for new dogs. Includes fitness assessment, introduction to the slatmill, and your dog\'s personal Run Profile card.',
+    description: 'Your first session. Includes fitness assessment, introduction to the slatmill, and your dog\'s personal Run Profile card.',
   },
   {
-    category: 'ON-DEMAND',
-    title: 'Performance Session',
-    price: '$65 / $85 (2 dogs)',
-    description: 'Single session, no commitment. Book whenever your dog needs to burn energy. 30–45 minutes of structured conditioning.',
+    category: 'FOUNDING ATHLETE',
+    title: 'Founding Athlete',
+    price: '$200 / 5 sessions',
+    description: 'Limited to 20 dogs. $40 per session effective rate — never offered again once spots are gone.',
   },
   {
-    category: 'BUNDLES',
-    title: 'Session Bundles',
-    price: '4-pack $220 · 8-pack $400',
-    description: 'Buy sessions in bulk, use anytime. No expiration. Best value for consistent conditioning without a monthly commitment.',
-  },
-  {
-    category: 'MEMBERSHIP',
-    title: 'Monthly Membership',
-    price: 'From $120/mo',
-    description: 'Bi-weekly or weekly sessions. Priority booking windows. Cancel anytime with 30-day notice.',
+    category: 'STANDARD SESSION',
+    title: 'Standard Session',
+    price: 'Coming soon',
+    description: 'Walk-up conditioning sessions. Standard pricing will be announced after the Founding Athlete program closes.',
   },
 ];
 
@@ -69,7 +63,9 @@ export function ServicesOverview() {
                 <h3 className="font-display text-3xl tracking-wider text-brand-offwhite">
                   {service.title}
                 </h3>
-                <p className="text-brand-offwhite font-body text-base font-medium whitespace-nowrap">
+                <p className={`font-body text-base font-medium whitespace-nowrap ${
+                  service.price === 'Coming soon' ? 'text-brand-gray italic' : 'text-brand-offwhite'
+                }`}>
                   {service.price}
                 </p>
               </div>

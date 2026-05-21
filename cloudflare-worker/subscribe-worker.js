@@ -8,7 +8,7 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-export default {
+const subscribeWorker = {
   async fetch(request, env) {
     // Use env var if available, fall back to hardcoded (replace before deploy)
     const apiKey = env.MAILCHIMP_API_KEY || MAILCHIMP_API_KEY;
@@ -84,3 +84,5 @@ export default {
     });
   },
 };
+
+export default subscribeWorker;

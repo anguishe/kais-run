@@ -20,7 +20,13 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+          NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
+          NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADS_ID }}
           NEXT_PUBLIC_SUBSCRIBE_URL: ${{ secrets.NEXT_PUBLIC_SUBSCRIBE_URL }}
+          NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL: ${{ secrets.NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL }}
+          NEXT_PUBLIC_INTRO_SESSION_LABEL: ${{ secrets.NEXT_PUBLIC_INTRO_SESSION_LABEL }}
+          NEXT_PUBLIC_MEMBERSHIP_LABEL: ${{ secrets.NEXT_PUBLIC_MEMBERSHIP_LABEL }}
+          NEXT_PUBLIC_LEAD_CAPTURE_LABEL: ${{ secrets.NEXT_PUBLIC_LEAD_CAPTURE_LABEL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out

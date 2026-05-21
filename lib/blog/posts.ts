@@ -77,7 +77,14 @@ export function getAllPostMeta(): BlogPostMeta[] {
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
     .filter((p): p is BlogPost => p !== null)
-    .map(({ body: _b, ...meta }) => meta);
+    .map(({ slug, title, description, date, author, readTimeMinutes }) => ({
+      slug,
+      title,
+      description,
+      date,
+      author,
+      readTimeMinutes,
+    }));
 }
 
 export function getRelatedPosts(currentSlug: string, limit = 2): BlogPostMeta[] {
