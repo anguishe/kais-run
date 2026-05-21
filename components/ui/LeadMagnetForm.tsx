@@ -8,6 +8,9 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
 const FORMSPREE_SUBJECT = "New inquiry — Energy Guide — Kai's Run website";
 const FORMSPREE_FORM_TAG = 'energy-guide';
 
+const PDF_URL =
+  'https://mcusercontent.com/cfc3dccd2c21b015ecc30e2a5/files/4a070690-30ae-ea53-89d8-042f167eb554/emerald_coast_dog_energy_guide.pdf';
+
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
 
@@ -26,41 +29,40 @@ export default function LeadMagnetForm() {
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
-  const [successDisplayName, setSuccessDisplayName] = useState('');
-  const [showPdfDownload, setShowPdfDownload] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
 
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const formspreeRes = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          name,
-          email,
+          name: trimmedName,
+          email: trimmedEmail,
           phone,
           dog_name: dogName,
           dog_breed: dogBreed,
           location,
           message,
-          _replyto: email,
+          _replyto: trimmedEmail,
           _honeypot: '',
           _subject: FORMSPREE_SUBJECT,
           _tag: FORMSPREE_FORM_TAG,
         }),
       });
 
-      if (response.ok) {
-        const trimmedName = name.trim();
-        const subscribeEmail = email;
-        const subscribeName = trimmedName;
-
-        setSuccessDisplayName(trimmedName);
+      if (formspreeRes.ok) {
+        subscribeToMailchimp(trimmedEmail, trimmedName, ['energy-guide']).catch(() => {
+          // Silent fail — Formspree already captured the lead
+        });
         setName('');
         setEmail('');
         setPhone('');
@@ -69,11 +71,6 @@ export default function LeadMagnetForm() {
         setLocation('');
         setMessage('');
         setStatus('success');
-
-        const mcResult = await subscribeToMailchimp(subscribeEmail, subscribeName, ['energy-guide']);
-        if (mcResult.success) {
-          setShowPdfDownload(true);
-        }
         try {
           trackLeadCapture();
         } catch {
@@ -87,30 +84,25 @@ export default function LeadMagnetForm() {
     }
   };
 
-  const successMessage =
-    successDisplayName !== ''
-      ? `Guide is on its way. Check your inbox, ${successDisplayName}.`
-      : 'Guide is on its way. Check your inbox.';
-
   return (
     <div className="space-y-6">
       {status === 'success' ? (
-        <div className="text-center">
-          <p className="font-body text-base md:text-lg text-[#0A5C52]">{successMessage}</p>
-          {showPdfDownload ? (
-            <a
-              href="https://mcusercontent.com/cfc3dccd2c21b015ecc30e2a5/files/4a070690-30ae-ea53-89d8-042f167eb554/emerald_coast_dog_energy_guide.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 px-6 py-3 bg-brand-teal text-brand-offwhite font-body font-semibold rounded-lg hover:bg-brand-teal/80 transition-colors"
-            >
-              Download Your Energy Guide →
-            </a>
-          ) : null}
+        <div className="flex flex-col items-start gap-4">
+          <p className="text-brand-offwhite font-body text-lg">
+            You&apos;re in. Your guide is ready to download.
+          </p>
+          <a
+            href={PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-teal text-brand-offwhite font-body font-semibold rounded-lg hover:bg-brand-teal/80 transition-colors"
+          >
+            Download Your Energy Guide →
+          </a>
+          <p className="text-brand-gray text-sm">A copy is also on its way to your inbox.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Hidden fields — not visible to user */}
           <input type="hidden" name="_honeypot" defaultValue="" />
           <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
           <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />

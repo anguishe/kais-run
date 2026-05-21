@@ -137,7 +137,7 @@ export default function Footer() {
         </div>
 
         <div className="mb-12 flex justify-center md:justify-start">
-          <WaitlistForm variant="footer" buttonLabel="Join the List" />
+          <WaitlistForm />
         </div>
 
         <div className="mt-4 pt-4 border-t border-brand-teal/20 text-center">

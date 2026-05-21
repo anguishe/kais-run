@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fadeUp, stagger } from '@/lib/variants';
-import { trackFoundingAthlete } from '@/lib/googleAds';
+import { fadeUp } from '@/lib/variants';
 import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
-const FORMSPREE_SUBJECT = "New inquiry — Founding Athlete signup — Kai's Run website";
-const FORMSPREE_FORM_TAG = 'founding-20';
+const FORMSPREE_SUBJECT = "Waitlist signup — Kai's Run website";
+const FORMSPREE_FORM_TAG = 'waitlist';
 
 const inputClass =
   'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
@@ -17,21 +17,18 @@ const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2
 
 const LOCATION_OPTIONS = ['Destin', 'Fort Walton Beach', 'Niceville', 'Other'] as const;
 
-type Variant = 'full' | 'footer';
-
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-const foundingSuccessCopy =
-  "You're in. Travis will reach out personally to confirm your spot.";
+const waitlistSuccessCopy =
+  "You're on the list. We'll be in touch when sessions open near you.";
 
 type WaitlistFormProps = {
-  variant?: Variant;
   buttonLabel?: string;
 };
 
-export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProps) {
-  const idPrefix = variant === 'full' ? 'waitlist-full' : 'waitlist-footer';
-  const resolvedButtonLabel = buttonLabel ?? 'Reserve My Spot';
+export function WaitlistForm({ buttonLabel = 'Join the Waitlist' }: WaitlistFormProps) {
+  const pathname = usePathname();
+  const idPrefix = 'waitlist-footer';
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,6 +38,17 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
+
+  useEffect(() => {
+    setStatus('idle');
+    setName('');
+    setEmail('');
+    setPhone('');
+    setDogName('');
+    setDogBreed('');
+    setLocation('');
+    setMessage('');
+  }, [pathname]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,13 +76,7 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
       });
 
       if (res.ok) {
-        const mailchimpTags = variant === 'footer' ? ['waitlist'] : ['founding-20'];
-        subscribeToMailchimp(email, name, mailchimpTags).catch(() => {});
-        try {
-          trackFoundingAthlete(200);
-        } catch {
-          /* lib/googleAds is defensive */
-        }
+        subscribeToMailchimp(email, name, ['waitlist']).catch(() => {});
         setName('');
         setEmail('');
         setPhone('');
@@ -220,7 +222,7 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
           required
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder={"Tell us a bit about your dog and why you're signing up early."}
+          placeholder="Tell us a bit about your dog and what you're looking for."
           className={`${inputClass} resize-y min-h-[6.5rem]`}
           disabled={status === 'submitting'}
         />
@@ -231,118 +233,47 @@ export function WaitlistForm({ variant = 'full', buttonLabel }: WaitlistFormProp
         disabled={status === 'submitting'}
         className="w-full bg-[#0A5C52] text-white font-display text-xl rounded-none min-h-[52px] px-4 py-3 tracking-wide hover:opacity-95 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {status === 'submitting' ? 'Sending…' : resolvedButtonLabel}
+        {status === 'submitting' ? 'Sending…' : buttonLabel}
       </button>
     </>
   );
 
-  if (variant === 'footer') {
-    return (
-      <div className="w-full max-w-2xl mx-auto md:mx-0">
-        <AnimatePresence mode="wait">
-          {status === 'success' ? (
-            <motion.p
-              key="success"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -8 }}
-              className="font-body text-base md:text-lg text-[#0A5C52] leading-snug"
-            >
-              {foundingSuccessCopy}
-            </motion.p>
-          ) : (
-            <motion.form
-              key="form"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0 }}
-              onSubmit={handleSubmit}
-              className="space-y-6 relative"
-            >
-              {/* Hidden fields — not visible to user */}
-              <input type="hidden" name="_honeypot" defaultValue="" />
-              <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
-              <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
-              {status === 'error' && (
-                <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
-                  Something went wrong. Email us at kaisrunmobile@gmail.com
-                </p>
-              )}
-              {fields}
-            </motion.form>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  }
-
   return (
-    <section className="bg-brand-black border-t border-white/5 py-24 md:py-32">
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        className="max-w-2xl mx-auto px-6"
-      >
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-brand-teal text-xs tracking-widest uppercase mb-3"
-        >
-          FOUNDING ATHLETE PROGRAM
-        </motion.p>
-        <motion.h2
-          variants={fadeUp}
-          className="font-display text-5xl md:text-6xl text-brand-offwhite mb-4"
-        >
-          Join the Founding 20.
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-brand-gray max-w-xl mb-10 leading-relaxed"
-        >
-          Launching this summer — the first 20 dogs get in at $40/session. Standard sessions start at
-          $65. Drop your info and we&apos;ll reach out personally before spots open to the public.
-        </motion.p>
-
-        <AnimatePresence mode="wait">
-          {status === 'success' ? (
-            <motion.p
-              key="success"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -8 }}
-              className="font-body text-base md:text-lg text-[#0A5C52]"
-            >
-              {foundingSuccessCopy}
-            </motion.p>
-          ) : (
-            <motion.form
-              key="form"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0 }}
-              onSubmit={handleSubmit}
-              className="space-y-6 relative"
-            >
-              {/* Hidden fields — not visible to user */}
-              <input type="hidden" name="_honeypot" defaultValue="" />
-              <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
-              <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
-              {status === 'error' && (
-                <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
-                  Something went wrong. Email us at kaisrunmobile@gmail.com
-                </p>
-              )}
-              {fields}
-            </motion.form>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </section>
+    <div className="w-full max-w-2xl mx-auto md:mx-0">
+      <AnimatePresence mode="wait">
+        {status === 'success' ? (
+          <motion.p
+            key="success"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            exit={{ opacity: 0, y: -8 }}
+            className="font-body text-base md:text-lg text-[#0A5C52] leading-snug"
+          >
+            {waitlistSuccessCopy}
+          </motion.p>
+        ) : (
+          <motion.form
+            key="form"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            exit={{ opacity: 0 }}
+            onSubmit={handleSubmit}
+            className="space-y-6 relative"
+          >
+            <input type="hidden" name="_honeypot" defaultValue="" />
+            <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
+            <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
+            {status === 'error' && (
+              <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
+                Something went wrong. Email us at kaisrunmobile@gmail.com
+              </p>
+            )}
+            {fields}
+          </motion.form>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

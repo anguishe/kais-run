@@ -12,6 +12,9 @@ import {
   setIntroDogCount,
 } from '@/lib/bookIntent';
 
+const FOUNDING_SUCCESS_COPY =
+  "You're in. Travis will reach out personally within 24 hours to confirm your founding spot and collect payment.";
+
 function BookPageInner() {
   const params = useSearchParams();
   const offerFounding = params.get('offer') === 'founding';
@@ -104,27 +107,11 @@ function BookPageInner() {
           <h1 className="mb-4 font-display text-6xl text-[#F0EDE6] md:text-8xl">BOOK YOUR SESSION</h1>
           <p className="mx-auto max-w-xl text-lg text-[#9A9590]">
             {offerFounding
-              ? 'Founding Athlete — $200 for 5 sessions. Use the form below to claim your spot, or book a standard session in the calendar.'
-              : "New dogs start with the Kai's Run Welcome — $35. Select your session type below."}
+              ? 'Founding Athlete — $200 for 5 sessions. Book a standard session in the calendar below, or claim a founding spot in the form.'
+              : "New dogs start with the Kai's Run Welcome — $35. Select your session type below, or join the Founding 20."}
           </p>
           <div className="mx-auto mt-6 h-px w-16 bg-[#0A5C52]" />
         </div>
-
-        {offerFounding ? (
-          <section className="border-y border-white/10 bg-[#1A1F2E] px-6 py-16">
-            <div className="mx-auto max-w-2xl text-center md:text-left">
-              <p className="font-body text-xs tracking-[0.28em] text-[#0A5C52] uppercase">Founding Athlete</p>
-              <h2 className="mt-3 font-display text-4xl text-[#F0EDE6] md:text-5xl">Reserve at $200</h2>
-              <p className="mt-4 font-body text-[#9A9590]">
-                Submit the form — Travis confirms each founding spot personally. Conversion fires only after a
-                successful send.
-              </p>
-            </div>
-            <div className="mx-auto mt-10 max-w-2xl">
-              <FoundingInlineForm />
-            </div>
-          </section>
-        ) : null}
 
         <div className="mx-auto max-w-4xl px-6 pt-10">
           <p className="mb-4 text-center font-body text-sm text-[#9A9590]">
@@ -156,15 +143,29 @@ function BookPageInner() {
 
         <div
           ref={widgetHostRef}
-          className="mx-auto max-w-4xl px-6 pb-24"
+          className="mx-auto max-w-4xl px-6 pb-16"
           style={{ minHeight: '700px', width: '100%' }}
         />
+
+        <section className="border-t border-white/10 bg-[#1A1F2E] px-6 py-16">
+          <div className="mx-auto max-w-2xl text-center md:text-left">
+            <p className="font-body text-xs tracking-[0.28em] text-[#0A5C52] uppercase">Founding Athlete</p>
+            <h2 className="mt-3 font-display text-4xl text-[#F0EDE6] md:text-5xl">
+              Join the Founding 20 — $200 for 5 Sessions
+            </h2>
+            <p className="mt-4 font-body text-[#9A9590]">
+              Submit the form — Travis confirms each founding spot personally and follows up within 24 hours.
+            </p>
+          </div>
+          <div className="mx-auto mt-10 max-w-2xl">
+            <FoundingInlineForm />
+          </div>
+        </section>
       </main>
     </>
   );
 }
 
-/** Founding-only inline form so conversions fire only for `?offer=founding` (not the global footer form). */
 function FoundingInlineForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -192,7 +193,7 @@ function FoundingInlineForm() {
           _replyto: email.trim(),
           _honeypot: '',
           _subject: "Founding Athlete — booking page — Kai's Run",
-          _tag: 'founding-20',
+          _tag: 'founding-athlete',
         }),
       });
       if (res.ok) {
@@ -216,11 +217,7 @@ function FoundingInlineForm() {
   };
 
   if (status === 'success') {
-    return (
-      <p className="font-body text-lg text-[#0A5C52]">
-        You&apos;re in. Travis will reach out personally to confirm your founding spot.
-      </p>
-    );
+    return <p className="font-body text-lg text-[#0A5C52]">{FOUNDING_SUCCESS_COPY}</p>;
   }
 
   return (
