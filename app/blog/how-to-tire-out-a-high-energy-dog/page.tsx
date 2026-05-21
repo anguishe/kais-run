@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { getPostBySlug, getRelatedPosts } from '@/lib/blog/posts';
 
 const SLUG = 'how-to-tire-out-a-high-energy-dog';
@@ -39,44 +40,17 @@ export const metadata: Metadata = {
   },
 };
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule)',
-  description:
-    'Structured exercise, not just more walks. How slatmill conditioning, mental work, and consistent effort actually tire out working breeds.',
-  author: {
-    '@type': 'Person',
-    name: 'Travis',
-    url: 'https://kaisrun.xyz/about/',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: "Kai's Run",
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://kaisrun.xyz/images/logos/kr-logo-1.jpg',
-    },
-  },
-  datePublished: '2026-05-20',
-  dateModified: '2026-05-20',
-  url: 'https://kaisrun.xyz/blog/how-to-tire-out-a-high-energy-dog/',
-  image: OG_IMAGE,
-  keywords: [
-    'high energy dog exercise',
-    'how to tire out a dog',
-    'slatmill dog',
-    'canine conditioning',
-    'dog treadmill Destin FL',
-    'working breed exercise',
-  ],
-};
-
 export default async function HowToTireOutHighEnergyDogPage() {
   const post = getPostBySlug(SLUG);
   if (!post) notFound();
 
   const related = getRelatedPosts(SLUG, 3);
+  const articleSchema = buildArticleSchema({
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    slug: SLUG,
+  });
 
   return (
     <>

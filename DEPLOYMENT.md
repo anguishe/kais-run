@@ -9,16 +9,20 @@
 5. On GitHub: Settings → Pages → Source: GitHub Actions
 6. Wait ~2 min, site live at `https://YOUR_USERNAME.github.io/kais-run`
 
-## Updating Spots Counter
+## Updating Founding Athlete Spots
 
-Open `components/ui/SpotsCounter.tsx`  
-Change `SPOTS_REMAINING = 20` to current number
+When a spot sells:
+
+1. Open `public/data/config.json`
+2. Decrease `remaining` by 1
+3. Update `lastUpdated` to today's date
+4. Save and push:
 
 ```bash
-git add . && git commit -m "Update spots: X remaining" && git push
+git add public/data/config.json && git commit -m "Spots: [N] remaining" && git push
 ```
 
-Site auto-rebuilds in ~2 min.
+Site rebuilds in ~2 minutes.
 
 ## Adding Real Photos
 
