@@ -9,17 +9,18 @@ const SLUG = 'how-to-tire-out-a-high-energy-dog';
 const OG_IMAGE = 'https://kaisrun.xyz/images/og-image.png';
 
 export const metadata: Metadata = {
-  title: 'How to Tire Out a High-Energy Dog',
+  title: "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule) | Kai's Run",
   description:
     'Structured exercise, not just more walks. How slatmill conditioning, mental work, and consistent effort actually tire out working breeds — from a mobile dog gym on the Emerald Coast.',
   alternates: {
     canonical: 'https://kaisrun.xyz/blog/how-to-tire-out-a-high-energy-dog/',
   },
   openGraph: {
-    title: "How to Tire Out a High-Energy Dog | Kai's Run",
+    title: "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule) | Kai's Run",
     description:
       'Structured exercise, not just more walks. How slatmill conditioning, mental work, and consistent effort actually tire out working breeds.',
     type: 'article',
+    locale: 'en_US',
     publishedTime: '2026-05-20',
     authors: ['Travis'],
     images: [

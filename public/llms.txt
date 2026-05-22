@@ -1,30 +1,47 @@
-Kai's Run
+# Kai's Run
 
-Mobile canine conditioning service serving Destin, Fort Walton Beach, and Niceville FL. We bring a professional slatmill to your driveway for structured dog exercise sessions.
+> Kai's Run is a mobile canine conditioning service that brings a professional self-powered slatmill to your driveway in Destin, Fort Walton Beach, and Niceville FL. One dog at a time. Climate controlled. No drop-off required. Structured exercise for high-drive dogs.
 
-What We Do
-Kai's Run provides structured slatmill conditioning sessions for high-drive dogs in the Emerald Coast area. Sessions are delivered at the client's home — no drop-off required.
-## Services
+## About
 
-- Intro Session: $35 (1 dog) / $55 (2 dogs) — first session, includes fitness assessment
-- Founding Athlete Program: $200 for 5 sessions — limited to 20 dogs, one-time offer
-- Standard Session: pricing TBD — coming soon
+Founded by Travis in Destin FL. Inspired by his Rhodesian Ridgeback mix Kai — a high-drive dog whose energy couldn't be touched by walks alone. The slatmill is a self-powered treadmill: the dog sets their own pace, no motor, nothing forced. One session changed everything. Kai's Run was built to bring that to every high-drive dog on the Emerald Coast.
 
-Service Area
-Destin FL, Fort Walton Beach FL, Niceville FL, Miramar Beach FL, Shalimar FL
-About
-Founded by Travis in Destin FL. Inspired by his Rhodesian Ridgeback mix Kai. The slatmill is a self-powered treadmill — no motor, the dog sets their own pace.
-Contact
+## What We Offer
+
+- Intro Session: $35 (1 dog) / $55 (2 dogs) — fitness assessment, slatmill introduction, Run Profile card
+- Performance Session: $65 (1 dog) / $85 (2 dogs) — full conditioning session
+- 4-Session Bundle: $220 | 8-Session Bundle: $400
+- Coastal Membership (bi-weekly): $120/month
+- Emerald Membership (weekly): $220/month
+- Founding Athlete Program: $200 for 5 sessions — limited to 20 dogs, never offered again
+
+## Service Area
+
+Destin FL, Fort Walton Beach FL, Niceville FL, Miramar Beach FL, Shalimar FL, Sandestin FL
+Okaloosa County area. Mobile service — we come to your driveway.
+
+## What Makes This Different
+
+The slatmill is non-motorized. The dog drives the belt with their own gait.
+No forced pace, no minimum speed. Dogs self-select effort, adjust stride naturally.
+Sessions are private (one dog at a time), climate controlled (critical in Florida summers),
+and delivered to your home — no drop-off, no daycare stress, no other dogs.
+
+## Contact
+
+Phone: 850-218-5855
 Email: kaisrunmobile@gmail.com
+Instagram: https://www.instagram.com/kaisrun
+TikTok: https://www.tiktok.com/@kaisrun
 Facebook: https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/
-Website: https://kaisrun.xyz
-Pages
 
-Home
-Services
-Pricing
-About
-FAQ
-Service Area
-Blog
-Book Now
+## Site Pages
+
+- [Home](https://kaisrun.xyz/) — overview, founding program, services summary
+- [Services](https://kaisrun.xyz/services/) — full service descriptions
+- [Pricing](https://kaisrun.xyz/pricing/) — all pricing tiers and bundles
+- [About](https://kaisrun.xyz/about/) — Travis and Kai's story
+- [FAQ](https://kaisrun.xyz/faq/) — 14 detailed answers on safety, breeds, sessions, booking
+- [Service Area](https://kaisrun.xyz/service-area/) — geographic coverage map
+- [Blog](https://kaisrun.xyz/blog/) — field notes on canine conditioning
+- [Book Now](https://kaisrun.xyz/book/) — Square Appointments booking

@@ -8,12 +8,19 @@ export type BlogFrontmatter = {
   description: string;
   date: string;
   author?: string;
+  /** When true, post is omitted from blog index, static export, and related posts. */
+  draft?: boolean;
 };
 
 export type BlogPostMeta = BlogFrontmatter & {
   slug: string;
   readTimeMinutes: number;
 };
+
+function isDraft(data: Record<string, string>): boolean {
+  const val = data.draft?.trim().toLowerCase();
+  return val === 'true' || val === '1' || val === 'yes';
+}
 
 export type BlogPost = BlogPostMeta & {
   body: string;
@@ -61,6 +68,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const description = data.description ?? '';
   const date = data.date ?? '';
   const author = data.author ?? 'Travis';
+  const draft = isDraft(data);
   const readTimeMinutes = estimateReadTimeMinutes(content);
   return {
     slug,
@@ -68,15 +76,23 @@ export function getPostBySlug(slug: string): BlogPost | null {
     description,
     date,
     author,
+    draft,
     readTimeMinutes,
     body: content,
   };
 }
 
+export function getPublishedSlugs(): string[] {
+  return getPostSlugs().filter((slug) => {
+    const post = getPostBySlug(slug);
+    return post !== null && !post.draft;
+  });
+}
+
 export function getAllPostMeta(): BlogPostMeta[] {
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
-    .filter((p): p is BlogPost => p !== null)
+    .filter((p): p is BlogPost => p !== null && !p.draft)
     .map(({ slug, title, description, date, author, readTimeMinutes }) => ({
       slug,
       title,

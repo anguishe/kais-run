@@ -9,7 +9,7 @@ import { LenisProvider } from "@/components/providers/LenisProvider";
 import DevTools from "@/components/DevTools";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kaisrun.xyz"),
+  metadataBase: new URL("https://kaisrun.xyz/"),
   manifest: "/manifest.json",
   title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
   description:
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kai's Run | Mobile Dog Gym",
     description: "Structured canine conditioning delivered to your driveway.",
-    url: "https://kaisrun.xyz",
+    url: "https://kaisrun.xyz/",
     siteName: "Kai's Run",
     images: [
       {
@@ -58,62 +58,79 @@ export const viewport = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "AnimalService"],
   name: "Kai's Run",
   description:
-    "Mobile canine conditioning service. Slatmill sessions delivered to your driveway in Destin, Fort Walton Beach, and Niceville FL.",
+    "Kai's Run is a mobile canine conditioning service that brings a professional self-powered slatmill to your driveway in Destin, Fort Walton Beach, and Niceville FL. One dog at a time. Climate controlled. No drop-off required.",
   url: "https://kaisrun.xyz",
-  telephone: "850-218-5855",
+  telephone: "+18502185855",
   email: "kaisrunmobile@gmail.com",
-  logo: "https://kaisrun.xyz/images/logos/kr-logo-1.jpg",
-  image: "https://kaisrun.xyz/images/og-image.png",
   priceRange: "$$",
   currenciesAccepted: "USD",
-  paymentAccepted: "Cash, Credit Card, Apple Pay, Google Pay",
+  paymentAccepted: "Credit Card, Cash",
   areaServed: [
-    {
-      "@type": "City",
-      name: "Destin",
-      containedInPlace: { "@type": "State", name: "Florida" },
-    },
-    {
-      "@type": "City",
-      name: "Fort Walton Beach",
-      containedInPlace: { "@type": "State", name: "Florida" },
-    },
-    {
-      "@type": "City",
-      name: "Niceville",
-      containedInPlace: { "@type": "State", name: "Florida" },
-    },
-    {
-      "@type": "City",
-      name: "Miramar Beach",
-      containedInPlace: { "@type": "State", name: "Florida" },
-    },
-    {
-      "@type": "City",
-      name: "Shalimar",
-      containedInPlace: { "@type": "State", name: "Florida" },
-    },
+    { "@type": "City", name: "Destin", addressRegion: "FL" },
+    { "@type": "City", name: "Fort Walton Beach", addressRegion: "FL" },
+    { "@type": "City", name: "Niceville", addressRegion: "FL" },
+    { "@type": "City", name: "Miramar Beach", addressRegion: "FL" },
+    { "@type": "City", name: "Shalimar", addressRegion: "FL" },
+    { "@type": "City", name: "Sandestin", addressRegion: "FL" },
   ],
-  serviceType: "Mobile Dog Gym",
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 30.3935,
-    longitude: -86.4958,
+  serviceType: "Mobile Dog Slatmill Conditioning",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Kai's Run Session Options",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Intro Session",
+          description:
+            "First session including fitness assessment and Run Profile card. One dog at your driveway.",
+        },
+        price: "35.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Performance Session",
+          description:
+            "Standard conditioning session. Self-paced slatmill work delivered to your driveway.",
+        },
+        price: "65.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Founding Athlete Program",
+          description:
+            "Five sessions at locked founding rate. Limited to 20 dogs. Priority booking included.",
+        },
+        price: "200.00",
+        priceCurrency: "USD",
+      },
+    ],
   },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "08:00",
-    closes: "18:00",
+  founder: {
+    "@type": "Person",
+    name: "Travis",
+    description:
+      "Born and raised in Destin FL. Built Kai's Run after discovering slatmill conditioning for his Rhodesian Ridgeback mix Kai.",
   },
   sameAs: [
     "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
     "https://www.instagram.com/kaisrun",
     "https://www.tiktok.com/@kaisrun",
   ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    description: "By appointment. Contact to schedule.",
+  },
 };
 
 export default function RootLayout({

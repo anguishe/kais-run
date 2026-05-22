@@ -76,31 +76,39 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   },
 ];
 
-/** Six primary FAQs for FAQPage JSON-LD (slatmill, safety, reactive, session, service area, founding). */
+/** Primary FAQs for FAQPage JSON-LD (AI Overviews / citation). */
 export const FAQ_SCHEMA_ENTRIES: FaqEntry[] = [
   {
     q: 'What is a slatmill and how is it different from a motorized treadmill?',
-    a: 'A slatmill is a non-motorized treadmill your dog drives with their own gait. There is no motor setting a minimum speed. Dogs self-select cadence, adjust stride length naturally, and can decelerate instantly. Sessions build cardiovascular fitness and mental satisfaction without forcing speed.',
+    a: 'A slatmill is a non-motorized treadmill: your dog drives the belt with their own gait. There is no motor setting a minimum speed. Dogs self-select cadence, adjust stride length naturally, and can decelerate the instant something feels off. Sessions build cardiovascular fitness and mental satisfaction without forcing a speed the dog would not choose on their own.',
+  },
+  {
+    q: "What breeds benefit most from Kai's Run?",
+    a: 'High-drive sporting, working, and terrier lines often take to the mill immediately. We work with any dog that needs structured output, from 20 lbs to 120+ lbs. Dogs should be at least four months old. If your dog is bored, reactive from frustration, or not tired after long walks, an intro session is the right starting point.',
   },
   {
     q: 'Is the slatmill safe for my dog?',
-    a: 'Yes. Sessions are one-on-one in a climate-controlled mobile unit, harnessed with Julius K9 gear. We cap intensity to what the dog can hold with good form and require current rabies vaccination and a completed digital waiver before the first session.',
+    a: 'Yes — because the dog sets the effort. Sessions are one-on-one inside a climate-controlled mobile unit, harnessed with Julius K9 gear. We require current rabies vaccination and a completed digital waiver before the first session, and screen for conditions where exertion is inappropriate such as active heartworm or congestive heart disease.',
   },
   {
     q: 'What if my dog is reactive, anxious, or noise-sensitive?',
-    a: 'Private driveway sessions are the default — no lobby, no pack of unfamiliar dogs. Many reactive dogs relax faster when the only job is forward motion in a controlled space. We let the dog investigate the unit, reward small wins, and build trust before asking for sustained running.',
+    a: 'Private driveway work is the default — no lobby, no pack of unfamiliar dogs. Many reactive dogs relax faster when the only job is forward motion in a controlled space. We do not rush the first hookup; we let the dog investigate the unit, reward small wins, and build trust before asking for sustained running.',
   },
   {
-    q: 'How long is a session?',
-    a: 'Sessions are 30–45 minutes door-to-door. Inside that window we warm up, complete working time on the slatmill, cool down, and log notes. Most dogs accumulate 15–30 minutes of actual mill work depending on fitness level.',
+    q: 'How long is a session and do I need to stay?',
+    a: 'Plan on 30 to 45 minutes door-to-door. Inside that window we warm up, complete working time on the slatmill, cool down, and log notes for your run report. Most dogs accumulate 15 to 30 minutes of actual mill work. You may stay and watch or use the time to work from home — we send a progress photo and written recap within an hour after wrapping.',
   },
   {
     q: 'What area do you serve?',
-    a: "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar, and nearby Okaloosa County addresses. We route geographically and confirm most addresses within 2 hours of booking.",
+    a: 'We run routed visits across Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar, and nearby Okaloosa County addresses. We batch geography to keep pricing honest. If you are on the edge of the zone, provide your neighborhood when booking and we will confirm within a couple of hours.',
   },
   {
-    q: 'What is the Founding Athlete Program?',
-    a: 'The Founding Athlete Program offers five full sessions for $200 ($40/session effective rate) — limited to 20 dogs total. This is a one-time introductory offer that will never be repeated. Standard sessions start at $65.',
+    q: 'What vaccines and paperwork are required?',
+    a: "Rabies vaccination must be current before the first session, and you will complete a digital waiver. We may ask your veterinarian for clearance if your dog has a complex cardiac or respiratory history. Bordetella and other lifestyle vaccines are recommended but rabies is the hard requirement for Kai's Run.",
+  },
+  {
+    q: 'What is your cancellation and rescheduling policy?',
+    a: 'We ask for 24-hour notice to move or cancel a paid session for a full refund or credit. No-shows forfeit the session fee because that block was held off the route. Text as soon as your plans shift so we can release the slot to another dog who needs the work.',
   },
 ];
 

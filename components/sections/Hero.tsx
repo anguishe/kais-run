@@ -58,6 +58,12 @@ export function Hero() {
           TO RUN.
         </motion.h1>
 
+        <motion.p variants={fadeUp} className="entity-statement">
+          Kai&apos;s Run is Destin&apos;s only mobile dog slatmill service — we bring a
+          self-powered conditioning treadmill to your driveway in Destin, Fort Walton
+          Beach, and Niceville FL.
+        </motion.p>
+
         <motion.p
           variants={fadeUp}
           className="text-base md:text-lg font-body text-brand-gray max-w-xl mb-12 leading-relaxed"

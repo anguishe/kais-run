@@ -6,13 +6,14 @@ import { FAQPageClient } from './FAQPageClient';
 export const metadata: Metadata = {
   title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
   description:
-    "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
+    "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
   alternates: { canonical: 'https://kaisrun.xyz/faq/' },
   openGraph: {
     title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
+      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
     type: 'website',
+    url: 'https://kaisrun.xyz/faq/',
     locale: 'en_US',
     images: [
       {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Is a slatmill safe? What breeds benefit? Do you work with reactive dogs? What if my dog won't run? Every answer about Kai's Run mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL.",
+      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };

@@ -3,9 +3,14 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
-import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/blog/posts';
+import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/blog/posts';
 
 const baseUrl = 'https://kaisrun.xyz';
+const isDev = process.env.NODE_ENV === 'development';
+
+function isUnavailablePost(post: ReturnType<typeof getPostBySlug>): boolean {
+  return !post || (!!post.draft && !isDev);
+}
 
 /** Posts with a dedicated route under app/blog/<slug>/ — omit from dynamic static params. */
 const DEDICATED_POST_SLUGS = new Set(['how-to-tire-out-a-high-energy-dog']);
@@ -15,7 +20,7 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getPostSlugs()
+  return getPublishedSlugs()
     .filter((slug) => !DEDICATED_POST_SLUGS.has(slug))
     .map((slug) => ({ slug }));
 }
@@ -23,7 +28,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: 'Post not found' };
+  if (isUnavailablePost(post) || !post) return { title: 'Post not found' };
   return {
     title: `${post.title} | Kai's Run`,
     description: post.description,
@@ -32,16 +37,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: post.description,
       type: 'article',
+      url: `${baseUrl}/blog/${slug}/`,
+      locale: 'en_US',
       publishedTime: post.date,
       authors: [post.author ?? 'Travis'],
       images: [
         {
-          url: '/images/og-image.png',
+          url: 'https://kaisrun.xyz/images/og-image.png',
           width: 1200,
           height: 630,
           alt: "Kai's Run — Mobile Canine Conditioning",
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: ['https://kaisrun.xyz/images/og-image.png'],
     },
   };
 }
@@ -49,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) notFound();
+  if (isUnavailablePost(post) || !post) notFound();
 
   const related = getRelatedPosts(slug, 3);
   const articleSchema = buildArticleSchema({

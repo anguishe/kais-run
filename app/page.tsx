@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       "Structured canine conditioning delivered to your driveway. Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL.",
     type: 'website',
     locale: 'en_US',
-    url: 'https://kaisrun.xyz',
+    url: 'https://kaisrun.xyz/',
     images: [
       {
         url: OG_IMAGE_URL,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://kaisrun.xyz',
+    canonical: 'https://kaisrun.xyz/',
   },
 };
 

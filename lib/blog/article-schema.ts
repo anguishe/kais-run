@@ -22,11 +22,19 @@ export function buildArticleSchema({
     '@type': 'BlogPosting',
     headline: title,
     description,
+    url: pageUrl,
     datePublished: date,
     dateModified: dateModified ?? date,
     author: {
       '@type': 'Person',
       name: 'Travis',
+      description:
+        "Founder of Kai's Run. Born and raised in Destin FL. Discovered slatmill conditioning for his Rhodesian Ridgeback mix Kai.",
+      worksFor: {
+        '@type': 'Organization',
+        name: "Kai's Run",
+        url: BASE_URL,
+      },
     },
     publisher: {
       '@type': 'Organization',
@@ -34,14 +42,18 @@ export function buildArticleSchema({
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/images/logos/kr-logo-1.jpg`,
+        url: `${BASE_URL}/images/logos/kr-logo-2.jpg`,
       },
     },
     image: `${BASE_URL}/images/og-image.png`,
-    url: pageUrl,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,
+    },
+    about: {
+      '@type': 'Thing',
+      name: 'Canine conditioning',
+      description: 'Structured exercise for high-drive dogs using slatmill treadmills',
     },
   };
 }

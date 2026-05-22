@@ -5,8 +5,31 @@ import { getAllPostMeta } from '@/lib/blog/posts';
 export const metadata: Metadata = {
   title: "Blog | Kai's Run — Mobile Dog Gym",
   description:
-    "Canine conditioning tips, slatmill education, and mobile dog gym updates from Kai's Run — serving Destin, Fort Walton Beach & Niceville FL.",
+    'Field notes on canine conditioning, slatmill sessions, and life on the Emerald Coast.',
   alternates: { canonical: 'https://kaisrun.xyz/blog/' },
+  openGraph: {
+    title: "Blog | Kai's Run — Mobile Dog Gym",
+    description:
+      'Field notes on canine conditioning, slatmill sessions, and life on the Emerald Coast.',
+    type: 'website',
+    url: 'https://kaisrun.xyz/blog/',
+    images: [
+      {
+        url: 'https://kaisrun.xyz/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Mobile Dog Gym Destin FL",
+      },
+    ],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Blog | Kai's Run — Mobile Dog Gym",
+    description:
+      'Field notes on canine conditioning, slatmill sessions, and life on the Emerald Coast.',
+    images: ['https://kaisrun.xyz/images/og-image.png'],
+  },
 };
 
 export default function BlogIndexPage() {

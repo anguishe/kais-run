@@ -77,3 +77,12 @@ html.lenis body {
   opacity: 0.035;
   z-index: 2;
 }
+
+.entity-statement {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 560px;
+  margin: 0 auto 24px auto;
+  line-height: 1.5;
+  text-align: center;
+}
