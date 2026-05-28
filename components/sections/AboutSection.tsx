@@ -32,7 +32,7 @@ export function AboutSection() {
             className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden"
           >
             <Image
-              src="/images/about/travis-kai-2.png"
+              src="/images/about/travis-kai-2.webp"
               alt="Travis and Kai - Founders of Kai's Run mobile dog gym"
               fill
               className="object-cover"

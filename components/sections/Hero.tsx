@@ -20,7 +20,7 @@ export function Hero() {
       {/* Background hero image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-main.png"
+          src="/images/hero/hero-main.webp"
           alt="Kai running at full speed on professional dog treadmill"
           fill
           className="object-cover opacity-40"

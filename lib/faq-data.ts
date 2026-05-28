@@ -62,7 +62,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'What is included in the Founding Athlete Program?',
     a:
-      "Founding Athlete is a limited window offer: five full sessions at a locked rate, priority access as we grow the route, and founding-only perks outlined beside the counter on [[LINK:/pricing/|Pricing]] and the founding banner on the home page. When spots sell out, that price tier does not return — standard walk-up and bundle pricing applies. If you see founding inventory available, claim it through the founding flow linked from the home hero or pricing cards.",
+      "Founding Athlete is a limited window offer: five full sessions at a one-time founding rate, priority access as we grow the route, and founding-only perks outlined beside the counter on [[LINK:/pricing/|Pricing]] and the founding banner on the home page. When spots sell out, that price tier does not return — standard walk-up and bundle pricing applies. If you see founding inventory available, claim it through the founding flow linked from the home hero or pricing cards.",
   },
   {
     q: 'How do memberships and bundles differ from walk-up sessions?',
@@ -73,42 +73,6 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     q: 'How do I book — intro, single session, bundle, or membership?',
     a:
       "Everything runs through Square Appointments on [[LINK:/book/|Book]]. Choose intro if you are new, performance for drop-in conditioning, or apply bundle and membership credits after you purchase them. Pick a time, drop your address, and we confirm routing. If you are not sure which path to pick, start with the intro — it includes assessment, Run Profile card, and the first real data point on how your dog responds to structured work.",
-  },
-];
-
-/** Primary FAQs for FAQPage JSON-LD (AI Overviews / citation). */
-export const FAQ_SCHEMA_ENTRIES: FaqEntry[] = [
-  {
-    q: 'What is a slatmill and how is it different from a motorized treadmill?',
-    a: 'A slatmill is a non-motorized treadmill: your dog drives the belt with their own gait. There is no motor setting a minimum speed. Dogs self-select cadence, adjust stride length naturally, and can decelerate the instant something feels off. Sessions build cardiovascular fitness and mental satisfaction without forcing a speed the dog would not choose on their own.',
-  },
-  {
-    q: "What breeds benefit most from Kai's Run?",
-    a: 'High-drive sporting, working, and terrier lines often take to the mill immediately. We work with any dog that needs structured output, from 20 lbs to 120+ lbs. Dogs should be at least four months old. If your dog is bored, reactive from frustration, or not tired after long walks, an intro session is the right starting point.',
-  },
-  {
-    q: 'Is the slatmill safe for my dog?',
-    a: 'Yes — because the dog sets the effort. Sessions are one-on-one inside a climate-controlled mobile unit, harnessed with Julius K9 gear. We require current rabies vaccination and a completed digital waiver before the first session, and screen for conditions where exertion is inappropriate such as active heartworm or congestive heart disease.',
-  },
-  {
-    q: 'What if my dog is reactive, anxious, or noise-sensitive?',
-    a: 'Private driveway work is the default — no lobby, no pack of unfamiliar dogs. Many reactive dogs relax faster when the only job is forward motion in a controlled space. We do not rush the first hookup; we let the dog investigate the unit, reward small wins, and build trust before asking for sustained running.',
-  },
-  {
-    q: 'How long is a session and do I need to stay?',
-    a: 'Plan on 30 to 45 minutes door-to-door. Inside that window we warm up, complete working time on the slatmill, cool down, and log notes for your run report. Most dogs accumulate 15 to 30 minutes of actual mill work. You may stay and watch or use the time to work from home — we send a progress photo and written recap within an hour after wrapping.',
-  },
-  {
-    q: 'What area do you serve?',
-    a: 'We run routed visits across Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar, and nearby Okaloosa County addresses. We batch geography to keep pricing honest. If you are on the edge of the zone, provide your neighborhood when booking and we will confirm within a couple of hours.',
-  },
-  {
-    q: 'What vaccines and paperwork are required?',
-    a: "Rabies vaccination must be current before the first session, and you will complete a digital waiver. We may ask your veterinarian for clearance if your dog has a complex cardiac or respiratory history. Bordetella and other lifestyle vaccines are recommended but rabies is the hard requirement for Kai's Run.",
-  },
-  {
-    q: 'What is your cancellation and rescheduling policy?',
-    a: 'We ask for 24-hour notice to move or cancel a paid session for a full refund or credit. No-shows forfeit the session fee because that block was held off the route. Text as soon as your plans shift so we can release the slot to another dog who needs the work.',
   },
 ];
 

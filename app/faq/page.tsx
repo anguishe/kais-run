@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
-import { FAQ_SCHEMA_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
+import { FAQ_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: FAQ_SCHEMA_ENTRIES.map((e) => ({
+  mainEntity: FAQ_ENTRIES.map((e) => ({
     '@type': 'Question',
     name: e.q,
     acceptedAnswer: {

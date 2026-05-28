@@ -8,7 +8,7 @@ const services = [
   {
     category: 'INTRO SESSION',
     title: 'Intro Session',
-    price: '$35 / $55 (2 dogs)',
+    price: '$35 / $55 (2 dogs, same household)',
     description: 'Your first session. Includes fitness assessment, introduction to the slatmill, and your dog\'s personal Run Profile card.',
   },
   {

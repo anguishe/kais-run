@@ -115,7 +115,7 @@ function BookPageInner() {
 
         <div className="mx-auto max-w-4xl px-6 pt-10">
           <p className="mb-4 text-center font-body text-sm text-[#9A9590]">
-            Intro pricing uses your selection below ($35 one dog / $55 two dogs).
+            Intro pricing uses your selection below ($35 one dog / $55 two dogs from the same household).
           </p>
           <div className="mx-auto mb-6 flex max-w-md flex-wrap justify-center gap-4">
             <label className="flex cursor-pointer items-center gap-2 font-body text-sm text-[#F0EDE6]">
@@ -136,7 +136,7 @@ function BookPageInner() {
                 onChange={() => setDogCount(2)}
                 className="accent-[#0A5C52]"
               />
-              2 dogs ($55 intro)
+              2 dogs, same household ($55 intro)
             </label>
           </div>
         </div>

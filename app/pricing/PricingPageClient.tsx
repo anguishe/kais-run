@@ -19,7 +19,7 @@ const standardTiers = [
     id: 'intro',
     label: 'INTRO SESSION',
     title: 'Intro Session',
-    price: '$35 one dog / $55 two dogs',
+    price: '$35 one dog / $55 two dogs, same household',
     tagline: 'Your first session. Includes fitness assessment.',
     duration: '30–45 min session',
     includes: [

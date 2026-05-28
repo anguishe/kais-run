@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 const outPath = join(root, "public/images/og-image.png");
-const logoPath = join(root, "public/images/logos/kr-logo-2.jpg");
+const logoPath = join(root, "public/images/logos/kr-logo-2.webp");
 
 const W = 1200;
 const H = 630;

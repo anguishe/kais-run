@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
+import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 
 const pillars = [
   {
@@ -58,14 +59,9 @@ export function SolutionSection() {
           Structured. Measurable. Results.
         </motion.h2>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-base md:text-lg font-body text-brand-gray max-w-3xl mx-auto text-center mb-16 leading-relaxed"
-        >
-          The slatmill is a self-powered treadmill — no motor, no forced pace.
-          Your dog runs at their own speed, powered entirely by instinct.
-          Nothing is mechanical. Everything is natural.
-        </motion.p>
+        <motion.div variants={fadeUp} className="mb-16">
+          <SlatmillExplainer showHeading={false} />
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pillars.map((pillar) => (

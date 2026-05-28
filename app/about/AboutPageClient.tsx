@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 const comparison = [
   { attribute: 'Comes to you', kaisRun: 'YES', walker: 'YES', daycare: 'No' },
   { attribute: 'Climate controlled', kaisRun: 'YES', walker: 'No', daycare: 'Varies' },
@@ -32,7 +33,7 @@ export function AboutPageClient() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero/hero-2.png"
+            src="/images/hero/hero-2.webp"
             alt="High-performance dog training at Kai's Run"
             fill
             className="object-cover opacity-30"
@@ -123,6 +124,10 @@ export function AboutPageClient() {
         </motion.div>
       </section>
 
+      <section className="bg-brand-black px-6 py-24 md:py-32">
+        <SlatmillExplainer />
+      </section>
+
       {/* Destin roots + safety posture */}
       <section className="py-24 md:py-32 px-6 bg-brand-black">
         <motion.div
@@ -201,7 +206,7 @@ export function AboutPageClient() {
             <motion.div variants={fadeUp}>
               <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal">
                 <Image
-                  src="/images/about/travis-kai-1.png"
+                  src="/images/about/travis-kai-1.webp"
                   alt="Travis and Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
                   fill
                   className="object-cover"

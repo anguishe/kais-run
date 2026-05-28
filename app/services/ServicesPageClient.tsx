@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
+import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 
 const services = [
   {
     id: 'intro',
     label: 'INTRO SESSION',
     title: 'Intro Session',
-    price: '$35 one dog / $55 two dogs',
+    price: '$35 one dog / $55 two dogs, same household',
     duration: '30–45 min',
     includes: [
       'Fitness assessment',
@@ -35,7 +36,7 @@ const services = [
     ],
     bestFor: 'Owners ready to commit before standard pricing is announced',
     narrative:
-      "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. You lock in $40 per session — a rate that will never exist again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate.",
+      "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. Five sessions at $40 each effective — an introductory rate we will never offer again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate for this limited window only.",
   },
   {
     id: 'standard',
@@ -120,6 +121,10 @@ export function ServicesPageClient() {
             .
           </motion.p>
         </motion.div>
+      </section>
+
+      <section className="bg-brand-charcoal px-6 py-24 md:py-32">
+        <SlatmillExplainer />
       </section>
 
       {/* Service Details */}

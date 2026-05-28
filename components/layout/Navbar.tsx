@@ -46,7 +46,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="relative h-10 w-44 flex-shrink-0">
               <Image
-                src="/images/logos/kr-logo-2.jpg"
+                src="/images/logos/kr-logo-2.webp"
                 alt="Kai's Run - Mobile Dog Gym"
                 fill
                 className="object-contain"

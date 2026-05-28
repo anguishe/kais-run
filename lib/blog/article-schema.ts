@@ -42,7 +42,7 @@ export function buildArticleSchema({
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/images/logos/kr-logo-2.jpg`,
+        url: `${BASE_URL}/images/logos/kr-logo-2.webp`,
       },
     },
     image: `${BASE_URL}/images/og-image.png`,

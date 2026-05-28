@@ -6,6 +6,7 @@ import { fadeUp, stagger } from '@/lib/variants';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import LeadMagnetForm from '@/components/ui/LeadMagnetForm';
 import { FAQ_ENTRIES } from '@/lib/faq-data';
+import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 
 const faqItems = FAQ_ENTRIES.map((e) => ({ question: e.q, answer: e.a }));
 
@@ -39,6 +40,10 @@ export function FAQPageClient() {
             Everything you need to know about mobile slatmill sessions.
           </motion.p>
         </motion.div>
+      </section>
+
+      <section className="bg-brand-charcoal px-6 py-24 md:py-32">
+        <SlatmillExplainer />
       </section>
 
       {/* FAQ Accordion */}

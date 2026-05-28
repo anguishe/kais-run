@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Link from 'next/link';
+import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 
 const linkClass = 'text-brand-teal underline-offset-4 hover:text-brand-offwhite hover:underline';
 
@@ -51,4 +52,5 @@ export const blogMdxComponents: MdxProvidedComponents = {
     <pre className="mb-8 overflow-x-auto rounded-lg border border-brand-teal/20 bg-brand-black p-4 text-sm" {...props} />
   ),
   hr: () => <hr className="my-12 border-brand-teal/20" />,
+  SlatmillExplainer: () => <SlatmillExplainer showHeading className="my-10" />,
 };

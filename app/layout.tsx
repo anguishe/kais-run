@@ -109,7 +109,7 @@ const localBusinessJsonLd = {
           "@type": "Service",
           name: "Founding Athlete Program",
           description:
-            "Five sessions at locked founding rate. Limited to 20 dogs. Priority booking included.",
+            "Five sessions at a one-time founding rate. Limited to 20 dogs. Priority booking included.",
         },
         price: "200.00",
         priceCurrency: "USD",

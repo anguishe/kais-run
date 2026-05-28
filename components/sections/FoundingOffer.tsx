@@ -9,7 +9,7 @@ const benefits = [
   'Priority booking for all future sessions',
   '"Founding Athlete" status — recognized first believers',
   'Personal Run Profile Card on your first session',
-  'Locked-in rate that will never exist again',
+  'One-time founding rate — never offered again',
 ];
 
 export function FoundingOffer() {
@@ -47,7 +47,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-base md:text-lg font-body text-brand-gray max-w-2xl mb-10"
           >
-            A rate that will never exist again. For the 20 who believed first.
+            A one-time founding offer — an introductory rate we will never offer again. For the 20 who believed first.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mb-10">

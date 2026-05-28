@@ -33,7 +33,7 @@ alwaysApply: true
 
 ## When Context Is Unclear
 - Check the relevant `.cursor/rules/*.md` file before asking a question
-- If the answer is in project.md, design-system.md, pricing-data.md, or brand-copy.md — use it
+- If the answer is in brand-reference.md, project.md, design-system.md, pricing-data.md, or brand-copy.md — use it
 - Only ask if information is genuinely missing from all rule files
 
 ## Build Verification

@@ -13,6 +13,12 @@ const quickLinks = [
   { href: '/book/', label: 'Book Now' },
 ];
 
+const serviceCityLinks = [
+  { href: '/service-area/destin/', label: 'Destin' },
+  { href: '/service-area/fort-walton-beach/', label: 'Fort Walton Beach' },
+  { href: '/service-area/niceville/', label: 'Niceville' },
+];
+
 const socialLinks = [
   {
     name: 'Instagram',
@@ -73,7 +79,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="relative h-12 w-40 block">
               <Image
-                src="/images/logos/kr-logo-1.jpg"
+                src="/images/logos/kr-logo-1.webp"
                 alt="Kai's Run Logo"
                 fill
                 className="object-contain object-left"
@@ -96,6 +102,21 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-brand-gray hover:text-brand-offwhite transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3 className="font-display text-lg tracking-wider text-brand-offwhite mb-3 mt-8">
+              Service Cities
+            </h3>
+            <ul className="space-y-2">
+              {serviceCityLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

@@ -9,16 +9,18 @@ alwaysApply: true
 ## Identity
 - Business: Kai's Run — mobile canine conditioning service
 - Owner: Travis | Mascot/origin dog: Kai (Rhodesian Ridgeback Mix)
-- Markets: Destin FL · Fort Walton Beach FL · Niceville FL
-- Phone: 850-218-5855
-- Tagline: "Equinox for dogs, delivered to your driveway."
+- Domain: kaisrun.xyz · Repo: anguishe/kais-run
+- Email: kaisrunmobile@gmail.com · Phone: 850-218-5855
+- Markets: Destin FL · Fort Walton Beach FL · Niceville FL · Miramar Beach FL · Shalimar FL
+- Tagline: "Your Dog Deserves to Run."
 - This is NOT dog walking. It is performance conditioning for high-drive dogs.
+- Full brand facts: `brand-reference.md`
 
 ## Tech Stack
 - Next.js 14 App Router · TypeScript · Tailwind CSS
 - framer-motion (UI transitions) · gsap + ScrollTrigger (scroll animation) · lenis (smooth scroll)
 - Static export only (`output: 'export'`) — deployed to GitHub Pages
-- NO Vercel. NO SSR. NO server actions. Static files only.
+- NO SSR. NO server actions. Static files only.
 
 ## Deployment
 - `npm run build` → outputs to `/out`
