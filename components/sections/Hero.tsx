@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
-import { event } from '@/lib/gtag';
 
 export function Hero() {
   return (
@@ -78,9 +77,6 @@ export function Hero() {
             variant="primary"
             className="text-base px-10 py-4"
             bookIntentSource="hero-founding-primary"
-            onClick={() =>
-              event('cta_click', { event_label: 'hero_book_now' })
-            }
           >
             Claim Founding Spot — 20 Only
           </Button>

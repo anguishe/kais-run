@@ -19,7 +19,6 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
           NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADS_ID }}
           NEXT_PUBLIC_SUBSCRIBE_URL: ${{ secrets.NEXT_PUBLIC_SUBSCRIBE_URL }}

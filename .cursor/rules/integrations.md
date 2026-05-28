@@ -75,10 +75,8 @@ async function handleSubmit(e: React.FormEvent) {
 - Section headline: "FREE GUIDE: Tire Out Your High-Drive Dog."
 - Section sub: "Get the Emerald Coast Dog Energy Guide — structured exercise for working breeds. Free. No spam."
 
-## Analytics (Phase 2)
-Google Analytics 4 — not required for MVP.
-When adding: use `next/script` with `strategy="afterInteractive"` — compatible with static export.
-Never block render with analytics scripts.
+## Analytics
+GA4 is not used on this site. Microsoft Clarity (`NEXT_PUBLIC_CLARITY_ID`) loads via `components/analytics/MicrosoftClarity.tsx` with `next/script` and `strategy="afterInteractive"` — compatible with static export. Never block render with analytics scripts.
 
 ## Mailchimp (Post-Launch)
 Connect via Formspree webhook — Formspree can forward submissions to Mailchimp automatically.

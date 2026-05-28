@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import GoogleAds from "@/components/GoogleAds";
 import Navbar from "@/components/layout/Navbar";
@@ -150,7 +149,6 @@ export default function RootLayout({
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>
       <body className="min-h-full flex flex-col font-body">
-        <GoogleAnalytics />
         <MicrosoftClarity />
         <Navbar />
         <main className="flex-1">
