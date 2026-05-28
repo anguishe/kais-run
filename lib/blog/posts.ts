@@ -8,6 +8,10 @@ export type BlogFrontmatter = {
   description: string;
   date: string;
   author?: string;
+  /** Comma-separated meta keywords for this post. */
+  keywords?: string;
+  /** OG / schema image — absolute URL or site-relative path (e.g. /images/...). */
+  image?: string;
   /** When true, post is omitted from blog index, static export, and related posts. */
   draft?: boolean;
 };
@@ -68,6 +72,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const description = data.description ?? '';
   const date = data.date ?? '';
   const author = data.author ?? 'Travis';
+  const keywords = data.keywords ?? undefined;
+  const image = data.image ?? undefined;
   const draft = isDraft(data);
   const readTimeMinutes = estimateReadTimeMinutes(content);
   return {
@@ -76,6 +82,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     description,
     date,
     author,
+    keywords,
+    image,
     draft,
     readTimeMinutes,
     body: content,
@@ -101,6 +109,11 @@ export function getAllPostMeta(): BlogPostMeta[] {
       author,
       readTimeMinutes,
     }));
+}
+
+/** Published posts, newest first. */
+export function getSortedPostMeta(): BlogPostMeta[] {
+  return getAllPostMeta().sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getRelatedPosts(currentSlug: string, limit = 2): BlogPostMeta[] {

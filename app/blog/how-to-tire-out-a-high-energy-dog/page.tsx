@@ -3,46 +3,17 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
+import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
 import { getPostBySlug, getRelatedPosts } from '@/lib/blog/posts';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
 const SLUG = 'how-to-tire-out-a-high-energy-dog';
-const OG_IMAGE = 'https://kaisrun.xyz/images/og-image.png';
 
-export const metadata: Metadata = {
-  title: "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule) | Kai's Run",
-  description:
-    'Structured exercise, not just more walks. How slatmill conditioning, mental work, and consistent effort actually tire out working breeds — from a mobile dog gym on the Emerald Coast.',
-  alternates: {
-    canonical: 'https://kaisrun.xyz/blog/how-to-tire-out-a-high-energy-dog/',
-  },
-  openGraph: {
-    title: "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule) | Kai's Run",
-    description:
-      'Structured exercise, not just more walks. How slatmill conditioning, mental work, and consistent effort actually tire out working breeds.',
-    type: 'article',
-    locale: 'en_US',
-    publishedTime: '2026-05-20',
-    authors: ['Travis'],
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: "Kai's Run — Mobile Dog Gym Destin FL",
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "How to Tire Out a High-Energy Dog | Kai's Run",
-    description:
-      'Structured exercise beats more walks. How slatmill conditioning changes behavior at home.',
-    images: [OG_IMAGE],
-  },
-};
+const post = getPostBySlug(SLUG);
+
+export const metadata: Metadata = post ? buildBlogPostMetadata(post) : { title: 'Post not found' };
 
 export default async function HowToTireOutHighEnergyDogPage() {
-  const post = getPostBySlug(SLUG);
   if (!post) notFound();
 
   const related = getRelatedPosts(SLUG, 3);
@@ -51,13 +22,24 @@ export default async function HowToTireOutHighEnergyDogPage() {
     description: post.description,
     date: post.date,
     slug: SLUG,
+    author: post.author,
+    image: post.image,
   });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: post.title, path: `/blog/${SLUG}/` },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
         <div className="mx-auto max-w-3xl px-6">

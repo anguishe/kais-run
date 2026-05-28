@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
+import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
 import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/blog/posts';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
-const baseUrl = 'https://kaisrun.xyz';
 const isDev = process.env.NODE_ENV === 'development';
 
 function isUnavailablePost(post: ReturnType<typeof getPostBySlug>): boolean {
@@ -29,34 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (isUnavailablePost(post) || !post) return { title: 'Post not found' };
-  return {
-    title: `${post.title} | Kai's Run`,
-    description: post.description,
-    alternates: { canonical: `${baseUrl}/blog/${slug}/` },
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      url: `${baseUrl}/blog/${slug}/`,
-      locale: 'en_US',
-      publishedTime: post.date,
-      authors: [post.author ?? 'Travis'],
-      images: [
-        {
-          url: 'https://kaisrun.xyz/images/og-image.png',
-          width: 1200,
-          height: 630,
-          alt: "Kai's Run — Mobile Canine Conditioning",
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
-      images: ['https://kaisrun.xyz/images/og-image.png'],
-    },
-  };
+  return buildBlogPostMetadata(post);
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
@@ -70,13 +44,24 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.description,
     date: post.date,
     slug,
+    author: post.author,
+    image: post.image,
   });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: post.title, path: `/blog/${slug}/` },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
         <div className="mx-auto max-w-3xl px-6">

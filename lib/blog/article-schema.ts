@@ -1,10 +1,15 @@
+import { resolvePostOgImage } from '@/lib/blog/post-metadata';
+
 const BASE_URL = 'https://kaisrun.xyz';
+const PUBLISHER_LOGO = `${BASE_URL}/images/logos/kr-logo-1.webp`;
 
 export type ArticleSchemaInput = {
   title: string;
   description: string;
   date: string;
   slug: string;
+  author?: string;
+  image?: string;
   dateModified?: string;
 };
 
@@ -13,28 +18,23 @@ export function buildArticleSchema({
   description,
   date,
   slug,
+  author = 'Travis',
+  image,
   dateModified,
 }: ArticleSchemaInput) {
   const pageUrl = `${BASE_URL}/blog/${slug}/`;
+  const ogImage = resolvePostOgImage(image);
 
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
     description,
-    url: pageUrl,
     datePublished: date,
     dateModified: dateModified ?? date,
     author: {
       '@type': 'Person',
-      name: 'Travis',
-      description:
-        "Founder of Kai's Run. Born and raised in Destin FL. Discovered slatmill conditioning for his Rhodesian Ridgeback mix Kai.",
-      worksFor: {
-        '@type': 'Organization',
-        name: "Kai's Run",
-        url: BASE_URL,
-      },
+      name: author,
     },
     publisher: {
       '@type': 'Organization',
@@ -42,18 +42,13 @@ export function buildArticleSchema({
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/images/logos/kr-logo-2.webp`,
+        url: PUBLISHER_LOGO,
       },
     },
-    image: `${BASE_URL}/images/og-image.png`,
+    image: ogImage,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,
-    },
-    about: {
-      '@type': 'Thing',
-      name: 'Canine conditioning',
-      description: 'Structured exercise for high-drive dogs using slatmill treadmills',
     },
   };
 }
