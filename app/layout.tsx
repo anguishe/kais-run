@@ -57,16 +57,32 @@ export const viewport = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "AnimalService"],
+  "@type": "AnimalService",
+  "@id": "https://kaisrun.xyz/#business",
   name: "Kai's Run",
   description:
-    "Kai's Run is a mobile canine conditioning service that brings a professional self-powered slatmill to your driveway in Destin, Fort Walton Beach, and Niceville FL. One dog at a time. Climate controlled. No drop-off required.",
+    "Mobile canine conditioning service delivering self-powered slatmill sessions to driveways in Destin, Fort Walton Beach, and Niceville FL.",
   url: "https://kaisrun.xyz",
   telephone: "+18502185855",
   email: "kaisrunmobile@gmail.com",
+  image: "https://kaisrun.xyz/images/og-image.png",
+  logo: "https://kaisrun.xyz/images/logos/kr-logo-1.webp",
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: "Credit Card, Cash",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Destin",
+    addressRegion: "FL",
+    postalCode: "32541",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.3935,
+    longitude: -86.4958,
+  },
+  openingHours: "Mo-Su",
   areaServed: [
     { "@type": "City", name: "Destin", addressRegion: "FL" },
     { "@type": "City", name: "Fort Walton Beach", addressRegion: "FL" },
@@ -75,7 +91,6 @@ const localBusinessJsonLd = {
     { "@type": "City", name: "Shalimar", addressRegion: "FL" },
     { "@type": "City", name: "Sandestin", addressRegion: "FL" },
   ],
-  serviceType: "Mobile Dog Slatmill Conditioning",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Kai's Run Session Options",
@@ -85,8 +100,7 @@ const localBusinessJsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Intro Session",
-          description:
-            "First session including fitness assessment and Run Profile card. One dog at your driveway.",
+          url: "https://kaisrun.xyz/services/",
         },
         price: "35.00",
         priceCurrency: "USD",
@@ -95,11 +109,10 @@ const localBusinessJsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Performance Session",
-          description:
-            "Standard conditioning session. Self-paced slatmill work delivered to your driveway.",
+          name: "Intro Session — Two Dogs",
+          url: "https://kaisrun.xyz/services/",
         },
-        price: "65.00",
+        price: "55.00",
         priceCurrency: "USD",
       },
       {
@@ -107,8 +120,7 @@ const localBusinessJsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Founding Athlete Program",
-          description:
-            "Five sessions at a one-time founding rate. Limited to 20 dogs. Priority booking included.",
+          url: "https://kaisrun.xyz/pricing/",
         },
         price: "200.00",
         priceCurrency: "USD",
@@ -117,19 +129,24 @@ const localBusinessJsonLd = {
   },
   founder: {
     "@type": "Person",
+    "@id": "https://kaisrun.xyz/about/#travis",
     name: "Travis",
-    description:
-      "Born and raised in Destin FL. Built Kai's Run after discovering slatmill conditioning for his Rhodesian Ridgeback mix Kai.",
+    url: "https://kaisrun.xyz/about/",
   },
   sameAs: [
     "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
     "https://www.instagram.com/kaisrun",
     "https://www.tiktok.com/@kaisrun",
   ],
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    description: "By appointment. Contact to schedule.",
-  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://kaisrun.xyz/#website",
+  url: "https://kaisrun.xyz",
+  name: "Kai's Run",
+  publisher: { "@id": "https://kaisrun.xyz/#business" },
 };
 
 export default function RootLayout({
@@ -142,9 +159,24 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+        />
+        {/* Load font stylesheet asynchronously — avoids render-blocking @import */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap';document.head.appendChild(l)}()`
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>

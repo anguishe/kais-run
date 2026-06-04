@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { OG_IMAGE_URL } from '@/lib/site-images';
+import configData from '@/public/data/config.json';
 import { Hero } from '@/components/sections/Hero';
 import { SpotsCounter } from '@/components/sections/SpotsCounter';
 import { ProblemSection } from '@/components/sections/ProblemSection';
@@ -41,7 +42,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SpotsCounter />
+      <SpotsCounter
+        remaining={configData.foundingSpots.remaining}
+        total={configData.foundingSpots.total}
+      />
 
       <ProblemSection />
 

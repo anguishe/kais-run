@@ -102,7 +102,7 @@ export function ServicesPageClient() {
             variants={fadeUp}
             className="font-display text-6xl md:text-8xl tracking-tight mb-8"
           >
-            WHAT WE DO
+            Dog Conditioning Sessions — Destin, Fort Walton Beach &amp; Niceville FL
           </motion.h1>
           <motion.p
             variants={fadeUp}

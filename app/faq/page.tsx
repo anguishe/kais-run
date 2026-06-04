@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { FAQ_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'FAQ', path: '/faq/' },
+]);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -52,6 +58,10 @@ export default function FAQPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <FAQPageClient />
     </>

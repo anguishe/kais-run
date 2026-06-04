@@ -51,7 +51,6 @@ export default function Navbar() {
                 fill
                 className="object-contain"
                 unoptimized
-                priority
                 sizes="(max-width: 768px) 150px, 200px"
               />
             </Link>

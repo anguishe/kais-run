@@ -4,10 +4,17 @@ import BookPageClient from './BookPageClient';
 export const metadata: Metadata = {
   title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
   description:
-    "Pick intro, performance, founding, or snowbird flows inside Square Appointments, set one- or two-dog (same household) intro pricing, and lock a routed visit to your Emerald Coast driveway.",
-  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+    "Book a mobile dog conditioning session in Destin, Fort Walton Beach or Niceville FL. Intro sessions start at $35. Schedule online — we come to your driveway.",
 };
 
 export default function BookPage() {
-  return <BookPageClient />
+  return (
+    <>
+      <BookPageClient />
+      <div className="sr-only">
+        <h1>Book a Mobile Dog Conditioning Session</h1>
+        <p>Kai&apos;s Run brings a self-powered slatmill to your driveway in Destin, Fort Walton Beach, and Niceville FL. Intro sessions start at $35. Call or text 850-218-5855 to book directly.</p>
+      </div>
+    </>
+  );
 }

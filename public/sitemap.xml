@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/book/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/service-area/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -56,7 +62,7 @@
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,6 +117,12 @@
   <url>
     <loc>https://kaisrun.xyz/blog/high-energy-dog-breeds-need-more-than-a-walk/</loc>
     <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/blog/too-hot-to-walk-your-dog/</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

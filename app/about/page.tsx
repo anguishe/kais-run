@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { AboutPageClient } from './AboutPageClient';
 
 export const metadata: Metadata = {
@@ -24,24 +25,29 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about/' },
+]);
+
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://kaisrun.xyz/about/#travis',
   name: 'Travis',
+  url: 'https://kaisrun.xyz/about/',
   description: 'Founder of Kai\'s Run Mobile Dog Gym',
   jobTitle: 'Owner',
-  worksFor: {
-    '@type': 'LocalBusiness',
-    name: 'Kai\'s Run',
-    description: 'Mobile canine conditioning service offering structured slatmill sessions for high-drive dogs.',
-    telephone: '850-218-5855',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Destin',
-      addressRegion: 'FL',
-    },
+  telephone: '+18502185855',
+  homeLocation: {
+    '@type': 'Place',
+    name: 'Destin, Florida',
   },
-  alumniOf: 'Destin, Florida',
+  worksFor: {
+    '@type': 'AnimalService',
+    '@id': 'https://kaisrun.xyz/#business',
+    name: 'Kai\'s Run',
+  },
 };
 
 export default function AboutPage() {
@@ -50,6 +56,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <AboutPageClient />
     </>

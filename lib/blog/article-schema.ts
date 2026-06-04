@@ -35,6 +35,8 @@ export function buildArticleSchema({
     author: {
       '@type': 'Person',
       name: author,
+      url: 'https://kaisrun.xyz/about/',
+      '@id': 'https://kaisrun.xyz/about/#travis',
     },
     publisher: {
       '@type': 'Organization',
@@ -43,6 +45,8 @@ export function buildArticleSchema({
       logo: {
         '@type': 'ImageObject',
         url: PUBLISHER_LOGO,
+        width: 512,
+        height: 286,
       },
     },
     image: ogImage,

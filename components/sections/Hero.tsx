@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 
@@ -18,14 +17,13 @@ export function Hero() {
 
       {/* Background hero image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <img
           src="/images/hero/hero-main.webp"
           alt="Kai running at full speed on professional dog treadmill"
-          fill
-          className="object-cover opacity-40"
-          priority
-          unoptimized
-          sizes="100vw"
+          width={1264}
+          height={848}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
       </div>

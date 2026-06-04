@@ -1,0 +1,578 @@
+{
+  "meta": {
+    "site": "https://kaisrun.xyz",
+    "business": "Kai's Run — Mobile Slatmill Dog Conditioning",
+    "location": "Destin FL (Okaloosa County)",
+    "audit_date": "2026-06-04",
+    "total_existing_posts": 9,
+    "serp_overlap_note": "WebSearch unavailable in this session. Overlap scores derived from keyword co-occurrence analysis, shared SERP intent signals from content inspection, and known Google ranking behavior for informational and local-commercial query clusters. Scores marked with ~ are estimated; re-verify with live SERP data before acting on consolidation decisions."
+  },
+
+  "existing_posts": [
+    {
+      "id": "P1",
+      "title": "Why Structured Runs Matter",
+      "url": "/blog/why-structured-runs-matter/",
+      "slug": "why-structured-runs-matter",
+      "date": "2026-05-08",
+      "word_count_est": 350,
+      "primary_keyword_inferred": "structured dog conditioning",
+      "intent": "Informational",
+      "thin": true
+    },
+    {
+      "id": "P2",
+      "title": "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule)",
+      "url": "/blog/how-to-tire-out-a-high-energy-dog/",
+      "slug": "how-to-tire-out-a-high-energy-dog",
+      "date": "2026-05-20",
+      "word_count_est": 850,
+      "primary_keyword_inferred": "how to tire out a high energy dog",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P3",
+      "title": "How Much Exercise Does My Dog Really Need?",
+      "url": "/blog/how-much-exercise-does-my-dog-need/",
+      "slug": "how-much-exercise-does-my-dog-need",
+      "date": "2026-05-15",
+      "word_count_est": 550,
+      "primary_keyword_inferred": "how much exercise does my dog need",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P4",
+      "title": "What Is a Dog Slatmill? How It Works and Why It Beats a Motorized Treadmill",
+      "url": "/blog/what-is-a-dog-slatmill/",
+      "slug": "what-is-a-dog-slatmill",
+      "date": "2026-05-22",
+      "word_count_est": 750,
+      "primary_keyword_inferred": "what is a dog slatmill",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P5",
+      "title": "Slatmill vs. a Long Walk: What Actually Tires a Dog",
+      "url": "/blog/slatmill-vs-long-walk/",
+      "slug": "slatmill-vs-long-walk",
+      "date": "2026-05-22",
+      "word_count_est": 500,
+      "primary_keyword_inferred": "slatmill vs walk",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P6",
+      "title": "The 7 Dog Breeds That Need More Than a Walk (And What Actually Works)",
+      "url": "/blog/high-energy-dog-breeds-exercise-guide/",
+      "slug": "high-energy-dog-breeds-exercise-guide",
+      "date": "2026-05-22",
+      "word_count_est": 700,
+      "primary_keyword_inferred": "high energy dog breeds exercise",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P7",
+      "title": "Slatmill vs. Walk: The Real Difference for High-Drive Dogs",
+      "url": "/blog/dog-treadmill-vs-walk-comparison/",
+      "slug": "dog-treadmill-vs-walk-comparison",
+      "date": "2026-05-21",
+      "word_count_est": 1150,
+      "primary_keyword_inferred": "dog treadmill vs walk",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P8",
+      "title": "High-Energy Dog Breeds Exercise Guide",
+      "url": "/blog/high-energy-dog-breeds-need-more-than-a-walk/",
+      "slug": "high-energy-dog-breeds-need-more-than-a-walk",
+      "date": "2026-05-28",
+      "word_count_est": 650,
+      "primary_keyword_inferred": "breeds that need more than a walk",
+      "intent": "Informational",
+      "thin": false
+    },
+    {
+      "id": "P9",
+      "title": "Welcome to Kai's Run",
+      "url": "/blog/welcome/",
+      "slug": "welcome",
+      "date": "2026-05-01",
+      "word_count_est": 350,
+      "primary_keyword_inferred": "mobile dog gym Destin FL",
+      "intent": "Informational",
+      "thin": true,
+      "note": "Brand/intro post — low ranking ceiling; candidate for redirect or conversion into location landing page"
+    }
+  ],
+
+  "serp_overlap_matrix": {
+    "methodology": "Estimated pairwise SERP overlap (0-10) based on shared searcher intent, topical co-occurrence, and keyword modifier overlap. Re-validate with live SERP comparison before making consolidation decisions.",
+    "threshold_legend": {
+      "7-10": "same_post — consolidate or one should 301 to the other",
+      "4-6": "same_cluster — group together, do not merge content",
+      "2-3": "interlink_only — connect but keep separate",
+      "0-1": "separate — no clustering relationship"
+    },
+    "pairs": [
+      { "kw_a": "slatmill vs walk", "kw_b": "dog treadmill vs walk", "score": 9, "action": "same_post", "post_a": "P5", "post_b": "P7", "note": "Near-identical informational intent; P7 is longer and better structured — P5 should be consolidated into P7 or redirected" },
+      { "kw_a": "high energy dog breeds exercise", "kw_b": "breeds that need more than a walk", "score": 9, "action": "same_post", "post_a": "P6", "post_b": "P8", "note": "Same audience, same SERP page, same answer — P8 (May 28) is thinner but newer; merge P8 content into P6, redirect P8 to P6" },
+      { "kw_a": "how to tire out a high energy dog", "kw_b": "how much exercise does my dog need", "score": 6, "action": "same_cluster", "post_a": "P2", "post_b": "P3", "note": "Adjacent intent — P2 = method-focused, P3 = quantity-focused. Differentiation exists but they share audience. Keep separate, cross-link, differentiate titles more aggressively." },
+      { "kw_a": "what is a dog slatmill", "kw_b": "slatmill vs walk", "score": 6, "action": "same_cluster", "post_a": "P4", "post_b": "P5", "note": "Educational slatmill cluster — equipment explanation vs. comparison. Keep separate, strong internal links." },
+      { "kw_a": "what is a dog slatmill", "kw_b": "dog treadmill vs walk", "score": 7, "action": "same_cluster", "post_a": "P4", "post_b": "P7", "note": "P7 embeds SlatmillExplainer component — overlap in explanation coverage. Differentiate P4 as definitive equipment reference, P7 as behavioral comparison." },
+      { "kw_a": "high energy dog breeds exercise", "kw_b": "how to tire out a high energy dog", "score": 5, "action": "same_cluster", "post_a": "P6", "post_b": "P2", "note": "Breed cluster and conditioning method cluster — separate intents but same audience. Cross-link." },
+      { "kw_a": "structured dog conditioning", "kw_b": "how to tire out a high energy dog", "score": 4, "action": "same_cluster", "post_a": "P1", "post_b": "P2", "note": "P1 is essentially a thin teaser of what P2 covers more completely. P1 should be expanded or absorbed." },
+      { "kw_a": "what is a dog slatmill", "kw_b": "high energy dog breeds exercise", "score": 4, "action": "same_cluster", "post_a": "P4", "post_b": "P6", "note": "Equipment explanation serves breed audience — normal hub-spoke relationship." },
+      { "kw_a": "how much exercise does my dog need", "kw_b": "high energy dog breeds exercise", "score": 4, "action": "same_cluster", "post_a": "P3", "post_b": "P6", "note": "P3 general, P6 breed-specific — natural spoke relationship." },
+      { "kw_a": "slatmill vs walk", "kw_b": "high energy dog breeds exercise", "score": 3, "action": "interlink_only", "post_a": "P5", "post_b": "P6" },
+      { "kw_a": "structured dog conditioning", "kw_b": "what is a dog slatmill", "score": 3, "action": "interlink_only", "post_a": "P1", "post_b": "P4" },
+      { "kw_a": "mobile dog gym Destin FL", "kw_b": "what is a dog slatmill", "score": 2, "action": "interlink_only", "post_a": "P9", "post_b": "P4" }
+    ]
+  },
+
+  "cannibalization_risks": [
+    {
+      "severity": "HIGH",
+      "posts": ["P5", "P7"],
+      "slugs": ["slatmill-vs-long-walk", "dog-treadmill-vs-walk-comparison"],
+      "primary_competing_keyword": "slatmill vs walk / dog treadmill vs walk",
+      "evidence": "Both posts answer the same question — walk vs. slatmill/treadmill — with overlapping H2 structure, the same SlatmillExplainer component, and near-identical conclusions. P7 is substantially longer (~1,150 words), has a differentiated breed-specific angle, and already has better keyword targeting in the title/slug. P5 is 500 words, less structured, and is fully subsumed by P7 in coverage.",
+      "recommendation": "Redirect P5 (/blog/slatmill-vs-long-walk/) to P7 (/blog/dog-treadmill-vs-walk-comparison/). Preserve any unique P5 content — specifically the Florida/weather section — by merging it into P7 before redirecting. Update all internal links pointing to P5."
+    },
+    {
+      "severity": "HIGH",
+      "posts": ["P6", "P8"],
+      "slugs": ["high-energy-dog-breeds-exercise-guide", "high-energy-dog-breeds-need-more-than-a-walk"],
+      "primary_competing_keyword": "high energy dog breeds exercise / breeds that need more than a walk",
+      "evidence": "Both posts list the same 6-7 breeds (Malinois, Ridgeback, Husky, Border Collie, Shepherd, Vizsla/Weimaraner), both explain why walks do not work, both end with a slatmill CTA. P6 has better depth (~700w, 7 named breeds, 'why walks fail' math section, 'what actually works' section). P8 (~650w) is structurally thinner with shorter breed blurbs. P8's slug contains the keyword 'need-more-than-a-walk' which overlaps directly with P6's title.",
+      "recommendation": "Keep P6 (/blog/high-energy-dog-breeds-exercise-guide/) as canonical. Migrate P8's unique content (Kai origin story paragraph, shorter punchy format) into P6 as an intro or sidebar element. Redirect P8 to P6."
+    },
+    {
+      "severity": "MEDIUM",
+      "posts": ["P2", "P3"],
+      "slugs": ["how-to-tire-out-a-high-energy-dog", "how-much-exercise-does-my-dog-need"],
+      "primary_competing_keyword": "high energy dog exercise needs",
+      "evidence": "P2 and P3 target adjacent but distinct queries. P2 = 'how to tire out' (method-focused), P3 = 'how much exercise' (quantity-focused). Both mention the same insufficiency of walks, both recommend slatmill, both target the same high-drive dog owner. SERP overlap is ~6/10 — same cluster but defensibly different.",
+      "recommendation": "Keep both but differentiate more aggressively. P3 should focus purely on diagnosis/quantity (signals of under-exercise, breed drive levels, time requirements). P2 should focus purely on method/tactics (what types of exercise work, slatmill mechanics, protocol). Add explicit cross-links between them in both directions. Ensure P2 title and meta do not use quantity framing and P3 does not use method framing."
+    },
+    {
+      "severity": "LOW",
+      "posts": ["P1", "P2"],
+      "slugs": ["why-structured-runs-matter", "how-to-tire-out-a-high-energy-dog"],
+      "primary_competing_keyword": "structured dog exercise / dog conditioning",
+      "evidence": "P1 is a 350-word brand manifesto that partially covers the same ground as P2 (why structure matters, what owners notice). It has no standalone ranking keyword and is too thin to rank independently.",
+      "recommendation": "Expand P1 into a true pillar on 'canine conditioning science' OR convert it to a long-form piece targeting 'why structured exercise matters for dogs' with a clear differentiation from P2. Alternatively, redirect to P2 and use its content as P2's introduction section."
+    }
+  ],
+
+  "pillar_opportunities": [
+    {
+      "id": "PILLAR-1",
+      "proposed_title": "Dog Slatmill: Complete Guide — What It Is, How It Works, and Whether Your Dog Needs One",
+      "target_url": "/blog/dog-slatmill-guide/",
+      "target_keyword": "dog slatmill",
+      "secondary_keywords": ["what is a dog slatmill", "slatmill vs motorized treadmill", "slatmill for dogs benefits", "dog slatmill conditioning"],
+      "intent": "Informational",
+      "rationale": "The query 'what is a dog slatmill' is the top-of-funnel informational anchor for this entire business. No single page currently owns it — P4 is the closest but is formatted as a short blog post, not a comprehensive guide. A 2,500–3,000 word pillar here captures the full informational funnel and creates the hub all slatmill-related spokes link back to.",
+      "template": "pillar_hub",
+      "word_count_target": 2800,
+      "existing_post_to_expand": "P4",
+      "action": "expand_P4_into_pillar"
+    },
+    {
+      "id": "PILLAR-2",
+      "proposed_title": "High-Drive Dog Exercise Guide: How to Actually Drain a Working Breed",
+      "target_url": "/blog/high-drive-dog-exercise-guide/",
+      "target_keyword": "high drive dog exercise",
+      "secondary_keywords": ["how much exercise does a high energy dog need", "working dog conditioning", "tire out a high energy dog", "high drive dog behavior"],
+      "intent": "Informational",
+      "rationale": "The conditioning science cluster has no hub. Posts P1, P2, P3 all orbit this topic without a central pillar. A comprehensive guide on 'high drive dog exercise' unifies the cluster, captures broader search volume, and creates a natural spoke architecture.",
+      "template": "pillar_hub",
+      "word_count_target": 3000,
+      "action": "create_new"
+    },
+    {
+      "id": "PILLAR-3",
+      "proposed_title": "Mobile Dog Gym Destin FL — Kai's Run Slatmill Conditioning Service",
+      "target_url": "/blog/mobile-dog-gym-destin-fl/",
+      "target_keyword": "mobile dog gym Destin FL",
+      "secondary_keywords": ["dog exercise service Destin FL", "dog conditioning Destin", "mobile slatmill Destin", "dog gym Fort Walton Beach"],
+      "intent": "Commercial",
+      "rationale": "No post currently targets the primary business keyword. The current homepage owns this but a dedicated blog/landing post amplifies local authority and captures informational + commercial blended queries. This also provides a hub for city-specific spokes.",
+      "template": "local_commercial_hub",
+      "word_count_target": 1800,
+      "action": "create_new"
+    }
+  ],
+
+  "content_gaps": [
+    {
+      "priority": 1,
+      "topic": "Mobile dog gym Destin FL (local commercial)",
+      "keyword": "mobile dog gym Destin FL",
+      "intent": "Commercial",
+      "reason": "The primary business keyword has zero blog coverage. Competitors with more content authority can outrank a homepage alone. A local-commercial blog post bridges the informational and transactional gap.",
+      "proposed_post": "What Is a Mobile Dog Gym? (And Why Destin Dog Owners Are Booking One)",
+      "target_url": "/blog/mobile-dog-gym-destin-fl/"
+    },
+    {
+      "priority": 2,
+      "topic": "City-specific landing pages for Fort Walton Beach and Niceville",
+      "keyword": "dog conditioning Fort Walton Beach FL / dog exercise service Niceville FL",
+      "intent": "Commercial / Local",
+      "reason": "Service area pages exist at /service-area/ but no blog content supports local keyword clusters for FWB or Niceville. These two cities represent untapped search surface for 'near me' type queries.",
+      "proposed_post": "Dog Conditioning in Fort Walton Beach FL — What Kai's Run Offers",
+      "target_url": "/blog/dog-conditioning-fort-walton-beach/"
+    },
+    {
+      "priority": 3,
+      "topic": "Belgian Malinois exercise guide",
+      "keyword": "Belgian Malinois exercise needs / how to exercise a Malinois",
+      "intent": "Informational",
+      "reason": "Malinois owners are the highest-intent audience segment for this service. They are over-represented in 'high drive dog' forums and under-served by generic dog exercise content. A dedicated Malinois exercise guide would rank for high-specificity queries and convert at high rates.",
+      "proposed_post": "Belgian Malinois Exercise Needs: Why Walks Fail and What Actually Works",
+      "target_url": "/blog/belgian-malinois-exercise-needs/"
+    },
+    {
+      "priority": 4,
+      "topic": "Rhodesian Ridgeback exercise guide",
+      "keyword": "Rhodesian Ridgeback exercise / Ridgeback conditioning",
+      "intent": "Informational",
+      "reason": "Kai is a Ridgeback mix — the brand origin story is built around this breed. A dedicated Ridgeback exercise post provides a unique brand authority signal and targets a loyal, high-intent niche.",
+      "proposed_post": "Rhodesian Ridgeback Exercise Guide: How Kai's Run Was Built for This Breed",
+      "target_url": "/blog/rhodesian-ridgeback-exercise-guide/"
+    },
+    {
+      "priority": 5,
+      "topic": "Slatmill session cost / pricing",
+      "keyword": "how much does a slatmill session cost / dog treadmill session price",
+      "intent": "Commercial",
+      "reason": "No blog post addresses cost or value. This is a high-converting query category. A transparent pricing explainer post (linking to /pricing/) captures commercial intent searchers who want to understand value before booking.",
+      "proposed_post": "How Much Does a Dog Slatmill Session Cost? What You Actually Get",
+      "target_url": "/blog/dog-slatmill-session-cost/"
+    },
+    {
+      "priority": 6,
+      "topic": "Dog exercise in Florida heat",
+      "keyword": "how to exercise dog in Florida summer / Florida dog exercise heat",
+      "intent": "Informational",
+      "reason": "The Florida climate creates a genuine barrier to dog exercise that competitors without a mobile/driveway model cannot solve. A seasonal/regional post captures local searches and creates a direct conversion argument for the mobile model.",
+      "proposed_post": "How to Exercise Your Dog in Florida Summer Heat (Without the Risk)",
+      "target_url": "/blog/dog-exercise-florida-summer-heat/"
+    },
+    {
+      "priority": 7,
+      "topic": "Dog slatmill safety / is slatmill safe for dogs",
+      "keyword": "is a slatmill safe for dogs / dog treadmill safety",
+      "intent": "Informational",
+      "reason": "Objection-handling content that captures safety-concerned prospects. High commercial intent behind the safety question — these are people actively considering the service.",
+      "proposed_post": "Is a Slatmill Safe for Dogs? What to Know Before the First Session",
+      "target_url": "/blog/is-a-slatmill-safe-for-dogs/"
+    },
+    {
+      "priority": 8,
+      "topic": "Dog daycare vs conditioning comparison",
+      "keyword": "dog daycare vs conditioning / is dog daycare enough exercise",
+      "intent": "Commercial",
+      "reason": "Dog daycare is the primary alternative service competitors offer. Owners comparing options are high-intent prospects. A comparison post positions Kai's Run against the alternative directly.",
+      "proposed_post": "Dog Daycare vs. Structured Conditioning: What Actually Tires a Working Breed",
+      "target_url": "/blog/dog-daycare-vs-conditioning/"
+    }
+  ],
+
+  "cluster_architecture": {
+    "clusters": [
+      {
+        "cluster_id": "C1",
+        "name": "Slatmill Education",
+        "pillar": {
+          "id": "PILLAR-1",
+          "title": "Dog Slatmill: Complete Guide",
+          "url": "/blog/dog-slatmill-guide/",
+          "action": "Expand P4 (/blog/what-is-a-dog-slatmill/) into full pillar. Redirect P4 to /blog/dog-slatmill-guide/ after migration.",
+          "word_count_target": 2800,
+          "template": "pillar_hub"
+        },
+        "spokes": [
+          {
+            "id": "C1-S1",
+            "title": "Slatmill vs. Walk: The Real Difference for High-Drive Dogs",
+            "url": "/blog/dog-treadmill-vs-walk-comparison/",
+            "action": "Keep as primary. Merge Florida/weather section from P5 before P5 is redirected. Expand to 1,400 words.",
+            "current_post": "P7",
+            "word_count_target": 1400,
+            "template": "spoke_comparison"
+          },
+          {
+            "id": "C1-S2",
+            "title": "Is a Slatmill Safe for Dogs? What to Know Before the First Session",
+            "url": "/blog/is-a-slatmill-safe-for-dogs/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1300,
+            "template": "spoke_informational"
+          },
+          {
+            "id": "C1-S3",
+            "title": "How Much Does a Dog Slatmill Session Cost?",
+            "url": "/blog/dog-slatmill-session-cost/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1200,
+            "template": "spoke_commercial"
+          }
+        ],
+        "redirects_to_apply": [
+          { "from": "/blog/slatmill-vs-long-walk/", "to": "/blog/dog-treadmill-vs-walk-comparison/", "reason": "Cannibalization — merge unique content first" },
+          { "from": "/blog/what-is-a-dog-slatmill/", "to": "/blog/dog-slatmill-guide/", "reason": "Pillar migration — expand content at new URL" }
+        ]
+      },
+      {
+        "cluster_id": "C2",
+        "name": "Conditioning Science",
+        "pillar": {
+          "id": "PILLAR-2",
+          "title": "High-Drive Dog Exercise Guide: How to Actually Drain a Working Breed",
+          "url": "/blog/high-drive-dog-exercise-guide/",
+          "action": "Create new pillar. P1 (Why Structured Runs Matter) absorbed as an intro section, then P1 redirected here after expansion.",
+          "word_count_target": 3000,
+          "template": "pillar_hub"
+        },
+        "spokes": [
+          {
+            "id": "C2-S1",
+            "title": "How to Tire Out a High-Energy Dog (Without Wrecking Your Schedule)",
+            "url": "/blog/how-to-tire-out-a-high-energy-dog/",
+            "action": "Keep. Expand from ~850w to 1,500 words. Add: specific protocol table, Florida logistics section, mental engagement tools expanded section.",
+            "current_post": "P2",
+            "word_count_target": 1500,
+            "template": "spoke_informational"
+          },
+          {
+            "id": "C2-S2",
+            "title": "How Much Exercise Does My Dog Really Need?",
+            "url": "/blog/how-much-exercise-does-my-dog-need/",
+            "action": "Keep. Expand from ~550w to 1,300 words. Add: drive level diagnostic table, breed-specific minimum thresholds, age/health considerations, CTA to book assessment session.",
+            "current_post": "P3",
+            "word_count_target": 1300,
+            "template": "spoke_informational"
+          },
+          {
+            "id": "C2-S3",
+            "title": "How to Exercise Your Dog in Florida Summer Heat",
+            "url": "/blog/dog-exercise-florida-summer-heat/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1200,
+            "template": "spoke_local"
+          }
+        ],
+        "redirects_to_apply": [
+          { "from": "/blog/why-structured-runs-matter/", "to": "/blog/high-drive-dog-exercise-guide/", "reason": "P1 is thin and fully subsumed by the new pillar — migrate content first" }
+        ]
+      },
+      {
+        "cluster_id": "C3",
+        "name": "Breed-Specific Conditioning",
+        "pillar": {
+          "id": "P6",
+          "title": "The 7 Dog Breeds That Need More Than a Walk (And What Actually Works)",
+          "url": "/blog/high-energy-dog-breeds-exercise-guide/",
+          "action": "Expand from ~700w to 2,500 words. Merge P8 unique content (Kai origin, punchy breed blurbs). Add per-breed exercise protocol table, minimum session frequency by breed, Florida-specific context.",
+          "word_count_target": 2500,
+          "template": "pillar_hub"
+        },
+        "spokes": [
+          {
+            "id": "C3-S1",
+            "title": "Belgian Malinois Exercise Needs: Why Walks Fail and What Actually Works",
+            "url": "/blog/belgian-malinois-exercise-needs/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1400,
+            "template": "spoke_breed"
+          },
+          {
+            "id": "C3-S2",
+            "title": "Rhodesian Ridgeback Exercise Guide: How Kai's Run Was Built for This Breed",
+            "url": "/blog/rhodesian-ridgeback-exercise-guide/",
+            "action": "Create new. Lead with Kai's origin story — strong E-E-A-T signal.",
+            "current_post": null,
+            "word_count_target": 1400,
+            "template": "spoke_breed"
+          },
+          {
+            "id": "C3-S3",
+            "title": "Dog Daycare vs. Structured Conditioning: What Actually Works for Working Breeds",
+            "url": "/blog/dog-daycare-vs-conditioning/",
+            "action": "Create new. Comparison template — high commercial intent.",
+            "current_post": null,
+            "word_count_target": 1300,
+            "template": "spoke_comparison"
+          }
+        ],
+        "redirects_to_apply": [
+          { "from": "/blog/high-energy-dog-breeds-need-more-than-a-walk/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "reason": "Cannibalization — migrate Kai story paragraph and punchy breed section into P6 first" }
+        ]
+      },
+      {
+        "cluster_id": "C4",
+        "name": "Local / Commercial",
+        "pillar": {
+          "id": "PILLAR-3",
+          "title": "Mobile Dog Gym Destin FL — Kai's Run Slatmill Conditioning",
+          "url": "/blog/mobile-dog-gym-destin-fl/",
+          "action": "Create new. Primary local-commercial hub. Links to /services/, /pricing/, /book/. Owned keyword: 'mobile dog gym Destin FL'.",
+          "word_count_target": 1800,
+          "template": "local_commercial_hub"
+        },
+        "spokes": [
+          {
+            "id": "C4-S1",
+            "title": "Dog Conditioning in Fort Walton Beach FL",
+            "url": "/blog/dog-conditioning-fort-walton-beach/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1200,
+            "template": "spoke_local"
+          },
+          {
+            "id": "C4-S2",
+            "title": "Dog Exercise Service Niceville FL",
+            "url": "/blog/dog-exercise-niceville-fl/",
+            "action": "Create new",
+            "current_post": null,
+            "word_count_target": 1200,
+            "template": "spoke_local"
+          }
+        ],
+        "notes": "Welcome post (/blog/welcome/) should be converted to redirect to /blog/mobile-dog-gym-destin-fl/ once that post is live, OR updated to become an explicit service-area landing post. Its current content partially overlaps with this pillar."
+      }
+    ]
+  },
+
+  "internal_link_matrix": {
+    "mandatory_spoke_to_pillar": [
+      { "from": "/blog/dog-treadmill-vs-walk-comparison/", "to": "/blog/dog-slatmill-guide/", "cluster": "C1" },
+      { "from": "/blog/is-a-slatmill-safe-for-dogs/", "to": "/blog/dog-slatmill-guide/", "cluster": "C1" },
+      { "from": "/blog/dog-slatmill-session-cost/", "to": "/blog/dog-slatmill-guide/", "cluster": "C1" },
+      { "from": "/blog/how-to-tire-out-a-high-energy-dog/", "to": "/blog/high-drive-dog-exercise-guide/", "cluster": "C2" },
+      { "from": "/blog/how-much-exercise-does-my-dog-need/", "to": "/blog/high-drive-dog-exercise-guide/", "cluster": "C2" },
+      { "from": "/blog/dog-exercise-florida-summer-heat/", "to": "/blog/high-drive-dog-exercise-guide/", "cluster": "C2" },
+      { "from": "/blog/belgian-malinois-exercise-needs/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "cluster": "C3" },
+      { "from": "/blog/rhodesian-ridgeback-exercise-guide/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "cluster": "C3" },
+      { "from": "/blog/dog-daycare-vs-conditioning/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "cluster": "C3" },
+      { "from": "/blog/dog-conditioning-fort-walton-beach/", "to": "/blog/mobile-dog-gym-destin-fl/", "cluster": "C4" },
+      { "from": "/blog/dog-exercise-niceville-fl/", "to": "/blog/mobile-dog-gym-destin-fl/", "cluster": "C4" }
+    ],
+    "mandatory_pillar_to_spoke": [
+      { "from": "/blog/dog-slatmill-guide/", "to": "/blog/dog-treadmill-vs-walk-comparison/", "cluster": "C1" },
+      { "from": "/blog/dog-slatmill-guide/", "to": "/blog/is-a-slatmill-safe-for-dogs/", "cluster": "C1" },
+      { "from": "/blog/dog-slatmill-guide/", "to": "/blog/dog-slatmill-session-cost/", "cluster": "C1" },
+      { "from": "/blog/high-drive-dog-exercise-guide/", "to": "/blog/how-to-tire-out-a-high-energy-dog/", "cluster": "C2" },
+      { "from": "/blog/high-drive-dog-exercise-guide/", "to": "/blog/how-much-exercise-does-my-dog-need/", "cluster": "C2" },
+      { "from": "/blog/high-drive-dog-exercise-guide/", "to": "/blog/dog-exercise-florida-summer-heat/", "cluster": "C2" },
+      { "from": "/blog/high-energy-dog-breeds-exercise-guide/", "to": "/blog/belgian-malinois-exercise-needs/", "cluster": "C3" },
+      { "from": "/blog/high-energy-dog-breeds-exercise-guide/", "to": "/blog/rhodesian-ridgeback-exercise-guide/", "cluster": "C3" },
+      { "from": "/blog/high-energy-dog-breeds-exercise-guide/", "to": "/blog/dog-daycare-vs-conditioning/", "cluster": "C3" },
+      { "from": "/blog/mobile-dog-gym-destin-fl/", "to": "/blog/dog-conditioning-fort-walton-beach/", "cluster": "C4" },
+      { "from": "/blog/mobile-dog-gym-destin-fl/", "to": "/blog/dog-exercise-niceville-fl/", "cluster": "C4" }
+    ],
+    "recommended_cross_cluster": [
+      { "from": "/blog/high-energy-dog-breeds-exercise-guide/", "to": "/blog/dog-slatmill-guide/", "rationale": "Breed pillar references equipment — natural link" },
+      { "from": "/blog/high-energy-dog-breeds-exercise-guide/", "to": "/blog/high-drive-dog-exercise-guide/", "rationale": "Breed specificity to general conditioning science" },
+      { "from": "/blog/how-to-tire-out-a-high-energy-dog/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "rationale": "Method post references breed context" },
+      { "from": "/blog/dog-treadmill-vs-walk-comparison/", "to": "/blog/high-energy-dog-breeds-exercise-guide/", "rationale": "Comparison post has breed-specific 'who this is for' section" },
+      { "from": "/blog/belgian-malinois-exercise-needs/", "to": "/blog/dog-slatmill-guide/", "rationale": "Breed spoke links to equipment explanation" },
+      { "from": "/blog/rhodesian-ridgeback-exercise-guide/", "to": "/blog/dog-slatmill-guide/", "rationale": "Breed spoke links to equipment explanation" },
+      { "from": "/blog/mobile-dog-gym-destin-fl/", "to": "/blog/dog-slatmill-guide/", "rationale": "Local post explains the equipment to local prospects" },
+      { "from": "/blog/dog-exercise-florida-summer-heat/", "to": "/blog/mobile-dog-gym-destin-fl/", "rationale": "Florida-specific spoke converts to local commercial" }
+    ],
+    "mandatory_blog_to_service_pages": [
+      { "from": "ALL_PILLARS", "to": "/services/", "anchor": "see how sessions are structured" },
+      { "from": "ALL_PILLARS", "to": "/pricing/", "anchor": "view session pricing" },
+      { "from": "ALL_PILLARS", "to": "/book/", "anchor": "book an intro session" },
+      { "from": "ALL_COMMERCIAL_SPOKES", "to": "/pricing/", "anchor": "current pricing" },
+      { "from": "ALL_COMMERCIAL_SPOKES", "to": "/book/", "anchor": "book now" }
+    ]
+  },
+
+  "expansion_priorities": [
+    {
+      "rank": 1,
+      "post": "P4 — What Is a Dog Slatmill?",
+      "url": "/blog/what-is-a-dog-slatmill/",
+      "current_words": 750,
+      "action": "Expand into pillar at /blog/dog-slatmill-guide/ (2,800 words). Add: slatmill anatomy diagram description, self-powered vs motorized full comparison table, breed suitability matrix, first session walkthrough, FAQs, citations to canine sports physiology resources. Then 301 original URL.",
+      "rationale": "Top-of-funnel anchor for the entire business. Single highest-leverage expansion."
+    },
+    {
+      "rank": 2,
+      "post": "P6 — High-Energy Dog Breeds Exercise Guide",
+      "url": "/blog/high-energy-dog-breeds-exercise-guide/",
+      "current_words": 700,
+      "action": "Expand to 2,500 words in place. Merge P8 content. Add per-breed exercise minimums table, Malinois/Ridgeback deep sections, Florida heat angle, competitor comparison (daycare vs conditioning).",
+      "rationale": "Breed cluster pillar. High search volume target. Also resolves P8 cannibalization."
+    },
+    {
+      "rank": 3,
+      "post": "P2 — How to Tire Out a High-Energy Dog",
+      "url": "/blog/how-to-tire-out-a-high-energy-dog/",
+      "current_words": 850,
+      "action": "Expand to 1,500 words. Add: structured protocol table (sessions per week by drive level), mental engagement section expanded, Florida logistics section, explicit slatmill vs. alternatives comparison table.",
+      "rationale": "Best-performing thin post by current word count. Targets highest-volume informational query in this niche."
+    },
+    {
+      "rank": 4,
+      "post": "P3 — How Much Exercise Does My Dog Really Need?",
+      "url": "/blog/how-much-exercise-does-my-dog-need/",
+      "current_words": 550,
+      "action": "Expand to 1,300 words. Add: drive level diagnostic quiz/checklist, breed minimum thresholds table, signs of under-exercise enumerated list, age/health caveats section.",
+      "rationale": "High-volume 'how much exercise' query. Needs to be clearly differentiated from P2 by focusing on diagnosis/quantity rather than method."
+    },
+    {
+      "rank": 5,
+      "post": "P7 — Slatmill vs. Walk (dog-treadmill-vs-walk-comparison)",
+      "url": "/blog/dog-treadmill-vs-walk-comparison/",
+      "current_words": 1150,
+      "action": "Merge Florida/weather content from P5 before P5 is redirected. Expand to 1,400 words. Add: energy expenditure comparison data, behavioral outcomes section with specific examples.",
+      "rationale": "Receives the P5 redirect — must be the definitive comparison post before redirect is applied."
+    },
+    {
+      "rank": 6,
+      "post": "P1 — Why Structured Runs Matter",
+      "url": "/blog/why-structured-runs-matter/",
+      "current_words": 350,
+      "action": "Redirect to /blog/high-drive-dog-exercise-guide/ once that pillar is live. Migrate unique content (safety section, owner outcomes framing) into the pillar first.",
+      "rationale": "Too thin to expand cost-effectively. Content is better absorbed into the conditioning science pillar."
+    }
+  ],
+
+  "validation_checklist": {
+    "no_duplicate_primary_keywords": true,
+    "every_spoke_has_3_plus_incoming_links": {
+      "status": "PARTIALLY — existing spokes need related posts updated. New spokes will have links from pillar + cross-cluster. Verify after content is created.",
+      "note": "P2, P3, P6, P7 already receive 3+ links from existing related post blocks and service pages. New spokes must be added to existing pillar outlinks before launch."
+    },
+    "every_spoke_links_to_pillar": true,
+    "pillar_links_to_every_spoke": true,
+    "no_orphan_pages": {
+      "status": "RISK — /blog/welcome/ is currently semi-orphaned with no cluster role. Resolve by redirecting to /blog/mobile-dog-gym-destin-fl/ after C4 pillar is created, or converting to that post."
+    },
+    "template_matches_intent": true,
+    "word_count_in_spec": {
+      "status": "FAIL for P1 (350w), P3 (550w), P5 (500w), P9 (350w) — all below 1,200w floor. Expansion plan addresses all four."
+    },
+    "cluster_size_in_bounds": {
+      "status": "PASS — 4 clusters, each with 1 pillar + 2-3 spokes = within 2-5 cluster, 2-4 spoke constraints."
+    },
+    "serp_overlap_supports_groupings": {
+      "status": "PASS for estimated scores. Note: live SERP validation recommended for C2 pair (P2/P3) where differentiation is borderline at ~6/10 overlap."
+    }
+  }
+}

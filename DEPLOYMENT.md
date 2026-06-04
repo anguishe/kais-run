@@ -1,39 +1,157 @@
-# Deploying Kai's Run to GitHub Pages
+# Kai's Run — Deployment Reference
 
-## Initial Deployment
+**Host:** GitHub Pages (static export)
+**Repo:** anguishe/kais-run
+**Live site:** https://kaisrun.xyz
+**Last updated:** 2026-06-04
 
-1. Create GitHub repo named 'kais-run' at github.com
-2. In terminal: `git init`, `git add .`, `git commit -m "Initial build"`
-3. `git remote add origin https://github.com/YOUR_USERNAME/kais-run.git`
-4. `git push -u origin main`
-5. On GitHub: Settings → Pages → Source: GitHub Actions
-6. Wait ~2 min, site live at `https://YOUR_USERNAME.github.io/kais-run`
+---
+
+## Stack Constraints — Read First
+
+This is a Next.js static export deployed to GitHub Pages. That means:
+
+- `output: 'export'` in `next.config.js` — hard constraint
+- No SSR, no API routes, no server actions, no middleware in production
+- No custom HTTP headers (no CSP, no HSTS via GitHub Pages)
+- No automatic image optimization (`images.unoptimized: true`)
+- Use plain `<img>` tags — never `next/image`
+- 301 redirects via Cloudflare redirect rules, not Next.js middleware
+- `trailingSlash: true` — all internal links and sitemaps use trailing slashes
+
+---
+
+## Deploy Flow
+
+Every push to `main` triggers the GitHub Actions workflow:
+
+```
+git add .
+git commit -m "your message"
+git push origin main
+```
+
+Build runs in ~2 minutes. Check status at: `https://github.com/anguishe/kais-run/actions`
+
+---
+
+## Environment Variables
+
+All `NEXT_PUBLIC_*` variables must exist in **two places** or they are undefined in production:
+
+1. GitHub repo → Settings → Secrets and Variables → Actions → **New repository secret**
+2. `.github/workflows/deploy.yml` → `env:` block in the build step
+
+Example `deploy.yml` build step:
+```yaml
+- name: Build
+  run: npm run build
+  env:
+    NEXT_PUBLIC_GOOGLE_ADS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ADS_ID }}
+    NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL: ${{ secrets.NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL }}
+```
+
+Variables only in GitHub Secrets but not in `deploy.yml` will be `undefined` at build time.
+
+---
 
 ## Updating Founding Athlete Spots
 
-When a spot sells:
-
-1. Open `public/data/config.json`
-2. Decrease `remaining` by 1
-3. Update `lastUpdated` to today's date
-4. Save and push:
+When a spot sells, update the counter:
 
 ```bash
-git add public/data/config.json && git commit -m "Spots: [N] remaining" && git push
+# Edit public/data/config.json
+# Decrease "remaining" by 1
+# Update "lastUpdated" to today's date
+
+git add public/data/config.json
+git commit -m "Spots: [N] remaining"
+git push
 ```
 
-Site rebuilds in ~2 minutes.
+Site rebuilds in ~2 minutes. The `SpotsCounter` component imports this JSON at build time — no client-side fetch.
 
-## Adding Real Photos
+---
 
-Drop photos into `public/images/` (see filenames in README)  
-Push to GitHub — site rebuilds automatically.
+## Adding Blog Posts
 
-## Connecting Custom Domain (when ready)
+1. Create `content/blog/[slug].mdx` with MDX content
+2. Add entry to `lib/blog/posts.ts` with all metadata fields
+3. Update `public/sitemap.xml` — add new `<url>` block
+4. Update `public/llms.txt` — add post under blog section
+5. Run `npm run build` locally and confirm exit code 0
+6. Push to main and wait for GitHub Actions to complete
+7. Ping IndexNow after pages are live:
+   ```bash
+   curl "https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/[SLUG]/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n"
+   curl "https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n"
+   ```
+8. In Google Search Console → URL Inspection → request indexing for the new URL
 
-Production domain: **kaisrun.xyz** (`public/CNAME` must list `kaisrun.xyz`).
+---
 
-1. In `next.config.js`: remove `basePath` entirely (if it was set for the GitHub Pages subpath).
-2. GitHub: Settings → Pages → Custom domain → enter `kaisrun.xyz`.
-3. At your DNS registrar: add a **CNAME** for `@` or `www` as required by GitHub Pages (often `www` → `YOUR_USERNAME.github.io`; apex may use A/ALIAS per GitHub docs).
-4. Enable **Enforce HTTPS** in GitHub Pages settings after DNS validates.
+## Adding Service Area Pages
+
+1. Add city slug to `lib/service-area/cities.ts` (or wherever `generateStaticParams` reads from)
+2. Create page content — minimum 700 words with genuine neighborhood differentiation
+3. Add `Service` schema using `buildServiceAreaSchema(city)` helper in `lib/seo/`
+4. Add `BreadcrumbList` schema
+5. Add to `public/sitemap.xml`
+6. Add to `public/llms.txt`
+7. Update footer city links if needed
+8. Add cross-links from adjacent city pages
+9. Ping IndexNow after deploy
+
+---
+
+## Redirects (301)
+
+Static export cannot handle redirects via Next.js middleware. Options:
+
+**Option A — Cloudflare redirect rules (preferred):**
+Set up in Cloudflare dashboard → Rules → Redirect Rules. Requires Cloudflare as DNS proxy (already in use for the Cloudflare Worker).
+
+**Option B — Meta refresh (fallback):**
+Replace old page content with:
+```html
+<meta http-equiv="refresh" content="0;url=/blog/[target-slug]/" />
+```
+Not ideal for SEO but functional.
+
+---
+
+## Custom Domain
+
+Custom domain is live: `kaisrun.xyz`
+- `public/CNAME` contains `kaisrun.xyz`
+- DNS configured at registrar pointing to GitHub Pages
+- HTTPS enforced in GitHub Pages settings
+- www redirect handled by GitHub Pages
+
+---
+
+## Local Development
+
+```bash
+npm install
+npm run dev          # dev server at localhost:3000
+npm run build        # static export to /out — always verify before pushing
+npm run lint
+```
+
+**Browser cache is a common false alarm.** When deploying, always test in incognito or hard refresh (`Cmd+Shift+R`) before doing a re-deploy. Confirm with curl before assuming a bug.
+
+---
+
+## Post-Deploy Verification Checklist
+
+After every significant deploy:
+
+- [ ] Visit canonical URL, confirm content renders
+- [ ] View source: check `<title>`, `<meta description>`, canonical tag, JSON-LD
+- [ ] Check `/sitemap.xml` is accessible
+- [ ] Check `/llms.txt` is accessible
+- [ ] Check `/robots.txt` — confirm `/book/` is NOT in Disallow
+- [ ] Test `/book/` loads the Square booking widget
+- [ ] IndexNow pinged for any new URLs
+- [ ] Google Search Console: request indexing for new URLs if high priority

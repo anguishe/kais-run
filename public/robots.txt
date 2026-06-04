@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you/
 Disallow: /api/
-Disallow: /book/
 Sitemap: https://kaisrun.xyz/sitemap.xml

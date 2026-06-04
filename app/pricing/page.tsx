@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { PricingPageClient } from './PricingPageClient';
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'Pricing', path: '/pricing/' },
+]);
+
 const PRICING_DESCRIPTION =
-  'Structured canine conditioning sessions in Destin, Fort Walton Beach & Niceville FL. Intro session from $35. Founding Athlete Program: $200 for 5 sessions — 20 spots only.';
+  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35. Founding Athlete: $200 for 5 sessions — 20 spots.';
 
 export const metadata: Metadata = {
   title: 'Pricing | Mobile Dog Gym Destin FL',
@@ -50,6 +56,10 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Google Ads placements: pricing-top, pricing-mid, pricing-bottom — see PricingPageClient */}
       <PricingPageClient />

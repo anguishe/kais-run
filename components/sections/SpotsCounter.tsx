@@ -1,58 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 
-const FALLBACK_TOTAL = 20;
-const FALLBACK_REMAINING = 20;
-
-type FoundingSpots = {
-  total: number;
+type Props = {
   remaining: number;
+  total: number;
 };
 
-function SpotsCounterSkeleton() {
-  return (
-    <section className="bg-brand-charcoal py-24 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto text-center animate-pulse">
-        <div className="h-8 bg-brand-black/60 rounded mx-auto max-w-md mb-4" />
-        <div className="w-full h-2 bg-brand-black rounded-full mb-4" />
-        <div className="h-4 bg-brand-black/40 rounded mx-auto max-w-xs" />
-      </div>
-    </section>
-  );
-}
-
-export function SpotsCounter() {
-  const [spots, setSpots] = useState<FoundingSpots | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/data/config.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load spots config');
-        return res.json();
-      })
-      .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
-        const fs = data.foundingSpots;
-        setSpots({
-          total: fs?.total ?? FALLBACK_TOTAL,
-          remaining: fs?.remaining ?? FALLBACK_REMAINING,
-        });
-      })
-      .catch(() => {
-        setSpots({ total: FALLBACK_TOTAL, remaining: FALLBACK_REMAINING });
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) {
-    return <SpotsCounterSkeleton />;
-  }
-
-  const total = spots?.total ?? FALLBACK_TOTAL;
-  const remaining = spots?.remaining ?? FALLBACK_REMAINING;
+export function SpotsCounter({ remaining, total }: Props) {
   const sold = total - remaining;
   const pct = (sold / total) * 100;
 

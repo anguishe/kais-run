@@ -1,6 +1,12 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { ServicesPageClient } from './ServicesPageClient';
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+]);
 
 const SERVICES_DESCRIPTION =
   'Mobile slatmill conditioning delivered to your driveway in Destin and Fort Walton Beach FL. Intro from $35. Founding Athlete: $200 for 5 sessions — 20 spots.';
@@ -51,6 +57,10 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Google Ads placements: services-top, services-mid, services-sidebar — see ServicesPageClient */}
       <ServicesPageClient />

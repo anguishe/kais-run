@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
+import { buildServiceAreaSchema } from '@/lib/seo/service-area-schema';
 import { CityServiceAreaClient } from '@/components/sections/CityServiceAreaClient';
 import {
   SERVICE_CITY_PAGES,
@@ -61,11 +62,17 @@ export default async function ServiceCityPage({ params }: PageProps) {
     { name: city.name, path: getServiceCityPath(city.slug) },
   ]);
 
+  const serviceAreaJsonLd = buildServiceAreaSchema({ name: city.name, slug: city.slug });
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceAreaJsonLd) }}
       />
       <CityServiceAreaClient city={city} />
     </>

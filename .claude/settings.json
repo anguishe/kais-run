@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /home/angsec/.claude/skills/seo-audit/scripts/ 2>/dev/null || echo \"No scripts dir\")",
+      "Read(//home/angsec/.claude/skills/seo-audit/**)",
+      "Bash(python /home/angsec/.claude/skills/seo-audit/scripts/google_auth.py --check)",
+      "Bash(python /home/angsec/.claude/skills/seo-audit/scripts/backlinks_auth.py --check)",
+      "Bash(python /home/angsec/.claude/skills/seo-audit/scripts/drift_history.py https://kaisrun.xyz)",
+      "WebFetch(domain:kaisrun.xyz)",
+      "Bash(npm run *)",
+      "Bash(identify /home/angsec/Projects/kais-run/public/images/logos/kr-logo-1.webp)",
+      "Bash(identify /home/angsec/Projects/kais-run/public/images/hero/hero-main.webp)",
+      "Bash(npm install *)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
