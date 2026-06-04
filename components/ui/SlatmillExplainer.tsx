@@ -32,7 +32,7 @@ export default function SlatmillExplainer({
       ) : null}
 
       <figure className="mb-8">
-        <div className="relative overflow-hidden rounded-xl border border-brand-teal/15 bg-brand-black">
+        <div className="relative aspect-video overflow-hidden rounded-xl border border-brand-teal/15 bg-brand-black">
           <img
             src={SLATMILL_ILLUSTRATION_SRC}
             alt={SLATMILL_ILLUSTRATION_ALT}

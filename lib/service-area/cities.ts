@@ -1,4 +1,9 @@
-export type ServiceCitySlug = 'destin' | 'fort-walton-beach' | 'niceville';
+export type ServiceCitySlug = 'destin' | 'fort-walton-beach' | 'niceville' | 'miramar-beach' | 'sandestin';
+
+type ContentSection = {
+  h2: string;
+  paragraph: string;
+};
 
 export type ServiceCityPage = {
   slug: ServiceCitySlug;
@@ -10,7 +15,10 @@ export type ServiceCityPage = {
   eyebrow: string;
   neighborhoodsLabel: string;
   neighborhoods: string[];
-  paragraphs: string[];
+  paragraphs?: string[];
+  introText?: string;
+  sections?: ContentSection[];
+  crossLinks?: Array<{ slug: ServiceCitySlug; name: string }>;
   hubTeaser: string;
 };
 
@@ -34,6 +42,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Summer heat and humidity make outdoor runs risky for dogs who do not know when to quit. The mobile unit keeps sessions controlled while still loading real cardiovascular work. High-drive breeds common in Destin — ridgebacks, shepherds, dock-diving retrievers, cattle dogs — need sustained aerobic output, not another sniff loop on the harbor walk. A 30–45 minute slatmill session loads the system the way natural running does, with the dog controlling every step.",
       "Holiday Isle and Crystal Beach rentals see the same story every peak week: the humans are sun-tired, the dog is not. Henderson Beach walks are enrichment, not conditioning. Destin Commons and the mid-town corridors fill with families who chose this coast for quality of life — and quality of life includes a dog who can settle at dinner. You get a progress photo and written recap within an hour after each visit. Your dog comes home measurably tired.",
       "Intro sessions start at $35 for one dog. The Founding Athlete program — $200 for five sessions, limited to 20 dogs — is a one-time rate that will not return once those spots are gone. Whether you are here for the season or call Destin home year-round, book online and we confirm your address on the day's route. Questions before you commit? Call or text 850-218-5855 — Travis responds personally.",
+    ],
+    crossLinks: [
+      { slug: 'miramar-beach', name: 'Miramar Beach' },
+      { slug: 'sandestin', name: 'Sandestin' },
     ],
   },
   {
@@ -76,6 +88,62 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Rocky Bayou and the College Boulevard corridor see the same pattern: families chose Niceville for schools, space, and a quieter pace — then discover the dog still needs a real outlet. Bayou-side walks along Choctawhatchee Bay are beautiful enrichment, but they rarely hold a steady heart rate for working breeds. A dog treadmill session in your driveway concentrates that load into a bounded appointment with a clear warm-up and cool-down.",
       "A slatmill is self-powered: the dog drives the belt with their own gait, slows when they need recovery, and stops when they choose. That self-regulation matters for anxious or noise-sensitive dogs who shut down in group environments. Sessions run 30–45 minutes door-to-door. Most dogs accumulate 15–30 minutes of actual mill work depending on fitness and weather. You receive a photo and plain-language recap within an hour.",
       "Intro sessions are $35 for one dog. Two dogs from the same household are $55 — never group sessions, always private to your address. The Founding Athlete program offers five sessions for $200 while spots remain (20 dogs total, one-time offer). Niceville families who want predictable cadence can compare bundles and memberships on pricing after the first visit. Book online and we confirm your neighborhood on the route — or call 850-218-5855 with address questions before you schedule.",
+    ],
+  },
+  {
+    slug: 'miramar-beach',
+    name: 'Miramar Beach',
+    state: 'FL',
+    title: "Mobile Dog Gym in Miramar Beach, FL | Kai's Run",
+    description:
+      "Kai's Run brings slatmill conditioning to Miramar Beach driveways — Grand Boulevard, Silver Sands, Maravilla. Private sessions for high-drive dogs on 30A. Book online.",
+    h1: 'Mobile Dog Gym in Miramar Beach, FL',
+    eyebrow: 'Miramar Beach · 30A Corridor',
+    neighborhoodsLabel: 'Neighborhoods we serve in Miramar Beach',
+    neighborhoods: ['Grand Boulevard', 'Silver Sands', 'Maravilla'],
+    hubTeaser:
+      'Between Destin and 30A — private slatmill conditioning for vacation rental owners and second-home residents on the beach road.',
+    introText:
+      "Miramar Beach sits between Destin and 30A — dense with vacation rentals, second homes, and HOA communities where 6 a.m. walks mean navigating parking lots and beach traffic before the day even starts. If your dog is wired and the beach access points are already crowded, a structured conditioning session at your door is a different kind of solution.",
+    sections: [
+      {
+        h2: 'The neighborhood',
+        paragraph:
+          "The Grand Boulevard corridor brings traffic through all summer. The Silver Sands and Maravilla communities are full of owners who work from home, run short-term rentals, or spend months at a stretch on the coast — dogs included. Vacation rental schedules don't always line up with daylight hours suitable for a real workout. The slatmill does.",
+      },
+      {
+        h2: 'What a session looks like in Miramar Beach',
+        paragraph:
+          "We pull up to your driveway — or your vacation rental's parking area, if accessible — and set up in the shade or in the climate-controlled unit. Your dog runs one-on-one. Nobody else's dog, no facility to drive to, no check-in. The session runs 30–45 minutes, and your dog goes back inside calm.",
+      },
+    ],
+  },
+  {
+    slug: 'sandestin',
+    name: 'Sandestin',
+    state: 'FL',
+    title: "Mobile Dog Gym in Sandestin, FL | Kai's Run",
+    description:
+      "Kai's Run serves Sandestin resort community — Baytowne, the Dunes, Burnt Pine, and the Links. Private slatmill conditioning at your door. No drop-off required.",
+    h1: 'Mobile Dog Gym in Sandestin, FL',
+    eyebrow: 'Sandestin · Emerald Coast Resort',
+    neighborhoodsLabel: 'Communities we serve in Sandestin',
+    neighborhoods: ['Baytowne', 'Dunes', 'Links', 'Burnt Pine'],
+    hubTeaser:
+      'Gated resort community — private slatmill sessions routed around HOA access rules. Natural fit for the Founding Athlete Program.',
+    introText:
+      "Sandestin is a gated resort community with HOA rules, tight street parking, and long distances between the Baytowne, Dunes, Links, and Burnt Pine villages. It's a place where people bring their dogs for extended stays — and where the normal \"drive to the dog park\" routine requires a car trip through a toll gate just to leave. The mobile model was made for this.",
+    sections: [
+      {
+        h2: 'Who we serve here',
+        paragraph:
+          "Sandestin owners tend to have high-drive dogs and inconsistent schedules — they're here for a month, then gone, then back for the season. The Founding Athlete Program is a natural fit for this pattern: five sessions with priority booking, at a rate that lets you plan ahead without committing to a weekly standing appointment.",
+      },
+      {
+        h2: 'How it works in Sandestin',
+        paragraph:
+          "We schedule around your availability and your HOA's access rules. If your unit allows vehicles at the door, that's where we set up. If not, we work from a nearby permitted area. Session length and structure are the same anywhere — one dog, 30–45 minutes, no other animals, no distractions.",
+      },
     ],
   },
 ];

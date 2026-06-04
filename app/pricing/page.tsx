@@ -37,6 +37,45 @@ export const metadata: Metadata = {
   },
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What payment methods do you accept?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We accept all major credit cards, Apple Pay, and Google Pay through Square. Payment is collected at time of booking or at the session for walk-ups.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When will standard session pricing be announced?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Standard walk-up pricing will be announced after the Founding Athlete program closes. Intro sessions and Founding Athlete spots are available now.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "What if my dog doesn't take to the slatmill?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Every dog gets the Tired Dog Guarantee. If your dog isn't noticeably tired after a session, we'll work with them on the next session at no charge.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer discounts for multiple dogs?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, all our pricing includes options for two dogs from the same household at a reduced rate. Additional dogs beyond two can be discussed on a case-by-case basis.',
+      },
+    },
+  ],
+};
+
 const pricingSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -60,6 +99,10 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Google Ads placements: pricing-top, pricing-mid, pricing-bottom — see PricingPageClient */}
       <PricingPageClient />

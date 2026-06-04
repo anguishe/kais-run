@@ -13,18 +13,21 @@ const secondaryLocations = [
   {
     city: 'Miramar Beach',
     state: 'FL',
+    href: '/service-area/miramar-beach/',
     description:
       'Serving Miramar Beach from Scenic 98 to the Grand Boulevard corridor — Maravilla, Silver Sands, and the beach road. Same private mobile protocol as our primary cities.',
   },
   {
     city: 'Sandestin',
     state: 'FL',
+    href: '/service-area/sandestin/',
     description:
       'Baytowne, Dunes, Links, and Burnt Pine — we route to Sandestin resort communities for owners who want structured conditioning without leaving the property search for a facility.',
   },
   {
     city: 'Shalimar',
     state: 'FL',
+    href: null,
     description:
       'Shalimar Point, Eglin Parkway access, and the greater north-side corridor. Routed alongside Fort Walton Beach and Niceville visits.',
   },
@@ -148,9 +151,17 @@ export function ServiceAreaPageClient() {
                 <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4">
                   {location.city}, {location.state}
                 </h3>
-                <p className="text-brand-gray font-body text-base md:text-lg leading-relaxed">
+                <p className="text-brand-gray font-body text-base md:text-lg leading-relaxed mb-4">
                   {location.description}
                 </p>
+                {location.href && (
+                  <Link
+                    href={location.href}
+                    className="inline-flex items-center font-body text-sm font-medium text-brand-teal hover:text-brand-offwhite transition-colors"
+                  >
+                    Mobile dog gym in {location.city} →
+                  </Link>
+                )}
               </motion.div>
             </motion.div>
           ))}

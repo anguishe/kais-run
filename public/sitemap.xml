@@ -61,6 +61,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/service-area/miramar-beach/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/service-area/sandestin/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/blog/</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>

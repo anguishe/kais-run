@@ -68,8 +68,19 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
             variants={fadeUp}
             className="space-y-6 font-body text-base leading-relaxed text-brand-gray md:text-lg"
           >
-            {city.paragraphs.map((paragraph) => (
+            {city.introText && <p>{city.introText}</p>}
+
+            {city.paragraphs?.map((paragraph) => (
               <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+
+            {city.sections?.map((section) => (
+              <div key={section.h2}>
+                <h2 className="mt-8 mb-3 font-display text-2xl tracking-tight text-brand-offwhite md:text-3xl">
+                  {section.h2}
+                </h2>
+                <p>{section.paragraph}</p>
+              </div>
             ))}
           </motion.div>
 
@@ -96,6 +107,23 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
             </Link>
             .
           </motion.p>
+
+          {city.crossLinks && city.crossLinks.length > 0 && (
+            <motion.p variants={fadeUp} className="mt-4 font-body text-sm text-brand-gray md:text-base">
+              Also on the Emerald Coast:{' '}
+              {city.crossLinks.map((link, i) => (
+                <span key={link.slug}>
+                  <Link
+                    href={`/service-area/${link.slug}/`}
+                    className="text-brand-teal underline-offset-2 hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                  {i < city.crossLinks!.length - 1 ? ', ' : ''}
+                </span>
+              ))}
+            </motion.p>
+          )}
         </motion.div>
       </section>
 

@@ -17,6 +17,8 @@ const serviceCityLinks = [
   { href: '/service-area/destin/', label: 'Destin' },
   { href: '/service-area/fort-walton-beach/', label: 'Fort Walton Beach' },
   { href: '/service-area/niceville/', label: 'Niceville' },
+  { href: '/service-area/miramar-beach/', label: 'Miramar Beach' },
+  { href: '/service-area/sandestin/', label: 'Sandestin' },
 ];
 
 const socialLinks = [
@@ -91,7 +93,7 @@ export default function Footer() {
               Delivered to your driveway.
             </p>
             <p className="text-brand-gray text-sm leading-relaxed">
-              Destin · Fort Walton Beach · Niceville, FL
+              Destin · Miramar Beach · Sandestin · Fort Walton Beach · Niceville, FL
             </p>
           </div>
 
