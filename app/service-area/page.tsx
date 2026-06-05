@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar & surrounding Okaloosa County with mobile dog conditioning.",
     type: 'website',
     locale: 'en_US',
+    url: 'https://kaisrun.xyz/service-area/',
     images: [
       {
         url: OG_IMAGE_URL,

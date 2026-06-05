@@ -1,20 +1,30 @@
 import type { Metadata } from 'next';
 import BookPageClient from './BookPageClient';
 
+const BOOK_DESCRIPTION =
+  "Book a mobile dog conditioning session in Destin, Fort Walton Beach or Niceville FL. Intro sessions start at $35. Schedule online — we come to your driveway.";
+
 export const metadata: Metadata = {
   title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
-  description:
-    "Book a mobile dog conditioning session in Destin, Fort Walton Beach or Niceville FL. Intro sessions start at $35. Schedule online — we come to your driveway.",
+  description: BOOK_DESCRIPTION,
+  alternates: { canonical: 'https://kaisrun.xyz/book/' },
+  openGraph: {
+    title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
+    description: BOOK_DESCRIPTION,
+    type: 'website',
+    url: 'https://kaisrun.xyz/book/',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://kaisrun.xyz/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run — Book a Mobile Dog Conditioning Session",
+      },
+    ],
+  },
 };
 
 export default function BookPage() {
-  return (
-    <>
-      <BookPageClient />
-      <div className="sr-only">
-        <h1>Book a Mobile Dog Conditioning Session</h1>
-        <p>Kai&apos;s Run brings a self-powered slatmill to your driveway in Destin, Fort Walton Beach, and Niceville FL. Intro sessions start at $35. Call or text 850-218-5855 to book directly.</p>
-      </div>
-    </>
-  );
+  return <BookPageClient />;
 }

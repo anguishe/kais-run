@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: PRICING_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
+    url: 'https://kaisrun.xyz/pricing/',
     images: [
       {
         url: OG_IMAGE_URL,

@@ -29,7 +29,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym Destin FL | Dog Treadmill Service — Kai's Run",
     description:
-      "Mobile dog gym Destin FL — self-powered slatmill conditioning at your vacation rental or home. Dog treadmill service for snowbirds & high-drive dogs on the Emerald Coast.",
+      "Mobile dog gym Destin FL — slatmill conditioning at your driveway or vacation rental. Dog treadmill for snowbirds & high-drive dogs on the Emerald Coast.",
     h1: 'Mobile Dog Gym in Destin, FL',
     eyebrow: 'Destin · Emerald Coast',
     neighborhoodsLabel: 'Neighborhoods we serve in Destin',
@@ -44,6 +44,8 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Intro sessions start at $35 for one dog. The Founding Athlete program — $200 for five sessions, limited to 20 dogs — is a one-time rate that will not return once those spots are gone. Whether you are here for the season or call Destin home year-round, book online and we confirm your address on the day's route. Questions before you commit? Call or text 850-218-5855 — Travis responds personally.",
     ],
     crossLinks: [
+      { slug: 'fort-walton-beach', name: 'Fort Walton Beach' },
+      { slug: 'niceville', name: 'Niceville' },
       { slug: 'miramar-beach', name: 'Miramar Beach' },
       { slug: 'sandestin', name: 'Sandestin' },
     ],
@@ -52,13 +54,17 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     slug: 'fort-walton-beach',
     name: 'Fort Walton Beach',
     state: 'FL',
-    title: "Mobile Dog Gym Fort Walton Beach FL | Slatmill Dog Service — Kai's Run",
+    title: "Mobile Dog Gym Fort Walton Beach FL | Kai's Run",
     description:
-      "Mobile dog gym Fort Walton Beach FL — slatmill conditioning at your driveway near Eglin AFB & Hurlburt Field. Dog treadmill sessions for military families & working breeds.",
+      "Mobile dog gym Fort Walton Beach FL — private slatmill conditioning near Eglin AFB. Dog treadmill sessions for military families & working breeds.",
     h1: 'Mobile Dog Gym in Fort Walton Beach, FL',
     eyebrow: 'Fort Walton Beach · Okaloosa Island',
     neighborhoodsLabel: 'Neighborhoods we serve in Fort Walton Beach',
     neighborhoods: ['Okaloosa Island', 'Cinco Bayou', 'Mary Esther', 'Ocean City'],
+    crossLinks: [
+      { slug: 'destin', name: 'Destin' },
+      { slug: 'niceville', name: 'Niceville' },
+    ],
     hubTeaser:
       'Routed visits for Eglin & Hurlburt households — structured sessions that fit PCS calendars and shift work.',
     paragraphs: [
@@ -73,13 +79,17 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     slug: 'niceville',
     name: 'Niceville',
     state: 'FL',
-    title: "Mobile Dog Gym Niceville FL | Driveway Dog Treadmill — Kai's Run",
+    title: "Mobile Dog Gym Niceville FL | Kai's Run",
     description:
       "Mobile dog gym Niceville FL — private slatmill sessions in your driveway. Dog treadmill conditioning for Bluewater Bay families & work-from-home owners.",
     h1: 'Mobile Dog Gym in Niceville, FL',
     eyebrow: 'Niceville · Choctawhatchee Bay',
     neighborhoodsLabel: 'Neighborhoods we serve in Niceville',
     neighborhoods: ['Bluewater Bay', 'Rocky Bayou', 'Bayou Chico', 'College Boulevard corridor'],
+    crossLinks: [
+      { slug: 'fort-walton-beach', name: 'Fort Walton Beach' },
+      { slug: 'destin', name: 'Destin' },
+    ],
     hubTeaser:
       'Quiet suburban driveways — private sessions while you work from home or run errands.',
     paragraphs: [
@@ -96,11 +106,15 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym in Miramar Beach, FL | Kai's Run",
     description:
-      "Kai's Run brings slatmill conditioning to Miramar Beach driveways — Grand Boulevard, Silver Sands, Maravilla. Private sessions for high-drive dogs on 30A. Book online.",
+      "Slatmill conditioning at Miramar Beach driveways — Grand Boulevard, Silver Sands, Maravilla. Private sessions for high-drive dogs on 30A. Book online.",
     h1: 'Mobile Dog Gym in Miramar Beach, FL',
     eyebrow: 'Miramar Beach · 30A Corridor',
     neighborhoodsLabel: 'Neighborhoods we serve in Miramar Beach',
     neighborhoods: ['Grand Boulevard', 'Silver Sands', 'Maravilla'],
+    crossLinks: [
+      { slug: 'destin', name: 'Destin' },
+      { slug: 'sandestin', name: 'Sandestin' },
+    ],
     hubTeaser:
       'Between Destin and 30A — private slatmill conditioning for vacation rental owners and second-home residents on the beach road.',
     introText:
@@ -129,6 +143,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     eyebrow: 'Sandestin · Emerald Coast Resort',
     neighborhoodsLabel: 'Communities we serve in Sandestin',
     neighborhoods: ['Baytowne', 'Dunes', 'Links', 'Burnt Pine'],
+    crossLinks: [
+      { slug: 'destin', name: 'Destin' },
+      { slug: 'miramar-beach', name: 'Miramar Beach' },
+    ],
     hubTeaser:
       'Gated resort community — private slatmill sessions routed around HOA access rules. Natural fit for the Founding Athlete Program.',
     introText:

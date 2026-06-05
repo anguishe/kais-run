@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Privacy Policy | Kai's Run",
   description:
-    "Privacy policy for Kai's Run mobile dog gym serving Destin, Fort Walton Beach, and Niceville FL.",
+    "Privacy policy for Kai's Run — mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
   alternates: { canonical: 'https://kaisrun.xyz/privacy/' },
 };
 
@@ -11,12 +11,12 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#0F1117] py-16 px-6">
       <div className="max-w-4xl mx-auto">
-        <div
+        <h1 className="font-display text-4xl tracking-tight text-brand-offwhite mb-8">Privacy Policy</h1>
+      <div
           className="privacy-content"
           style={{ color: '#F0EDE6' }}
           dangerouslySetInnerHTML={{
-            __html: `<span data-custom-class="title">Privacy Policy</span><br><br>
-<span data-custom-class="subtitle">Last updated: May 12, 2026</span><br><br>
+            __html: `<span data-custom-class="subtitle">Last updated: May 12, 2026</span><br><br>
 <span data-custom-class="body_text">This Privacy Policy describes how Kai&apos;s Run (&quot;Kai&apos;s Run,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information when you visit <a href="https://kaisrun.xyz/" data-custom-class="link">kaisrun.xyz</a> (our &quot;Site&quot;), contact us, join our waitlist or email list, or otherwise interact with our mobile canine conditioning services in Destin, Fort Walton Beach, Niceville, and nearby areas of Florida.</span><br><br>
 <span data-custom-class="heading_1">Information we collect</span><br><br>
 <span data-custom-class="heading_2">Information you provide</span><br><br>

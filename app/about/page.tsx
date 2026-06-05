@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Travis built Kai's Run in Destin FL after his Rhodesian Ridgeback mix Kai needed more than walks. Mobile canine conditioning for the Emerald Coast.",
     type: 'website',
     locale: 'en_US',
+    url: 'https://kaisrun.xyz/about/',
     images: [
       {
         url: OG_IMAGE_URL,

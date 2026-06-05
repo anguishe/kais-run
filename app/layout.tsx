@@ -10,9 +10,9 @@ import DevTools from "@/components/DevTools";
 export const metadata: Metadata = {
   metadataBase: new URL("https://kaisrun.xyz/"),
   manifest: "/manifest.json",
-  title: "Kai's Run | Mobile Dog Gym — Destin, Fort Walton Beach & Niceville FL",
+  title: "Kai's Run | Mobile Dog Gym Destin FL",
   description:
-    "Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL. Structured canine conditioning delivered to your driveway. Book today.",
+    "Mobile slatmill sessions for high-drive dogs in Destin, Fort Walton Beach & Niceville FL. Structured canine conditioning at your driveway.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -82,7 +82,6 @@ const localBusinessJsonLd = {
     latitude: 30.3935,
     longitude: -86.4958,
   },
-  openingHours: "Mo-Su",
   areaServed: [
     { "@type": "City", name: "Destin", addressRegion: "FL" },
     { "@type": "City", name: "Fort Walton Beach", addressRegion: "FL" },
