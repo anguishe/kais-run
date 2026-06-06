@@ -18,7 +18,8 @@
       "Bash(find ~/Projects -name \"SKILL.md\" 2>/dev/null | sort; echo \"---\"; find ~ -maxdepth 6 -name \"SKILL.md\" -not -path \"*/Projects/*\" 2>/dev/null | sort)",
       "Read(//home/angsec/Projects/**)",
       "Read(//home/angsec/**)",
-      "Bash(grep -v \"^content-standards$\\\\|^frontend-design$\\\\|^seo-aeo-geo$\\\\|^kaisrun-context$\\\\|^lsa-nextjs-static$\")"
+      "Bash(grep -v \"^content-standards$\\\\|^frontend-design$\\\\|^seo-aeo-geo$\\\\|^kaisrun-context$\\\\|^lsa-nextjs-static$\")",
+      "Bash(npx tsc *)"
     ]
   }
 }

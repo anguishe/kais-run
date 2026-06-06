@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
 
@@ -85,13 +84,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Column 1: Brand & Logo */}
           <div className="space-y-4">
-            <Link href="/" className="relative h-12 w-40 block">
-              <Image
+            <Link href="/" className="block">
+              <img
                 src="/images/logos/kr-logo-1.webp"
                 alt="Kai's Run Logo"
-                fill
-                className="object-contain object-left"
-                unoptimized
+                width={160}
+                height={48}
+                loading="lazy"
+                className="h-12 w-40 object-contain object-left"
               />
             </Link>
             <p className="text-brand-gray font-medium leading-relaxed">
@@ -99,7 +99,7 @@ export default function Footer() {
               Delivered to your driveway.
             </p>
             <p className="text-brand-gray text-sm leading-relaxed">
-              Destin · Miramar Beach · Sandestin · Fort Walton Beach · Niceville, FL
+              Mobile canine conditioning across the Emerald Coast - serving Destin, Miramar Beach, Sandestin, Santa Rosa Beach, Fort Walton Beach, Mary Esther, Niceville, Bluewater Bay, Valparaiso, Shalimar, and Navarre, FL.
             </p>
           </div>
 

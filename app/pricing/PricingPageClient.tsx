@@ -5,9 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
-
-const FALLBACK_TOTAL = 20;
-const FALLBACK_REMAINING = 17;
+import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
 
 type FoundingSpots = {
   total: number;
@@ -83,8 +81,8 @@ const faqItems = [
 
 export function PricingPageClient() {
   const [spots, setSpots] = useState<FoundingSpots>({
-    total: FALLBACK_TOTAL,
-    remaining: FALLBACK_REMAINING,
+    total: FOUNDING_SPOTS_TOTAL,
+    remaining: FOUNDING_SPOTS_REMAINING,
   });
 
   useEffect(() => {
@@ -96,12 +94,12 @@ export function PricingPageClient() {
       .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
         const fs = data.foundingSpots;
         setSpots({
-          total: fs?.total ?? FALLBACK_TOTAL,
-          remaining: fs?.remaining ?? FALLBACK_REMAINING,
+          total: fs?.total ?? FOUNDING_SPOTS_TOTAL,
+          remaining: fs?.remaining ?? FOUNDING_SPOTS_REMAINING,
         });
       })
       .catch(() => {
-        setSpots({ total: FALLBACK_TOTAL, remaining: FALLBACK_REMAINING });
+        setSpots({ total: FOUNDING_SPOTS_TOTAL, remaining: FOUNDING_SPOTS_REMAINING });
       });
   }, []);
 

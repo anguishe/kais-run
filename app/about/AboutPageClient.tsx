@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
@@ -32,13 +31,12 @@ export function AboutPageClient() {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-6">
         <div className="absolute inset-0 z-0">
-          <Image
+          <img
             src="/images/hero/hero-2.webp"
             alt="High-performance dog training at Kai's Run"
-            fill
-            className="object-cover opacity-30"
-            unoptimized
-            sizes="100vw"
+            width={1264}
+            height={848}
+            className="absolute inset-0 h-full w-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/50 to-brand-black" />
         </div>
@@ -205,13 +203,13 @@ export function AboutPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
               <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal">
-                <Image
+                <img
                   src="/images/about/travis-kai-1.webp"
                   alt="Travis and Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  width={800}
+                  height={800}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
             </motion.div>

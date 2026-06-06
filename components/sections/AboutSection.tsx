@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 
@@ -31,13 +30,13 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden"
           >
-            <Image
+            <img
               src="/images/about/travis-kai-2.webp"
               alt="Travis and Kai - Founders of Kai's Run mobile dog gym"
-              fill
-              className="object-cover"
-              unoptimized
-              sizes="(max-width: 768px) 100vw, 50vw"
+              width={800}
+              height={1000}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </motion.div>
 

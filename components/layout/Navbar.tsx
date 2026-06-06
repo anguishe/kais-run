@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -44,14 +43,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="relative h-10 w-44 flex-shrink-0">
-              <Image
+            <Link href="/" className="flex-shrink-0 block">
+              <img
                 src="/images/logos/kr-logo-2.webp"
                 alt="Kai's Run - Mobile Dog Gym"
-                fill
-                className="object-contain"
-                unoptimized
-                sizes="(max-width: 768px) 150px, 200px"
+                width={176}
+                height={40}
+                className="h-10 w-44 object-contain"
               />
             </Link>
 

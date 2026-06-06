@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
 import { fadeUp } from '@/lib/variants';
-
-const FALLBACK_TOTAL = 20;
-const FALLBACK_REMAINING = 17;
 
 type FoundingSpots = {
   total: number;
@@ -34,12 +32,12 @@ export default function SpotsCounter() {
       .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
         const fs = data.foundingSpots;
         setSpots({
-          total: fs?.total ?? FALLBACK_TOTAL,
-          remaining: fs?.remaining ?? FALLBACK_REMAINING,
+          total: fs?.total ?? FOUNDING_SPOTS_TOTAL,
+          remaining: fs?.remaining ?? FOUNDING_SPOTS_REMAINING,
         });
       })
       .catch(() => {
-        setSpots({ total: FALLBACK_TOTAL, remaining: FALLBACK_REMAINING });
+        setSpots({ total: FOUNDING_SPOTS_TOTAL, remaining: FOUNDING_SPOTS_REMAINING });
       })
       .finally(() => setLoading(false));
   }, []);
@@ -48,8 +46,8 @@ export default function SpotsCounter() {
     return <SpotsCounterSkeleton />;
   }
 
-  const total = spots?.total ?? FALLBACK_TOTAL;
-  const remaining = spots?.remaining ?? FALLBACK_REMAINING;
+  const total = spots?.total ?? FOUNDING_SPOTS_TOTAL;
+  const remaining = spots?.remaining ?? FOUNDING_SPOTS_REMAINING;
   const sold = total - remaining;
   const pct = (sold / total) * 100;
 

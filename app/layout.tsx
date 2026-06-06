@@ -185,6 +185,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5399156622542127"
+          crossOrigin="anonymous"
+        />
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>
       <body className="min-h-full flex flex-col font-body">

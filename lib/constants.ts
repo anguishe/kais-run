@@ -1,0 +1,2 @@
+export const FOUNDING_SPOTS_TOTAL = 20;
+export const FOUNDING_SPOTS_REMAINING = 17;

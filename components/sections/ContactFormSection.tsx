@@ -269,6 +269,16 @@ export function ContactFormSection({
 
                     <option value="shalimar">Shalimar</option>
 
+                    <option value="mary-esther">Mary Esther</option>
+
+                    <option value="navarre">Navarre</option>
+
+                    <option value="santa-rosa-beach">Santa Rosa Beach</option>
+
+                    <option value="bluewater-bay">Bluewater Bay</option>
+
+                    <option value="valparaiso">Valparaiso</option>
+
                     <option value="other">Other</option>
                   </select>
                 </div>

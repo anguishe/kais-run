@@ -31,12 +31,11 @@ export function AdUnit({ slot, format = 'auto', className }: AdUnitProps) {
   if (!consented) return null;
 
   return (
-    // TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with real publisher ID after AdSense approval
     <div ref={ref} className={className}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+        data-ad-client="ca-pub-5399156622542127"
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive="true"

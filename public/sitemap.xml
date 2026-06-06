@@ -86,13 +86,13 @@
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/welcome/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/why-structured-runs-matter/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/dog-treadmill-vs-walk-comparison/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -122,25 +122,19 @@
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/how-much-exercise-does-my-dog-need/</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kaisrun.xyz/blog/slatmill-vs-long-walk/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kaisrun.xyz/blog/high-energy-dog-breeds-need-more-than-a-walk/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/too-hot-to-walk-your-dog/</loc>
     <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/blog/dog-anxiety-destructive-behavior-exercise/</loc>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
