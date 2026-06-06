@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeUp } from '@/lib/variants';
 
 const FALLBACK_TOTAL = 20;
-const FALLBACK_REMAINING = 20;
+const FALLBACK_REMAINING = 17;
 
 type FoundingSpots = {
   total: number;

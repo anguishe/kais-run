@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { blogMdxComponents } from '@/components/blog/blogMdxComponents';
+import { AdUnit } from '@/components/ui/AdUnit';
+import { MidArticleAd } from '@/components/ui/MidArticleAd';
 
 export type BlogPostWithAdsProps = {
   slug: string;
@@ -19,6 +21,12 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
       <div className="blog-article-body">
         {await MDXRemote({ source: body, components: blogMdxComponents })}
       </div>
+
+      {/* TODO: Replace SLOT_ID_HERE after AdSense approval */}
+      <MidArticleAd slot="SLOT_ID_HERE" />
+
+      {/* TODO: Replace SLOT_ID_HERE after AdSense approval */}
+      <AdUnit slot="SLOT_ID_HERE" className="my-8" />
 
       <section className="mt-16 border-t border-brand-teal/20 pt-16" aria-labelledby="related-heading">
         <h2 id="related-heading" className="font-display text-3xl tracking-wide text-brand-offwhite md:text-4xl">

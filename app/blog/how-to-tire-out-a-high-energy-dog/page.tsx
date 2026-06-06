@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
 import { getPostBySlug, getRelatedPosts } from '@/lib/blog/posts';
@@ -21,6 +22,7 @@ export default async function HowToTireOutHighEnergyDogPage() {
     title: post.title,
     description: post.description,
     date: post.date,
+    dateModified: post.dateModified,
     slug: SLUG,
     author: post.author,
     image: post.image,
@@ -33,6 +35,7 @@ export default async function HowToTireOutHighEnergyDogPage() {
 
   return (
     <>
+      <ReadingProgressBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

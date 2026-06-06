@@ -97,6 +97,10 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
             <Link href="/services/" className="text-brand-teal underline-offset-2 hover:underline">
               session types and protocol
             </Link>
+            , browse the{' '}
+            <Link href="/blog/" className="text-brand-teal underline-offset-2 hover:underline">
+              conditioning blog
+            </Link>
             , then{' '}
             <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
               book your intro online

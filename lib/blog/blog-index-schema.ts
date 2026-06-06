@@ -27,6 +27,7 @@ export function buildBlogIndexSchema(posts: BlogPostMeta[]) {
           headline: post.title,
           url: `${BASE_URL}/blog/${post.slug}/`,
           datePublished: post.date,
+          dateModified: post.dateModified ?? post.date,
         })),
       },
       {

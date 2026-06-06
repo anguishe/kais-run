@@ -32,6 +32,7 @@ alwaysApply: true
 - Leave `<!-- REPLACE -->` comments for manual swap-ins (Square embed, real photos)
 
 ## When Context Is Unclear
+- Read `.cursor/rules/stack-constraints.md` first — stack ceiling applies to every task
 - Check the relevant `.cursor/rules/*.md` file before asking a question
 - If the answer is in brand-reference.md, project.md, design-system.md, pricing-data.md, or brand-copy.md — use it
 - Only ask if information is genuinely missing from all rule files

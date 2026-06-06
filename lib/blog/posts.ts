@@ -7,6 +7,7 @@ export type BlogFrontmatter = {
   title: string;
   description: string;
   date: string;
+  dateModified?: string; // ISO date string — falls back to date if not set
   author?: string;
   /** Comma-separated meta keywords for this post. */
   keywords?: string;
@@ -71,6 +72,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const title = data.title ?? slug;
   const description = data.description ?? '';
   const date = data.date ?? '';
+  const dateModified = data.dateModified ?? undefined;
   const author = data.author ?? 'Travis';
   const keywords = data.keywords ?? undefined;
   const image = data.image ?? undefined;
@@ -81,6 +83,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     title,
     description,
     date,
+    dateModified,
     author,
     keywords,
     image,
@@ -101,11 +104,12 @@ export function getAllPostMeta(): BlogPostMeta[] {
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
     .filter((p): p is BlogPost => p !== null && !p.draft)
-    .map(({ slug, title, description, date, author, readTimeMinutes }) => ({
+    .map(({ slug, title, description, date, dateModified, author, readTimeMinutes }) => ({
       slug,
       title,
       description,
       date,
+      dateModified,
       author,
       readTimeMinutes,
     }));

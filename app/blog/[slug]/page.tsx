@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
 import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/blog/posts';
@@ -43,6 +44,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     title: post.title,
     description: post.description,
     date: post.date,
+    dateModified: post.dateModified,
     slug,
     author: post.author,
     image: post.image,
@@ -55,6 +57,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
+      <ReadingProgressBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

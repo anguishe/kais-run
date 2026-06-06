@@ -19,6 +19,12 @@ const serviceCityLinks = [
   { href: '/service-area/niceville/', label: 'Niceville' },
   { href: '/service-area/miramar-beach/', label: 'Miramar Beach' },
   { href: '/service-area/sandestin/', label: 'Sandestin' },
+  { href: '/service-area/shalimar/', label: 'Shalimar' },
+  { href: '/service-area/mary-esther/', label: 'Mary Esther' },
+  { href: '/service-area/navarre/', label: 'Navarre' },
+  { href: '/service-area/santa-rosa-beach/', label: 'Santa Rosa Beach' },
+  { href: '/service-area/bluewater-bay/', label: 'Bluewater Bay' },
+  { href: '/service-area/valparaiso/', label: 'Valparaiso' },
 ];
 
 const socialLinks = [

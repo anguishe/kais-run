@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { FAQ_ENTRIES, faqAnswerPlainForSchema } from '@/lib/faq-data';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
@@ -39,31 +40,21 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'FAQ', path: '/faq/' },
 ]);
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQ_ENTRIES.map((e) => ({
-    '@type': 'Question',
-    name: e.q,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faqAnswerPlainForSchema(e.a),
-    },
-  })),
-};
+const faqData = FAQ_ENTRIES.map((e) => ({
+  question: e.q,
+  answer: faqAnswerPlainForSchema(e.a),
+}));
 
 export default function FAQPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <FAQPageClient />
+      <FAQPageClient
+        faqAccordion={<FaqAccordion items={faqData} emitSchema={true} />}
+      />
     </>
   );
 }

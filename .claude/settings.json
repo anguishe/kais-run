@@ -12,7 +12,13 @@
       "Bash(identify /home/angsec/Projects/kais-run/public/images/hero/hero-main.webp)",
       "Bash(npm install *)",
       "Bash(python3 -c ' *)",
-      "Bash(echo \"EXIT:$?\")"
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(ls -la ~/.claude/skills/ 2>/dev/null && echo \"EXISTS\" || echo \"DOES_NOT_EXIST\")",
+      "Read(//home/angsec/.claude/skills/**)",
+      "Bash(find ~/Projects -name \"SKILL.md\" 2>/dev/null | sort; echo \"---\"; find ~ -maxdepth 6 -name \"SKILL.md\" -not -path \"*/Projects/*\" 2>/dev/null | sort)",
+      "Read(//home/angsec/Projects/**)",
+      "Read(//home/angsec/**)",
+      "Bash(grep -v \"^content-standards$\\\\|^frontend-design$\\\\|^seo-aeo-geo$\\\\|^kaisrun-context$\\\\|^lsa-nextjs-static$\")"
     ]
   }
 }

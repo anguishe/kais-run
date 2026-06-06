@@ -6,6 +6,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import DevTools from "@/components/DevTools";
+import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
+import { CookieConsent } from "@/components/ui/CookieConsent";
+import { GA4Script } from "@/components/ui/GA4Script";
+import { AdSenseScript } from "@/components/ui/AdSenseScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kaisrun.xyz/"),
@@ -89,6 +93,11 @@ const localBusinessJsonLd = {
     { "@type": "City", name: "Miramar Beach", addressRegion: "FL" },
     { "@type": "City", name: "Shalimar", addressRegion: "FL" },
     { "@type": "City", name: "Sandestin", addressRegion: "FL" },
+    { "@type": "City", name: "Valparaiso", addressRegion: "FL" },
+    { "@type": "City", name: "Bluewater Bay", addressRegion: "FL" },
+    { "@type": "City", name: "Santa Rosa Beach", addressRegion: "FL" },
+    { "@type": "City", name: "Navarre", addressRegion: "FL" },
+    { "@type": "City", name: "Mary Esther", addressRegion: "FL" },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -180,6 +189,9 @@ export default function RootLayout({
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>
       <body className="min-h-full flex flex-col font-body">
+        <GA4Script />
+        <AdSenseScript />
+        <CookieConsent />
         <MicrosoftClarity />
         <Navbar />
         <main className="flex-1">
@@ -187,6 +199,7 @@ export default function RootLayout({
         </main>
         <Footer />
         {process.env.NODE_ENV === "development" ? <DevTools /> : null}
+        <ExitIntentPopup />
       </body>
     </html>
   );

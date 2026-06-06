@@ -3,14 +3,15 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
-import FAQAccordion from '@/components/ui/FAQAccordion';
 import LeadMagnetForm from '@/components/ui/LeadMagnetForm';
-import { FAQ_ENTRIES } from '@/lib/faq-data';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
+import type { ReactNode } from 'react';
 
-const faqItems = FAQ_ENTRIES.map((e) => ({ question: e.q, answer: e.a }));
+interface FAQPageClientProps {
+  faqAccordion: ReactNode;
+}
 
-export function FAQPageClient() {
+export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
   return (
     <>
       {/* Hero */}
@@ -56,7 +57,7 @@ export function FAQPageClient() {
           className="max-w-3xl mx-auto"
         >
           <motion.div variants={fadeUp}>
-            <FAQAccordion items={faqItems} />
+            {faqAccordion}
           </motion.div>
 
           <motion.p

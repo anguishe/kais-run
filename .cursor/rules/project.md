@@ -17,10 +17,11 @@ alwaysApply: true
 - Full brand facts: `brand-reference.md`
 
 ## Tech Stack
-- Next.js 14 App Router · TypeScript · Tailwind CSS
+- See `.cursor/rules/stack-constraints.md` — read before every prompt
+- Next.js 16 App Router · TypeScript strict · Tailwind CSS v4
 - framer-motion (UI transitions) · gsap + ScrollTrigger (scroll animation) · lenis (smooth scroll)
 - Static export only (`output: 'export'`) — deployed to GitHub Pages
-- NO SSR. NO server actions. Static files only.
+- NO API routes · NO server actions · NO `next/image` · plain `<img>` only
 
 ## Deployment
 - `npm run build` → outputs to `/out`

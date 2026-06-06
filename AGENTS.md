@@ -5,6 +5,24 @@
 
 ---
 
+## STACK CONSTRAINTS (read before every prompt)
+
+Next.js 16 App Router · Static export (`output: 'export'`) · GitHub Pages
+
+**Forbidden:** API routes · server actions · `next/image` · `redirects()` in `next.config.js`
+
+**Required:** Plain `<img>` tags only · `trailingSlash: true` · TypeScript strict
+
+**Tailwind tokens:** `brand-black` (#0F1117) · `brand-charcoal` (#1A1F2E) · `brand-teal` (#0A5C52) · `brand-gold` (#C9963A) · `brand-offwhite` (#F0EDE6) · `brand-gray` (#9A9590)
+
+**Fonts:** `font-display` (Bebas Neue) · `font-body` (DM Sans)
+
+**Static 301 redirects:** HTML meta-refresh pages — NOT `next.config.js` `redirects()`
+
+**Paths:** MDX blog posts → `content/blog/[slug].mdx` · City pages → `app/service-area/[city]/page.tsx`
+
+---
+
 ## Locked Facts — Never Override Without Explicit Confirmation
 
 | Fact | Value |

@@ -5,12 +5,12 @@ import { ServiceAreaPageClient } from './ServiceAreaPageClient';
 export const metadata: Metadata = {
   title: "Service Area | Kai's Run — Mobile Dog Gym Destin FL",
   description:
-    "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar & surrounding Okaloosa County with mobile dog conditioning.",
+    "Kai's Run serves Destin, Fort Walton Beach, Niceville, Miramar Beach, Sandestin, Shalimar, Mary Esther, Navarre, Santa Rosa Beach, Bluewater Bay & Valparaiso FL with mobile dog conditioning.",
   alternates: { canonical: 'https://kaisrun.xyz/service-area/' },
   openGraph: {
     title: "Service Area | Kai's Run — Mobile Dog Gym Destin FL",
     description:
-      "Kai's Run serves Destin, Miramar Beach, Sandestin, Fort Walton Beach, Niceville, Shalimar & surrounding Okaloosa County with mobile dog conditioning.",
+      "Kai's Run serves Destin, Fort Walton Beach, Niceville, Miramar Beach, Sandestin, Shalimar, Mary Esther, Navarre, Santa Rosa Beach, Bluewater Bay & Valparaiso FL with mobile dog conditioning.",
     type: 'website',
     locale: 'en_US',
     url: 'https://kaisrun.xyz/service-area/',

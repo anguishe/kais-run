@@ -46,18 +46,22 @@ Authoritative brand facts for copy, code, schema, and agent context.
 
 ## Service Area
 
+Destin FL · Fort Walton Beach FL · Niceville FL · Miramar Beach FL · Sandestin FL · Shalimar FL · Mary Esther FL · Navarre FL · Santa Rosa Beach FL · Bluewater Bay FL · Valparaiso FL
+
 **Live landing pages:**
 - Destin FL → `/service-area/destin/`
 - Fort Walton Beach FL → `/service-area/fort-walton-beach/`
 - Niceville FL → `/service-area/niceville/`
-
-**Planned landing pages (build next):**
 - Miramar Beach FL → `/service-area/miramar-beach/`
 - Sandestin FL → `/service-area/sandestin/`
+- Shalimar FL → `/service-area/shalimar/`
+- Mary Esther FL → `/service-area/mary-esther/`
+- Navarre FL → `/service-area/navarre/`
+- Santa Rosa Beach FL → `/service-area/santa-rosa-beach/`
+- Bluewater Bay FL → `/service-area/bluewater-bay/`
+- Valparaiso FL → `/service-area/valparaiso/`
 
-**Mention-only (no dedicated page):** Shalimar FL — reference on Fort Walton Beach page
-
-**All 6 cities appear in `areaServed` schema:** Destin, Fort Walton Beach, Niceville, Miramar Beach, Shalimar, Sandestin
+**All 11 cities appear in `areaServed` schema:** Destin, Fort Walton Beach, Niceville, Miramar Beach, Sandestin, Shalimar, Mary Esther, Navarre, Santa Rosa Beach, Bluewater Bay, Valparaiso
 
 Mobile service — we come to the client's driveway. No facility, no drop-off.
 

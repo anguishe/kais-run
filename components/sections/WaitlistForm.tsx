@@ -15,8 +15,6 @@ const inputClass =
 
 const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2 font-body';
 
-const LOCATION_OPTIONS = ['Destin', 'Fort Walton Beach', 'Niceville', 'Other'] as const;
-
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 const waitlistSuccessCopy =
@@ -190,11 +188,20 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
             disabled={status === 'submitting'}
           >
             <option value="">Select your city</option>
-            {LOCATION_OPTIONS.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
+
+            <option value="destin">Destin</option>
+
+            <option value="fort-walton-beach">Fort Walton Beach</option>
+
+            <option value="niceville">Niceville</option>
+
+            <option value="miramar-beach">Miramar Beach</option>
+
+            <option value="sandestin">Sandestin</option>
+
+            <option value="shalimar">Shalimar</option>
+
+            <option value="other">Other</option>
           </select>
         </div>
       </div>

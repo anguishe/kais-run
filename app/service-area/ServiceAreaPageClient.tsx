@@ -9,30 +9,6 @@ import {
   getServiceCityPath,
 } from '@/lib/service-area/cities';
 
-const secondaryLocations = [
-  {
-    city: 'Miramar Beach',
-    state: 'FL',
-    href: '/service-area/miramar-beach/',
-    description:
-      'Serving Miramar Beach from Scenic 98 to the Grand Boulevard corridor — Maravilla, Silver Sands, and the beach road. Same private mobile protocol as our primary cities.',
-  },
-  {
-    city: 'Sandestin',
-    state: 'FL',
-    href: '/service-area/sandestin/',
-    description:
-      'Baytowne, Dunes, Links, and Burnt Pine — we route to Sandestin resort communities for owners who want structured conditioning without leaving the property search for a facility.',
-  },
-  {
-    city: 'Shalimar',
-    state: 'FL',
-    href: null,
-    description:
-      'Shalimar Point, Eglin Parkway access, and the greater north-side corridor. Routed alongside Fort Walton Beach and Niceville visits.',
-  },
-];
-
 export function ServiceAreaPageClient() {
   return (
     <>
@@ -60,7 +36,7 @@ export function ServiceAreaPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Kai&apos;s Run covers the Emerald Coast from Destin to Niceville — mobile slatmill
+            Kai&apos;s Run covers the Emerald Coast from Destin to Navarre — mobile slatmill
             conditioning at your driveway. No facility. No commute. Pick your city below for
             local details, neighborhoods, and booking.
           </motion.p>
@@ -77,7 +53,7 @@ export function ServiceAreaPageClient() {
             viewport={{ once: true }}
             className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
-            Primary Cities
+            Service Cities
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -89,7 +65,7 @@ export function ServiceAreaPageClient() {
             Mobile Dog Gym by City
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICE_CITY_PAGES.map((city) => (
               <motion.div
                 key={city.slug}
@@ -121,50 +97,6 @@ export function ServiceAreaPageClient() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Secondary coverage */}
-      <section className="py-24 md:py-32 px-6 bg-brand-black">
-        <div className="max-w-6xl mx-auto space-y-8">
-          <div className="text-center mb-12">
-            <p className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-4">
-              Also Serving
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl tracking-tight">
-              Emerald Coast &amp; Okaloosa County
-            </h2>
-          </div>
-
-          {secondaryLocations.map((location) => (
-            <motion.div
-              key={location.city}
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-100px' }}
-            >
-              <motion.div
-                variants={fadeUp}
-                className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-8 md:p-10"
-              >
-                <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4">
-                  {location.city}, {location.state}
-                </h3>
-                <p className="text-brand-gray font-body text-base md:text-lg leading-relaxed mb-4">
-                  {location.description}
-                </p>
-                {location.href && (
-                  <Link
-                    href={location.href}
-                    className="inline-flex items-center font-body text-sm font-medium text-brand-teal hover:text-brand-offwhite transition-colors"
-                  >
-                    Mobile dog gym in {location.city} →
-                  </Link>
-                )}
-              </motion.div>
-            </motion.div>
-          ))}
         </div>
       </section>
 

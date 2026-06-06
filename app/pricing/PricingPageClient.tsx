@@ -4,10 +4,10 @@ import { Fragment, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
-import FAQAccordion from '@/components/ui/FAQAccordion';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
 
 const FALLBACK_TOTAL = 20;
-const FALLBACK_REMAINING = 20;
+const FALLBACK_REMAINING = 17;
 
 type FoundingSpots = {
   total: number;
@@ -484,7 +484,7 @@ export function PricingPageClient() {
           </motion.h2>
 
           <motion.div variants={fadeUp}>
-            <FAQAccordion items={faqItems} />
+            <FaqAccordion items={faqItems} emitSchema={false} />
           </motion.div>
         </motion.div>
       </section>
