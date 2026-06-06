@@ -35,6 +35,11 @@ export default async function HowToTireOutHighEnergyDogPage() {
 
   return (
     <>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5399156622542127"
+        crossOrigin="anonymous"
+      />
       <ReadingProgressBar />
       <script
         type="application/ld+json"

@@ -9,7 +9,6 @@ import DevTools from "@/components/DevTools";
 import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { GA4Script } from "@/components/ui/GA4Script";
-import { AdSenseScript } from "@/components/ui/AdSenseScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kaisrun.xyz/"),
@@ -190,7 +189,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-body">
         <GA4Script />
-        <AdSenseScript />
         <CookieConsent />
         <MicrosoftClarity />
         <Navbar />
