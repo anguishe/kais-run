@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "About | Kai's Run — Mobile Dog Gym Destin FL",
   description:
     "Travis built Kai's Run in Destin FL after his Rhodesian Ridgeback mix Kai needed more than walks. Mobile canine conditioning for the Emerald Coast.",
-  alternates: { canonical: 'https://kaisrun.xyz/about/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/about/' },
   openGraph: {
     title: "About | Kai's Run — Mobile Dog Gym Destin FL",
     description:

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Kai's Run",
   description:
     "Privacy policy for Kai's Run — mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
-  alternates: { canonical: 'https://kaisrun.xyz/privacy/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/privacy/' },
 };
 
 export default function PrivacyPage() {

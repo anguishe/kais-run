@@ -14,7 +14,7 @@ const PRICING_DESCRIPTION =
 export const metadata: Metadata = {
   title: 'Pricing | Mobile Dog Gym Destin FL',
   description: PRICING_DESCRIPTION,
-  alternates: { canonical: 'https://kaisrun.xyz/pricing/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/pricing/' },
   openGraph: {
     title: 'Pricing | Mobile Dog Gym Destin FL',
     description: PRICING_DESCRIPTION,

@@ -7,7 +7,7 @@ const BOOK_DESCRIPTION =
 export const metadata: Metadata = {
   title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
   description: BOOK_DESCRIPTION,
-  alternates: { canonical: 'https://kaisrun.xyz/book/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/book/' },
   openGraph: {
     title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
     description: BOOK_DESCRIPTION,

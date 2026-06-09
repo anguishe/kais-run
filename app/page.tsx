@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://kaisrun.xyz/',
+    canonical: 'https://www.kaisrun.xyz/',
   },
 };
 

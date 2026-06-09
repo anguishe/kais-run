@@ -14,7 +14,7 @@ const SERVICES_DESCRIPTION =
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
   description: SERVICES_DESCRIPTION,
-  alternates: { canonical: 'https://kaisrun.xyz/services/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/services/' },
   openGraph: {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,

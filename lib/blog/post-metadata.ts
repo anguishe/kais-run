@@ -3,7 +3,7 @@ import { DEFAULT_SITE_KEYWORDS } from '@/lib/seo/defaults';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import type { BlogPost } from '@/lib/blog/posts';
 
-const BASE_URL = 'https://kaisrun.xyz';
+const BASE_URL = 'https://www.kaisrun.xyz';
 const DEFAULT_OG_IMAGE = `${BASE_URL}${OG_IMAGE_URL}`;
 
 export function resolvePostOgImage(image?: string): string {

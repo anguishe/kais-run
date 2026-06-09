@@ -2,4 +2,16 @@ User-agent: *
 Allow: /
 Disallow: /thank-you/
 Disallow: /api/
-Sitemap: https://kaisrun.xyz/sitemap.xml
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+Sitemap: https://www.kaisrun.xyz/sitemap.xml

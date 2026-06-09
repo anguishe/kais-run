@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const city = getServiceCityBySlug(slug);
   if (!city) return notFoundMetadata();
 
-  const canonical = `https://kaisrun.xyz${getServiceCityPath(city.slug)}`;
+  const canonical = `https://www.kaisrun.xyz${getServiceCityPath(city.slug)}`;
 
   return {
     title: city.title,
@@ -56,10 +56,11 @@ export default async function ServiceCityPage({ params }: PageProps) {
   const city = getServiceCityBySlug(slug);
   if (!city) notFound();
 
+  // JSON-LD: BreadcrumbList + LocalBusiness
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: 'Home', path: '/' },
     { name: 'Service Area', path: '/service-area/' },
-    { name: city.name, path: getServiceCityPath(city.slug) },
+    { name: `${city.name} FL`, path: getServiceCityPath(city.slug) },
   ]);
 
   const serviceAreaJsonLd = buildServiceAreaSchema({ name: city.name, slug: city.slug });

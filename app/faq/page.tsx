@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
   description:
     "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
-  alternates: { canonical: 'https://kaisrun.xyz/faq/' },
+  alternates: { canonical: 'https://www.kaisrun.xyz/faq/' },
   openGraph: {
     title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
@@ -40,6 +40,19 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'FAQ', path: '/faq/' },
 ]);
 
+const faqPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ENTRIES.map((entry) => ({
+    '@type': 'Question',
+    name: entry.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faqAnswerPlainForSchema(entry.a),
+    },
+  })),
+};
+
 const faqData = FAQ_ENTRIES.map((e) => ({
   question: e.q,
   answer: faqAnswerPlainForSchema(e.a),
@@ -52,8 +65,12 @@ export default function FAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
+      />
       <FAQPageClient
-        faqAccordion={<FaqAccordion items={faqData} emitSchema={true} />}
+        faqAccordion={<FaqAccordion items={faqData} emitSchema={false} />}
       />
     </>
   );
