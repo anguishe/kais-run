@@ -21,7 +21,15 @@
       "Bash(grep -v \"^content-standards$\\\\|^frontend-design$\\\\|^seo-aeo-geo$\\\\|^kaisrun-context$\\\\|^lsa-nextjs-static$\")",
       "Bash(npx tsc *)",
       "Bash(npx next *)",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "Bash(curl -sI https://kaisrun.xyz)",
+      "Bash(curl -s https://www.kaisrun.xyz/)",
+      "Bash(curl -s https://www.kaisrun.xyz/book/)",
+      "Bash(curl -sI https://www.kaisrun.xyz/blog/what-to-expect-first-slatmill-session/)",
+      "Bash(curl -sI https://www.kaisrun.xyz/sitemap.xml)",
+      "Bash(curl -s https://www.kaisrun.xyz/robots.txt)",
+      "Bash(curl -sI https://www.kaisrun.xyz/)",
+      "Bash(curl -sI https://www.kaisrun.xyz/kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n.txt)"
     ]
   }
 }

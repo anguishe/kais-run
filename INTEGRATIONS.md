@@ -4,15 +4,13 @@ All live integrations and their current status.
 **Last updated:** 2026-06-09
 
 > ⚠️ This file is for architecture reference only. Never commit API keys here.
-> All secrets live in `.env.local` (local) and GitHub Actions repo secrets (production).
+> All secrets live in `.env.local` (local) and the Vercel dashboard Environment Variables (production).
 
 ---
 
-## How Forms Work
+## How Forms Work — Vercel SSR Pattern
 
-On Vercel SSR, /api/ routes run in production. However, the Cloudflare Worker
-is the current Mailchimp bridge and remains active. The /api/subscribe route
-was deleted as a static export artifact. Do not recreate it without instruction.
+Formspree and Cloudflare Worker remain the live form architecture. Even though Vercel supports API routes, the existing pattern (Formspree + Cloudflare Worker) stays in place.
 
 Every form currently follows this pattern:
 
@@ -80,7 +78,7 @@ Tags must exactly match: `contact-inquiry`, `founding-20`, `energy-guide`, `foot
 | `NEXT_PUBLIC_MEMBERSHIP_LABEL` | Membership conversion label |
 | `NEXT_PUBLIC_LEAD_CAPTURE_LABEL` | Lead / email capture conversion label |
 
-> All `NEXT_PUBLIC_` variables must be added as **GitHub Actions repo secrets** AND explicitly exposed in the `deploy.yml` build step. Variables not in `deploy.yml` are undefined in production even if set in the repo.
+> All `NEXT_PUBLIC_` variables must be set in the **Vercel dashboard** → Project → Settings → Environment Variables. Variables not set in Vercel will be undefined in production.
 ---
 
 ## AdSense
@@ -141,12 +139,11 @@ curl "https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/[SLUG]/&key=kaisr
 
 ---
 
-## GitHub Actions / Deploy
+## Vercel / Deploy
 
-- Platform: Vercel (vercel.json not required — auto-detected Next.js)
-- Trigger: push to `main` via GitHub integration
-- Build: `npm run build` (Next.js SSR)
-- Build time: ~1–2 minutes
-- Environment variables: Vercel dashboard → Project Settings → Environment Variables
+- Trigger: push to `main` → automatic Vercel build
+- Build: `npm run build` → Vercel SSR (`.next/`)
+- Build time: ~2 minutes
+- Dashboard: https://vercel.com/dashboard
 
-> Environment variables must be set in GitHub repo Settings → Secrets and Variables → Actions, then referenced in `deploy.yml` under `env:` in the build step.
+> Environment variables must be set in Vercel dashboard → Project → Settings → Environment Variables. No deploy.yml or GitHub Actions workflow required.

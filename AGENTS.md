@@ -70,8 +70,8 @@ All 6 cities appear in `areaServed` in LocalBusiness schema.
 ### 🏗️ Architect Agent
 **When active:** Planning new pages, routes, or structural changes
 - Update `ARCHITECTURE.md` before implementing any new route
-- Never add server-side features (API routes, middleware redirects, SSR) — static export ceiling is hard
-- 301 redirects must use Cloudflare redirect rules or `<meta http-equiv="refresh">` — Next.js middleware does not run on GitHub Pages
+- Vercel SSR is active — API routes, server components, and headers() are all supported. Do not reintroduce output: 'export'.
+- Redirects can use `redirects()` in next.config.js — Vercel executes it. Cloudflare redirect rules remain valid for apex→www.
 
 ### 🎨 UI/Design Agent
 **When active:** Building or modifying any component or visual section
@@ -101,8 +101,8 @@ All 6 cities appear in `areaServed` in LocalBusiness schema.
 ### 🔌 Integration Agent
 **When active:** Setting up or modifying third-party services
 - See `INTEGRATIONS.md` for all endpoint mappings
-- Never commit API keys — all secrets in `.env.local` and GitHub Actions repo secrets
-- `NEXT_PUBLIC_` variables must be added as repo secrets AND exposed in `deploy.yml` build step or they are undefined in production
+- Never commit API keys — all secrets in `.env.local` (local) and Vercel dashboard Environment Variables (production)
+- `NEXT_PUBLIC_` variables must be set in Vercel dashboard → Project → Settings → Environment Variables or they are undefined in production
 - Mailchimp calls go through Cloudflare Worker — never call Mailchimp API directly from client
 
 ---

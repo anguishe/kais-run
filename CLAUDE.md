@@ -16,9 +16,11 @@ This is the authoritative reference for stack, constraints, integrations, and br
 ## Stack
 
 - Next.js App Router · TypeScript · Tailwind CSS v4
-- trailingSlash: true — all internal links and sitemap entries use trailing slashes
-- MDX blog posts at content/blog/[slug].mdx
-- Build command: npm run build — always verify zero errors
+- Deployment: Vercel SSR — API routes, server components, and headers() all active
+- Host: https://www.kaisrun.xyz (www canonical; apex 308 redirects to www via Vercel)
+- Plain `<img>` tags only — never introduce `next/image`
+- trailingSlash: true — all internal links and sitemaps use trailing slashes
+- Build command: `npm run build` — always verify zero errors before finishing any task
 
 ## Canonical & Schema URL Rule
 

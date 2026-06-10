@@ -353,9 +353,9 @@ function BookPageFallback() {
   return (
     <main className="min-h-screen bg-brand-black pt-24">
       <div className="mx-auto max-w-4xl px-6 pb-12 text-center">
-        <h1 className="font-display text-5xl text-brand-offwhite md:text-7xl">
+        <p className="font-display text-5xl text-brand-offwhite md:text-7xl">
           Join the Founding Athlete Program
-        </h1>
+        </p>
         <p className="mt-4 font-body text-brand-gray">Loading…</p>
       </div>
     </main>
