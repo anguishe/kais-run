@@ -1,6 +1,6 @@
 # kais-run
 
-Kai's Run — mobile dog conditioning (Next.js, static export).
+Kai's Run — mobile dog conditioning (Next.js, Vercel SSR).
 
 ## Google Ads integration
 
@@ -34,6 +34,6 @@ Conversion tracking uses **gtag.js** with your Google Ads **conversion ID** (`AW
 
 ```bash
 npm run dev    # local development
-npm run build  # static export (required before go-live checklist)
+npm run build  # production build (required before go-live checklist)
 npm run lint
 ```

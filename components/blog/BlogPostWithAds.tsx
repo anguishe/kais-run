@@ -22,11 +22,11 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         {await MDXRemote({ source: body, components: blogMdxComponents })}
       </div>
 
-      {/* TODO: Replace SLOT_ID_HERE after AdSense approval */}
-      <MidArticleAd slot="SLOT_ID_HERE" />
+      {/* AdSense slot IDs pending — restore when obtained from dashboard */}
+      {false && <MidArticleAd slot="SLOT_ID_HERE" />}
 
-      {/* TODO: Replace SLOT_ID_HERE after AdSense approval */}
-      <AdUnit slot="SLOT_ID_HERE" className="my-8" />
+      {/* AdSense slot IDs pending — restore when obtained from dashboard */}
+      {false && <AdUnit slot="SLOT_ID_HERE" className="my-8" />}
 
       <section className="mt-16 border-t border-brand-teal/20 pt-16" aria-labelledby="related-heading">
         <h2 id="related-heading" className="font-display text-3xl tracking-wide text-brand-offwhite md:text-4xl">
@@ -50,19 +50,32 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         )}
       </section>
 
+      <div className="border-t border-brand-charcoal pt-8 mt-8 flex gap-4 items-start">
+        <div>
+          <p className="font-display text-brand-offwhite text-lg">TRAVIS — KAI&apos;S RUN</p>
+          <p className="text-brand-gray text-sm mt-1">
+            Travis is the owner of Kai&apos;s Run and the human behind Kai, a Rhodesian Ridgeback mix
+            who made it clear early on that two walks a day wasn&apos;t going to cut it. He built this
+            service because no one else on the Emerald Coast was doing it.{' '}
+            <a href="/about/" className="text-brand-teal hover:underline">Read more →</a>
+          </p>
+        </div>
+      </div>
+
       <section className="mt-16 rounded-xl border border-brand-teal/30 bg-brand-charcoal/60 px-6 py-10 text-center">
-        <p className="font-body text-sm uppercase tracking-[0.25em] text-brand-teal">Ready when you are</p>
-        <h2 className="mt-3 font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">
-          Book a session
+        <h2 className="font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">
+          Become a Founding Athlete
         </h2>
         <p className="mx-auto mt-4 max-w-xl font-body text-brand-gray">
-          Bring structured conditioning to your driveway — Destin, Fort Walton Beach & Niceville.
+          We&apos;re accepting the first 20 dogs before we open.
+          Lock in 5 sessions for $200 — $40 each — before that rate disappears.
+          Travis brings the slatmill to your driveway. No facility, no drop-off, no group sessions.
         </p>
         <Link
           href="/book/"
           className="mt-8 inline-flex items-center justify-center rounded-md bg-brand-teal px-10 py-4 font-body font-medium text-white transition hover:bg-brand-teal/90"
         >
-          Book now
+          Claim Your Spot →
         </Link>
       </section>
     </>

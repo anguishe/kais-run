@@ -24,8 +24,8 @@ Authoritative brand facts for copy, code, schema, and agent context.
 
 | Field | Value |
 |---|---|
-| Domain | https://kaisrun.xyz |
-| Repo | anguishe/kais-run (GitHub Pages static export) |
+| Domain | https://www.kaisrun.xyz |
+| Repo | anguishe/kais-run (Vercel SSR) |
 | Phone — display | 850-218-5855 |
 | Phone — E.164 / schema | +18502185855 |
 | Phone — href | tel:850-218-5855 |
@@ -143,9 +143,9 @@ A slatmill is a non-motorized treadmill — the dog's own movement powers the be
 
 | Entity | @id |
 |---|---|
-| Business | https://kaisrun.xyz/#business |
-| Person (Travis) | https://kaisrun.xyz/about/#travis |
-| WebSite | https://kaisrun.xyz/#website |
+| Business | https://www.kaisrun.xyz/#business |
+| Person (Travis) | https://www.kaisrun.xyz/about/#travis |
+| WebSite | https://www.kaisrun.xyz/#website |
 
 ---
 

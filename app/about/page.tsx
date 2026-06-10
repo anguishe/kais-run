@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       "Travis built Kai's Run in Destin FL after his Rhodesian Ridgeback mix Kai needed more than walks. Mobile canine conditioning for the Emerald Coast.",
     type: 'website',
     locale: 'en_US',
-    url: 'https://kaisrun.xyz/about/',
+    url: 'https://www.kaisrun.xyz/about/',
     images: [
       {
         url: OG_IMAGE_URL,
@@ -34,9 +34,9 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': 'https://kaisrun.xyz/about/#travis',
+  '@id': 'https://www.kaisrun.xyz/about/#travis',
   name: 'Travis',
-  url: 'https://kaisrun.xyz/about/',
+  url: 'https://www.kaisrun.xyz/about/',
   description: 'Founder of Kai\'s Run Mobile Dog Gym',
   jobTitle: 'Owner',
   telephone: '+18502185855',
@@ -46,7 +46,7 @@ const personSchema = {
   },
   worksFor: {
     '@type': 'AnimalService',
-    '@id': 'https://kaisrun.xyz/#business',
+    '@id': 'https://www.kaisrun.xyz/#business',
     name: 'Kai\'s Run',
   },
 };

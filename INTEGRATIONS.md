@@ -1,17 +1,20 @@
 # Kai's Run — Integration Reference
 
 All live integrations and their current status.
-**Last updated:** 2026-06-04
+**Last updated:** 2026-06-09
 
 > ⚠️ This file is for architecture reference only. Never commit API keys here.
 > All secrets live in `.env.local` (local) and GitHub Actions repo secrets (production).
 
 ---
 
-## How Forms Work — GitHub Pages Pattern
+## How Forms Work
 
-Static export on GitHub Pages means no `/api/*` routes run in production.
-Every form follows this exact pattern:
+On Vercel SSR, /api/ routes run in production. However, the Cloudflare Worker
+is the current Mailchimp bridge and remains active. The /api/subscribe route
+was deleted as a static export artifact. Do not recreate it without instruction.
+
+Every form currently follows this pattern:
 
 ```
 User submits form
@@ -78,6 +81,17 @@ Tags must exactly match: `contact-inquiry`, `founding-20`, `energy-guide`, `foot
 | `NEXT_PUBLIC_LEAD_CAPTURE_LABEL` | Lead / email capture conversion label |
 
 > All `NEXT_PUBLIC_` variables must be added as **GitHub Actions repo secrets** AND explicitly exposed in the `deploy.yml` build step. Variables not in `deploy.yml` are undefined in production even if set in the repo.
+---
+
+## AdSense
+
+- Publisher ID: ca-pub-5399156622542127 (CONFIRMED CORRECT from dashboard)
+- Status: Verification script live in root layout `<head>` — Auto Ads OFF
+- Ad slot IDs: NOT YET OBTAINED — pending AdSense approval
+- BlogPostWithAds.tsx: ad units are commented out with TODO until slot IDs received
+- When slot IDs are received: uncomment ad units in BlogPostWithAds.tsx and replace
+  the slot prop value with the real slot ID (format: "1234567890")
+- ads.txt: located at public/ads.txt — contains ca-pub-5399156622542127
 
 ---
 
@@ -129,10 +143,10 @@ curl "https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/[SLUG]/&key=kaisr
 
 ## GitHub Actions / Deploy
 
-- Workflow: `.github/workflows/deploy.yml`
-- Trigger: push to `main`
-- Build: `npm run build` → static export to `/out`
-- Deploy: GitHub Pages from `/out`
-- Build time: ~2 minutes
+- Platform: Vercel (vercel.json not required — auto-detected Next.js)
+- Trigger: push to `main` via GitHub integration
+- Build: `npm run build` (Next.js SSR)
+- Build time: ~1–2 minutes
+- Environment variables: Vercel dashboard → Project Settings → Environment Variables
 
 > Environment variables must be set in GitHub repo Settings → Secrets and Variables → Actions, then referenced in `deploy.yml` under `env:` in the build step.

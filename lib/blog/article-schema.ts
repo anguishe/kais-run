@@ -1,6 +1,6 @@
 import { resolvePostOgImage } from '@/lib/blog/post-metadata';
 
-const BASE_URL = 'https://kaisrun.xyz';
+const BASE_URL = 'https://www.kaisrun.xyz';
 
 export type ArticleSchemaInput = {
   title: string;
@@ -35,12 +35,12 @@ export function buildArticleSchema({
     url: pageUrl,
     author: {
       '@type': 'Person',
-      '@id': 'https://kaisrun.xyz/about/#travis',
+      '@id': 'https://www.kaisrun.xyz/about/#travis',
       name: author,
-      url: 'https://kaisrun.xyz/about/',
+      url: 'https://www.kaisrun.xyz/about/',
     },
     publisher: {
-      '@id': 'https://kaisrun.xyz/#business',
+      '@id': 'https://www.kaisrun.xyz/#business',
     },
     image: ogImage,
     mainEntityOfPage: {

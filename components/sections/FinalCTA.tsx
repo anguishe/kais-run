@@ -53,7 +53,7 @@ export function FinalCTA() {
         <motion.div variants={fadeUp}>
           <p className="text-brand-gray font-body text-sm mb-2">Prefer to talk?</p>
           <a
-            href="tel:850-218-5855"
+            href="tel:+18502185855"
             className="text-brand-offwhite font-display text-2xl tracking-wider hover:text-white transition-colors"
           >
             Call or text: 850-218-5855

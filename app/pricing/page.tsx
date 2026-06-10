@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: PRICING_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
-    url: 'https://kaisrun.xyz/pricing/',
+    url: 'https://www.kaisrun.xyz/pricing/',
     images: [
       {
         url: OG_IMAGE_URL,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pricing | Mobile Dog Gym Destin FL',
     description: PRICING_DESCRIPTION,
-    images: ['https://kaisrun.xyz/images/og-image.png'],
+    images: ['https://www.kaisrun.xyz/images/og-image.png'],
   },
 };
 

@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
+  images: {
+    // next/image optimization available on Vercel
+    // keep unoptimized: false (Vercel handles optimization)
+    formats: ['image/webp', 'image/avif'],
+    remotePatterns: [],
+  },
   async headers() {
     return [
       {

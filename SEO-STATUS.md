@@ -1,6 +1,8 @@
 # Kai's Run — SEO / AEO / GEO Status
 
 **Site:** https://kaisrun.xyz
+**Deployment:** GitHub Pages static export → Vercel SSR (migrated 2026-06-09)
+**Note:** All canonical, schema @id, OG url, and sitemap entries normalized to www (Prompt 4)
 **Audit date:** 2026-06-04
 **Overall score:** 56/100 (baseline for 1-month-old domain)
 **GSC data:** 5 clicks / 39 impressions / 12.8% CTR / avg position 32.1 (3-month window)

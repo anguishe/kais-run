@@ -17,7 +17,7 @@ export default function PrivacyPage() {
           style={{ color: '#F0EDE6' }}
           dangerouslySetInnerHTML={{
             __html: `<span data-custom-class="subtitle">Last updated: May 12, 2026</span><br><br>
-<span data-custom-class="body_text">This Privacy Policy describes how Kai&apos;s Run (&quot;Kai&apos;s Run,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information when you visit <a href="https://kaisrun.xyz/" data-custom-class="link">kaisrun.xyz</a> (our &quot;Site&quot;), contact us, join our waitlist or email list, or otherwise interact with our mobile canine conditioning services in Destin, Fort Walton Beach, Niceville, and nearby areas of Florida.</span><br><br>
+<span data-custom-class="body_text">This Privacy Policy describes how Kai&apos;s Run (&quot;Kai&apos;s Run,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares information when you visit <a href="https://www.kaisrun.xyz/" data-custom-class="link">www.kaisrun.xyz</a> (our &quot;Site&quot;), contact us, join our waitlist or email list, or otherwise interact with our mobile canine conditioning services in Destin, Fort Walton Beach, Niceville, and nearby areas of Florida.</span><br><br>
 <span data-custom-class="heading_1">Information we collect</span><br><br>
 <span data-custom-class="heading_2">Information you provide</span><br><br>
 <span data-custom-class="body_text">We may collect information that you voluntarily provide, including but not limited to your name, email address, phone number, mailing or service address, messages you send us, and details you share about your dog or scheduling preferences when you fill out a form (such as contact, booking, waitlist, or lead magnet requests), call or text us, or communicate with us by email or social media.</span><br><br>
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
 <span data-custom-class="heading_1">Contact us</span><br><br>
 <span data-custom-class="body_text">If you have questions about this Privacy Policy or our practices, contact us:</span><br><br>
 <ul>
-<li><span data-custom-class="body_text"><span data-custom-class="link">Phone:</span> <a href="tel:850-218-5855" data-custom-class="link">850-218-5855</a></span></li>
+<li><span data-custom-class="body_text"><span data-custom-class="link">Phone:</span> <a href="tel:+18502185855" data-custom-class="link">850-218-5855</a></span></li>
 <li><span data-custom-class="body_text"><span data-custom-class="link">Email:</span> <a href="mailto:kaisrunmobile@gmail.com" data-custom-class="link">kaisrunmobile@gmail.com</a></span></li>
 </ul>`,
           }}

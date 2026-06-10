@@ -1,7 +1,7 @@
 import { BLOG_LISTING_DESCRIPTION, BLOG_LISTING_URL } from '@/lib/blog/blog-listing-metadata';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 
-const BASE_URL = 'https://kaisrun.xyz';
+const BASE_URL = 'https://www.kaisrun.xyz';
 
 export function buildBlogIndexSchema(posts: BlogPostMeta[]) {
   return {

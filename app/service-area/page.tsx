@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Kai's Run serves Destin, Fort Walton Beach, Niceville, Miramar Beach, Sandestin, Shalimar, Mary Esther, Navarre, Santa Rosa Beach, Bluewater Bay & Valparaiso FL with mobile dog conditioning.",
     type: 'website',
     locale: 'en_US',
-    url: 'https://kaisrun.xyz/service-area/',
+    url: 'https://www.kaisrun.xyz/service-area/',
     images: [
       {
         url: OG_IMAGE_URL,

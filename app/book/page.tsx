@@ -1,27 +1,18 @@
 import type { Metadata } from 'next';
 import BookPageClient from './BookPageClient';
 
-const BOOK_DESCRIPTION =
-  "Book a mobile dog conditioning session in Destin, Fort Walton Beach or Niceville FL. Intro sessions start at $35. Schedule online — we come to your driveway.";
-
 export const metadata: Metadata = {
-  title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
-  description: BOOK_DESCRIPTION,
-  alternates: { canonical: 'https://www.kaisrun.xyz/book/' },
+  title: 'Join the Founding Athlete Program | Kai\'s Run',
+  description: 'Lock in 5 dog conditioning sessions for $200 — $40 per session — before Kai\'s Run opens to the public. Only 17 spots remain. Mobile slatmill delivered to your driveway in Destin, Fort Walton Beach, Niceville, and surrounding Emerald Coast cities.',
+  alternates: {
+    canonical: 'https://www.kaisrun.xyz/book/',
+  },
   openGraph: {
-    title: "Book a Session | Kai's Run — Mobile Dog Gym Destin FL",
-    description: BOOK_DESCRIPTION,
+    title: 'Join the Founding Athlete Program | Kai\'s Run',
+    description: 'Lock in 5 conditioning sessions for $200 before we open. 17 spots left.',
+    url: 'https://www.kaisrun.xyz/book/',
     type: 'website',
-    url: 'https://kaisrun.xyz/book/',
-    locale: 'en_US',
-    images: [
-      {
-        url: 'https://kaisrun.xyz/images/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: "Kai's Run — Book a Mobile Dog Conditioning Session",
-      },
-    ],
+    images: [{ url: 'https://www.kaisrun.xyz/images/og-image.png', width: 1200, height: 630 }],
   },
 };
 

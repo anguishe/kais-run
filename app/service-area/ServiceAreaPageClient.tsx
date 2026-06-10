@@ -129,7 +129,7 @@ export function ServiceAreaPageClient() {
                 Book Your Session
               </Button>
               <a
-                href="tel:8502185855"
+                href="tel:+18502185855"
                 className="text-brand-teal font-body hover:text-brand-teal/80 transition-colors"
               >
                 Call or text: 850-218-5855
@@ -163,7 +163,7 @@ export function ServiceAreaPageClient() {
           </motion.p>
           <motion.div variants={fadeUp}>
             <a
-              href="tel:8502185855"
+              href="tel:+18502185855"
               className="inline-block bg-brand-teal text-white px-10 py-4 font-medium text-base tracking-wide transition-colors hover:bg-brand-teal/90"
             >
               Call or Text: 850-218-5855

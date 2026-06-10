@@ -3,7 +3,9 @@ export async function subscribeToMailchimp(
   name: string,
   tags: string[]
 ): Promise<{ success: boolean; error?: string }> {
-  const url = process.env.NEXT_PUBLIC_SUBSCRIBE_URL || '/api/subscribe/';
+  const url =
+    process.env.NEXT_PUBLIC_SUBSCRIBE_URL ||
+    'https://kaisrun-subscribe.kaisrunmobile.workers.dev';
 
   try {
     const res = await fetch(url, {

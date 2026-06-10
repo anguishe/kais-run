@@ -83,10 +83,11 @@ export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
         >
           <motion.div variants={fadeUp} className="text-center mb-10">
             <h2 className="text-4xl md:text-6xl font-display tracking-tight mb-6">
-              FREE GUIDE: Tire Out Your High-Drive Dog.
+              Get Early Access Updates
             </h2>
             <p className="text-base md:text-lg font-body text-brand-gray max-w-2xl mx-auto">
-              Get the Emerald Coast Dog Energy Guide — structured exercise for working breeds. Free. No spam.
+              We&apos;re pre-launch. Enter your email to get updates on our opening date, founding
+              athlete availability, and conditioning tips from Travis.
             </p>
           </motion.div>
 

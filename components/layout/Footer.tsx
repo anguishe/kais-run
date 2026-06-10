@@ -144,7 +144,7 @@ export default function Footer() {
             </h3>
             <div className="space-y-4">
               <a
-                href="tel:850-218-5855"
+                href="tel:+18502185855"
                 className="text-brand-gray hover:text-brand-offwhite transition-colors text-sm block"
               >
                 Phone: 850-218-5855

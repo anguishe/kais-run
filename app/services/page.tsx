@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,
     type: 'website',
-    url: 'https://kaisrun.xyz/services/',
+    url: 'https://www.kaisrun.xyz/services/',
     locale: 'en_US',
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kai's Run Services | Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,
-    images: ['https://kaisrun.xyz/images/og-image.png'],
+    images: ['https://www.kaisrun.xyz/images/og-image.png'],
   },
 };
 

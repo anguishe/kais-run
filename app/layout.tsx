@@ -11,7 +11,7 @@ import { CookieConsent } from "@/components/ui/CookieConsent";
 import { GA4Script } from "@/components/ui/GA4Script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kaisrun.xyz/"),
+  metadataBase: new URL("https://www.kaisrun.xyz/"),
   manifest: "/manifest.json",
   title: "Kai's Run | Mobile Dog Gym Destin FL",
   description:
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kai's Run | Mobile Dog Gym",
     description: "Structured canine conditioning delivered to your driveway.",
-    url: "https://kaisrun.xyz/",
+    url: "https://www.kaisrun.xyz/",
     siteName: "Kai's Run",
     images: [
       {
-        url: "https://kaisrun.xyz/images/og-image.png",
+        url: "https://www.kaisrun.xyz/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kai's Run | Mobile Dog Gym — Destin FL",
     description: "Structured canine conditioning delivered to your driveway.",
-    images: ["https://kaisrun.xyz/images/og-image.png"],
+    images: ["https://www.kaisrun.xyz/images/og-image.png"],
   },
   verification: {
     google: "suiO-1Ptv6S8pmMU60QJiNoNnlwQfzXBV2F0UurKxrg",
@@ -61,15 +61,15 @@ export const viewport = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "AnimalService",
-  "@id": "https://kaisrun.xyz/#business",
+  "@id": "https://www.kaisrun.xyz/#business",
   name: "Kai's Run",
   description:
     "Mobile canine conditioning service delivering self-powered slatmill sessions to driveways in Destin, Fort Walton Beach, and Niceville FL.",
-  url: "https://kaisrun.xyz",
+  url: "https://www.kaisrun.xyz",
   telephone: "+18502185855",
   email: "kaisrunmobile@gmail.com",
-  image: "https://kaisrun.xyz/images/og-image.png",
-  logo: "https://kaisrun.xyz/images/logos/kr-logo-1.webp",
+  image: "https://www.kaisrun.xyz/images/og-image.png",
+  logo: "https://www.kaisrun.xyz/images/logos/kr-logo-1.webp",
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: "Credit Card, Cash",
@@ -107,7 +107,7 @@ const localBusinessJsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Intro Session",
-          url: "https://kaisrun.xyz/services/",
+          url: "https://www.kaisrun.xyz/services/",
         },
         price: "35.00",
         priceCurrency: "USD",
@@ -117,7 +117,7 @@ const localBusinessJsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Intro Session — Two Dogs",
-          url: "https://kaisrun.xyz/services/",
+          url: "https://www.kaisrun.xyz/services/",
         },
         price: "55.00",
         priceCurrency: "USD",
@@ -127,7 +127,7 @@ const localBusinessJsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Founding Athlete Program",
-          url: "https://kaisrun.xyz/pricing/",
+          url: "https://www.kaisrun.xyz/pricing/",
         },
         price: "200.00",
         priceCurrency: "USD",
@@ -136,9 +136,9 @@ const localBusinessJsonLd = {
   },
   founder: {
     "@type": "Person",
-    "@id": "https://kaisrun.xyz/about/#travis",
+    "@id": "https://www.kaisrun.xyz/about/#travis",
     name: "Travis",
-    url: "https://kaisrun.xyz/about/",
+    url: "https://www.kaisrun.xyz/about/",
   },
   sameAs: [
     "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
@@ -150,10 +150,10 @@ const localBusinessJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://kaisrun.xyz/#website",
-  url: "https://kaisrun.xyz",
+  "@id": "https://www.kaisrun.xyz/#website",
+  url: "https://www.kaisrun.xyz",
   name: "Kai's Run",
-  publisher: { "@id": "https://kaisrun.xyz/#business" },
+  publisher: { "@id": "https://www.kaisrun.xyz/#business" },
 };
 
 export default function RootLayout({

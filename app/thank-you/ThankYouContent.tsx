@@ -42,7 +42,7 @@ const preparationSteps = [
 
 export default function ThankYouContent() {
   const shareText = encodeURIComponent(
-    "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://kaisrun.xyz"
+    "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://www.kaisrun.xyz/"
   );
 
   return (
@@ -126,7 +126,7 @@ export default function ThankYouContent() {
             Questions before your session?
           </p>
           <a
-            href="tel:850-218-5855"
+            href="tel:+18502185855"
             className="text-brand-teal font-body text-lg hover:text-brand-teal/80 transition-colors"
           >
             Call or text: 850-218-5855

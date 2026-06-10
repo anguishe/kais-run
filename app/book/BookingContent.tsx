@@ -33,7 +33,7 @@ export default function BookingContent() {
         <motion.div variants={fadeUp} className="text-center mb-16">
           <p className="text-brand-gray font-body text-base mb-4">Prefer to book by phone?</p>
           <a
-            href="tel:850-218-5855"
+            href="tel:+18502185855"
             className="text-brand-teal font-display text-3xl hover:text-brand-teal/80 transition-colors"
           >
             Call or text: 850-218-5855

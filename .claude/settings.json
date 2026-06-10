@@ -19,7 +19,9 @@
       "Read(//home/angsec/Projects/**)",
       "Read(//home/angsec/**)",
       "Bash(grep -v \"^content-standards$\\\\|^frontend-design$\\\\|^seo-aeo-geo$\\\\|^kaisrun-context$\\\\|^lsa-nextjs-static$\")",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(npm audit *)"
     ]
   }
 }
