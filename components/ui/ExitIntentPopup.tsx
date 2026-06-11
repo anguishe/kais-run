@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { setBookIntentSource } from '@/lib/bookIntent';
 
 export function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
@@ -36,18 +38,19 @@ export function ExitIntentPopup() {
           Before you go
         </p>
         <h2 className="mb-3 font-display text-3xl text-brand-offwhite">
-          $35 Intro Session
+          Join the Founding 20 — $200
         </h2>
         <p className="mb-6 font-body text-brand-gray text-sm">
-          Your dog's first structured conditioning session — delivered to your driveway.
-          One dog. Private. No drop-off.
+          Five structured slatmill sessions at $40 each — delivered to your driveway. A one-time
+          founding rate for the first 20 dogs. Never offered again.
         </p>
-        <a
-          href="/book/"
+        <Link
+          href="/book/?offer=founding#founding-checkout"
           className="block w-full rounded bg-brand-teal py-3 font-display text-lg tracking-wider text-brand-offwhite hover:opacity-90"
+          onClick={() => setBookIntentSource('exit-intent-founding')}
         >
-          Book Now
-        </a>
+          Claim Your Founding Spot
+        </Link>
         <button
           className="mt-3 font-body text-xs text-brand-gray underline"
           onClick={() => setVisible(false)}

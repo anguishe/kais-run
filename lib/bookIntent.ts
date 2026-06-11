@@ -3,6 +3,7 @@ export const BOOK_INTENT_KEY = 'kr_book_intent';
 export const INTRO_DOG_COUNT_KEY = 'kr_intro_dogs';
 export const MEMBERSHIP_TIER_KEY = 'kr_membership_tier';
 export const INTRO_ADS_TRACKED_KEY = 'kr_intro_square_tracked';
+export const FOUNDING_SQUARE_TRACKED_KEY = 'kr_founding_square_tracked';
 
 export function setBookIntentSource(source: string): void {
   try {
@@ -52,6 +53,24 @@ export function markIntroSquareConversionTracked(): void {
   try {
     if (typeof window === 'undefined') return;
     sessionStorage.setItem(INTRO_ADS_TRACKED_KEY, '1');
+  } catch {
+    /* ignore */
+  }
+}
+
+export function hasFoundingSquareConversionTracked(): boolean {
+  try {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem(FOUNDING_SQUARE_TRACKED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export function markFoundingSquareConversionTracked(): void {
+  try {
+    if (typeof window === 'undefined') return;
+    sessionStorage.setItem(FOUNDING_SQUARE_TRACKED_KEY, '1');
   } catch {
     /* ignore */
   }
