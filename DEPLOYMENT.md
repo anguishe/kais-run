@@ -2,7 +2,7 @@
 
 **Host:** Vercel SSR
 **Repo:** anguishe/kais-run
-**Live site:** https://www.kaisrun.xyz
+**Live site:** https://kaisrun.xyz
 **Canonical:** www — apex (kaisrun.xyz) 308 redirects to www automatically via Vercel
 **Last updated:** 2026-06-09
 
@@ -74,7 +74,7 @@ Vercel rebuilds automatically in ~2 minutes.
 6. Push to main and wait for Vercel build to complete
 7. Ping IndexNow after pages are live:
 ```bash
-   curl "https://yandex.com/indexnow?url=https://www.kaisrun.xyz/blog/[SLUG]/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n"
+   curl "https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/[SLUG]/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n"
 ```
 8. In Google Search Console → URL Inspection → request indexing for the new URL
 
@@ -96,7 +96,7 @@ Vercel rebuilds automatically in ~2 minutes.
 
 ## Custom Domain
 
-Custom domain live: `www.kaisrun.xyz`
+Custom domain live: `kaisrun.xyz`
 - DNS configured at registrar pointing to Vercel
 - www is the canonical — apex 308 redirects to www via Vercel
 - HTTPS enforced automatically by Vercel
@@ -118,7 +118,7 @@ npm run lint
 
 After every significant deploy:
 
-- [ ] Visit https://www.kaisrun.xyz, confirm content renders
+- [ ] Visit https://kaisrun.xyz, confirm content renders
 - [ ] View source: check `<title>`, `<meta description>`, canonical tag, JSON-LD
 - [ ] Check `/sitemap.xml` is accessible
 - [ ] Check `/llms.txt` is accessible

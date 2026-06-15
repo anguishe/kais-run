@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
   description:
     "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
-  alternates: { canonical: 'https://www.kaisrun.xyz/faq/' },
+  alternates: { canonical: 'https://kaisrun.xyz/faq/' },
   openGraph: {
     title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
       "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
     type: 'website',
-    url: 'https://www.kaisrun.xyz/faq/',
+    url: 'https://kaisrun.xyz/faq/',
     locale: 'en_US',
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
     description:
       "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
-    images: ['https://www.kaisrun.xyz/images/og-image.png'],
+    images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
 

@@ -6,7 +6,7 @@ This is the authoritative reference for stack, constraints, integrations, and br
 ## Deployment
 
 - **Host:** Vercel SSR (migrated from GitHub Pages, June 2026)
-- **Canonical domain:** https://www.kaisrun.xyz (www — apex redirects to www via Vercel)
+- **Canonical domain:** https://kaisrun.xyz (apex — www redirects to apex)
 - **Repo:** anguishe/kais-run
 - API routes: WORK in production (Vercel SSR)
 - Server actions: WORK in production
@@ -17,17 +17,17 @@ This is the authoritative reference for stack, constraints, integrations, and br
 
 - Next.js App Router · TypeScript · Tailwind CSS v4
 - Deployment: Vercel SSR — API routes, server components, and headers() all active
-- Host: https://www.kaisrun.xyz (www canonical; apex 308 redirects to www via Vercel)
+- Host: https://kaisrun.xyz (apex canonical; www 301 redirects to apex)
 - Plain `<img>` tags only — never introduce `next/image`
 - trailingSlash: true — all internal links and sitemaps use trailing slashes
 - Build command: `npm run build` — always verify zero errors before finishing any task
 
 ## Canonical & Schema URL Rule
 
-ALL of the following must use https://www.kaisrun.xyz (with www — never apex):
+ALL of the following must use https://kaisrun.xyz (apex — never www):
 - alternates.canonical in every page's metadata
 - openGraph.url in every page's metadata
-- Schema @id fields: https://www.kaisrun.xyz/#business, https://www.kaisrun.xyz/#website, https://www.kaisrun.xyz/about/#travis
+- Schema @id fields: https://kaisrun.xyz/#business, https://kaisrun.xyz/#website, https://kaisrun.xyz/about/#travis
 - Sitemap <loc> entries
 - llms.txt references
 - Any hardcoded domain string in app/, components/, lib/

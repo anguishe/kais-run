@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.kaisrun.xyz';
+const BASE_URL = 'https://kaisrun.xyz';
 
 export type BreadcrumbItem = {
   name: string;

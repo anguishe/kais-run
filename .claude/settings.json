@@ -29,7 +29,12 @@
       "Bash(curl -sI https://www.kaisrun.xyz/sitemap.xml)",
       "Bash(curl -s https://www.kaisrun.xyz/robots.txt)",
       "Bash(curl -sI https://www.kaisrun.xyz/)",
-      "Bash(curl -sI https://www.kaisrun.xyz/kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n.txt)"
+      "Bash(curl -sI https://www.kaisrun.xyz/kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n.txt)",
+      "Bash(sed -i 's/www\\\\.kaisrun\\\\.xyz/kaisrun.xyz/g' app/layout.tsx app/page.tsx app/book/page.tsx app/pricing/page.tsx app/faq/page.tsx app/services/page.tsx app/service-area/page.tsx app/service-area/[slug]/page.tsx app/about/page.tsx app/privacy/page.tsx app/thank-you/ThankYouContent.tsx app/blog/high-energy-dog-breeds-need-more-than-a-walk/page.tsx app/blog/slatmill-vs-long-walk/page.tsx lib/seo/breadcrumb-schema.ts lib/seo/service-area-schema.ts lib/blog/article-schema.ts lib/blog/blog-index-schema.ts lib/blog/blog-listing-metadata.ts lib/blog/post-metadata.ts lib/faq-data.ts public/sitemap.xml public/robots.txt public/llms.txt DEPLOYMENT.md brand-reference.md)",
+      "Bash(echo \"SED EXIT: $?\")",
+      "Bash(echo \"BUILD EXIT CODE: $?\")",
+      "Read(//tmp/**)",
+      "Bash(curl -sI https://kaisrun.xyz/)"
     ]
   }
 }

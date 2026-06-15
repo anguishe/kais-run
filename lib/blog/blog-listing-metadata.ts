@@ -7,8 +7,8 @@ export const BLOG_LISTING_TITLE = "Blog | Kai's Run — Mobile Dog Gym";
 export const BLOG_LISTING_DESCRIPTION =
   "Dog conditioning, exercise, and slatmill guides from Kai's Run — mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL.";
 
-export const BLOG_LISTING_URL = 'https://www.kaisrun.xyz/blog/';
-const OG_IMAGE = `https://www.kaisrun.xyz${OG_IMAGE_URL}`;
+export const BLOG_LISTING_URL = 'https://kaisrun.xyz/blog/';
+const OG_IMAGE = `https://kaisrun.xyz${OG_IMAGE_URL}`;
 
 export function buildBlogListingMetadata(): Metadata {
   return {

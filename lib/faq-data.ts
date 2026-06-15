@@ -79,7 +79,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
 export function faqAnswerPlainForSchema(text: string): string {
   const withUrls = text.replace(
     /\[\[LINK:([^|]+)\|([^\]]+)\]\]/g,
-    (_, path: string, label: string) => `${label} (https://www.kaisrun.xyz${path})`,
+    (_, path: string, label: string) => `${label} (https://kaisrun.xyz${path})`,
   );
   return withUrls.replace(/\s+/g, ' ').replace(/\n\n/g, ' ').trim();
 }

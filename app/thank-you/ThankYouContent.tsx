@@ -42,7 +42,7 @@ const preparationSteps = [
 
 export default function ThankYouContent() {
   const shareText = encodeURIComponent(
-    "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://www.kaisrun.xyz/"
+    "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://kaisrun.xyz/"
   );
 
   return (

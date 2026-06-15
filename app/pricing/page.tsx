@@ -14,13 +14,13 @@ const PRICING_DESCRIPTION =
 export const metadata: Metadata = {
   title: 'Pricing | Mobile Dog Gym Destin FL',
   description: PRICING_DESCRIPTION,
-  alternates: { canonical: 'https://www.kaisrun.xyz/pricing/' },
+  alternates: { canonical: 'https://kaisrun.xyz/pricing/' },
   openGraph: {
     title: 'Pricing | Mobile Dog Gym Destin FL',
     description: PRICING_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.kaisrun.xyz/pricing/',
+    url: 'https://kaisrun.xyz/pricing/',
     images: [
       {
         url: OG_IMAGE_URL,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pricing | Mobile Dog Gym Destin FL',
     description: PRICING_DESCRIPTION,
-    images: ['https://www.kaisrun.xyz/images/og-image.png'],
+    images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
 

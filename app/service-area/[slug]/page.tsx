@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const city = getServiceCityBySlug(slug);
   if (!city) return notFoundMetadata();
 
-  const canonical = `https://www.kaisrun.xyz${getServiceCityPath(city.slug)}`;
+  const canonical = `https://kaisrun.xyz${getServiceCityPath(city.slug)}`;
 
   return {
     title: city.title,

@@ -14,12 +14,12 @@ const SERVICES_DESCRIPTION =
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
   description: SERVICES_DESCRIPTION,
-  alternates: { canonical: 'https://www.kaisrun.xyz/services/' },
+  alternates: { canonical: 'https://kaisrun.xyz/services/' },
   openGraph: {
     title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,
     type: 'website',
-    url: 'https://www.kaisrun.xyz/services/',
+    url: 'https://kaisrun.xyz/services/',
     locale: 'en_US',
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Kai's Run Services | Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,
-    images: ['https://www.kaisrun.xyz/images/og-image.png'],
+    images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
 

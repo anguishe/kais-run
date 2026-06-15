@@ -14,4 +14,4 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Amazonbot
 Allow: /
-Sitemap: https://www.kaisrun.xyz/sitemap.xml
+Sitemap: https://kaisrun.xyz/sitemap.xml
