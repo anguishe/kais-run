@@ -1,0 +1,75 @@
+---
+title: "Is My Dog Overweight? You're Probably Looking at the Wrong Number"
+slug: is-my-dog-overweight
+date: 2026-06-15
+readTime: "7 min read"
+description: "Is my dog overweight? Most owners can't tell, and the scale isn't the real test. The home check, why summer walks stopped working, and the fix that lasts."
+keywords: is my dog overweight, how to tell if dog is overweight, dog weight loss, overweight dog exercise, dog body condition score, dog obesity, Destin dog conditioning
+ogTitle: "Is My Dog Overweight? You're Probably Looking at the Wrong Number"
+ogDescription: "Most owners can't tell their dog is overweight, and the scale isn't the test. The two-minute home check, and why the fix isn't only less food."
+---
+
+**You can answer "is my dog overweight" without a scale: if you can't feel its ribs under a thin layer, see a waist when you look down from above, or see a tuck-up behind the ribs from the side, your dog is carrying too much - and for most dogs the fix is not only less food, it is consistent, low-impact movement the dog actually finishes, not the half-walk the heat keeps cutting short.**
+
+Bailey is eleven now. She runs the house - greets the truck, supervises the kitchen, decides when the day is over. A few months back the vet set her on the scale during a routine visit and read the number out loud. It was four pounds over her usual. Four pounds does not sound like anything. On a dog her size it is closer to a person carrying an extra thirty.
+
+I did not see it happen. That is the whole problem. Weight does not arrive on a dog overnight. It arrives a quarter pound at a time, across a winter of shorter walks and a few extra biscuits, and your eye adjusts to it the same way it adjusts to a messy garage. You stop seeing the thing you look at every day.
+
+So when an owner asks me "is my dog overweight," my honest answer is: probably, you likely cannot tell by looking, and the scale is not the number that matters anyway.
+
+## The scale is asking the wrong question
+
+Here is what most owners do not know. A dog can sit at its listed ideal weight and still be soft, deconditioned, and carrying too much fat. Two dogs of the same breed at the same weight can have completely different bodies - one lean and muscled, one round and unfit. The pound count does not tell you which is which. Body composition does.
+
+The Association for Pet Obesity Prevention has tracked this for years, and the numbers are blunt: roughly 59% of dogs in the United States are overweight or obese. The harder number is the awareness gap. In their 2023 survey, only about 17% of dog owners recognized their own dog as overweight. Most people looked at a dog a vet would score as heavy and saw a normal, healthy dog. The condition is that common, and that invisible.
+
+You do not need a scale to check. You need your hands. Run them along your dog's side. You should feel the ribs under a thin layer, the way you feel your knuckles through the back of your hand - not buried, not jutting out. Look down at your dog from above. There should be a visible waist behind the ribs. Look from the side. There should be a tuck-up where the belly rises toward the back legs. No ribs, no waist, no tuck means your dog is carrying too much. That two-minute check tells you more than the scale does. If your dog's weight changed fast, or changed with no change in food or activity, that is a vet conversation, not a conditioning one - sudden weight shifts can be medical.
+
+## Why the walks stopped working
+
+Ask most owners how their dog gets exercise and the answer is the walk. Then ask how the walks have been going lately. On the Emerald Coast in June, the honest answer is: shorter. The pavement is brutal, the air is thick, and a walk that used to be thirty minutes becomes a quick loop to the corner and back before either of you overheats. I wrote a whole piece on [why summer heat makes the walk a non-starter here](/blog/too-hot-to-walk-your-dog/), and the short version is that the season quietly deletes the one form of movement most dogs were getting.
+
+But here is the part nobody says out loud. Even before the heat, the walk was probably not doing much. A leash walk at a human pace, with a stop at every mailbox, is a sniffari, not a workout. It is good for the dog's head. It does very little for the dog's waistline. I broke the math down in [how much exercise a dog actually needs](/blog/how-much-exercise-does-my-dog-need/) and again in [the straight comparison between a slatmill and a walk](/blog/dog-treadmill-vs-walk-comparison/): for a deconditioned dog, a stroll burns almost nothing. Intensity is the variable that moves weight, and a stop-and-sniff walk has none.
+
+So the dog gains a little. The owner cuts the food a little. And the weight does not come off. That failure is so common it has been measured. In the most recent Association for Pet Obesity Prevention survey, reported in early 2026, only about one in four owners who tried to help their dog lose weight said it actually worked. People are trying. The plan they were handed is the thing failing them.
+
+## You cannot out-diet a sedentary dog
+
+When the scale will not budge, the instinct is to cut the food harder. Be careful here. Slashing a dog's food while it sits still all day mostly burns muscle, not fat. And muscle is the tissue doing the work of keeping a body's metabolism up. Strip it away and you lower the dog's resting burn, which means the next pound goes on more readily than the last one came off. You can diet a dog into being lighter and softer at the same time. That is the trap.
+
+The way out is not only less food going in. It is more useful work coming out - enough movement, at enough intensity, often enough that the dog is actually spending energy and holding onto the muscle that keeps it lean. I am not a vet, and I will not hand you a calorie number - your vet should set the diet target, especially if there is any health history. My lane is the other half of the equation: the output.
+
+## What actually moves the needle
+
+The movement that works for an overweight dog has to be three things at once: consistent, intense enough to matter, and low-impact enough not to punish the joints - because a heavy dog is already carrying extra load on hips and knees with every step. That combination is hard to hit on a leash in a Florida summer. It is exactly what a self-powered slatmill is built for.
+
+The dog sets the pace - there is no motor dragging it along, so it moves at the speed its own body chooses. If you have not seen one, I explained [what a slatmill is and how it works](/blog/what-is-a-dog-slatmill/). The surface is gentler on joints than hot pavement. The session is the same whether it is 75 degrees or 95. And because it is structured rather than improvised, the workload is repeatable day to day, which is the entire point - [a measured run beats random play](/blog/why-structured-runs-matter/) when the goal is a real physical change instead of a one-off tire-out.
+
+One caution, because it matters most with a heavy dog: you do not start a deconditioned, overweight dog at a sprint. You start slow and build. Overdoing it on an unfit dog is its own problem, and I covered [how to read a dog's limit](/blog/can-you-over-exercise-a-dog/) in detail. The work has to meet the dog where it is.
+
+The payoff is worth the patience. A landmark long-term Purina study that followed Labradors across their lives found that the dogs kept lean lived about two years longer than their overweight littermates, and stayed healthier later into life. Two years is not a rounding error. It is a meaningful slice of a dog's whole time with you.
+
+## Take the blame off yourself
+
+If your dog is heavy, you did not fail at something obvious. The feeding guide on the bag overstates portions for most dogs. Treats add up in amounts nobody tracks. The heat erased your walks. And there is a decent chance your vet never raised it - by their own surveys, fewer than half of owners say their vet brings weight up at a routine visit. You were not handed good tools. The fix is not guilt. It is a plan you can actually run, in the season you actually live in.
+
+## FAQ
+
+**How can I tell if my dog is overweight without a vet?**
+Use your hands and your eyes. Feel for ribs under a thin layer, look for a waist from above and a tuck-up from the side. Missing all three means your dog is likely carrying too much.
+
+**My dog eats less than the bag says and still gained weight. Why?**
+Because input is only half of it. A dog that barely moves burns very little, and the bag's portions run high for most dogs anyway. Output - real, consistent movement - is usually the missing piece.
+
+**Is it too hot to exercise my dog for weight loss in the summer?**
+It is often too hot to walk one. It is not too hot to condition one in a controlled, low-impact way. A self-paced, shaded session sidesteps the heat entirely.
+
+**How fast should a dog lose weight?**
+Slowly, and under your vet's guidance. Crash diets burn muscle and backfire. Steady output plus a vet-set food target is the durable route.
+
+**Will exercise alone fix an overweight dog?**
+Usually not by itself, and not by food alone either. It is both - a vet-set diet for the input, consistent conditioning for the output and the muscle that keeps the dog lean.
+
+## The honest next step
+
+If the walks are losing the fight with the Florida heat and the weight is creeping the wrong way, conditioning is the half of the equation you can fix this month. Kai's Run brings a self-powered slatmill to your driveway for one-on-one sessions built around your dog's current condition - we start where your dog is, not where a plan on paper says it should be. You can [book an intro session](/book/) to see how your dog moves, or look at the [Founding Athlete Program](/pricing/) if you want a structured block of sessions to build the habit. Serving Destin, Fort Walton Beach, Niceville, Miramar Beach, and the rest of the Emerald Coast.
