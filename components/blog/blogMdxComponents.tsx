@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Link from 'next/link';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
+import Figure from '@/components/ui/Figure';
 
 const linkClass = 'text-brand-teal underline-offset-4 hover:text-brand-offwhite hover:underline';
 
@@ -52,5 +53,26 @@ export const blogMdxComponents: MdxProvidedComponents = {
     <pre className="mb-8 overflow-x-auto rounded-lg border border-brand-teal/20 bg-brand-black p-4 text-sm" {...props} />
   ),
   hr: () => <hr className="my-12 border-brand-teal/20" />,
+  // Markdown ![](...) — plain <img> with explicit dims + lazy/async so inline images stay CLS-safe.
+  // Asset swap path: public/images/blog/<slug>/<name>.webp
+  img: ({ src, alt, width, height, style, ...rest }) => {
+    const w = width ?? 1600;
+    const h = height ?? 900;
+    return (
+      <img
+        src={typeof src === 'string' ? src : undefined}
+        alt={alt ?? ''}
+        width={w}
+        height={h}
+        loading="lazy"
+        decoding="async"
+        className="my-8 w-full rounded-lg border border-brand-teal/30 bg-brand-charcoal"
+        style={{ aspectRatio: `${w} / ${h}`, ...(style as object) }}
+        {...rest}
+      />
+    );
+  },
   SlatmillExplainer: () => <SlatmillExplainer showHeading className="my-10" />,
+  // <Figure src="/images/blog/<slug>/<name>.webp" alt caption ratio /> for captioned, framed images.
+  Figure,
 };

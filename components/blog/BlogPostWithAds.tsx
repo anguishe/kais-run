@@ -5,6 +5,13 @@ import { blogMdxComponents } from '@/components/blog/blogMdxComponents';
 import { AdUnit } from '@/components/ui/AdUnit';
 import { MidArticleAd } from '@/components/ui/MidArticleAd';
 
+// TODO(slot-ids): Replace these with the real AdSense slot IDs once Travis
+// creates the two ad units in the AdSense dashboard. The guards below are
+// enabled; AdUnit/MidArticleAd stay consent-gated internally, so no ad loads
+// until cookie consent is granted.
+const MID_ARTICLE_AD_SLOT = 'TODO_MID_ARTICLE_SLOT_ID';
+const FOOTER_AD_SLOT = 'TODO_FOOTER_AD_SLOT_ID';
+
 export type BlogPostWithAdsProps = {
   slug: string;
   /** MDX body without frontmatter. */
@@ -22,11 +29,9 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         {await MDXRemote({ source: body, components: blogMdxComponents })}
       </div>
 
-      {/* AdSense slot IDs pending — restore when obtained from dashboard */}
-      {false && <MidArticleAd slot="SLOT_ID_HERE" />}
+      <MidArticleAd slot={MID_ARTICLE_AD_SLOT} />
 
-      {/* AdSense slot IDs pending — restore when obtained from dashboard */}
-      {false && <AdUnit slot="SLOT_ID_HERE" className="my-8" />}
+      <AdUnit slot={FOOTER_AD_SLOT} className="my-8" />
 
       <section className="mt-16 border-t border-brand-teal/20 pt-16" aria-labelledby="related-heading">
         <h2 id="related-heading" className="font-display text-3xl tracking-wide text-brand-offwhite md:text-4xl">

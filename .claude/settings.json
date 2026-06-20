@@ -34,7 +34,16 @@
       "Bash(echo \"SED EXIT: $?\")",
       "Bash(echo \"BUILD EXIT CODE: $?\")",
       "Read(//tmp/**)",
-      "Bash(curl -sI https://kaisrun.xyz/)"
+      "Bash(curl -sI https://kaisrun.xyz/)",
+      "Bash(echo \"--- exit: $? ---\")",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(command -v magick convert cwebp ffmpeg python3)",
+      "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(magick -size 1600x900 xc:'#1A1F2E' /home/angsec/Projects/kais-run/public/images/blog/_placeholder.webp)",
+      "Bash(identify /home/angsec/Projects/kais-run/public/images/blog/_placeholder.webp)",
+      "Bash(echo \"exit code: $?\")",
+      "Bash(git add *)"
     ]
   }
 }

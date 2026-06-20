@@ -34,7 +34,8 @@ export function AdUnit({ slot, format = 'auto', className }: AdUnitProps) {
     <div ref={ref} className={className}>
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        // minHeight reserves layout space before the ad fills, so the load is CLS-safe.
+        style={{ display: 'block', minHeight: 250 }}
         data-ad-client="ca-pub-5399156622542127"
         data-ad-slot={slot}
         data-ad-format={format}
