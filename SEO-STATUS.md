@@ -5,6 +5,8 @@
 **Note:** All canonical, schema @id, OG url, and sitemap entries normalized to www (Prompt 4)
 **Audit date:** 2026-06-04
 **Overall score:** 56/100 (baseline for 1-month-old domain)
+**Indexing freeze:** started 2026-06-20 (after the "blog makeover" push, commit 3ef32e9) — deliberate code/content freeze to let Google re-crawl and stabilize. No non-imperative changes until lifted.
+**Re-audit:** 2026-06-21 — 83/100 (see AUDIT-2026-06-21.md)
 **GSC data:** 5 clicks / 39 impressions / 12.8% CTR / avg position 32.1 (3-month window)
 
 ---

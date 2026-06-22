@@ -5,6 +5,26 @@ import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
+import KaiGallery, { type KaiImage } from '@/components/ui/KaiGallery';
+
+const kaiAboutImages: KaiImage[] = [
+  {
+    src: '/images/kai/kai-looking-up.webp',
+    alt: 'Kai looking up at the camera, tongue out, mid-turn',
+  },
+  {
+    src: '/images/kai/kai-running-toward-camera.webp',
+    alt: 'Kai running toward the camera at full stride',
+  },
+  {
+    src: '/images/kai/kai-trail-profile.webp',
+    alt: 'Kai moving along a coastal hedge line in profile',
+  },
+  {
+    src: '/images/kai/kai-golden-light.webp',
+    alt: 'Kai walking into late-day light along the treeline',
+  },
+];
 const comparison = [
   { attribute: 'Comes to you', kaisRun: 'YES', walker: 'YES', daycare: 'No' },
   { attribute: 'Climate controlled', kaisRun: 'YES', walker: 'No', daycare: 'Varies' },
@@ -202,16 +222,7 @@ export function AboutPageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-brand-teal/10 bg-brand-charcoal">
-                <img
-                  src="/images/about/travis-kai-1.webp"
-                  alt="Travis and Kai — Rhodesian Ridgeback mix, mascot of Kai's Run"
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
+              <KaiGallery images={kaiAboutImages} className="grid grid-cols-2 gap-3" />
             </motion.div>
 
             <motion.div variants={fadeUp} className="space-y-6">

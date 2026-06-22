@@ -43,7 +43,31 @@
       "Bash(magick -size 1600x900 xc:'#1A1F2E' /home/angsec/Projects/kais-run/public/images/blog/_placeholder.webp)",
       "Bash(identify /home/angsec/Projects/kais-run/public/images/blog/_placeholder.webp)",
       "Bash(echo \"exit code: $?\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(mkdir -p /home/angsec/Downloads/kaisrun-media/assets/fonts)",
+      "Bash(curl -fsSL -o /home/angsec/Downloads/kaisrun-media/assets/fonts/BebasNeue-Regular.ttf https://github.com/google/fonts/raw/main/ofl/bebasneue/BebasNeue-Regular.ttf)",
+      "Bash(curl -fsSL -o __TRACKED_VAR__/DMSans.ttf https://github.com/google/fonts/raw/main/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf)",
+      "Bash(file __TRACKED_VAR__/DMSans.ttf)",
+      "Bash(magick -background '#0F1117' -fill '#F0EDE6' -font __TRACKED_VAR__/BebasNeue-Regular.ttf -pointsize 90 'label:KAI'\\\\''S RUN' __TRACKED_VAR__/_test_bebas.png)",
+      "Bash(mkdir -p /home/angsec/Downloads/kaisrun-media/assets)",
+      "Bash(magick /home/angsec/Projects/kais-run/public/images/logos/kr-logo-2.webp /home/angsec/Downloads/kaisrun-media/assets/logo2.png)",
+      "Bash(magick /home/angsec/Projects/kais-run/public/images/logos/kr-logo-1.webp /home/angsec/Downloads/kaisrun-media/assets/logo1.png)",
+      "Bash(identify -format '%f  %wx%h  alpha=%A  mean=%[fx:mean]\\\\n' /home/angsec/Downloads/kaisrun-media/assets/logo1.png /home/angsec/Downloads/kaisrun-media/assets/logo2.png)",
+      "Bash(magick /home/angsec/Downloads/kaisrun-media/assets/logo1.png -resize 256x /home/angsec/Downloads/kaisrun-media/assets/_view_logo1.png)",
+      "Bash(ffmpeg -hide_banner -loglevel error -y -ss 24 -i /home/angsec/Downloads/IMG_1038.MOV -frames:v 1 /home/angsec/Downloads/kaisrun-media/stills/_candidates/1038_profile.png)",
+      "Bash(magick /home/angsec/Downloads/kaisrun-media/stills/_candidates/1038_profile.png -modulate 103,114,100 -sigmoidal-contrast 3x50% -channel R -evaluate multiply 1.02 +channel -unsharp 0x0.7 -strip -quality 92 /home/angsec/Downloads/kaisrun-media/stills/kai-trail-profile.jpg)",
+      "Bash(magick /home/angsec/Downloads/kaisrun-media/stills/kai-trail-profile.jpg -resize 900x1600 -quality 76 -define webp:method=6 /home/angsec/Downloads/kaisrun-media/web/kai-trail-profile.webp)",
+      "Bash(xargs -n1 basename)",
+      "Bash(awk 'f{print} /^---$/{c++; if\\(c==2\\) f=1}' /home/angsec/Projects/kais-run/content/blog/meet-kai-the-dog-behind-kais-run.mdx)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs -r kill -9)",
+      "Bash(pkill -9 -f \"next-server\")",
+      "Bash(pkill -9 -f \"next start\")",
+      "Bash(curl -sf -o /dev/null http://localhost:3000/)"
     ]
   }
 }
