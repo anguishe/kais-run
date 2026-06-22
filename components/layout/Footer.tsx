@@ -9,6 +9,7 @@ const quickLinks = [
   { href: '/faq/', label: 'FAQ' },
   { href: '/service-area/', label: 'Service Area' },
   { href: '/blog/', label: 'Blog' },
+  { href: '/tools/', label: 'Tools' },
   { href: '/book/', label: 'Book Now' },
 ];
 

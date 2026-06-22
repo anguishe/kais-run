@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/faq/', label: 'FAQ' },
   { href: '/service-area/', label: 'Service Area' },
   { href: '/blog/', label: 'Blog' },
+  { href: '/tools/', label: 'Tools' },
 ];
 
 export default function Navbar() {
