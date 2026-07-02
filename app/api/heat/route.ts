@@ -80,9 +80,12 @@ async function fromOpenWeather(
   };
 }
 
-function getWeather(lat: number, lon: number): Promise<Weather> {
+async function getWeather(lat: number, lon: number): Promise<Weather> {
   const key = process.env.OPENWEATHER_API_KEY;
-  return key ? fromOpenWeather(lat, lon, key) : fromOpenMeteo(lat, lon);
+  if (key) {
+    try { return await fromOpenWeather(lat, lon, key); } catch {}
+  }
+  return fromOpenMeteo(lat, lon);
 }
 
 export async function GET(req: Request) {
