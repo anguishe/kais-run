@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://kaisrun.xyz/blog/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -181,6 +181,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/blog/dog-thunderstorm-anxiety/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/blog/dog-reactive-on-leash/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/blog/dog-park-not-tiring-dog-out/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/tools/</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -195,6 +213,12 @@
   <url>
     <loc>https://kaisrun.xyz/tools/dog-exercise-calculator/</loc>
     <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/tools/dog-body-condition-score/</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

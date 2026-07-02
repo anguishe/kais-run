@@ -43,6 +43,12 @@ const tools = [
     title: 'Dog Exercise Calculator',
     blurb: 'Estimate how much daily exercise your dog needs based on breed, age, and weight.',
   },
+  {
+    href: '/tools/dog-body-condition-score/',
+    title: 'Is My Dog Overweight?',
+    blurb:
+      "Skip the scale. A 30-second hands-on body check that estimates your dog's condition score - and tells you the next move.",
+  },
 ];
 
 export default function ToolsPage() {

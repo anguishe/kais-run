@@ -17,6 +17,7 @@ type Category = 'Behavior' | 'Conditioning' | 'Health' | 'Seasonal';
 const CATEGORY_MAP: Record<string, Category> = {
   'dog-adolescence-phase': 'Behavior',
   'dog-anxiety-destructive-behavior-exercise': 'Behavior',
+  'meet-kai-the-dog-behind-kais-run': 'Behavior',
   'dog-treadmill-vs-walk-comparison': 'Conditioning',
   'high-energy-dog-breeds-exercise-guide': 'Conditioning',
   'how-much-exercise-does-my-dog-need': 'Conditioning',
@@ -24,10 +25,15 @@ const CATEGORY_MAP: Record<string, Category> = {
   'what-is-a-dog-slatmill': 'Conditioning',
   'what-to-expect-first-slatmill-session': 'Conditioning',
   'why-structured-runs-matter': 'Conditioning',
+  'welcome': 'Conditioning',
   'is-my-dog-overweight': 'Health',
   'can-you-over-exercise-a-dog': 'Health',
+  'senior-dog-exercise': 'Health',
   'too-hot-to-walk-your-dog': 'Seasonal',
   'calm-dog-during-fireworks': 'Seasonal',
+  'dog-thunderstorm-anxiety': 'Seasonal',
+  'dog-reactive-on-leash': 'Behavior',
+  'dog-park-not-tiring-dog-out': 'Conditioning',
 };
 
 const FILTERS: Array<'All' | Category> = ['All', 'Behavior', 'Conditioning', 'Health', 'Seasonal'];
@@ -54,8 +60,8 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
 
   const filtered = useMemo(() => {
     if (active === 'All') return rest;
-    return rest.filter((p) => categoryOf(p.slug) === active);
-  }, [rest, active]);
+    return posts.filter((p) => categoryOf(p.slug) === active);
+  }, [posts, rest, active]);
 
   if (!featured) return null;
 
@@ -70,8 +76,8 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
 
   return (
     <div className="mt-14 md:mt-16">
-      {/* Featured entry — the signature. Gold marker reserved for this card only. */}
-      <motion.article {...solo} className="group">
+      {/* Featured entry — hidden when a category filter is active so the hero never shows off-category. */}
+      {active === 'All' && <motion.article {...solo} className="group">
         <Link
           href={`/blog/${featured.slug}/`}
           className="block overflow-hidden rounded-2xl border border-brand-teal/20 border-t-2 border-t-brand-gold bg-brand-charcoal/40 transition duration-300 hover:-translate-y-1 hover:border-brand-teal/45"
@@ -100,7 +106,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
             </div>
           </div>
         </Link>
-      </motion.article>
+      </motion.article>}
 
       {/* Category chips — teal active state; filters the grid client-side. */}
       <motion.div {...solo} className="mt-12 flex flex-wrap gap-2.5" role="group" aria-label="Filter field notes by category">

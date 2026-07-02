@@ -13,6 +13,10 @@ export type BlogFrontmatter = {
   keywords?: string;
   /** OG / schema image — absolute URL or site-relative path (e.g. /images/...). */
   image?: string;
+  /** Override for the OG/Twitter title when it differs from the page title. */
+  ogTitle?: string;
+  /** Override for the OG/Twitter description when it differs from the page description. */
+  ogDescription?: string;
   /** When true, post is omitted from blog index, static export, and related posts. */
   draft?: boolean;
 };
@@ -76,6 +80,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const author = data.author ?? 'Travis';
   const keywords = data.keywords ?? undefined;
   const image = data.image ?? undefined;
+  const ogTitle = data.ogTitle ?? undefined;
+  const ogDescription = data.ogDescription ?? undefined;
   const draft = isDraft(data);
   const readTimeMinutes = estimateReadTimeMinutes(content);
   return {
@@ -87,6 +93,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     author,
     keywords,
     image,
+    ogTitle,
+    ogDescription,
     draft,
     readTimeMinutes,
     body: content,

@@ -176,7 +176,15 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
             <Link href="/tools/too-hot-to-walk/" className="text-brand-teal underline">
               check the pavement temperature first
             </Link>{' '}
-            before any outdoor session. When you are ready to put a program in place,{' '}
+            before any outdoor session, and if you are not sure your dog is at a healthy starting
+            weight, the{' '}
+            <Link
+              href="/tools/dog-body-condition-score/"
+              className="text-brand-teal underline"
+            >
+              body condition score check
+            </Link>{' '}
+            is the companion tool. When you are ready to put a program in place,{' '}
             <Link href="/book/" className="text-brand-teal underline">
               book a session
             </Link>{' '}

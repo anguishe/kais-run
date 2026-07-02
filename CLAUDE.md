@@ -52,7 +52,7 @@ Fonts: font-display = Bebas Neue · font-body = DM Sans
 
 ## Business Stage: PRE-OPENING
 
-Only active offer: Founding Athlete Program ($200/5 sessions, 17 spots remaining).
+Only active offer: Founding Athlete Program ($200/5 sessions, 15 spots remaining).
 All other services (intro sessions, standard walk-up, memberships) are NOT published
 or promoted until Travis announces opening. Do not add CTAs, pricing copy, or schema
 for unlaunched services unless explicitly instructed.
@@ -86,6 +86,10 @@ Mary Esther · Navarre · Santa Rosa Beach · Bluewater Bay · Valparaiso
   (Still the Mailchimp bridge — do not replace with /api/subscribe route without instruction)
 - Square Appointments widget: loaded via useEffect only, never next/script
 - AdSense pub: ca-pub-5399156622542127 (Auto Ads OFF — verification script only until approval)
+
+## Blog Post Checklist Reminder
+
+Every new blog post requires a `CATEGORY_MAP` entry in `components/blog/FieldNotesIndex.tsx` — omitting it causes the post to disappear from all category filters on /blog.
 
 ## Pre-Flight Pattern for Every Task
 

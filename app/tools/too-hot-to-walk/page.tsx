@@ -133,7 +133,11 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
 
         <section className="mt-20 font-body text-brand-gray leading-relaxed">
           <p>
-            When the pavement is off-limits, the next question is what to do instead. A{' '}
+            When the pavement is off-limits - whether to summer heat or a{' '}
+            <Link href="/blog/dog-thunderstorm-anxiety/" className="text-brand-teal underline">
+              summer thunderstorm
+            </Link>{' '}
+            - the next question is what to do instead. A{' '}
             <Link href="/blog/what-is-a-dog-slatmill/" className="text-brand-teal underline">
               climate-controlled slatmill session
             </Link>{' '}

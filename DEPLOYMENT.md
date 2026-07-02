@@ -3,7 +3,7 @@
 **Host:** Vercel SSR
 **Repo:** anguishe/kais-run
 **Live site:** https://kaisrun.xyz
-**Canonical:** www — apex (kaisrun.xyz) 308 redirects to www automatically via Vercel
+**Canonical:** apex (kaisrun.xyz) - www 301 redirects to apex via Vercel
 **Last updated:** 2026-06-09
 
 ---
@@ -98,7 +98,7 @@ Vercel rebuilds automatically in ~2 minutes.
 
 Custom domain live: `kaisrun.xyz`
 - DNS configured at registrar pointing to Vercel
-- www is the canonical — apex 308 redirects to www via Vercel
+- apex is the canonical - www 301 redirects to apex via Vercel
 - HTTPS enforced automatically by Vercel
 
 ---

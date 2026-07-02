@@ -7,6 +7,20 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     remotePatterns: [],
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog/high-energy-dog-breeds-need-more-than-a-walk',
+        destination: '/blog/high-energy-dog-breeds-exercise-guide',
+        permanent: true,
+      },
+      {
+        source: '/blog/slatmill-vs-long-walk',
+        destination: '/blog/dog-treadmill-vs-walk-comparison',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
