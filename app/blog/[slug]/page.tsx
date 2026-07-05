@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
 import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
+import { buildFaqSchema } from '@/lib/blog/faq-schema';
 import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
 import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/blog/posts';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
@@ -54,6 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     { name: 'Blog', path: '/blog/' },
     { name: post.title, path: `/blog/${slug}/` },
   ]);
+  const faqSchema = buildFaqSchema(slug, post.body);
 
   return (
     <>
@@ -66,6 +68,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
       <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
         <div className="mx-auto max-w-3xl px-6">
         <nav aria-label="Breadcrumb" className="mb-10 font-body text-sm text-brand-gray">

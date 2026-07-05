@@ -22,7 +22,7 @@ export function buildArticleSchema({
   dateModified,
 }: ArticleSchemaInput) {
   const pageUrl = `${BASE_URL}/blog/${slug}/`;
-  const ogImage = resolvePostOgImage(image);
+  const ogImage = resolvePostOgImage(image, title);
 
   return {
     '@context': 'https://schema.org',

@@ -64,8 +64,20 @@ const localBusinessJsonLd = {
   "@type": "AnimalService",
   "@id": "https://kaisrun.xyz/#business",
   name: "Kai's Run",
+  alternateName: "Kai's Run Mobile Dog Conditioning",
   description:
     "Mobile canine conditioning service delivering self-powered slatmill sessions to driveways in Destin, Fort Walton Beach, and Niceville FL.",
+  disambiguatingDescription:
+    "Kai's Run is a local mobile dog conditioning and slatmill fitness service in Destin, Florida. It is a canine exercise business — not a footwear, shoe, or apparel brand.",
+  slogan: "Your dog deserves to run.",
+  foundingDate: "2026",
+  knowsAbout: [
+    "Canine conditioning",
+    "Dog slatmill training",
+    "High-drive dog exercise",
+    "Canine fitness",
+    "Dog treadmill alternatives",
+  ],
   url: "https://kaisrun.xyz",
   telephone: "+18502185855",
   email: "kaisrunmobile@gmail.com",

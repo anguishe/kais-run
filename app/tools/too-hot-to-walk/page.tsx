@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { OG_IMAGE_URL } from '@/lib/site-images';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { HeatChecker } from './HeatChecker';
 
-const TITLE = 'Is It Too Hot to Walk Your Dog? Emerald Coast Pavement Checker';
+const TITLE = 'Too Hot to Walk Your Dog? Pavement Temperature Checker';
 const DESC =
   'Enter your city or ZIP to see current air temperature, heat index, and pavement surface temperature - so you know before your dog\'s paws touch the asphalt.';
 const CANONICAL = 'https://kaisrun.xyz/tools/too-hot-to-walk/';
+const OG_CARD = generatedOgUrl('Pavement Heat Checker', 'Free Tool');
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: OG_IMAGE_URL,
+        url: OG_CARD,
         width: 1200,
         height: 630,
         alt: "Kai's Run - Is It Too Hot to Walk Your Dog",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESC,
-    images: ['https://kaisrun.xyz/images/og-image.png'],
+    images: [OG_CARD],
   },
 };
 

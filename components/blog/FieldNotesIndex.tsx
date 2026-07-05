@@ -6,7 +6,10 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 
-const PLACEHOLDER = '/images/blog/field-notes-placeholder.svg';
+/** Per-post branded card generated on the fly by /og (no static thumbnails to maintain). */
+function cardImage(title: string): string {
+  return `/og?title=${encodeURIComponent(title)}&eyebrow=${encodeURIComponent('Field Notes')}`;
+}
 
 type Category = 'Behavior' | 'Conditioning' | 'Health' | 'Seasonal';
 
@@ -25,7 +28,6 @@ const CATEGORY_MAP: Record<string, Category> = {
   'what-is-a-dog-slatmill': 'Conditioning',
   'what-to-expect-first-slatmill-session': 'Conditioning',
   'why-structured-runs-matter': 'Conditioning',
-  'welcome': 'Conditioning',
   'is-my-dog-overweight': 'Health',
   'can-you-over-exercise-a-dog': 'Health',
   'senior-dog-exercise': 'Health',
@@ -85,7 +87,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
           <div className="grid md:grid-cols-2">
             <div className="aspect-[21/9] overflow-hidden bg-brand-charcoal md:aspect-auto md:h-full">
               <img
-                src={PLACEHOLDER}
+                src={cardImage(featured.title)}
                 alt=""
                 width={1260}
                 height={540}
@@ -149,7 +151,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-brand-charcoal">
                     <img
-                      src={PLACEHOLDER}
+                      src={cardImage(post.title)}
                       alt=""
                       width={400}
                       height={300}

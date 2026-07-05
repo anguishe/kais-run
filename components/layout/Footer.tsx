@@ -10,6 +10,7 @@ const quickLinks = [
   { href: '/service-area/', label: 'Service Area' },
   { href: '/blog/', label: 'Blog' },
   { href: '/tools/', label: 'Tools' },
+  { href: '/contact/', label: 'Contact' },
   { href: '/book/', label: 'Book Now' },
 ];
 
@@ -170,13 +171,16 @@ export default function Footer() {
           <WaitlistForm />
         </div>
 
-        <div className="mt-4 pt-4 border-t border-brand-teal/20 text-center">
-          <a
-            href="/privacy/"
-            className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors"
-          >
+        <div className="mt-4 pt-4 border-t border-brand-teal/20 text-center flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link href="/privacy/" className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors">
             Privacy Policy
-          </a>
+          </Link>
+          <Link href="/terms/" className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors">
+            Terms of Service
+          </Link>
+          <Link href="/contact/" className="text-sm text-brand-gray hover:text-brand-offwhite transition-colors">
+            Contact
+          </Link>
         </div>
 
         {/* Bottom Bar */}

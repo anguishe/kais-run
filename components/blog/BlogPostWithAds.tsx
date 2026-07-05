@@ -55,17 +55,22 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         )}
       </section>
 
-      <div className="border-t border-brand-charcoal pt-8 mt-8 flex gap-4 items-start">
-        <div>
-          <p className="font-display text-brand-offwhite text-lg">TRAVIS — KAI&apos;S RUN</p>
-          <p className="text-brand-gray text-sm mt-1">
-            Travis is the owner of Kai&apos;s Run and the human behind Kai, a Rhodesian Ridgeback mix
-            who made it clear early on that two walks a day wasn&apos;t going to cut it. He built this
-            service because no one else on the Emerald Coast was doing it.{' '}
-            <a href="/about/" className="text-brand-teal hover:underline">Read more →</a>
-          </p>
-        </div>
-      </div>
+      <aside
+        className="border-t border-brand-charcoal pt-8 mt-8"
+        aria-label="About the author"
+      >
+        <p className="font-body text-xs uppercase tracking-[0.24em] text-brand-teal">Written by</p>
+        <p className="font-display text-brand-offwhite text-xl mt-2">Travis — Owner &amp; Conditioning Coach, Kai&apos;s Run</p>
+        <p className="text-brand-gray text-sm mt-2 leading-relaxed">
+          Travis owns and personally runs every Kai&apos;s Run session — assessing each dog&apos;s gait,
+          drive, and recovery on a self-powered slatmill in driveways across Destin and the Emerald Coast.
+          He started the service after his own high-drive dog, Kai (a Rhodesian Ridgeback mix), proved that
+          two walks a day couldn&apos;t touch a dog bred to work. Everything here comes from hands-on
+          conditioning of working and sporting breeds, not repackaged advice.{' '}
+          <a href="/about/" className="text-brand-teal hover:underline">More about Travis and Kai →</a>{' '}·{' '}
+          <a href="/contact/" className="text-brand-teal hover:underline">Contact</a>
+        </p>
+      </aside>
 
       <section className="mt-16 rounded-xl border border-brand-teal/30 bg-brand-charcoal/60 px-6 py-10 text-center">
         <h2 className="font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">

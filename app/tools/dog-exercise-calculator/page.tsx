@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { OG_IMAGE_URL } from '@/lib/site-images';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { Calculator } from './Calculator';
 
-const TITLE = 'How Much Exercise Does My Dog Need? Free Calculator';
+const TITLE = 'Dog Exercise Calculator — How Much Does My Dog Need?';
 const DESC =
   "Enter your dog's breed, age, and weight to get a daily exercise range with structured, play, and enrichment splits - built for Emerald Coast owners.";
 const CANONICAL = 'https://kaisrun.xyz/tools/dog-exercise-calculator/';
+const OG_CARD = generatedOgUrl('Dog Exercise Calculator', 'Free Tool');
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: OG_IMAGE_URL,
+        url: OG_CARD,
         width: 1200,
         height: 630,
         alt: "Kai's Run - Dog Exercise Calculator",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESC,
-    images: ['https://kaisrun.xyz/images/og-image.png'],
+    images: [OG_CARD],
   },
 };
 

@@ -19,6 +19,12 @@ const nextConfig = {
         destination: '/blog/dog-treadmill-vs-walk-comparison',
         permanent: true,
       },
+      {
+        // welcome post deleted (thin/announcement filler) — send legacy links to the blog index
+        source: '/blog/welcome',
+        destination: '/blog/',
+        permanent: true,
+      },
     ];
   },
   async headers() {

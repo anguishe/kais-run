@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { OG_IMAGE_URL } from '@/lib/site-images';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { BodyConditionChecker } from './BodyConditionChecker';
 
-const TITLE = "Is My Dog Overweight? The 30-Second Body Check (No Scale) | Kai's Run";
+const TITLE = "Dog Body Condition Score Checker (No Scale) | Kai's Run";
 const DESC =
-  "Skip the scale. Answer three questions about your dog's ribs, waist, and profile to estimate its body condition score - the same hands-on check vets use. Built for Emerald Coast owners.";
+  "Answer three questions about your dog's ribs, waist, and profile to estimate its body condition score — the hands-on check vets use. No scale needed.";
 const CANONICAL = 'https://kaisrun.xyz/tools/dog-body-condition-score/';
+const OG_CARD = generatedOgUrl('Dog Body Condition Checker', 'Free Tool');
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: OG_IMAGE_URL,
+        url: OG_CARD,
         width: 1200,
         height: 630,
         alt: "Kai's Run - Is My Dog Overweight Body Check",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESC,
-    images: ['https://kaisrun.xyz/images/og-image.png'],
+    images: [OG_CARD],
   },
 };
 

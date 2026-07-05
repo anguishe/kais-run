@@ -9,14 +9,14 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const PRICING_DESCRIPTION =
-  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35, private sessions from $70, packages from $195. Founding Athlete: $200 for 5 sessions.';
+  "Kai's Run pricing: intro sessions from $35, private conditioning from $70, and 3- and 5-session packages. Founding Athlete: $200 for 5 sessions, limited to 20 dogs.";
 
 export const metadata: Metadata = {
-  title: 'Pricing | Mobile Dog Gym Destin FL',
+  title: "Pricing | Kai's Run Mobile Dog Gym Destin FL",
   description: PRICING_DESCRIPTION,
   alternates: { canonical: 'https://kaisrun.xyz/pricing/' },
   openGraph: {
-    title: 'Pricing | Mobile Dog Gym Destin FL',
+    title: "Pricing | Kai's Run Mobile Dog Gym Destin FL",
     description: PRICING_DESCRIPTION,
     type: 'website',
     locale: 'en_US',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pricing | Mobile Dog Gym Destin FL',
+    title: "Pricing | Kai's Run Mobile Dog Gym Destin FL",
     description: PRICING_DESCRIPTION,
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
