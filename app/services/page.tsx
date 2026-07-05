@@ -9,7 +9,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const SERVICES_DESCRIPTION =
-  'Mobile slatmill conditioning delivered to your driveway in Destin and Fort Walton Beach FL. Intro from $35, private sessions from $70. Founding Athlete: $200 for 5 sessions — 20 spots.';
+  'Mobile slatmill conditioning delivered to your driveway in Destin and Fort Walton Beach FL. Intro $35, private $70, packages from $195. Founding Athlete: $200 for 5 sessions.';
 
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",

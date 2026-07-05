@@ -9,7 +9,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const PRICING_DESCRIPTION =
-  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35, private sessions from $70. Founding Athlete: $200 for 5 sessions — 20 spots.';
+  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35, private sessions from $70, packages from $195. Founding Athlete: $200 for 5 sessions.';
 
 export const metadata: Metadata = {
   title: 'Pricing | Mobile Dog Gym Destin FL',

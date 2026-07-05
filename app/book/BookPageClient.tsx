@@ -47,6 +47,8 @@ function BookSpotsRemaining() {
 
 function BookPageInner() {
   const params = useSearchParams();
+  const tier = params.get('tier');
+  const isFounding = tier !== 'intro' && tier !== 'private' && tier !== 'packages';
   const widgetHostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -147,32 +149,34 @@ function BookPageInner() {
           Destin · Fort Walton Beach · Niceville
         </p>
         <h1 className="mb-4 font-display text-5xl text-brand-offwhite md:text-7xl">
-          Join the Founding Athlete Program
+          {isFounding ? 'Join the Founding Athlete Program' : 'Book Your Session'}
         </h1>
         <BookSpotsRemaining />
         <div className="mx-auto mt-8 h-px w-16 bg-brand-teal" />
       </div>
 
-      <section className="mx-auto max-w-2xl px-6 pb-8">
-        <p className="font-body text-xs tracking-[0.28em] text-brand-teal uppercase">Founding Athlete</p>
-        <h2 className="mt-3 font-display text-4xl text-brand-offwhite md:text-5xl">
-          $200 for 5 Sessions — $40 Effective
-        </h2>
-        <p className="mt-4 font-body text-brand-gray">
-          A one-time founding rate for the first 20 dogs — structured slatmill conditioning delivered
-          to your driveway.
-        </p>
-        <ul className="mt-6 space-y-2 text-left font-body text-sm text-brand-offwhite/80">
-          <li>Priority booking when Kai&apos;s Run opens to the public</li>
-          <li>Founding Athlete status — recognized first believers</li>
-          <li>Personal Run Profile Card on your first session</li>
-          <li>One-time rate — never offered again</li>
-        </ul>
-      </section>
+      {isFounding && (
+        <section className="mx-auto max-w-2xl px-6 pb-8">
+          <p className="font-body text-xs tracking-[0.28em] text-brand-teal uppercase">Founding Athlete</p>
+          <h2 className="mt-3 font-display text-4xl text-brand-offwhite md:text-5xl">
+            $200 for 5 Sessions — $40 Effective
+          </h2>
+          <p className="mt-4 font-body text-brand-gray">
+            A one-time founding rate for the first 20 dogs — structured slatmill conditioning delivered
+            to your driveway.
+          </p>
+          <ul className="mt-6 space-y-2 text-left font-body text-sm text-brand-offwhite/80">
+            <li>Priority booking when Kai&apos;s Run opens to the public</li>
+            <li>Founding Athlete status — recognized first believers</li>
+            <li>Personal Run Profile Card on your first session</li>
+            <li>One-time rate — never offered again</li>
+          </ul>
+        </section>
+      )}
 
       <section id="founding-checkout" className="mx-auto max-w-4xl px-6 pb-16">
         <p className="mb-6 text-center font-body text-sm text-brand-gray">
-          Complete your founding purchase below
+          {isFounding ? 'Complete your founding purchase below' : 'Complete your purchase below'}
         </p>
         <div
           ref={widgetHostRef}

@@ -15,8 +15,9 @@ Embed method: iframe embed code from Square dashboard
 {/* SQUARE APPOINTMENTS EMBED
     Setup steps:
     1. Go to squareup.com/appointments
-    2. Create services: Kai's Run Welcome ($35/$55), Performance Session ($65/$85),
-       Founding Athlete ($0 — paid via form), Membership ($0 — billed recurring)
+    2. Create services: Kai's Run Welcome (Intro, $35/$55), Private Conditioning Session ($70/$135),
+       Session Packages (3-session $195/$380, 5-session $300/$580), Founding Athlete ($200 one-time),
+       Membership ($0 — billed recurring, not yet configured)
     3. Appointments → Settings → Online Booking → Embed
     4. Copy iframe code and replace this div */}
 <div className="w-full min-h-[600px] bg-brand-charcoal border border-brand-teal/30 rounded-xl flex items-center justify-center">

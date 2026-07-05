@@ -89,7 +89,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-brand-gray text-xs font-body"
           >
-            Standard session pricing will be announced after the Founding Athlete program closes.
+            Standard pricing is live now — Intro Session, Private Conditioning Session, and Session Packages are all bookable. See full pricing.
           </motion.p>
         </motion.div>
       </motion.div>

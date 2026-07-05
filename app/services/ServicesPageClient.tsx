@@ -35,7 +35,7 @@ const services = [
       'Lowest rate ever offered',
       'Never available again',
     ],
-    bestFor: 'Owners ready to commit before standard pricing is announced',
+    bestFor: 'Owners who want the lowest rate before Founding spots run out',
     narrative:
       "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. Five sessions at $40 each effective — an introductory rate we will never offer again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate for this limited window only.",
   },

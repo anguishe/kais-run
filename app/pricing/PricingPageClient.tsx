@@ -121,19 +121,17 @@ export function PricingPageClient() {
   const foundingTier = {
     id: 'founding',
     label: 'LIMITED',
-    name: 'Founding Athlete',
-    price: '$200',
-    unit: '5 sessions',
-    perSession: '$40/session',
-    features: [
-      '5 full sessions',
-      'Limited to 20 dogs',
-      'Never offered again',
-    ],
+    title: 'Founding Athlete',
+    price: '$200 for 5 sessions ($40 per session)',
+    duration: '5 sessions, 30–45 min each',
+    includes: ['5 full sessions', 'Limited to 20 dogs', 'Never offered again'],
+    bestFor: 'Locking in the lowest rate before Founding spots run out',
     highlight: SPOTS_REMAINING === 0 ? 'SOLD OUT' : `${SPOTS_REMAINING} of ${TOTAL_SPOTS} remaining`,
     highlightColor: SPOTS_REMAINING === 0 ? 'text-brand-gray' : 'text-brand-gold',
     disabled: SPOTS_REMAINING === 0,
   };
+
+  const allTiers = [foundingTier, ...standardTiers];
 
   return (
     <>
@@ -203,66 +201,6 @@ export function PricingPageClient() {
         </section>
       )}
 
-      {/* Founding Athlete */}
-      <section className="py-24 md:py-32 px-6 bg-brand-black">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 max-w-lg mx-auto gap-6"
-          >
-            <motion.div
-              variants={fadeUp}
-              className={`bg-brand-charcoal border rounded-xl p-6 flex flex-col ${
-                foundingTier.disabled ? 'border-brand-gray/20 opacity-60' : 'border-brand-gold/50'
-              }`}
-            >
-              <p className="text-brand-teal font-body text-xs tracking-[0.2em] uppercase mb-2">
-                {foundingTier.label}
-              </p>
-              <h3 className="font-display text-2xl tracking-wider text-brand-offwhite mb-4">
-                {foundingTier.name}
-              </h3>
-
-              <div className="mb-4">
-                <span className="font-display text-4xl text-brand-gold">{foundingTier.price}</span>
-                <span className="text-brand-gray font-body text-sm ml-2">{foundingTier.unit}</span>
-              </div>
-
-              <p className="text-brand-gray font-body text-xs mb-6">
-                {foundingTier.perSession}
-              </p>
-
-              <ul className="space-y-3 mb-6 flex-1">
-                {foundingTier.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-brand-gray font-body text-sm">
-                    <span className="text-brand-teal mt-0.5">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {foundingTier.highlight && (
-                <p className={`font-body text-xs tracking-wider uppercase mb-4 ${foundingTier.highlightColor || 'text-brand-teal'}`}>
-                  {foundingTier.highlight}
-                </p>
-              )}
-
-              <Button
-                href={foundingTier.disabled ? undefined : `/book?tier=${foundingTier.id}`}
-                variant="primary"
-                className={`text-center w-full ${foundingTier.disabled ? 'pointer-events-none opacity-50' : ''}`}
-                bookIntentSource={foundingTier.disabled ? undefined : `pricing-tier-${foundingTier.id}`}
-              >
-                {foundingTier.disabled ? 'Sold Out' : 'Select'}
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Standard Pricing */}
       <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
         <div className="max-w-7xl mx-auto">
@@ -287,15 +225,15 @@ export function PricingPageClient() {
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {standardTiers.map((tier) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {allTiers.map((tier) => (
               <Fragment key={tier.id}>
                 <motion.div
                   variants={fadeUp}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
-                  className="bg-brand-black border border-brand-teal/20 rounded-xl p-8 flex flex-col"
+                  className={`bg-brand-black border rounded-xl p-8 flex flex-col ${tier.id === 'founding' && 'disabled' in tier && tier.disabled ? 'border-brand-gray/20 opacity-60' : tier.id === 'founding' ? 'border-brand-gold/50' : 'border-brand-teal/20'}`}
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <p className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase">
@@ -349,18 +287,24 @@ export function PricingPageClient() {
                     </div>
                   )}
 
+                  {'highlight' in tier && tier.highlight && (
+                    <p className={`font-body text-xs tracking-wider uppercase mb-4 ${tier.highlightColor || 'text-brand-teal'}`}>
+                      {tier.highlight}
+                    </p>
+                  )}
+
                   <p className="text-brand-gray font-body text-sm mb-6">
                     <span className="text-brand-offwhite font-medium">Best for:</span>{' '}
                     {tier.bestFor}
                   </p>
 
                   <Button
-                    href={`/book?tier=${tier.id}`}
-                    variant="secondary"
-                    className="text-center w-full mt-auto"
-                    bookIntentSource={`pricing-tier-${tier.id}`}
+                    href={'disabled' in tier && tier.disabled ? undefined : `/book?tier=${tier.id}`}
+                    variant={tier.id === 'founding' ? 'primary' : 'secondary'}
+                    className={`text-center w-full mt-auto ${'disabled' in tier && tier.disabled ? 'pointer-events-none opacity-50' : ''}`}
+                    bookIntentSource={'disabled' in tier && tier.disabled ? undefined : `pricing-tier-${tier.id}`}
                   >
-                    Book
+                    {'disabled' in tier && tier.disabled ? 'Sold Out' : tier.id === 'founding' ? 'Select' : 'Book'}
                   </Button>
                 </motion.div>
               </Fragment>
