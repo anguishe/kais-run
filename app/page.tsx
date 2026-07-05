@@ -6,6 +6,7 @@ import { Hero } from '@/components/sections/Hero';
 import { SpotsCounter } from '@/components/sections/SpotsCounter';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { SolutionSection } from '@/components/sections/SolutionSection';
+import { BenefitsSection } from '@/components/sections/BenefitsSection';
 import { MobileAdvantage } from '@/components/sections/MobileAdvantage';
 import { FoundingOffer } from '@/components/sections/FoundingOffer';
 import { ServicesOverview } from '@/components/sections/ServicesOverview';
@@ -51,6 +52,7 @@ export default function Home() {
       <ProblemSection />
 
       <SolutionSection />
+      <BenefitsSection />
       <MobileAdvantage />
       <FoundingOffer />
       <ServicesOverview />

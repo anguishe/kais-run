@@ -1,5 +1,0 @@
-# Cloudflare Workers redirect rules
-# HTTP to HTTPS
-http://kaisrun.xyz/* https://kaisrun.xyz/:splat 301
-http://www.kaisrun.xyz/* https://kaisrun.xyz/:splat 301
-https://www.kaisrun.xyz/* https://kaisrun.xyz/:splat 301

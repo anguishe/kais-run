@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 export const SLATMILL_ILLUSTRATION_SRC = '/images/slatmill/slatmill-two-dogs-dark.webp';
@@ -10,12 +11,28 @@ export type SlatmillExplainerProps = {
   asSection?: boolean;
   /** Show "What Is a Slatmill?" heading block */
   showHeading?: boolean;
+  /** Body copy — defaults to the full canonical explanation (kept on /faq/) */
+  body?: ReactNode;
   className?: string;
 };
+
+const DEFAULT_BODY = (
+  <>
+    <p>
+      A slatmill is a self-powered treadmill with no motor. The dog controls the pace entirely —
+      every step drives the belt, and nothing forces a minimum speed.
+    </p>
+    <p>
+      That self-paced work builds sustained aerobic output the way natural running does: focused
+      effort the dog chooses on their own terms, not stop-and-start loops on a sidewalk.
+    </p>
+  </>
+);
 
 export default function SlatmillExplainer({
   asSection = false,
   showHeading = true,
+  body = DEFAULT_BODY,
   className,
 }: SlatmillExplainerProps) {
   const content = (
@@ -51,14 +68,7 @@ export default function SlatmillExplainer({
       </figure>
 
       <div className="space-y-4 text-center font-body text-base leading-relaxed text-brand-gray md:text-lg">
-        <p>
-          A slatmill is a self-powered treadmill with no motor. The dog controls the pace entirely —
-          every step drives the belt, and nothing forces a minimum speed.
-        </p>
-        <p>
-          That self-paced work builds sustained aerobic output the way natural running does: focused
-          effort the dog chooses on their own terms, not stop-and-start loops on a sidewalk.
-        </p>
+        {body}
       </div>
 
       <p className="mt-6 text-center font-body text-xs uppercase tracking-[0.2em] text-brand-teal/80">

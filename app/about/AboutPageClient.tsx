@@ -143,7 +143,14 @@ export function AboutPageClient() {
       </section>
 
       <section className="bg-brand-black px-6 py-24 md:py-32">
-        <SlatmillExplainer />
+        <SlatmillExplainer
+          body={
+            <p>
+              Kai needed more than a backyard could give him — that&apos;s the slatmill&apos;s whole
+              job. Structured pace, real output, every session.
+            </p>
+          }
+        />
       </section>
 
       {/* Destin roots + safety posture */}

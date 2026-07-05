@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /thank-you/
 Disallow: /api/
+Disallow: /videos/
 User-agent: GPTBot
 Allow: /
 User-agent: Google-Extended

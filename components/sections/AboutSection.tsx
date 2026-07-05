@@ -52,24 +52,18 @@ export function AboutSection() {
               variants={fadeUp}
               className="text-5xl md:text-6xl font-display tracking-tight mb-8"
             >
-              Built for Kai.
+              Where It Started.
               <br />
               Brought to You.
             </motion.h2>
 
             <motion.div variants={fadeUp} className="space-y-4 text-brand-gray font-body leading-relaxed mb-8">
               <p>
-                Travis grew up in Destin. His Rhodesian Ridgeback mix Kai had uncontrollable energy — destructive behavior, anxiety, impossible to tire out with normal walks.
-              </p>
-              <p>
-                He discovered the slatmill: a self-powered treadmill where the dog sets their own pace. No motor. Nothing forced. Kai ran, then slept. Everything changed.
-              </p>
-              <p>
-                Travis built Kai&apos;s Run to bring that same solution to every high-drive dog on the Emerald Coast.
+                Kai&apos;s Run started with one high-drive dog and a driveway. Now Travis brings the same structured conditioning to yours.
               </p>
               <p>
                 <Link href="/about/" className="text-brand-teal underline-offset-2 hover:underline">
-                  Read the full story →
+                  The full story →
                 </Link>
               </p>
             </motion.div>

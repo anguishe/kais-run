@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 
@@ -60,7 +61,18 @@ export function SolutionSection() {
         </motion.h2>
 
         <motion.div variants={fadeUp} className="mb-16">
-          <SlatmillExplainer showHeading={false} />
+          <SlatmillExplainer
+            showHeading={false}
+            body={
+              <p>
+                A slatmill drives structured, low-impact conditioning most backyards can&apos;t
+                replicate.{' '}
+                <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+                  See exactly how a session works.
+                </Link>
+              </p>
+            }
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

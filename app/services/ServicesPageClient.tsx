@@ -124,7 +124,17 @@ export function ServicesPageClient() {
       </section>
 
       <section className="bg-brand-charcoal px-6 py-24 md:py-32">
-        <SlatmillExplainer />
+        <SlatmillExplainer
+          body={
+            <p>
+              Every session runs on a commercial slatmill — built for controlled pace, not backyard
+              chaos.{' '}
+              <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+                See the full breakdown.
+              </Link>
+            </p>
+          }
+        />
       </section>
 
       {/* Service Details */}
