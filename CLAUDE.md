@@ -50,18 +50,23 @@ ALL of the following must use https://kaisrun.xyz (apex — never www):
 
 Fonts: font-display = Bebas Neue · font-body = DM Sans
 
-## Business Stage: PRE-OPENING
+## Business Stage: PRE-OPENING (standard pricing live)
 
-Only active offer: Founding Athlete Program ($200/5 sessions, 15 spots remaining).
-All other services (intro sessions, standard walk-up, memberships) are NOT published
-or promoted until Travis announces opening. Do not add CTAs, pricing copy, or schema
-for unlaunched services unless explicitly instructed.
+Founding Athlete Program remains the priority offer ($200/5 sessions, capped at 20 dogs).
+Travis has explicitly authorized publishing standard pricing — Intro Session, Private
+Conditioning Session, and Session Packages are now live and promoted site-wide. Monthly
+Memberships (Tier 4) and the Snowbird Package (Tier 5) are still NOT published or promoted
+until Travis announces them. Do not add CTAs, pricing copy, or schema for those unlaunched
+tiers unless explicitly instructed.
 
 ## Pricing Rules (LOCKED)
 
 - Founding Athlete: $200 / 5 sessions ($40 effective) — limited 20 dogs, one-time offer, NO lifetime rate lock
-- Standard walk-up: TBD — DO NOT RENDER
-- Intro Session: Exists in legacy components — do not add new CTAs for it
+- Intro Session: $35 (1 dog) / $55 (2 dogs, same household) — includes fitness assessment, "Run Profile" card, and a protein treat after the session
+- Private Conditioning Session: $70 (1 dog) / $135 (2 dogs, same household — two individual back-to-back sessions, up to 45 min each)
+- Session Packages: 3-session $195 (1 dog) / $380 (2 dogs) · 5-session $300 (1 dog) / $580 (2 dogs) — no stated expiration, do not claim "never expire"
+- Discounts: Military & First Responder Discount — 10% off all paid sessions and packages, EXCLUDES the Intro Session. No teacher discount.
+- Monthly Memberships (Tier 4) and Snowbird Package (Tier 5): still gated — do not render or promote
 
 ## Brand Rules
 

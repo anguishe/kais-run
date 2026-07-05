@@ -57,7 +57,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'Do you offer discounts for multiple dogs, groups, or referrals?',
     a:
-      "Household two-dog pricing is already built into our intro and performance rates — check the two-dog columns on [[LINK:/pricing/|Pricing]]. We do not stack unrelated dogs from different homes into one 'group' session because that breaks the private-athlete model. Referrals earn Run Crew rewards after the referred dog completes a paid visit; details live next to membership pricing. Military, first responder, and teacher discounts are applied at booking when you mention eligible status.",
+      "Household two-dog pricing is already built into our intro and performance rates — check the two-dog columns on [[LINK:/pricing/|Pricing]]. We do not stack unrelated dogs from different homes into one 'group' session because that breaks the private-athlete model. Referrals earn Run Crew rewards after the referred dog completes a paid visit; details live next to membership pricing. The Military & First Responder Discount takes 10% off all paid sessions and packages — mention your status when you book. It does not apply to the Intro Session.",
   },
   {
     q: 'What is included in the Founding Athlete Program?',
@@ -67,7 +67,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'How do memberships and bundles differ from walk-up sessions?',
     a:
-      "Walk-up performance sessions are pay-as-you-go with the highest per-visit rate but zero commitment. Bundles buy volume up front at a lower effective session price and never expire — ideal if you travel or seasonally spike training. Memberships bake in cadence (Coastal bi-weekly or Emerald weekly) and unlock priority booking windows so your dog does not lose momentum when routes fill. Every tier still includes the same private session quality; you are choosing how you want to budget time and dollars. Compare the math on [[LINK:/pricing/|Pricing]] before you lock a cadence.",
+      "Walk-up performance sessions are pay-as-you-go with the highest per-visit rate but zero commitment. Bundles buy volume up front at a lower effective session price — ideal if you travel or seasonally spike training. Memberships bake in cadence (Coastal bi-weekly or Emerald weekly) and unlock priority booking windows so your dog does not lose momentum when routes fill. Every tier still includes the same private session quality; you are choosing how you want to budget time and dollars. Compare the math on [[LINK:/pricing/|Pricing]] before you lock a cadence.",
   },
   {
     q: 'How do I book — intro, single session, bundle, or membership?',

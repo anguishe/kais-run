@@ -18,6 +18,7 @@ const services = [
       'Fitness assessment',
       'Personalized "Run Profile" card',
       'Progress photo texted',
+      'Protein treat for your dog(s) after the session',
     ],
     bestFor: 'First-time clients, skeptical owners, proof-of-concept session',
     narrative:
@@ -39,19 +40,34 @@ const services = [
       "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. Five sessions at $40 each effective — an introductory rate we will never offer again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate for this limited window only.",
   },
   {
-    id: 'standard',
-    label: 'STANDARD SESSION',
-    title: 'Standard Session',
-    price: 'Pricing TBD',
-    duration: '30–45 min',
+    id: 'private',
+    label: 'PRIVATE SESSION',
+    title: 'Private Conditioning Session',
+    price: '$70 one dog / $135 two dogs, same household',
+    duration: '30–45 min per dog (up to 90 min for two dogs)',
     includes: [
-      'Structured conditioning session',
-      'Walk-up booking when available',
-      'Same private session protocol',
+      'Structured conditioning session, pay per visit',
+      'Two dogs, same household = two individual sessions, back-to-back',
+      'Same private session protocol every visit',
     ],
-    bestFor: 'Returning clients after the Founding Athlete program closes',
+    bestFor: 'Owners who want a single session without a package',
     narrative:
-      "Standard walk-up pricing has not been announced yet. It will be set after the Founding Athlete program closes and will reflect ongoing operating costs, route density, and the value of consistent conditioning.\n\nIf you want a known rate today, book an intro session or claim a Founding Athlete spot while they remain. Standard sessions will use the same session protocol — warm-up, working sets, cool-down, and post-session feedback — once pricing goes live.",
+      "A Private Conditioning Session is a single visit — no package, no commitment. One dog runs $70 for 30–45 minutes of structured work. Two dogs from the same household run $135 for two individual, back-to-back sessions in one visit — up to 45 minutes each, 90 minutes total. Every session runs the same protocol: warm-up, working sets, cool-down, and a photo plus recap texted within the hour.\n\nIf you already know your cadence, Session Packages lock in a lower per-session rate. If you want to test the water first, book a Private Conditioning Session.",
+  },
+  {
+    id: 'packages',
+    label: 'SESSION PACKAGES',
+    title: 'Session Packages',
+    price: '3-session $195 (1 dog) / $380 (2 dogs) · 5-session $300 (1 dog) / $580 (2 dogs)',
+    duration: '30–45 min per session',
+    includes: [
+      'Prepaid session block at a lower per-session rate',
+      'Two dogs, same household = one individual session per dog, every visit',
+      'Same private session protocol every visit',
+    ],
+    bestFor: 'Owners locking in a cadence and a lower per-session rate',
+    narrative:
+      "Session Packages prepay a block of visits at a lower rate than paying one session at a time. Three sessions bring the rate to $65 each; five sessions bring it to $60 each. Two-dog households get a modest discount built into the two-dog package total — you are still booking one individual session per dog, back-to-back, every visit.\n\nPackages suit owners who already know the slatmill works for their dog and want to lock in savings without committing to a recurring membership.",
   },
 ];
 
@@ -166,9 +182,7 @@ export function ServicesPageClient() {
               {service.price && (
                 <motion.p
                   variants={fadeUp}
-                  className={`font-body text-lg font-medium mb-2 ${
-                    service.id === 'standard' ? 'text-brand-gray italic' : 'text-brand-gold'
-                  }`}
+                  className="font-body text-lg font-medium mb-2 text-brand-gold"
                 >
                   {service.price}
                 </motion.p>

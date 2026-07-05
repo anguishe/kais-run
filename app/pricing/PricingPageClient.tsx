@@ -24,39 +24,50 @@ const standardTiers = [
       'Fitness assessment',
       'Personalized "Run Profile" card',
       'Progress photo texted to owner',
+      'Protein treat for your dog(s) after the session',
     ],
     bestFor: 'First-time clients, proof-of-concept session',
   },
   {
-    id: 'standard',
-    label: 'STANDARD SESSION',
-    title: 'Standard Session',
-    comingSoon: true,
-    duration: '30–45 min session',
+    id: 'private',
+    label: 'PRIVATE SESSION',
+    title: 'Private Conditioning Session',
+    price: '$70 one dog / $135 two dogs, same household',
+    tagline: 'A single session. No commitment.',
+    duration: '30–45 min per dog (up to 90 min for two dogs)',
     includes: [
-      'Structured conditioning session',
-      'Walk-up booking when available',
-      'Same private session protocol',
+      'Structured conditioning session, pay per visit',
+      'Two dogs, same household = two individual sessions, back-to-back',
+      'Same private session protocol every visit',
     ],
-    bestFor: 'Returning clients after the Founding Athlete program closes',
+    bestFor: 'Owners who want a single session without a package',
+  },
+  {
+    id: 'packages',
+    label: 'SESSION PACKAGES',
+    title: 'Session Packages',
+    duration: '30–45 min per session',
+    packages: [
+      { label: '3-Session Package · 1 dog', price: '$195 total ($65/session)' },
+      { label: '5-Session Package · 1 dog', price: '$300 total ($60/session)' },
+      { label: '3-Session Package · 2 dogs, same household', price: '$380 total (3 visits, 6 sessions)' },
+      { label: '5-Session Package · 2 dogs, same household', price: '$580 total (5 visits, 10 sessions)' },
+    ],
+    includes: [
+      'Prepaid session block at a lower per-session rate',
+      'Two dogs, same household = one individual session per dog, every visit',
+      'Same private session protocol every visit',
+    ],
+    bestFor: 'Owners locking in a cadence and a lower per-session rate',
   },
 ];
 
 const discounts = [
   {
-    title: 'Military & Veterans',
-    discount: '15% off',
-    description: 'Active duty, reserves, and veterans (Eglin AFB, Hurlburt Field)',
-  },
-  {
-    title: 'First Responders',
+    title: 'Military & First Responder Discount',
     discount: '10% off',
-    description: 'Police, Fire, EMS',
-  },
-  {
-    title: 'Teachers',
-    discount: '10% off',
-    description: 'All K-12 and higher education educators',
+    description:
+      'Active duty, reserves, veterans (Eglin AFB, Hurlburt Field), and first responders (Police, Fire, EMS). Applies to all paid sessions and packages — excludes the Intro Session.',
   },
 ];
 
@@ -66,8 +77,8 @@ const faqItems = [
     answer: 'We accept all major credit cards, Apple Pay, and Google Pay through Square. Payment is collected at time of booking or at the session for walk-ups.',
   },
   {
-    question: 'When will standard session pricing be announced?',
-    answer: 'Standard walk-up pricing will be announced after the Founding Athlete program closes. Intro sessions and Founding Athlete spots are available now.',
+    question: 'What does a Private Conditioning Session cost?',
+    answer: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 — two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
   },
   {
     question: 'What if my dog doesn\'t take to the slatmill?',
@@ -151,7 +162,7 @@ export function PricingPageClient() {
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             Intro sessions from $35. Founding Athlete: $200 for 5 sessions — limited to 20 dogs.
-            Standard walk-up pricing coming soon.
+            Private Conditioning Sessions from $70.
           </motion.p>
         </motion.div>
       </section>
@@ -276,7 +287,7 @@ export function PricingPageClient() {
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {standardTiers.map((tier) => (
               <Fragment key={tier.id}>
                 <motion.div
@@ -284,21 +295,12 @@ export function PricingPageClient() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
-                  className={`bg-brand-black border rounded-xl p-8 flex flex-col ${
-                    tier.comingSoon
-                      ? 'border-brand-gray/30 opacity-90'
-                      : 'border-brand-teal/20'
-                  }`}
+                  className="bg-brand-black border border-brand-teal/20 rounded-xl p-8 flex flex-col"
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <p className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase">
                       {tier.label}
                     </p>
-                    {tier.comingSoon && (
-                      <span className="inline-flex items-center rounded-full border border-brand-gray/40 bg-brand-charcoal px-3 py-1 text-brand-gray font-body text-xs tracking-wider uppercase">
-                        Coming soon
-                      </span>
-                    )}
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl tracking-tight text-brand-offwhite mb-4">
                     {tier.title}
@@ -316,10 +318,15 @@ export function PricingPageClient() {
                     </p>
                   )}
 
-                  {tier.comingSoon && (
-                    <p className="text-brand-gray font-body text-lg font-medium mb-2 italic">
-                      Pricing coming soon
-                    </p>
+                  {'packages' in tier && tier.packages && (
+                    <div className="mb-2 space-y-1">
+                      {tier.packages.map((pkg) => (
+                        <p key={pkg.label} className="font-body text-sm">
+                          <span className="text-brand-offwhite">{pkg.label}:</span>{' '}
+                          <span className="text-brand-gold font-medium">{pkg.price}</span>
+                        </p>
+                      ))}
+                    </div>
                   )}
 
                   <p className="text-brand-gray font-body text-sm mb-6">
@@ -347,16 +354,14 @@ export function PricingPageClient() {
                     {tier.bestFor}
                   </p>
 
-                  {!tier.comingSoon && (
-                    <Button
-                      href={`/book?tier=${tier.id}`}
-                      variant="secondary"
-                      className="text-center w-full mt-auto"
-                      bookIntentSource={`pricing-tier-${tier.id}`}
-                    >
-                      Book
-                    </Button>
-                  )}
+                  <Button
+                    href={`/book?tier=${tier.id}`}
+                    variant="secondary"
+                    className="text-center w-full mt-auto"
+                    bookIntentSource={`pricing-tier-${tier.id}`}
+                  >
+                    Book
+                  </Button>
                 </motion.div>
               </Fragment>
             ))}
@@ -392,7 +397,7 @@ export function PricingPageClient() {
             Mention your status at booking to receive your discount.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 max-w-lg mx-auto gap-6">
             {discounts.map((discount) => (
               <motion.div
                 key={discount.title}

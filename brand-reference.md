@@ -74,7 +74,10 @@ Mobile service — we come to the client's driveway. No facility, no drop-off.
 | Intro Session — 1 dog | $35 | |
 | Intro Session — 2 dogs (same household) | $55 | Never imply group or daycare sessions |
 | Founding Athlete Program | $200 / 5 sessions | Limited 20 dogs, one-time offer — $40 effective rate, not a lifetime lock |
-| Standard walk-up | TBD | Copy: "pricing announced after Founding Athlete program closes" |
+| Private Conditioning Session — 1 dog | $70 | |
+| Private Conditioning Session — 2 dogs (same household) | $135 | Two back-to-back individual sessions, up to 45 min each |
+| 3-Session Package | $195 (1 dog) / $380 (2 dogs) | No stated expiration — do not claim "never expire" |
+| 5-Session Package | $300 (1 dog) / $580 (2 dogs) | No stated expiration — do not claim "never expire" |
 
 ---
 
@@ -133,9 +136,7 @@ A slatmill is a non-motorized treadmill — the dog's own movement powers the be
 
 ## Discounts
 
-- Military & Veterans: 15%
-- First Responders: 10%
-- Teachers: 10%
+- Military & First Responder Discount: 10% off all paid sessions and packages — excludes the Intro Session
 
 ---
 

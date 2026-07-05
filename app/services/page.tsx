@@ -9,7 +9,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const SERVICES_DESCRIPTION =
-  'Mobile slatmill conditioning delivered to your driveway in Destin and Fort Walton Beach FL. Intro from $35. Founding Athlete: $200 for 5 sessions — 20 spots.';
+  'Mobile slatmill conditioning delivered to your driveway in Destin and Fort Walton Beach FL. Intro from $35, private sessions from $70. Founding Athlete: $200 for 5 sessions — 20 spots.';
 
 export const metadata: Metadata = {
   title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
@@ -48,6 +48,12 @@ const serviceSchema = {
     { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Intro Session (2 dogs, same household)', price: '55', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Private Conditioning Session (1 dog)', price: '70', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Private Conditioning Session (2 dogs, same household)', price: '135', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '3-Session Package (1 dog)', price: '195', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '5-Session Package (1 dog)', price: '300', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '3-Session Package (2 dogs, same household)', price: '380', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '5-Session Package (2 dogs, same household)', price: '580', priceCurrency: 'USD' },
   ],
 };
 

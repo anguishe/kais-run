@@ -9,7 +9,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const PRICING_DESCRIPTION =
-  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35. Founding Athlete: $200 for 5 sessions — 20 spots.';
+  'Mobile dog gym sessions in Destin, Fort Walton Beach & Niceville FL. Intro from $35, private sessions from $70. Founding Athlete: $200 for 5 sessions — 20 spots.';
 
 export const metadata: Metadata = {
   title: 'Pricing | Mobile Dog Gym Destin FL',
@@ -52,10 +52,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'When will standard session pricing be announced?',
+      name: 'What does a Private Conditioning Session cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Standard walk-up pricing will be announced after the Founding Athlete program closes. Intro sessions and Founding Athlete spots are available now.',
+        text: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 — two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
       },
     },
     {
@@ -87,6 +87,12 @@ const pricingSchema = {
     { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
     { '@type': 'Offer', name: 'Intro Session (2 dogs, same household)', price: '55', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Private Conditioning Session (1 dog)', price: '70', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Private Conditioning Session (2 dogs, same household)', price: '135', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '3-Session Package (1 dog)', price: '195', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '5-Session Package (1 dog)', price: '300', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '3-Session Package (2 dogs, same household)', price: '380', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: '5-Session Package (2 dogs, same household)', price: '580', priceCurrency: 'USD' },
   ],
 };
 

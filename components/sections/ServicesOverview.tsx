@@ -9,7 +9,7 @@ const services = [
     category: 'INTRO SESSION',
     title: 'Intro Session',
     price: '$35 / $55 (2 dogs, same household)',
-    description: 'Your first session. Includes fitness assessment, introduction to the slatmill, and your dog\'s personal Run Profile card.',
+    description: 'Your first session. Includes fitness assessment, introduction to the slatmill, your dog\'s personal Run Profile card, and a protein treat after the session.',
   },
   {
     category: 'FOUNDING ATHLETE',
@@ -18,10 +18,16 @@ const services = [
     description: 'Limited to 20 dogs. $40 per session effective rate — never offered again once spots are gone.',
   },
   {
-    category: 'STANDARD SESSION',
-    title: 'Standard Session',
-    price: 'Coming soon',
-    description: 'Walk-up conditioning sessions. Standard pricing will be announced after the Founding Athlete program closes.',
+    category: 'PRIVATE SESSION',
+    title: 'Private Conditioning Session',
+    price: '$70 / $135 (2 dogs, same household)',
+    description: 'One dog, one session, no commitment. Two dogs from the same household get two individual back-to-back sessions in one visit.',
+  },
+  {
+    category: 'SESSION PACKAGES',
+    title: 'Session Packages',
+    price: 'From $195',
+    description: 'Prepay a block of sessions at a lower per-session rate. 3-session and 5-session packages available for one or two dogs from the same household.',
   },
 ];
 
@@ -63,9 +69,7 @@ export function ServicesOverview() {
                 <h3 className="font-display text-3xl tracking-wider text-brand-offwhite">
                   {service.title}
                 </h3>
-                <p className={`font-body text-base font-medium whitespace-nowrap ${
-                  service.price === 'Coming soon' ? 'text-brand-gray italic' : 'text-brand-offwhite'
-                }`}>
+                <p className="font-body text-base font-medium whitespace-nowrap text-brand-offwhite">
                   {service.price}
                 </p>
               </div>

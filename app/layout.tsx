@@ -133,6 +133,66 @@ const localBusinessJsonLd = {
         price: "200.00",
         priceCurrency: "USD",
       },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Private Conditioning Session",
+          url: "https://kaisrun.xyz/services/",
+        },
+        price: "70.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Private Conditioning Session — Two Dogs",
+          url: "https://kaisrun.xyz/services/",
+        },
+        price: "135.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "3-Session Package",
+          url: "https://kaisrun.xyz/pricing/",
+        },
+        price: "195.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "5-Session Package",
+          url: "https://kaisrun.xyz/pricing/",
+        },
+        price: "300.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "3-Session Package — Two Dogs",
+          url: "https://kaisrun.xyz/pricing/",
+        },
+        price: "380.00",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "5-Session Package — Two Dogs",
+          url: "https://kaisrun.xyz/pricing/",
+        },
+        price: "580.00",
+        priceCurrency: "USD",
+      },
     ],
   },
   founder: {

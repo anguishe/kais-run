@@ -12,20 +12,23 @@ alwaysApply: false
 - `const SPOTS_REMAINING = 20` in `SpotsCounter.tsx` — manually updated
 - One-time offer. No rate lock. No lifetime pricing.
 - Framing: "A rate that will never exist again. For the 20 who believed first."
-- After founding phase: standard sessions start at $65
+- After founding phase: standard sessions start at $70
 
 ## Tier 1 — Intro Session (Kai's Run Welcome)
 - 1 dog: $35 · 2 dogs same household: $55
 - Duration: 30–45 min
-- Includes: fitness assessment, "Run Profile" card, progress photo texted
+- Includes: fitness assessment, "Run Profile" card, progress photo texted, protein treat for the dog(s) after the session
 
-## Tier 2 — On-Demand Single Session
-- 1 dog: $65 · 2 dogs: $85
-- Duration: 30–45 min · No commitment
+## Tier 2 — Private Conditioning Session
+- 1 dog: $70 · 2 dogs (same household): $135 — two individual back-to-back sessions in one visit
+- Duration: 30–45 min per dog (up to 90 min total for 2 dogs) · No commitment
 
-## Tier 3 — Bundles (never expire)
-- 4-pack: $220 (1 dog) / $300 (2 dogs) → $55/$75 per session
-- 8-pack: $400 (1 dog) / $560 (2 dogs) → $50/$70 per session
+## Tier 3 — Session Packages
+- 3-Session Package: $195 total ($65/session) — 1 dog
+- 5-Session Package: $300 total ($60/session) — 1 dog
+- 3-Session Package, 2 dogs (same household): $380 total — 3 visits, 6 individual sessions (3 per dog); $65/session = $390 less a $10 household discount
+- 5-Session Package, 2 dogs (same household): $580 total — 5 visits, 10 individual sessions (5 per dog); $60/session = $600 less a $20 household discount
+- No stated expiration policy — do not claim packages "never expire"
 
 ## Tier 4 — Monthly Memberships
 - Coastal Member (bi-weekly, 2×/mo): $120/mo (1 dog) / $170/mo (2 dogs)
@@ -36,9 +39,9 @@ alwaysApply: false
 - 5 sessions: $275 · Valid Oct–Apr · Book before arrival
 
 ## Discounts (always on, mention at booking)
-- Military/Veterans (Eglin AFB, Hurlburt Field): 15% off
-- First Responders (Police, Fire, EMS): 10% off
-- Teachers: 10% off
+- Military & First Responder Discount: 10% off — active duty, reserves, veterans (Eglin AFB, Hurlburt Field), and first responders (Police, Fire, EMS)
+- Applies to all paid sessions and packages — EXCLUDES the Intro Session (both 1-dog and 2-dog)
+- No teacher discount
 
 ## Referral Program — "The Run Crew"
 - 1 referral completes first paid session = 1 free add-on session
@@ -68,6 +71,7 @@ alwaysApply: false
 - Embed via iframe in `/book` page
 - Square services to configure:
   - Kai's Run Welcome (Intro) — 45 min — $35/$55
-  - Performance Session — 45 min — $65/$85
+  - Private Conditioning Session — 30–45 min — $70 (1 dog) / $135 (2 dogs, two back-to-back sessions)
+  - Session Packages — 3-session $195 (1 dog) / $380 (2 dogs) · 5-session $300 (1 dog) / $580 (2 dogs)
   - Founding Athlete Session — 45 min — $0 at booking (paid via form)
   - Membership Session — 45 min — $0 at booking (billed recurring)
