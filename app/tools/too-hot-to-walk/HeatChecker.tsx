@@ -19,6 +19,7 @@ type WeatherData = {
   humidity: number;
   feelsLikeF: number;
   hourly: HourSample[];
+  city?: string;
 };
 
 type CheckState =
@@ -72,7 +73,9 @@ export function HeatChecker() {
         return;
       }
       const weather = data as WeatherData;
-      setCheckState({ status: 'done', weather, city: cityLabel, zip });
+      // Prefer the city name the API resolved (geocoded ZIPs return it) over
+      // the raw ZIP fallback label.
+      setCheckState({ status: 'done', weather, city: weather.city ?? cityLabel, zip });
       const hi = heatIndexF(weather.tempF, weather.humidity);
       const pavSun = pavementEstimateF(weather.tempF, 'sun');
       const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
@@ -231,7 +234,7 @@ export function HeatChecker() {
       {checkState.status === 'error' && checkState.kind === 'out-of-area' && (
         <div className="rounded-lg border border-brand-charcoal bg-brand-charcoal p-6">
           <p className="text-brand-offwhite mb-3">
-            That ZIP is outside the Emerald Coast service area. No weather data available.
+            We couldn&apos;t find that ZIP. Double-check it and try again - or use the hand test below.
           </p>
           <HandTest className="text-brand-gray" />
         </div>
