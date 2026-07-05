@@ -8,7 +8,7 @@ import type { BlogPostMeta } from '@/lib/blog/posts';
 
 /** Per-post branded card generated on the fly by /og (no static thumbnails to maintain). */
 function cardImage(title: string): string {
-  return `/og?title=${encodeURIComponent(title)}&eyebrow=${encodeURIComponent('Field Notes')}`;
+  return `/og/?title=${encodeURIComponent(title)}&eyebrow=${encodeURIComponent('Field Notes')}`;
 }
 
 type Category = 'Behavior' | 'Conditioning' | 'Health' | 'Seasonal';

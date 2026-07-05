@@ -8,7 +8,8 @@ const DEFAULT_OG_IMAGE = `${BASE_URL}${OG_IMAGE_URL}`;
 
 /** Build the branded on-the-fly OG card URL for a given title. */
 export function generatedOgUrl(title: string, eyebrow = 'Field Notes'): string {
-  return `${BASE_URL}/og?title=${encodeURIComponent(title.trim())}&eyebrow=${encodeURIComponent(eyebrow)}`;
+  // trailing slash on /og/ matches trailingSlash:true — avoids a 308 hop on every social/image fetch
+  return `${BASE_URL}/og/?title=${encodeURIComponent(title.trim())}&eyebrow=${encodeURIComponent(eyebrow)}`;
 }
 
 export function resolvePostOgImage(image?: string, title?: string): string {
