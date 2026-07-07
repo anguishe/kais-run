@@ -188,10 +188,27 @@ export function AboutPageClient() {
             </h2>
             <p>
               Kai&apos;s Run operates as a licensed and insured mobile vendor — ask for a certificate of
-              insurance if your HOA or property manager needs it on file. Harnessing is Julius K9 by default
-              because the hardware is proven under working-dog loads; we still adjust fit like a climbing
-              harness check — no loose buckles, no twisted webbing.
+              insurance if your HOA or property manager needs it on file. Harnessing is{' '}
+              <Link
+                href="/equipment/julius-k9-idc-powerharness/"
+                className="text-brand-teal underline-offset-2 hover:underline"
+              >
+                the Julius-K9 IDC Powerharness
+              </Link>{' '}
+              by default because the hardware is proven under working-dog loads; we still adjust fit like a
+              climbing harness check — no loose buckles, no twisted webbing.
             </p>
+            <figure className="pt-2">
+              <img
+                src="/images/equipment/julius-k9-idc-power-harness-orange-lineup.webp"
+                alt="Small, medium, and large Julius-K9 IDC Powerharnesses laid out in a row, the sizes we carry on the truck"
+                width={1200}
+                height={1600}
+                loading="lazy"
+                decoding="async"
+                className="w-full rounded-xl border border-brand-teal/15"
+              />
+            </figure>
             <p>
               Rabies vaccination and the digital waiver are not red tape; they are the fastest way to make
               sure we are not pushing exercise on a dog with a hidden contraindication. If your veterinarian

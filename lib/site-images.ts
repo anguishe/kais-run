@@ -3,6 +3,10 @@
 // Social / OG Image (1200×630 — see scripts/generate-og.mjs)
 export const OG_IMAGE_URL = '/images/og-image.png';
 
+// Equipment page OG (1200×630)
+export const EQUIPMENT_JULIUS_K9_OG_URL =
+  '/images/equipment/og-julius-k9-idc-powerharness.jpg';
+
 // Hero images (local files)
 export const HERO_MAIN = '/images/hero/hero-main.webp';
 export const HERO_SECONDARY = '/images/hero/hero-2.webp';
