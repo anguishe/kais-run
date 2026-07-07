@@ -1,7 +1,9 @@
 # Kai's Run — Brand Reference
 
 Authoritative brand facts for copy, code, schema, and agent context.
+**Canonical domain:** apex `https://kaisrun.xyz` (trailing slash) — www is NOT used anywhere, never convert apex→www.
 **Last updated:** 2026-06-04
+**Last doc-sync:** 2026-07-06 — corrected hosting to Vercel SSR, affirmed apex canonical
 
 ---
 

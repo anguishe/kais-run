@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
@@ -89,8 +89,21 @@ const steps = [
   },
 ];
 
-const protocols = [
-  { icon: '🦮', text: 'Julius K9 harnesses provided (S/M/L) — or bring your own' },
+const protocols: { icon: string; text: ReactNode }[] = [
+  {
+    icon: '🦮',
+    text: (
+      <>
+        <Link
+          href="/equipment/julius-k9-idc-powerharness/"
+          className="text-brand-teal underline-offset-2 hover:underline"
+        >
+          Julius-K9 IDC Powerharnesses
+        </Link>{' '}
+        provided (S/M/L) — or bring your own
+      </>
+    ),
+  },
   { icon: '💉', text: 'Rabies vaccination required' },
   { icon: '🐕', text: 'Dogs 4 months and older' },
   { icon: '📝', text: 'Digital waiver completed before first session' },

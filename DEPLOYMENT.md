@@ -3,8 +3,9 @@
 **Host:** Vercel SSR
 **Repo:** anguishe/kais-run
 **Live site:** https://kaisrun.xyz
-**Canonical:** apex (kaisrun.xyz) - www 301 redirects to apex via Vercel
+**Canonical:** apex `https://kaisrun.xyz` (trailing slash). www is NOT used anywhere — never convert apex→www (www 301 redirects to apex via Vercel).
 **Last updated:** 2026-06-09
+**Last doc-sync:** 2026-07-06 — corrected hosting to Vercel SSR, affirmed apex canonical
 
 ---
 
@@ -13,9 +14,9 @@
 This is a Next.js App Router app deployed to Vercel SSR. That means:
 
 - NO `output: 'export'` — Vercel handles SSR, ISR, and static pages automatically
-- API routes ARE supported — `/api/*` routes execute on Vercel serverless functions
+- API routes ARE supported — `/api/*` routes execute on Vercel serverless functions, BUT forms intentionally stay on the Formspree + Cloudflare Worker pattern (future migration only, do not change here)
 - `headers()` in `next.config.js` IS active — security headers served by Vercel
-- `next/image` IS supported — Vercel handles image optimization automatically
+- `next/image` is available on Vercel but NOT used — plain `<img>` only per brand rule
 - `trailingSlash: true` — all internal links and sitemaps use trailing slashes
 - `redirects()` in `next.config.js` IS supported on Vercel
 

@@ -17,7 +17,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'Is the slatmill safe for my dog?',
     a:
-      "Yes — because the dog sets the effort. Sessions are one-on-one inside a climate-controlled mobile unit, harnessed with Julius K9 gear we keep on the truck in common sizes (or yours if you prefer). We cap intensity to what the dog can hold with good form, watch heat and panting closely, and stop for resets when needed. We require current rabies vaccination and a completed digital waiver before the first session, and we screen for conditions like active heartworm or congestive heart disease where exertion is inappropriate. If you are unsure, the intro is the safest place to ask every question before committing further.",
+      "Yes — because the dog sets the effort. Sessions are one-on-one inside a climate-controlled mobile unit, harnessed with [[LINK:/equipment/julius-k9-idc-powerharness/|the Julius-K9 IDC Powerharness]] we keep on the truck in common sizes (or yours if you prefer). We cap intensity to what the dog can hold with good form, watch heat and panting closely, and stop for resets when needed. We require current rabies vaccination and a completed digital waiver before the first session, and we screen for conditions like active heartworm or congestive heart disease where exertion is inappropriate. If you are unsure, the intro is the safest place to ask every question before committing further.",
   },
   {
     q: 'What if my dog is reactive, anxious, or noise-sensitive?',

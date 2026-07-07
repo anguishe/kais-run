@@ -2,14 +2,19 @@
 
 > This file defines rules for all AI agents (Claude Code, Cursor, etc.) working in this codebase.
 > Read this before touching any file. It supersedes any conflicting instruction.
+>
+> **Canonical domain = apex `https://kaisrun.xyz` (trailing slash). www is NOT used anywhere — never convert apex→www.**
+> **Last doc-sync: 2026-07-06 — corrected hosting to Vercel SSR, affirmed apex canonical.**
 
 ---
 
 ## STACK CONSTRAINTS (read before every prompt)
 
-Next.js 16 App Router · Static export (`output: 'export'`) · GitHub Pages
+Next.js App Router · Vercel SSR (no static export) · `trailingSlash: true`
 
-**Forbidden:** API routes · server actions · `next/image` · `redirects()` in `next.config.js`
+**Forbidden:** `next/image` (brand rule — plain `<img>` only)
+
+**Available under SSR (but not currently used):** API routes · server actions — forms intentionally stay on the Formspree + Cloudflare Worker pattern (future migration only)
 
 **Required:** Plain `<img>` tags only · `trailingSlash: true` · TypeScript strict
 
@@ -17,7 +22,7 @@ Next.js 16 App Router · Static export (`output: 'export'`) · GitHub Pages
 
 **Fonts:** `font-display` (Bebas Neue) · `font-body` (DM Sans)
 
-**Static 301 redirects:** HTML meta-refresh pages — NOT `next.config.js` `redirects()`
+**301 redirects:** `redirects()` in `next.config.js` — Vercel executes them (no meta-refresh needed)
 
 **Paths:** MDX blog posts → `content/blog/[slug].mdx` · City pages → `app/service-area/[city]/page.tsx`
 
@@ -31,11 +36,11 @@ Next.js 16 App Router · Static export (`output: 'export'`) · GitHub Pages
 | Retired name | ~~Emerald Paws Athletic Club~~ — never use, never generate |
 | Domain | https://kaisrun.xyz (trailing slash on all URLs) |
 | Repo | anguishe/kais-run |
-| Hosting | **GitHub Pages — static export only** |
-| Build output | `/out` directory |
-| Framework | Next.js 16 App Router, `output: 'export'`, `trailingSlash: true`, `images.unoptimized: true` |
-| Image tags | Plain `<img>` only — never `next/image` |
-| API routes | **Do not exist in production** — static export means no `/api/*` routes run on GitHub Pages |
+| Hosting | **Vercel SSR (Next.js App Router). No static export.** |
+| Build output | `.next` (Vercel-managed) |
+| Framework | Next.js App Router, Vercel SSR, `trailingSlash: true` |
+| Image tags | Plain `<img>` only — never `next/image` (brand rule, not a platform limit) |
+| API routes | **Available under SSR** — but forms intentionally stay on Formspree + Cloudflare Worker (future migration only) |
 | Mailchimp bridge | Cloudflare Worker at `kaisrun-subscribe.kaisrunmobile.workers.dev` |
 | CSS framework | Tailwind CSS v4 |
 | Fonts | Bebas Neue (display), DM Sans (body) — loaded via non-blocking `<link>` in `layout.tsx`, NOT `@import` in CSS |
@@ -71,7 +76,7 @@ All 6 cities appear in `areaServed` in LocalBusiness schema.
 **When active:** Planning new pages, routes, or structural changes
 - Update `ARCHITECTURE.md` before implementing any new route
 - Vercel SSR is active — API routes, server components, and headers() are all supported. Do not reintroduce output: 'export'.
-- Redirects can use `redirects()` in next.config.js — Vercel executes it. Cloudflare redirect rules remain valid for apex→www.
+- Redirects can use `redirects()` in next.config.js — Vercel executes it. www 301→apex (never apex→www).
 
 ### 🎨 UI/Design Agent
 **When active:** Building or modifying any component or visual section
@@ -160,9 +165,9 @@ All 6 cities appear in `areaServed` in LocalBusiness schema.
 
 | Constraint | Detail |
 |---|---|
-| No middleware redirects | Static export — use Cloudflare redirect rules for 301s |
-| No server actions | Static export only |
-| No custom HTTP headers | GitHub Pages limitation — security headers not possible without Cloudflare Pages migration |
+| Redirects | `redirects()` in `next.config.js` works on Vercel — no Cloudflare rule needed |
+| Server actions | Available under SSR — currently unused (forms stay on Formspree + CF Worker) |
+| Custom HTTP headers | `headers()` in `next.config.js` is active — security headers served by Vercel |
 | SpotsCounter | Import `public/data/config.json` directly in server component — no client fetch |
 | Lenis rAF | Add idle check or remove entirely — native `scroll-behavior: smooth` is in `globals.css` |
 | Hero H1 animation | Do not wrap in `opacity: 0` initial state — LCP penalty |
@@ -174,7 +179,7 @@ All 6 cities appear in `areaServed` in LocalBusiness schema.
 - Adding `Disallow: /book/` to `robots.txt` — the booking page must be crawlable
 - Using CSS `@import` for Google Fonts in `globals.css` — render-blocking, use `<link>` preload in `layout.tsx`
 - Setting `priority` on Navbar logo image — competes with hero image for LCP bandwidth
-- Adding `next/image` — incompatible with static export
+- Adding `next/image` — still not introduced (brand rule: plain `<img>` only, not a platform limit)
 - Calling Mailchimp API from client — must go through Cloudflare Worker
 - Submitting 404 slugs to IndexNow — silent batch rejection
 - Adding `aggregateRating` before real reviews exist

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export const SLATMILL_ILLUSTRATION_SRC = '/images/slatmill/slatmill-two-dogs-dark.webp';
@@ -42,9 +43,19 @@ export default function SlatmillExplainer({
           <p className="mb-4 text-center font-body text-sm uppercase tracking-[0.25em] text-brand-teal">
             The Equipment
           </p>
-          <h2 className="mb-10 text-center font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">
+          <h2 className="mb-4 text-center font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">
             What Is a Slatmill?
           </h2>
+          <p className="mb-10 text-center font-body text-sm text-brand-gray">
+            Paired with{' '}
+            <Link
+              href="/equipment/julius-k9-idc-powerharness/"
+              className="text-brand-teal underline-offset-2 hover:underline"
+            >
+              the Julius-K9 IDC Powerharness we run on every dog
+            </Link>
+            .
+          </p>
         </>
       ) : null}
 

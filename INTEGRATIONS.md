@@ -1,7 +1,9 @@
 # Kai's Run — Integration Reference
 
 All live integrations and their current status.
+**Host:** Vercel SSR (Next.js App Router). Canonical = apex `https://kaisrun.xyz` — www is NOT used anywhere.
 **Last updated:** 2026-06-09
+**Last doc-sync:** 2026-07-06 — corrected hosting to Vercel SSR, affirmed apex canonical
 
 > ⚠️ This file is for architecture reference only. Never commit API keys here.
 > All secrets live in `.env.local` (local) and the Vercel dashboard Environment Variables (production).

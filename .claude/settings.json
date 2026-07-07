@@ -95,7 +95,16 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" \"https://yandex.com/indexnow?url=https://kaisrun.xyz/tools/dog-exercise-calculator/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" \"https://yandex.com/indexnow?url=https://kaisrun.xyz/tools/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" \"https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/too-hot-to-walk-your-dog/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" \"https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/how-much-exercise-does-my-dog-need/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n\")"
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" \"https://yandex.com/indexnow?url=https://kaisrun.xyz/blog/how-much-exercise-does-my-dog-need/&key=kaisrun2026a7b3c9d1e4f6g8h2i5j7k0m3n\")",
+      "Bash(echo \"exit=$?\")",
+      "Bash(git -C /home/angsec/Projects/kais-run diff --stat -- CLAUDE.md AGENTS.md DEPLOYMENT.md INTEGRATIONS.md brand-reference.md)",
+      "Bash(git -C /home/angsec/Projects/kais-run status --porcelain)",
+      "Bash(grep -iE '\\\\.\\(ts|tsx|js|mjs\\)$')",
+      "Bash(echo \"BUILD_EXIT=$?\")",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(git commit -q -m 'feat: wire Julius-K9 harness product photos into equipment page + gear mentions *)",
+      "Bash(curl -sL -o /dev/null -w \"final: %{url_effective} status: %{http_code}\\\\n\" \"https://kaisrun.xyz/equipment/julius-k9-idc-powerharness/\")",
+      "Bash(grep -iE \"www\\\\.|@id|ca-pub|G-1P5ST|\\\\\\\\\\\\$[0-9]|clarity|gtag\")"
     ]
   }
 }
