@@ -7,6 +7,10 @@ export const OG_IMAGE_URL = '/images/og-image.png';
 export const EQUIPMENT_JULIUS_K9_OG_URL =
   '/images/equipment/og-julius-k9-idc-powerharness.jpg';
 
+// How We Record page OG (1200×630) — absolute apex URL (used by OG, Twitter, and JSON-LD)
+export const HOW_WE_RECORD_OG_URL =
+  'https://kaisrun.xyz/images/og-how-we-record.jpg';
+
 // Hero images (local files)
 export const HERO_MAIN = '/images/hero/hero-main.webp';
 export const HERO_SECONDARY = '/images/hero/hero-2.webp';

@@ -28,6 +28,7 @@ const CATEGORY_MAP: Record<string, Category> = {
   'what-is-a-dog-slatmill': 'Conditioning',
   'what-to-expect-first-slatmill-session': 'Conditioning',
   'why-structured-runs-matter': 'Conditioning',
+  'why-we-record-every-session': 'Conditioning',
   'is-my-dog-overweight': 'Health',
   'can-you-over-exercise-a-dog': 'Health',
   'senior-dog-exercise': 'Health',

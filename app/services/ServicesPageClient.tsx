@@ -376,6 +376,13 @@ export function ServicesPageClient() {
             </Link>{' '}
             or message us before the next booking.
           </motion.p>
+          <motion.p variants={fadeUp}>
+            Every session is{' '}
+            <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+              recorded start to finish on two cameras
+            </Link>{' '}
+            for safety and progress tracking.
+          </motion.p>
           <motion.p variants={fadeUp} className="text-center text-brand-offwhite">
             <Link href="/book/" className="text-brand-teal font-medium underline-offset-4 hover:underline">
               Book your intro

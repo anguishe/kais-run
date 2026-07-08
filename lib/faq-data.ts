@@ -20,6 +20,11 @@ export const FAQ_ENTRIES: FaqEntry[] = [
       "Yes — because the dog sets the effort. Sessions are one-on-one inside a climate-controlled mobile unit, harnessed with [[LINK:/equipment/julius-k9-idc-powerharness/|the Julius-K9 IDC Powerharness]] we keep on the truck in common sizes (or yours if you prefer). We cap intensity to what the dog can hold with good form, watch heat and panting closely, and stop for resets when needed. We require current rabies vaccination and a completed digital waiver before the first session, and we screen for conditions like active heartworm or congestive heart disease where exertion is inappropriate. If you are unsure, the intro is the safest place to ask every question before committing further.",
   },
   {
+    q: 'Do you record the sessions?',
+    a:
+      "Yes - every session is filmed start to finish on two cameras, for your dog's safety and so you can see the work and track progress. [[LINK:/how-we-record/|Here's how it works]]. Your footage stays private to you unless you opt in to public use.",
+  },
+  {
     q: 'What if my dog is reactive, anxious, or noise-sensitive?',
     a:
       "Private driveway work is the default — no lobby, no pack of unfamiliar dogs, no bouncing tennis balls in a daycare window. Many reactive dogs relax faster when the only job is forward motion in a controlled space they can step away from at will. We do not rush the first hookup; we let the dog investigate the unit, reward small wins, and build trust before asking for sustained running. If your dog needs extra space from neighbors on the street, tell us when you book so we can position the rig to minimize triggers. Ready to try? [[LINK:/book/|Start with the intro session]].",

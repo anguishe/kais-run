@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { trackFoundingAthlete } from '@/lib/googleAds';
 import {
@@ -177,6 +178,14 @@ function BookPageInner() {
       <section id="founding-checkout" className="mx-auto max-w-4xl px-6 pb-16">
         <p className="mb-6 text-center font-body text-sm text-brand-gray">
           {isFounding ? 'Complete your founding purchase below' : 'Complete your purchase below'}
+        </p>
+        <p className="mx-auto mb-8 max-w-2xl text-center font-body text-sm text-brand-gray">
+          Heads up - every session is{' '}
+          <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+            filmed for your dog&apos;s safety
+          </Link>
+          , and a digital waiver (which includes recording consent) is required before the first
+          session.
         </p>
         <div
           ref={widgetHostRef}

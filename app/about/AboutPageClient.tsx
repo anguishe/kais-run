@@ -137,6 +137,14 @@ export function AboutPageClient() {
                 </Link>
                 .
               </p>
+              <p>
+                You should not have to take my word for what happens to your dog. Two cameras record
+                every session, start to finish.{' '}
+                <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+                  Here is how that works and why
+                </Link>
+                .
+              </p>
             </div>
           </motion.div>
         </motion.div>

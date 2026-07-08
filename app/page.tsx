@@ -11,6 +11,7 @@ import { MobileAdvantage } from '@/components/sections/MobileAdvantage';
 import { FoundingOffer } from '@/components/sections/FoundingOffer';
 import { ServicesOverview } from '@/components/sections/ServicesOverview';
 import { KaiGallerySection } from '@/components/sections/KaiGallerySection';
+import { RecordingSection } from '@/components/sections/RecordingSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
@@ -57,6 +58,7 @@ export default function Home() {
       <FoundingOffer />
       <ServicesOverview />
       <KaiGallerySection />
+      <RecordingSection />
       <section className="bg-brand-black px-6 pb-16 text-center">
         <p className="mx-auto max-w-2xl font-body text-base text-brand-gray">
           Want more on conditioning and session philosophy?{' '}
