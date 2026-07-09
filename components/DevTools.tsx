@@ -124,7 +124,7 @@ export default function DevTools() {
 
           <div className="space-y-2 border-b border-brand-teal/20 px-3 py-2">
             <p className="text-[10px] uppercase tracking-wider text-brand-gray">gtag</p>
-            <p className={gtagOk ? "text-brand-teal" : "text-brand-gold"}>
+            <p className={gtagOk ? "text-brand-teal-light" : "text-brand-gold"}>
               {gtagOk ? "Loaded" : "Not detected (check ID + network)"}
             </p>
           </div>
@@ -157,7 +157,7 @@ export default function DevTools() {
                   <span className="truncate text-brand-gray" title={row.key}>
                     {row.key.replace("NEXT_PUBLIC_", "")}
                   </span>
-                  <span className={row.rawSet ? "text-brand-teal/90" : "text-brand-gold/90"}>{row.display}</span>
+                  <span className={row.rawSet ? "text-brand-teal-light/90" : "text-brand-gold/90"}>{row.display}</span>
                 </li>
               ))}
             </ul>
@@ -172,14 +172,14 @@ export default function DevTools() {
                   clearAdsDevEventLog();
                   refreshLog();
                 }}
-                className="text-[10px] text-brand-teal hover:underline"
+                className="text-[10px] text-brand-teal-light hover:underline"
               >
                 Clear
               </button>
             </div>
             <ul className="max-h-32 space-y-1 overflow-y-auto font-mono text-[10px] leading-snug text-brand-offwhite/85">
               {log.length === 0 ? (
-                <li className="text-brand-gray">No events yet — fire a test conversion or use the site.</li>
+                <li className="text-brand-gray">No events yet - fire a test conversion or use the site.</li>
               ) : (
                 log.map((entry, i) => (
                   <li key={`${entry.ts}-${i}`} className="border-l border-brand-teal/25 pl-2">

@@ -11,12 +11,12 @@ const nextConfig = {
     return [
       {
         source: '/blog/high-energy-dog-breeds-need-more-than-a-walk',
-        destination: '/blog/high-energy-dog-breeds-exercise-guide',
+        destination: '/blog/high-energy-dog-breeds-exercise-guide/',
         permanent: true,
       },
       {
         source: '/blog/slatmill-vs-long-walk',
-        destination: '/blog/dog-treadmill-vs-walk-comparison',
+        destination: '/blog/dog-treadmill-vs-walk-comparison/',
         permanent: true,
       },
       {

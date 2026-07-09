@@ -10,19 +10,19 @@
 
 - **Business:** Kai's Run — mobile canine conditioning, Destin FL
 - **Stack:** Next.js 16 App Router, TypeScript, Tailwind CSS v4, Framer Motion v12
-- **Hosting:** GitHub Pages static export — `output: 'export'`, no SSR, no API routes in production
+- **Hosting:** Vercel SSR (Next.js App Router) — API routes and server actions work; `redirects()` and `headers()` are active in `next.config.js`. No static export (`output: 'export'` is gone).
 - **Repo:** anguishe/kais-run
 - **Live domain:** https://kaisrun.xyz (trailing slash on all URLs)
-- **Build:** `npm run build` → `/out` — always verify exit code 0
+- **Build:** `npm run build` → `.next` (Vercel-managed) — always verify exit code 0
 
 ---
 
 ## Hard Constraints (Never Violate)
 
 1. **No `next/image`** — use plain `<img>` tags only
-2. **No `/api/*` routes in production** — GitHub Pages is static
-3. **No middleware redirects** — use Cloudflare redirect rules for 301s
-4. **No Vercel** — hosting is GitHub Pages only
+2. **API routes work (Vercel SSR)** — but forms intentionally stay on the Formspree + Cloudflare Worker pattern; no `/api/*` migration without instruction
+3. **301 redirects via `redirects()` in `next.config.js`** — Vercel executes them (no Cloudflare rule or meta-refresh needed)
+4. **No static export** — never reintroduce `output: 'export'`; hosting is Vercel SSR
 5. **Never use "Emerald Paws Athletic Club"** — retired brand, fully purged
 6. **No `@import` for Google Fonts in CSS** — use `<link>` preload in `layout.tsx`
 7. **No `priority` prop on Navbar logo** — LCP bandwidth conflict
@@ -81,7 +81,7 @@ WebSite:   https://kaisrun.xyz/#website
 |---|---|---|
 | Footer signup | xykolrrr | footer-signup |
 | Contact | mvzllpwg | contact-inquiry |
-| Founding 20 | mojrrvdd | founding-20 |
+| Founding 20 | mojrrvdd — provisioned in Formspree, not currently wired in code | founding-20 |
 | Energy Guide | mpqbbwrl | energy-guide |
 
 Cloudflare Worker: `kaisrun-subscribe.kaisrunmobile.workers.dev`

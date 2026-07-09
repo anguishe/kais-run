@@ -1,8 +1,8 @@
 # Skill: lsa-nextjs-static
 
-**Purpose:** Standards and constraints for building local service area business (LSA) websites on the Next.js static export + GitHub Pages stack. Reusable across clients. Covers SEO, schema, content architecture, and deployment patterns specific to service-area businesses with no physical storefront.
+**Purpose:** Standards and constraints for building local service area business (LSA) websites on the Next.js App Router + Vercel SSR stack. Reusable across clients. Covers SEO, schema, content architecture, and deployment patterns specific to service-area businesses with no physical storefront.
 
-**When to load:** Any LSA client project using Next.js static export on GitHub Pages. Load alongside the client-specific context skill.
+**When to load:** Any LSA client project using Next.js App Router on Vercel SSR. Load alongside the client-specific context skill.
 
 ---
 
@@ -12,21 +12,21 @@ A local service area business (SAB) serves customers at their location — no st
 
 ---
 
-## Static Export Constraints (Non-Negotiable)
+## Platform Constraints (Vercel SSR)
 
 ```
-output: 'export'
 trailingSlash: true
-images.unoptimized: true
 ```
+No `output: 'export'` — Vercel serves SSR, ISR, and static pages automatically; build output is `.next`.
 
-| Constraint | Implication |
+| Capability | Pattern |
 |---|---|
-| No SSR | No `getServerSideProps`, no server actions |
-| No API routes | All third-party API calls need a bridge (Cloudflare Worker, external service) |
-| No middleware | 301 redirects via Cloudflare rules or `<meta http-equiv="refresh">` |
-| No custom headers | Security headers not possible without CDN layer |
-| No next/image optimization | Plain `<img>` tags with explicit `width` and `height` on every image |
+| SSR / server components | Available — App Router server components and server actions all work |
+| API routes | Available — `app/api/*` routes run on Vercel; a Cloudflare Worker bridge is still fine when a client already has one |
+| Middleware | Available — `middleware.ts` runs on Vercel |
+| 301 redirects | `redirects()` in `next.config.js` — Vercel executes them (no meta-refresh, no CDN rule needed) |
+| Custom headers | `headers()` in `next.config.js` — security headers served by Vercel |
+| Images | Plain `<img>` with explicit `width`/`height` is the default; `next/image` is available but often disabled as a per-client brand rule |
 | `trailingSlash: true` | All internal links, canonical URLs, and sitemaps use trailing slashes |
 
 ---

@@ -21,7 +21,6 @@ export const ABOUT_PORTRAIT = '/images/about/travis-kai-2.webp';
 // Logos
 export const LOGO_PRIMARY = '/images/logos/kr-logo-2.webp';
 export const LOGO_ALTERNATE = '/images/logos/kr-logo-1.webp';
-export const FAVICON = '/images/logos/favicon.png';
 
 /*
 // Legacy Unsplash URLs (replaced with local images)
