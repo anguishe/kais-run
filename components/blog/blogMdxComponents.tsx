@@ -4,7 +4,7 @@ import Link from 'next/link';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 import Figure from '@/components/ui/Figure';
 
-const linkClass = 'text-brand-teal underline-offset-4 hover:text-brand-offwhite hover:underline';
+const linkClass = 'text-brand-teal-light underline-offset-4 hover:text-brand-offwhite hover:underline';
 
 type MdxProvidedComponents = NonNullable<ComponentProps<typeof MDXProvider>['components']>;
 

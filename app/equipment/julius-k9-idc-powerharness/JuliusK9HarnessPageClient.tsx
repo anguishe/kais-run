@@ -19,7 +19,7 @@ export function JuliusK9HarnessPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             The Gear
           </motion.p>
@@ -49,7 +49,7 @@ export function JuliusK9HarnessPageClient() {
           className="max-w-4xl mx-auto"
         >
           <img
-            src="/images/equipment/kai-julius-k9-harness-full.jpg"
+            src="/images/equipment/kai-julius-k9-harness-full.webp"
             alt="Kai wearing the Julius-K9 IDC Powerharness"
             width={1200}
             height={800}
@@ -70,7 +70,7 @@ export function JuliusK9HarnessPageClient() {
           viewport={{ once: true, margin: '-80px' }}
           className="max-w-3xl mx-auto rounded-xl border border-brand-teal/20 bg-brand-charcoal p-6 md:p-8"
         >
-          <p className="font-body text-sm uppercase tracking-[0.2em] text-brand-teal mb-5">
+          <p className="font-body text-sm uppercase tracking-[0.2em] text-brand-teal-light mb-5">
             Quick facts
           </p>
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 font-body text-brand-gray leading-relaxed">
@@ -127,7 +127,7 @@ export function JuliusK9HarnessPageClient() {
           </motion.p>
           <motion.p variants={fadeUp}>
             For a business like ours, that is not a nice-to-have. Kai&apos;s Run is{' '}
-            <Link href="/services/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/services/" className="text-brand-teal-light underline-offset-2 hover:underline">
               private, one-on-one mobile conditioning
             </Link>{' '}
             on a self-powered slatmill - the dog drives the belt with its own stride while clipped to a
@@ -195,7 +195,7 @@ export function JuliusK9HarnessPageClient() {
 
           <motion.figure variants={fadeUp} className="mb-10">
             <img
-              src="/images/equipment/julius-k9-idc-powerharness-three-sizes.jpg"
+              src="/images/equipment/julius-k9-idc-powerharness-three-sizes.webp"
               alt="Three sizes of Julius-K9 IDC Powerharness"
               width={1200}
               height={800}
@@ -253,7 +253,7 @@ export function JuliusK9HarnessPageClient() {
 
           <motion.figure variants={fadeUp} className="mt-12">
             <img
-              src="/images/equipment/julius-k9-idc-power-harness-orange-detail.jpg"
+              src="/images/equipment/julius-k9-idc-power-harness-orange-detail.webp"
               alt="Detail of the Julius-K9 IDC Powerharness chest strap and reflective edge"
               width={1200}
               height={800}
@@ -454,7 +454,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://doggearreview.com/review/idc/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 Dog Gear Review
               </a>
@@ -473,7 +473,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://doggearreview.com/review/idc/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 Dog Gear Review
               </a>
@@ -493,7 +493,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://www.peggyfrezon.com/julius-k9-powerharness-our-product-review/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 Peggy Frezon, independent product review
               </a>
@@ -513,7 +513,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://www.peggyfrezon.com/julius-k9-powerharness-our-product-review/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 Peggy Frezon, independent product review
               </a>
@@ -550,7 +550,7 @@ export function JuliusK9HarnessPageClient() {
             <p>
               We carry small, medium, and large - the common sizes cover the large majority of dogs from
               roughly 15 to 90 pounds. If your dog sits at the edge of the range, tell us when you{' '}
-              <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+              <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
                 book the intro
               </Link>{' '}
               and we confirm fit before the first session. We are not vets - so if your dog has any
@@ -564,7 +564,7 @@ export function JuliusK9HarnessPageClient() {
               bad happens. We walk through the whole first-session sequence in{' '}
               <Link
                 href="/blog/what-to-expect-first-slatmill-session/"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 what to expect from a first slatmill session
               </Link>
@@ -578,7 +578,7 @@ export function JuliusK9HarnessPageClient() {
           </motion.div>
           <motion.figure variants={fadeUp}>
             <img
-              src="/images/equipment/kai-julius-k9-harness-alert.jpg"
+              src="/images/equipment/kai-julius-k9-harness-alert.webp"
               alt="Close fit of the Julius-K9 IDC Powerharness on an alert dog"
               width={1000}
               height={1000}
@@ -601,7 +601,7 @@ export function JuliusK9HarnessPageClient() {
         >
           <motion.figure variants={fadeUp} className="order-last md:order-first">
             <img
-              src="/images/equipment/bailey-julius-k9-harness.jpg"
+              src="/images/equipment/bailey-julius-k9-harness.webp"
               alt="Bailey, an older dog, settled and calm in her Julius-K9 IDC Powerharness"
               width={1000}
               height={1000}
@@ -775,11 +775,11 @@ export function JuliusK9HarnessPageClient() {
             className="mt-10 text-brand-gray font-body text-base md:text-lg leading-relaxed"
           >
             More on safety, waivers, and how sessions run is on the{' '}
-            <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
               main FAQ
             </Link>
             , and the story behind the gear standards lives on the{' '}
-            <Link href="/about/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/about/" className="text-brand-teal-light underline-offset-2 hover:underline">
               about page
             </Link>
             .
@@ -837,7 +837,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://julius-k9.com/idc-powerharness/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline break-words"
+                className="text-brand-teal-light underline-offset-2 hover:underline break-words"
               >
                 julius-k9.com/idc-powerharness
               </a>
@@ -848,7 +848,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://julius-k9.com/the-company/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline break-words"
+                className="text-brand-teal-light underline-offset-2 hover:underline break-words"
               >
                 julius-k9.com/the-company
               </a>
@@ -859,7 +859,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://doggearreview.com/review/idc/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline break-words"
+                className="text-brand-teal-light underline-offset-2 hover:underline break-words"
               >
                 doggearreview.com/review/idc
               </a>
@@ -870,7 +870,7 @@ export function JuliusK9HarnessPageClient() {
                 href="https://www.peggyfrezon.com/julius-k9-powerharness-our-product-review/"
                 target="_blank"
                 rel="nofollow noopener"
-                className="text-brand-teal underline-offset-2 hover:underline break-words"
+                className="text-brand-teal-light underline-offset-2 hover:underline break-words"
               >
                 peggyfrezon.com
               </a>

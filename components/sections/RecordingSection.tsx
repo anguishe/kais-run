@@ -35,7 +35,7 @@ export function RecordingSection() {
           <div>
             <motion.p
               variants={fadeUp}
-              className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-4"
+              className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-4"
             >
               Transparency
             </motion.p>
@@ -53,7 +53,7 @@ export function RecordingSection() {
             </motion.p>
 
             <motion.p variants={fadeUp}>
-              <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+              <Link href="/how-we-record/" className="text-brand-teal-light underline-offset-2 hover:underline">
                 How we record →
               </Link>
             </motion.p>

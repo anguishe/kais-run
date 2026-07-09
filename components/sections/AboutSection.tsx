@@ -43,7 +43,7 @@ export function AboutSection() {
           <div>
             <motion.p
               variants={fadeUp}
-              className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-4"
+              className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-4"
             >
               THE STORY
             </motion.p>
@@ -62,7 +62,7 @@ export function AboutSection() {
                 Kai&apos;s Run started with one high-drive dog and a driveway. Now Travis brings the same structured conditioning to yours.
               </p>
               <p>
-                <Link href="/about/" className="text-brand-teal underline-offset-2 hover:underline">
+                <Link href="/about/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   The full story →
                 </Link>
               </p>

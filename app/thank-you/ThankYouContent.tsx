@@ -42,7 +42,7 @@ const preparationSteps = [
 
 export default function ThankYouContent() {
   const shareText = encodeURIComponent(
-    "Just booked with Kai's Run — the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://kaisrun.xyz/"
+    "Just booked with Kai's Run - the mobile dog gym that brings structured conditioning to your driveway. Your high-drive dog needs this. Check it out: https://kaisrun.xyz/"
   );
 
   return (
@@ -58,7 +58,7 @@ export default function ThankYouContent() {
       >
         {/* Main Headline */}
         <motion.div variants={fadeUp} className="text-center mb-12">
-          <h1 className="text-7xl md:text-9xl font-display tracking-tight mb-6 text-brand-teal">
+          <h1 className="text-7xl md:text-9xl font-display tracking-tight mb-6 text-brand-teal-light">
             YOU&apos;RE IN.
           </h1>
           <p className="text-xl md:text-2xl font-body text-brand-offwhite max-w-2xl mx-auto">
@@ -77,7 +77,7 @@ export default function ThankYouContent() {
                 key={step.title}
                 className="bg-brand-charcoal border border-brand-teal/20 rounded-xl p-6 text-center"
               >
-                <div className="text-brand-teal mb-4 flex justify-center">
+                <div className="text-brand-teal-light mb-4 flex justify-center">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-display tracking-tight text-brand-offwhite mb-3">
@@ -104,7 +104,7 @@ export default function ThankYouContent() {
               Know another dog that needs to run?
             </h2>
             <p className="text-base md:text-lg font-body text-brand-gray mb-8">
-              Share Kai&apos;s Run — you&apos;ll earn a free add-on session for every referral who completes their first paid session.
+              Share Kai&apos;s Run - you&apos;ll earn a free add-on session for every referral who completes their first paid session.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -127,7 +127,7 @@ export default function ThankYouContent() {
           </p>
           <a
             href="tel:+18502185855"
-            className="text-brand-teal font-body text-lg hover:text-brand-teal/80 transition-colors"
+            className="text-brand-teal-light font-body text-lg hover:text-brand-teal-light/80 transition-colors"
           >
             Call or text: 850-218-5855
           </a>

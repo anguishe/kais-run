@@ -46,7 +46,7 @@ export function KaiGallerySection() {
       >
         <motion.p
           variants={fadeUp}
-          className="mb-4 text-center font-body text-sm uppercase tracking-[0.25em] text-brand-teal"
+          className="mb-4 text-center font-body text-sm uppercase tracking-[0.25em] text-brand-teal-light"
         >
           Meet Kai
         </motion.p>
@@ -60,7 +60,7 @@ export function KaiGallerySection() {
           variants={fadeUp}
           className="mx-auto mb-14 max-w-2xl text-center font-body leading-relaxed text-brand-gray"
         >
-          Kai is the Rhodesian Ridgeback mix this whole thing is named after — high drive, no quit,
+          Kai is the Rhodesian Ridgeback mix this whole thing is named after - high drive, no quit,
           the exact dog structured conditioning was built for. No studio, no staging. Just the
           original athlete on the Emerald Coast.
         </motion.p>
@@ -97,7 +97,7 @@ export function KaiGallerySection() {
 
           <motion.div variants={fadeUp} className="text-center md:text-left">
             <p className="font-body leading-relaxed text-brand-gray">
-              Every clip here is Kai — not a stock dog, not a staged demo. He went from chewing
+              Every clip here is Kai - not a stock dog, not a staged demo. He went from chewing
               through the house to sleeping hard after a run. That is the whole idea: give a
               high-drive dog a real job, and the rest of the day gets easier.
             </p>
@@ -113,7 +113,7 @@ export function KaiGallerySection() {
               </Link>
               <Link
                 href="/about/"
-                className="font-body text-brand-teal underline-offset-2 hover:underline"
+                className="font-body text-brand-teal-light underline-offset-2 hover:underline"
               >
                 Read Kai&apos;s full story →
               </Link>

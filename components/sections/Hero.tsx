@@ -39,7 +39,7 @@ export function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="text-brand-teal font-body text-xs tracking-[0.3em] uppercase mb-8"
+          className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-8"
         >
           Destin · Fort Walton Beach · Niceville
         </motion.p>
@@ -50,13 +50,13 @@ export function Hero() {
         >
           YOUR DOG
           <br />
-          <span className="text-brand-teal">DESERVES</span>
+          <span className="text-brand-teal-light">DESERVES</span>
           <br />
           TO RUN.
         </motion.h1>
 
         <motion.p variants={fadeUp} className="entity-statement">
-          Kai&apos;s Run is Destin&apos;s only mobile dog slatmill service — we bring a
+          Kai&apos;s Run is Destin&apos;s only mobile dog slatmill service - we bring a
           self-powered conditioning treadmill to your driveway in Destin, Fort Walton
           Beach, and Niceville FL.
         </motion.p>
@@ -76,7 +76,7 @@ export function Hero() {
             className="text-base px-10 py-4"
             bookIntentSource="hero-founding-primary"
           >
-            Claim Founding Spot — 20 Only
+            Claim Founding Spot - 20 Only
           </Button>
           <Button
             href="/book/"
@@ -84,7 +84,7 @@ export function Hero() {
             className="text-base px-10 py-4"
             bookIntentSource="hero-intro"
           >
-            Book Intro Session — $35
+            Book Intro Session - $35
           </Button>
         </motion.div>
       </motion.div>

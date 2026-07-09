@@ -38,7 +38,7 @@ export function FinalCTA() {
             className="text-base px-10 py-4"
             bookIntentSource="final-cta-intro"
           >
-            Book Intro Session — $35
+            Book Intro Session - $35
           </Button>
           <Button
             href="/book?offer=founding"

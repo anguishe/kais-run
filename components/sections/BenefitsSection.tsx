@@ -7,7 +7,7 @@ const benefits = [
   {
     title: 'Cardiovascular Conditioning',
     description:
-      "Builds heart and lung capacity — the engine under every high-drive dog's stamina.",
+      "Builds heart and lung capacity - the engine under every high-drive dog's stamina.",
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12h4l2-6 4 12 2-6h8" />
@@ -17,7 +17,7 @@ const benefits = [
   {
     title: 'Low-Impact Joint Conditioning',
     description:
-      'Slatmill sessions load muscle, not joints — conditioning without the wear of pavement or repeated jumping.',
+      'Slatmill sessions load muscle, not joints - conditioning without the wear of pavement or repeated jumping.',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="2.2" />
@@ -32,7 +32,7 @@ const benefits = [
   {
     title: 'Weight Management',
     description:
-      'Consistent sessions burn real calories — a measurable tool against weight creep, not just exercise for exercise’s sake.',
+      'Consistent sessions burn real calories - a measurable tool against weight creep, not just exercise for exercise’s sake.',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3v3" />
@@ -47,7 +47,7 @@ const benefits = [
   {
     title: 'Confidence & Impulse Control',
     description:
-      'Structured movement teaches a dog to work through arousal instead of react to it — control that carries into daily life.',
+      'Structured movement teaches a dog to work through arousal instead of react to it - control that carries into daily life.',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
@@ -59,7 +59,7 @@ const benefits = [
   {
     title: 'Behavioral Regulation',
     description:
-      'A dog with drain has less left over for barking, destruction, or reactivity — the slatmill gives that drive somewhere to go.',
+      'A dog with drain has less left over for barking, destruction, or reactivity - the slatmill gives that drive somewhere to go.',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="18" height="10" rx="2" />
@@ -111,7 +111,7 @@ export function BenefitsSection() {
               <div
                 className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 ${
                   i % 2 === 0
-                    ? 'bg-brand-teal/10 text-brand-teal'
+                    ? 'bg-brand-teal/10 text-brand-teal-light'
                     : 'bg-brand-gold/10 text-brand-gold'
                 }`}
               >

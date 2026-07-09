@@ -5,11 +5,11 @@ import { trackLeadCapture } from '@/lib/googleAds';
 import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqbbwrl';
-const FORMSPREE_SUBJECT = "New email signup — Kai's Run website";
+const FORMSPREE_SUBJECT = "New email signup - Kai's Run website";
 const FORMSPREE_FORM_TAG = 'energy-guide';
 
 const inputClass =
-  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
+  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body transition-colors';
 
 const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2 font-body';
 
@@ -64,6 +64,10 @@ export default function LeadMagnetForm() {
     }
   };
 
+  const errorId = 'lead-magnet-error';
+  const errored = status === 'error';
+  const errorProps = errored ? { 'aria-invalid': true, 'aria-describedby': errorId } : {};
+
   return (
     <div className="space-y-6">
       {status === 'success' ? (
@@ -76,7 +80,7 @@ export default function LeadMagnetForm() {
           <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
           <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
           {status === 'error' && (
-            <p className="font-body text-sm md:text-base text-[#C9963A] text-center" role="alert" aria-live="polite">
+            <p id={errorId} className="font-body text-sm md:text-base text-[#C9963A] text-center" role="alert" aria-live="polite">
               Something went wrong. Call or text us at{' '}
               <a href="tel:+18502185855" className="underline underline-offset-2 hover:opacity-90">
                 850-218-5855
@@ -92,6 +96,7 @@ export default function LeadMagnetForm() {
               </label>
               <input
                 id="lead-name"
+                {...errorProps}
                 name="name"
                 type="text"
                 autoComplete="name"
@@ -110,6 +115,7 @@ export default function LeadMagnetForm() {
               </label>
               <input
                 id="lead-email"
+                {...errorProps}
                 name="email"
                 type="email"
                 autoComplete="email"

@@ -7,11 +7,11 @@ import { fadeUp } from '@/lib/variants';
 import { subscribeToMailchimp } from '@/lib/subscribe';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xykolrrr';
-const FORMSPREE_SUBJECT = "Waitlist signup — Kai's Run website";
+const FORMSPREE_SUBJECT = "Waitlist signup - Kai's Run website";
 const FORMSPREE_FORM_TAG = 'footer-signup';
 
 const inputClass =
-  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
+  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body transition-colors';
 
 const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2 font-body';
 
@@ -79,6 +79,10 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
     }
   };
 
+  const errorId = `${idPrefix}-error`;
+  const errored = status === 'error';
+  const errorProps = errored ? { 'aria-invalid': true, 'aria-describedby': errorId } : {};
+
   const fields = (
     <>
       <div className="grid md:grid-cols-2 gap-6">
@@ -88,6 +92,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <input
             id={`${idPrefix}-name`}
+            {...errorProps}
             name="name"
             type="text"
             autoComplete="name"
@@ -106,6 +111,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <input
             id={`${idPrefix}-email`}
+            {...errorProps}
             name="email"
             type="email"
             autoComplete="email"
@@ -126,6 +132,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <input
             id={`${idPrefix}-phone`}
+            {...errorProps}
             name="phone"
             type="tel"
             autoComplete="tel"
@@ -144,6 +151,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <input
             id={`${idPrefix}-dog-name`}
+            {...errorProps}
             name="dog_name"
             type="text"
             required
@@ -163,6 +171,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <input
             id={`${idPrefix}-dog-breed`}
+            {...errorProps}
             name="dog_breed"
             type="text"
             required
@@ -180,6 +189,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
           </label>
           <select
             id={`${idPrefix}-location`}
+            {...errorProps}
             name="location"
             required
             value={location}
@@ -222,6 +232,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
         </label>
         <textarea
           id={`${idPrefix}-message`}
+          {...errorProps}
           name="message"
           rows={4}
           required
@@ -271,7 +282,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
             <input type="hidden" name="_subject" defaultValue={FORMSPREE_SUBJECT} />
             <input type="hidden" name="_tag" defaultValue={FORMSPREE_FORM_TAG} />
             {status === 'error' && (
-              <p className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
+              <p id={errorId} className="font-body text-sm md:text-base text-[#C9963A]" role="alert" aria-live="polite">
                 Something went wrong. Email us at kaisrunmobile@gmail.com
               </p>
             )}

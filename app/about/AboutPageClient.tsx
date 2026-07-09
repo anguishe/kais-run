@@ -69,7 +69,7 @@ export function AboutPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             OUR STORY
           </motion.p>
@@ -106,7 +106,7 @@ export function AboutPageClient() {
             </h2>
             <div className="space-y-6 text-brand-gray font-body text-base md:text-lg leading-relaxed">
               <p>
-                Travis grew up on the same sugar-white sand his clients walk today — Destin is not a
+                Travis grew up on the same sugar-white sand his clients walk today - Destin is not a
                 backdrop chosen for marketing photos; it is home. That matters because high-drive dogs here
                 are not a niche hobby; they are neighbors, dock dogs, boat dogs, and security partners who
                 still have to live politely in HOAs and rental kitchens when the beach day ends.
@@ -114,13 +114,13 @@ export function AboutPageClient() {
               <p>
                 Kai, Travis&apos;s Rhodesian Ridgeback mix, had the classic high-octane spiral: shredded
                 bedding, leash reactivity born from frustration, and a body that never quite hit empty after
-                what looked like plenty of exercise. The missing ingredient was structured output — work
+                what looked like plenty of exercise. The missing ingredient was structured output - work
                 measured in minutes at sustainable effort, not just miles of sniffing.
               </p>
               <p>
                 The slatmill clicked because it respected dog biomechanics. There is no motor smuggling extra
                 speed past the animal; the belt only moves when paws drive it. That self-regulation lets dogs
-                open their stride when they feel strong and shorten up when they need recovery — the same
+                open their stride when they feel strong and shorten up when they need recovery - the same
                 variability you see on a field sprint, just in a controlled lane. Once Kai could finally
                 spend real watts in a session, the nervous system followed: deeper sleep, less frantic
                 rehearsing at the window, a dog who could think before reacting.
@@ -128,11 +128,11 @@ export function AboutPageClient() {
               <p>
                 Kai&apos;s Run exists so other Emerald Coast families get that same lever without inventing
                 it from scratch. If you want the full protocol list before you commit, read{' '}
-                <Link href="/services/" className="text-brand-teal underline-offset-2 hover:underline">
+                <Link href="/services/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   Services
                 </Link>
                 , then grab an intro on{' '}
-                <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+                <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   Book
                 </Link>
                 .
@@ -140,7 +140,7 @@ export function AboutPageClient() {
               <p>
                 You should not have to take my word for what happens to your dog. Two cameras record
                 every session, start to finish.{' '}
-                <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+                <Link href="/how-we-record/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   Here is how that works and why
                 </Link>
                 .
@@ -154,7 +154,7 @@ export function AboutPageClient() {
         <SlatmillExplainer
           body={
             <p>
-              Kai needed more than a backyard could give him — that&apos;s the slatmill&apos;s whole
+              Kai needed more than a backyard could give him - that&apos;s the slatmill&apos;s whole
               job. Structured pace, real output, every session.
             </p>
           }
@@ -177,14 +177,14 @@ export function AboutPageClient() {
             <p>
               Tourist seasons, military rotations, and second-home owners all create dogs that need
               consistency even when human schedules wobble. Building a mobile gym instead of a strip-mall
-              storefront keeps overhead honest and puts the mileage on us — not on your dog before the
+              storefront keeps overhead honest and puts the mileage on us - not on your dog before the
               session even starts.
             </p>
             <p>
               We route geographically because that is how a solo operator keeps quality high without
               turning your appointment into a three-hour window. If you are curious whether your street is
               inside the batch, read{' '}
-              <Link href="/service-area/" className="text-brand-teal underline-offset-2 hover:underline">
+              <Link href="/service-area/" className="text-brand-teal-light underline-offset-2 hover:underline">
                 Service Area
               </Link>{' '}
               before you request a time.
@@ -195,16 +195,16 @@ export function AboutPageClient() {
               Insurance, gear, and non-negotiables
             </h2>
             <p>
-              Kai&apos;s Run operates as a licensed and insured mobile vendor — ask for a certificate of
+              Kai&apos;s Run operates as a licensed and insured mobile vendor - ask for a certificate of
               insurance if your HOA or property manager needs it on file. Harnessing is{' '}
               <Link
                 href="/equipment/julius-k9-idc-powerharness/"
-                className="text-brand-teal underline-offset-2 hover:underline"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 the Julius-K9 IDC Powerharness
               </Link>{' '}
               by default because the hardware is proven under working-dog loads; we still adjust fit like a
-              climbing harness check — no loose buckles, no twisted webbing.
+              climbing harness check - no loose buckles, no twisted webbing.
             </p>
             <figure className="pt-2">
               <img
@@ -221,7 +221,7 @@ export function AboutPageClient() {
               Rabies vaccination and the digital waiver are not red tape; they are the fastest way to make
               sure we are not pushing exercise on a dog with a hidden contraindication. If your veterinarian
               wants a written clearance plan, we will honor it. Ready to talk numbers?{' '}
-              <Link href="/pricing/" className="text-brand-teal underline-offset-2 hover:underline">
+              <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
                 Pricing
               </Link>{' '}
               lays out intros, bundles, memberships, and founding offers side by side.
@@ -241,7 +241,7 @@ export function AboutPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             THE ORIGINAL ATHLETE
           </motion.p>
@@ -281,12 +281,12 @@ export function AboutPageClient() {
                 <p className="text-brand-gray font-body leading-relaxed">
                   Kai is the dog who proved the thesis. Ridgeback mix stubbornness plus sporting-dog lungs
                   meant he could fake calm for ten minutes and then explode back into chaos once the leash
-                  clipped on. The slatmill gave him a job with a beginning, middle, and end — not an endless
+                  clipped on. The slatmill gave him a job with a beginning, middle, and end - not an endless
                   loop of half-tired. Today he is the reference dog on the truck: the one who shows nervous
                   newcomers that the surface moves, that stopping is allowed, and that the handler is not
                   going to wrestle them into speed. When owners ask &quot;will my dog ever look like
                   that?&quot; the honest answer is: they will look like the best-conditioned version of
-                  themselves, not a carbon copy of Kai — and that is the point.
+                  themselves, not a carbon copy of Kai - and that is the point.
                 </p>
               </div>
             </motion.div>
@@ -305,7 +305,7 @@ export function AboutPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             COMPARISON
           </motion.p>
@@ -341,7 +341,7 @@ export function AboutPageClient() {
                       {row.attribute}
                     </td>
                     <td className="py-4 px-4 text-center">
-                      <span className="text-brand-teal font-body font-medium text-sm md:text-base">
+                      <span className="text-brand-teal-light font-body font-medium text-sm md:text-base">
                         {row.kaisRun}
                       </span>
                     </td>
@@ -370,7 +370,7 @@ export function AboutPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             WHAT TO EXPECT
           </motion.p>
@@ -419,15 +419,15 @@ export function AboutPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-10 max-w-2xl mx-auto"
           >
-            Experience the difference structured conditioning makes — start with the intro, or scan{' '}
-            <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+            Experience the difference structured conditioning makes - start with the intro, or scan{' '}
+            <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
               FAQs
             </Link>{' '}
             if you still have questions.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="about-cta">
-              Book Intro — $35
+              Book Intro - $35
             </Button>
             <Button href="/pricing" variant="secondary" className="px-10 py-4">
               View All Pricing

@@ -15,7 +15,7 @@ const services = [
     category: 'FOUNDING ATHLETE',
     title: 'Founding Athlete',
     price: '$200 / 5 sessions',
-    description: 'Limited to 20 dogs. $40 per session effective rate — never offered again once spots are gone.',
+    description: 'Limited to 20 dogs. $40 per session effective rate - never offered again once spots are gone.',
   },
   {
     category: 'PRIVATE SESSION',
@@ -43,7 +43,7 @@ export function ServicesOverview() {
       >
         <motion.p
           variants={fadeUp}
-          className="text-brand-teal font-body text-xs tracking-[0.3em] uppercase mb-4"
+          className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-4"
         >
           SERVICES
         </motion.p>
@@ -62,7 +62,7 @@ export function ServicesOverview() {
               variants={fadeUp}
               className="border-b border-white/10 py-10 first:pt-0 last:border-b-0"
             >
-              <p className="text-brand-teal font-body text-xs tracking-[0.3em] uppercase mb-3">
+              <p className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-3">
                 {service.category}
               </p>
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 md:gap-8 mb-4">
@@ -83,7 +83,7 @@ export function ServicesOverview() {
         <motion.div variants={fadeUp} className="mt-12">
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 text-brand-teal font-body text-sm hover:text-brand-teal/80 transition-colors"
+            className="inline-flex items-center gap-2 text-brand-teal-light font-body text-sm hover:text-brand-teal-light/80 transition-colors"
           >
             View full pricing details
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

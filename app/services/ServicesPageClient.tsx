@@ -22,11 +22,11 @@ const services = [
     ],
     bestFor: 'First-time clients, skeptical owners, proof-of-concept session',
     narrative:
-      "The intro is not a sales pitch in disguise — it is a structured evaluation. We watch how your dog loads into the harness, how they respond to the moving surface, and how quickly they find a sustainable rhythm. You leave with a Run Profile card that captures baseline fitness notes, behavior cues we noticed, and a recommended cadence if you decide to continue.\n\nBecause we operate on routed schedules, the intro also confirms your address fits the day's geography without guessing. If the slatmill is not the right tool for your dog, we will tell you directly rather than pushing another package.",
+      "The intro is not a sales pitch in disguise - it is a structured evaluation. We watch how your dog loads into the harness, how they respond to the moving surface, and how quickly they find a sustainable rhythm. You leave with a Run Profile card that captures baseline fitness notes, behavior cues we noticed, and a recommended cadence if you decide to continue.\n\nBecause we operate on routed schedules, the intro also confirms your address fits the day's geography without guessing. If the slatmill is not the right tool for your dog, we will tell you directly rather than pushing another package.",
   },
   {
     id: 'founding',
-    label: 'LIMITED — 20 SPOTS',
+    label: 'LIMITED - 20 SPOTS',
     title: 'Founding Athlete',
     price: '$200 for 5 sessions ($40/session)',
     duration: '30–45 min per session',
@@ -37,7 +37,7 @@ const services = [
     ],
     bestFor: 'Owners who want the lowest rate before Founding spots run out',
     narrative:
-      "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. Five sessions at $40 each effective — an introductory rate we will never offer again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic — you are betting on the service early, and we reward that with our best-ever per-session rate for this limited window only.",
+      "The Founding Athlete program is a one-time offer for the first 20 dogs through the door. Five sessions at $40 each effective - an introductory rate we will never offer again once these spots are gone.\n\nFounding Athletes get the same private session protocol as every other tier: warm-up, structured intervals, cool-down, and a photo plus recap after each visit. The difference is purely economic - you are betting on the service early, and we reward that with our best-ever per-session rate for this limited window only.",
   },
   {
     id: 'private',
@@ -52,7 +52,7 @@ const services = [
     ],
     bestFor: 'Owners who want a single session without a package',
     narrative:
-      "A Private Conditioning Session is a single visit — no package, no commitment. One dog runs $70 for 30–45 minutes of structured work. Two dogs from the same household run $135 for two individual, back-to-back sessions in one visit — up to 45 minutes each, 90 minutes total. Every session runs the same protocol: warm-up, working sets, cool-down, and a photo plus recap texted within the hour.\n\nIf you already know your cadence, Session Packages lock in a lower per-session rate. If you want to test the water first, book a Private Conditioning Session.",
+      "A Private Conditioning Session is a single visit - no package, no commitment. One dog runs $70 for 30–45 minutes of structured work. Two dogs from the same household run $135 for two individual, back-to-back sessions in one visit - up to 45 minutes each, 90 minutes total. Every session runs the same protocol: warm-up, working sets, cool-down, and a photo plus recap texted within the hour.\n\nIf you already know your cadence, Session Packages lock in a lower per-session rate. If you want to test the water first, book a Private Conditioning Session.",
   },
   {
     id: 'packages',
@@ -67,7 +67,7 @@ const services = [
     ],
     bestFor: 'Owners locking in a cadence and a lower per-session rate',
     narrative:
-      "Session Packages prepay a block of visits at a lower rate than paying one session at a time. Three sessions bring the rate to $65 each; five sessions bring it to $60 each. Two-dog households get a modest discount built into the two-dog package total — you are still booking one individual session per dog, back-to-back, every visit.\n\nPackages suit owners who already know the slatmill works for their dog and want to lock in savings without committing to a recurring membership.",
+      "Session Packages prepay a block of visits at a lower rate than paying one session at a time. Three sessions bring the rate to $65 each; five sessions bring it to $60 each. Two-dog households get a modest discount built into the two-dog package total - you are still booking one individual session per dog, back-to-back, every visit.\n\nPackages suit owners who already know the slatmill works for their dog and want to lock in savings without committing to a recurring membership.",
   },
 ];
 
@@ -80,7 +80,7 @@ const steps = [
   {
     number: '02',
     title: 'We Come to You',
-    description: 'Our mobile gym arrives at your driveway — no travel, no stress.',
+    description: 'Our mobile gym arrives at your driveway - no travel, no stress.',
   },
   {
     number: '03',
@@ -96,11 +96,11 @@ const protocols: { icon: string; text: ReactNode }[] = [
       <>
         <Link
           href="/equipment/julius-k9-idc-powerharness/"
-          className="text-brand-teal underline-offset-2 hover:underline"
+          className="text-brand-teal-light underline-offset-2 hover:underline"
         >
           Julius-K9 IDC Powerharnesses
         </Link>{' '}
-        provided (S/M/L) — or bring your own
+        provided (S/M/L) - or bring your own
       </>
     ),
   },
@@ -123,7 +123,7 @@ export function ServicesPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             SERVICES
           </motion.p>
@@ -131,20 +131,20 @@ export function ServicesPageClient() {
             variants={fadeUp}
             className="font-display text-6xl md:text-8xl tracking-tight mb-8"
           >
-            Dog Conditioning Sessions — Destin, Fort Walton Beach &amp; Niceville FL
+            Dog Conditioning Sessions - Destin, Fort Walton Beach &amp; Niceville FL
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             Performance conditioning for high-drive dogs. Not dog walking. Not daycare.
-            Structured athletic sessions — at your door. When you are ready to compare rates
+            Structured athletic sessions - at your door. When you are ready to compare rates
             or lock a time, jump to{' '}
-            <Link href="/pricing/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
               pricing
             </Link>{' '}
             or{' '}
-            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
               booking
             </Link>
             .
@@ -156,9 +156,9 @@ export function ServicesPageClient() {
         <SlatmillExplainer
           body={
             <p>
-              Every session runs on a commercial slatmill — built for controlled pace, not backyard
+              Every session runs on a commercial slatmill - built for controlled pace, not backyard
               chaos.{' '}
-              <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+              <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
                 See the full breakdown.
               </Link>
             </p>
@@ -181,7 +181,7 @@ export function ServicesPageClient() {
                 >
               <motion.p
                 variants={fadeUp}
-                className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase mb-3"
+                className="text-brand-teal-light font-body text-xs tracking-[0.25em] uppercase mb-3"
               >
                 {service.label}
               </motion.p>
@@ -216,7 +216,7 @@ export function ServicesPageClient() {
                   <ul className="space-y-2">
                     {service.includes.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-brand-gray font-body text-sm">
-                        <span className="text-brand-teal mt-1">✓</span>
+                        <span className="text-brand-teal-light mt-1">✓</span>
                         {item}
                       </li>
                     ))}
@@ -259,7 +259,7 @@ export function ServicesPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             HOW IT WORKS
           </motion.p>
@@ -283,7 +283,7 @@ export function ServicesPageClient() {
                   {step.description}
                 </p>
                 {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 right-0 translate-x-1/2 text-brand-teal/40">
+                  <div className="hidden md:block absolute top-10 right-0 translate-x-1/2 text-brand-teal-light/40">
                     →
                   </div>
                 )}
@@ -304,7 +304,7 @@ export function ServicesPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             SESSION PROTOCOL
           </motion.p>
@@ -344,7 +344,7 @@ export function ServicesPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center"
           >
             WHAT TO EXPECT
           </motion.p>
@@ -357,7 +357,7 @@ export function ServicesPageClient() {
           <motion.p variants={fadeUp}>
             When the rig stops at your curb we level it, open climate control, and walk your dog through a
             short introduction to the sound of the slats and the feel of the belt underfoot. There is no
-            crowd cheering them on — just clear cues, steady rewards, and a handler who reads pant, tail
+            crowd cheering them on - just clear cues, steady rewards, and a handler who reads pant, tail
             set, and foot placement the same way a track coach reads splits.
           </motion.p>
           <motion.p variants={fadeUp}>
@@ -367,28 +367,28 @@ export function ServicesPageClient() {
             in reverse so the dog walks away loose instead of crated-tight.
           </motion.p>
           <motion.p variants={fadeUp}>
-            After we pack up you receive a photo plus a plain-language recap — distance estimates when
+            After we pack up you receive a photo plus a plain-language recap - distance estimates when
             helpful, attitude notes, and what we would adjust next visit. That feedback loop is how owners
             see progress stack week over week instead of guessing from zoomies alone. If anything felt off,
             read the{' '}
-            <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
               FAQ
             </Link>{' '}
             or message us before the next booking.
           </motion.p>
           <motion.p variants={fadeUp}>
             Every session is{' '}
-            <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/how-we-record/" className="text-brand-teal-light underline-offset-2 hover:underline">
               recorded start to finish on two cameras
             </Link>{' '}
             for safety and progress tracking.
           </motion.p>
           <motion.p variants={fadeUp} className="text-center text-brand-offwhite">
-            <Link href="/book/" className="text-brand-teal font-medium underline-offset-4 hover:underline">
+            <Link href="/book/" className="text-brand-teal-light font-medium underline-offset-4 hover:underline">
               Book your intro
             </Link>{' '}
             ·{' '}
-            <Link href="/pricing/" className="text-brand-teal font-medium underline-offset-4 hover:underline">
+            <Link href="/pricing/" className="text-brand-teal-light font-medium underline-offset-4 hover:underline">
               View pricing
             </Link>
           </motion.p>

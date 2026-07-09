@@ -10,17 +10,34 @@ type CityServiceAreaClientProps = {
   city: ServiceCityPage;
 };
 
+// ponytail: renders one inline [label](href) markdown link per paragraph (last match wins).
+// Only the Valparaiso fireworks paragraph uses it today; widen if a paragraph ever needs two.
+function renderParagraph(text: string) {
+  const match = text.match(/^([\s\S]*)\[([^\]]+)\]\(([^)]+)\)([\s\S]*)$/);
+  if (!match) return text;
+  const [, before, label, href, after] = match;
+  return (
+    <>
+      {before}
+      <Link href={href} className="text-brand-teal-light underline-offset-2 hover:underline">
+        {label}
+      </Link>
+      {after}
+    </>
+  );
+}
+
 export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
   return (
     <>
       <section className="bg-brand-black px-6 pb-8 pt-28 md:pt-32">
         <div className="mx-auto max-w-4xl">
           <nav aria-label="Breadcrumb" className="mb-10 font-body text-sm text-brand-gray">
-            <Link href="/" className="text-brand-teal hover:text-brand-offwhite">
+            <Link href="/" className="text-brand-teal-light hover:text-brand-offwhite">
               Home
             </Link>
             <span className="mx-2 text-brand-gray/60">/</span>
-            <Link href="/service-area/" className="text-brand-teal hover:text-brand-offwhite">
+            <Link href="/service-area/" className="text-brand-teal-light hover:text-brand-offwhite">
               Service Area
             </Link>
             <span className="mx-2 text-brand-gray/60">/</span>
@@ -35,7 +52,7 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
           >
             <motion.p
               variants={fadeUp}
-              className="mb-6 font-body text-sm uppercase tracking-[0.25em] text-brand-teal"
+              className="mb-6 font-body text-sm uppercase tracking-[0.25em] text-brand-teal-light"
             >
               {city.eyebrow}
             </motion.p>
@@ -49,8 +66,8 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
               variants={fadeUp}
               className="mx-auto max-w-2xl font-body text-lg leading-relaxed text-brand-gray md:text-xl"
             >
-              Self-powered slatmill conditioning at your driveway — private sessions, climate-controlled
-              mobile unit, one dog at a time.
+              Self-powered slatmill conditioning at your {city.name} driveway - private sessions,
+              climate-controlled mobile unit, one dog at a time.
             </motion.p>
           </motion.div>
         </div>
@@ -71,7 +88,7 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
             {city.introText && <p>{city.introText}</p>}
 
             {city.paragraphs?.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              <p key={paragraph.slice(0, 48)}>{renderParagraph(paragraph)}</p>
             ))}
 
             {city.sections?.map((section) => (
@@ -82,31 +99,41 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
                 <p>{section.paragraph}</p>
               </div>
             ))}
+
+            <p>
+              {city.closingHook}{' '}
+              The{' '}
+              <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
+                Founding Athlete Program
+              </Link>{' '}
+              is capped at 20 dogs across the entire service area - when the spots are gone, they are
+              gone.
+            </p>
           </motion.div>
 
           <motion.p
             variants={fadeUp}
             className="mt-10 border-t border-brand-teal/15 pt-8 font-body text-sm text-brand-offwhite md:text-base"
           >
-            <span className="font-medium text-brand-teal">{city.neighborhoodsLabel}:</span>{' '}
+            <span className="font-medium text-brand-teal-light">{city.neighborhoodsLabel}:</span>{' '}
             {city.neighborhoods.join(' · ')}
           </motion.p>
 
           <motion.p variants={fadeUp} className="mt-8 font-body text-sm text-brand-gray md:text-base">
             Compare{' '}
-            <Link href="/services/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/services/" className="text-brand-teal-light underline-offset-2 hover:underline">
               session types and protocol
             </Link>
             , browse the{' '}
-            <Link href="/blog/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/blog/" className="text-brand-teal-light underline-offset-2 hover:underline">
               conditioning blog
             </Link>
             , then{' '}
-            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
               book your intro online
             </Link>
             . View all{' '}
-            <Link href="/service-area/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/service-area/" className="text-brand-teal-light underline-offset-2 hover:underline">
               Emerald Coast coverage
             </Link>
             .
@@ -119,7 +146,7 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
                 <span key={link.slug}>
                   <Link
                     href={`/service-area/${link.slug}/`}
-                    className="text-brand-teal underline-offset-2 hover:underline"
+                    className="text-brand-teal-light underline-offset-2 hover:underline"
                   >
                     {link.name}
                   </Link>

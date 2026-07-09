@@ -16,7 +16,7 @@ export type ContactFormSectionProps = {
 };
 
 const inputClass =
-  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body outline-none transition-colors';
+  'w-full bg-[#1A1F2E] border border-white/10 focus:border-teal-600 text-[#F0EDE6] rounded-none py-3 px-4 font-body transition-colors';
 
 const labelClass = 'block uppercase tracking-widest text-xs text-brand-gray mb-2 font-body';
 
@@ -31,8 +31,8 @@ export function ContactFormSection({
   const mailchimpTag = tag ?? DEFAULT_MAILCHIMP_TAG;
   const formspreeSubject =
     mailchimpTag === 'founding-20'
-      ? "New inquiry — Founding 20 — Kai's Run website"
-      : "New inquiry — Kai's Run website";
+      ? "New inquiry - Founding 20 - Kai's Run website"
+      : "New inquiry - Kai's Run website";
   const formspreeIntegrationTag = mailchimpTag === 'founding-20' ? 'founding-20' : 'contact-form';
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -94,6 +94,10 @@ export function ContactFormSection({
     }
   };
 
+  const errorId = 'contact-form-error';
+  const errored = status === 'error';
+  const errorProps = errored ? { 'aria-invalid': true, 'aria-describedby': errorId } : {};
+
   return (
     <section className="py-24 md:py-32 px-6 bg-brand-charcoal">
       <motion.div
@@ -109,7 +113,7 @@ export function ContactFormSection({
           </h2>
           <p className="font-body text-base md:text-lg text-brand-gray leading-relaxed max-w-xl mx-auto md:mx-0">
             Whether you&apos;re not sure if your dog&apos;s the right fit or just want to know more before booking
-            — reach out. Travis responds personally.
+ - reach out. Travis responds personally.
           </p>
         </motion.div>
 
@@ -123,7 +127,7 @@ export function ContactFormSection({
               exit={{ opacity: 0, y: -8 }}
               className="font-body text-base md:text-lg text-[#0A5C52] text-center md:text-left"
             >
-              Got it. Travis will be back to you within 24 hours — usually faster.
+              Got it. Travis will be back to you within 24 hours - usually faster.
             </motion.p>
           ) : (
             <motion.form
@@ -141,6 +145,7 @@ export function ContactFormSection({
               <input type="hidden" name="_tag" defaultValue={formspreeIntegrationTag} />
               {status === 'error' && (
                 <p
+                  id={errorId}
                   className="font-body text-sm md:text-base text-[#C9963A]"
                   role="alert"
                   aria-live="polite"
@@ -156,6 +161,7 @@ export function ContactFormSection({
                   </label>
                   <input
                     id="contact-name"
+                    {...errorProps}
                     name="name"
                     type="text"
                     autoComplete="name"
@@ -174,6 +180,7 @@ export function ContactFormSection({
                   </label>
                   <input
                     id="contact-email"
+                    {...errorProps}
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -194,6 +201,7 @@ export function ContactFormSection({
                   </label>
                   <input
                     id="contact-phone"
+                    {...errorProps}
                     name="phone"
                     type="tel"
                     autoComplete="tel"
@@ -212,6 +220,7 @@ export function ContactFormSection({
                   </label>
                   <input
                     id="contact-dog-name"
+                    {...errorProps}
                     name="dog_name"
                     type="text"
                     required
@@ -231,6 +240,7 @@ export function ContactFormSection({
                   </label>
                   <input
                     id="contact-dog-breed"
+                    {...errorProps}
                     name="dog_breed"
                     type="text"
                     required
@@ -248,6 +258,7 @@ export function ContactFormSection({
                   </label>
                   <select
                     id="contact-location"
+                    {...errorProps}
                     name="location"
                     required
                     value={location}
@@ -290,12 +301,13 @@ export function ContactFormSection({
                 </label>
                 <textarea
                   id="contact-message"
+                  {...errorProps}
                   name="message"
                   rows={4}
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="What's on your mind? Scheduling, whether your dog is a good fit, general questions — all fair game."
+                  placeholder="What's on your mind? Scheduling, whether your dog is a good fit, general questions - all fair game."
                   className={`${inputClass} resize-y min-h-[6.5rem]`}
                   disabled={status === 'submitting'}
                 />

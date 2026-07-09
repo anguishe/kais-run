@@ -9,7 +9,7 @@ const pillars = [
   {
     title: 'Energy Release',
     description:
-      '30–45 minutes of self-paced running that drains excess energy the way nature intended — through sustained effort, not aimless wandering.',
+      '30–45 minutes of self-paced running that drains excess energy the way nature intended - through sustained effort, not aimless wandering.',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -32,7 +32,7 @@ const pillars = [
   {
     title: 'Physical Conditioning',
     description:
-      'Builds lean muscle, cardiovascular endurance, and joint strength. Your dog gets fitter every session — measurable, repeatable progress.',
+      'Builds lean muscle, cardiovascular endurance, and joint strength. Your dog gets fitter every session - measurable, repeatable progress.',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 20V10" />
@@ -67,7 +67,7 @@ export function SolutionSection() {
               <p>
                 A slatmill drives structured, low-impact conditioning most backyards can&apos;t
                 replicate.{' '}
-                <Link href="/faq/" className="text-brand-teal underline-offset-2 hover:underline">
+                <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   See exactly how a session works.
                 </Link>
               </p>
@@ -82,10 +82,10 @@ export function SolutionSection() {
               variants={fadeUp}
               className="text-center"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-brand-teal/30 text-brand-teal mb-6">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-brand-teal/30 text-brand-teal-light mb-6">
                 {pillar.icon}
               </div>
-              <h3 className="font-display text-2xl tracking-wider text-brand-teal mb-4">
+              <h3 className="font-display text-2xl tracking-wider text-brand-teal-light mb-4">
                 {pillar.title}
               </h3>
               <p className="text-brand-gray text-sm font-body leading-relaxed">

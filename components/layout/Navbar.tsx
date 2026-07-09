@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -33,6 +33,41 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = 'unset';
     }
+  }, [isMobileMenuOpen]);
+
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Escape to close, focus trap inside the overlay, return focus to hamburger on close.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const focusables = overlayRef.current
+      ? Array.from(overlayRef.current.querySelectorAll<HTMLElement>('a[href], button'))
+      : [];
+    focusables[0]?.focus();
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        return;
+      }
+      if (e.key === 'Tab' && focusables.length) {
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      hamburgerRef.current?.focus();
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -76,21 +111,24 @@ export default function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
+              ref={hamburgerRef}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden z-50 relative w-6 h-6 flex flex-col justify-center items-center gap-1.5"
+              className="md:hidden z-50 relative w-11 h-11 flex flex-col justify-center items-center gap-1.5"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu-overlay"
             >
               <motion.span
                 animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                className="w-full h-0.5 bg-brand-offwhite block"
+                className="w-6 h-0.5 bg-brand-offwhite block"
               />
               <motion.span
                 animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="w-full h-0.5 bg-brand-offwhite block"
+                className="w-6 h-0.5 bg-brand-offwhite block"
               />
               <motion.span
                 animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                className="w-full h-0.5 bg-brand-offwhite block"
+                className="w-6 h-0.5 bg-brand-offwhite block"
               />
             </button>
           </div>
@@ -101,6 +139,8 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-menu-overlay"
+            ref={overlayRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -24,7 +24,7 @@ export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             FREQUENTLY ASKED
           </motion.p>
@@ -65,7 +65,7 @@ export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
             className="mt-12 text-center text-base md:text-lg font-body text-brand-gray"
           >
             Ready to book?{' '}
-            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
               Intro sessions start at $35 →
             </Link>
           </motion.p>

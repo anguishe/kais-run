@@ -5,39 +5,12 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import type { BlogPostMeta } from '@/lib/blog/posts';
+import { categoryOf, type Category } from '@/lib/blog/categories';
 
 /** Per-post branded card generated on the fly by /og (no static thumbnails to maintain). */
 function cardImage(title: string): string {
   return `/og/?title=${encodeURIComponent(title)}&eyebrow=${encodeURIComponent('Field Notes')}`;
 }
-
-type Category = 'Behavior' | 'Conditioning' | 'Health' | 'Seasonal';
-
-/**
- * Curated slug -> category map. Unmapped slugs surface under "All" only.
- * Keep in sync with the post library when new notes ship.
- */
-const CATEGORY_MAP: Record<string, Category> = {
-  'dog-adolescence-phase': 'Behavior',
-  'dog-anxiety-destructive-behavior-exercise': 'Behavior',
-  'meet-kai-the-dog-behind-kais-run': 'Behavior',
-  'dog-treadmill-vs-walk-comparison': 'Conditioning',
-  'high-energy-dog-breeds-exercise-guide': 'Conditioning',
-  'how-much-exercise-does-my-dog-need': 'Conditioning',
-  'how-to-tire-out-a-high-energy-dog': 'Conditioning',
-  'what-is-a-dog-slatmill': 'Conditioning',
-  'what-to-expect-first-slatmill-session': 'Conditioning',
-  'why-structured-runs-matter': 'Conditioning',
-  'why-we-record-every-session': 'Conditioning',
-  'is-my-dog-overweight': 'Health',
-  'can-you-over-exercise-a-dog': 'Health',
-  'senior-dog-exercise': 'Health',
-  'too-hot-to-walk-your-dog': 'Seasonal',
-  'calm-dog-during-fireworks': 'Seasonal',
-  'dog-thunderstorm-anxiety': 'Seasonal',
-  'dog-reactive-on-leash': 'Behavior',
-  'dog-park-not-tiring-dog-out': 'Conditioning',
-};
 
 const FILTERS: Array<'All' | Category> = ['All', 'Behavior', 'Conditioning', 'Health', 'Seasonal'];
 
@@ -48,10 +21,6 @@ function formatDate(iso: string): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
   if (!m) return iso;
   return `${MONTHS[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
-}
-
-function categoryOf(slug: string): Category | null {
-  return CATEGORY_MAP[slug] ?? null;
 }
 
 export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
@@ -163,7 +132,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
-                    <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-brand-teal">
+                    <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-brand-teal-light">
                       {cat ?? 'Field notes'}
                     </p>
                     <h3 className="mt-2 font-display text-2xl leading-[1.05] tracking-tight text-brand-offwhite">

@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { BLOG_LISTING_KEYWORDS } from '@/lib/seo/defaults';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 
-export const BLOG_LISTING_TITLE = "Blog | Kai's Run — Mobile Dog Gym";
+export const BLOG_LISTING_TITLE = "Blog | Kai's Run - Mobile Dog Gym";
 
 export const BLOG_LISTING_DESCRIPTION =
-  "Dog conditioning, exercise, and slatmill guides from Kai's Run — mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL.";
+  "Dog conditioning, exercise, and slatmill guides from Kai's Run - mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL.";
 
 export const BLOG_LISTING_URL = 'https://kaisrun.xyz/blog/';
 const OG_IMAGE = `https://kaisrun.xyz${OG_IMAGE_URL}`;
@@ -28,7 +28,7 @@ export function buildBlogListingMetadata(): Metadata {
           url: OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: "Kai's Run — Mobile Dog Gym Destin FL",
+          alt: "Kai's Run - Mobile Dog Gym Destin FL",
         },
       ],
     },

@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
-import { FOUNDING_SPOTS_REMAINING, FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
+import { FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
+import config from '@/public/data/config.json';
 
 type FoundingSpots = {
   total: number;
@@ -67,7 +68,7 @@ const discounts = [
     title: 'Military & First Responder Discount',
     discount: '10% off',
     description:
-      'Active duty, reserves, veterans (Eglin AFB, Hurlburt Field), and first responders (Police, Fire, EMS). Applies to all paid sessions and packages — excludes the Intro Session.',
+      'Active duty, reserves, veterans (Eglin AFB, Hurlburt Field), and first responders (Police, Fire, EMS). Applies to all paid sessions and packages - excludes the Intro Session.',
   },
 ];
 
@@ -78,7 +79,7 @@ const faqItems = [
   },
   {
     question: 'What does a Private Conditioning Session cost?',
-    answer: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 — two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
+    answer: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 - two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
   },
   {
     question: 'What if my dog doesn\'t take to the slatmill?',
@@ -93,7 +94,7 @@ const faqItems = [
 export function PricingPageClient() {
   const [spots, setSpots] = useState<FoundingSpots>({
     total: FOUNDING_SPOTS_TOTAL,
-    remaining: FOUNDING_SPOTS_REMAINING,
+    remaining: config.foundingSpots.remaining,
   });
 
   useEffect(() => {
@@ -106,11 +107,11 @@ export function PricingPageClient() {
         const fs = data.foundingSpots;
         setSpots({
           total: fs?.total ?? FOUNDING_SPOTS_TOTAL,
-          remaining: fs?.remaining ?? FOUNDING_SPOTS_REMAINING,
+          remaining: fs?.remaining ?? config.foundingSpots.remaining,
         });
       })
       .catch(() => {
-        setSpots({ total: FOUNDING_SPOTS_TOTAL, remaining: FOUNDING_SPOTS_REMAINING });
+        setSpots({ total: FOUNDING_SPOTS_TOTAL, remaining: config.foundingSpots.remaining });
       });
   }, []);
 
@@ -145,7 +146,7 @@ export function PricingPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             PRICING
           </motion.p>
@@ -159,7 +160,7 @@ export function PricingPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Intro sessions from $35. Founding Athlete: $200 for 5 sessions — limited to 20 dogs.
+            Intro sessions from $35. Founding Athlete: $200 for 5 sessions - limited to 20 dogs.
             Private Conditioning Sessions from $70.
           </motion.p>
         </motion.div>
@@ -179,7 +180,7 @@ export function PricingPageClient() {
               variants={fadeUp}
               className="font-display text-xl md:text-2xl tracking-wider text-brand-offwhite mb-4"
             >
-              FOUNDING ATHLETE PROGRAM —{' '}
+              FOUNDING ATHLETE PROGRAM - {' '}
               <span className="text-brand-gold">{SPOTS_REMAINING} / {TOTAL_SPOTS}</span>{' '}
               SPOTS REMAINING
             </motion.p>
@@ -213,7 +214,7 @@ export function PricingPageClient() {
           >
             <motion.p
               variants={fadeUp}
-              className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-4"
+              className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-4"
             >
               SESSION OPTIONS
             </motion.p>
@@ -236,7 +237,7 @@ export function PricingPageClient() {
                   className={`bg-brand-black border rounded-xl p-8 flex flex-col ${tier.id === 'founding' && 'disabled' in tier && tier.disabled ? 'border-brand-gray/20 opacity-60' : tier.id === 'founding' ? 'border-brand-gold/50' : 'border-brand-teal/20'}`}
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
-                    <p className="text-brand-teal font-body text-xs tracking-[0.25em] uppercase">
+                    <p className="text-brand-teal-light font-body text-xs tracking-[0.25em] uppercase">
                       {tier.label}
                     </p>
                   </div>
@@ -279,7 +280,7 @@ export function PricingPageClient() {
                       <ul className="space-y-2">
                         {tier.includes.map((item, i) => (
                           <li key={i} className="flex items-start gap-3 text-brand-gray font-body text-sm">
-                            <span className="text-brand-teal mt-1">✓</span>
+                            <span className="text-brand-teal-light mt-1">✓</span>
                             {item}
                           </li>
                         ))}
@@ -288,7 +289,7 @@ export function PricingPageClient() {
                   )}
 
                   {'highlight' in tier && tier.highlight && (
-                    <p className={`font-body text-xs tracking-wider uppercase mb-4 ${tier.highlightColor || 'text-brand-teal'}`}>
+                    <p className={`font-body text-xs tracking-wider uppercase mb-4 ${tier.highlightColor || 'text-brand-teal-light'}`}>
                       {tier.highlight}
                     </p>
                   )}
@@ -324,7 +325,7 @@ export function PricingPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             COMMUNITY DISCOUNTS
           </motion.p>
@@ -419,7 +420,7 @@ export function PricingPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             FAQ
           </motion.p>

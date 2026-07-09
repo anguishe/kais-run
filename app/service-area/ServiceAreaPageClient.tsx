@@ -22,7 +22,7 @@ export function ServiceAreaPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             SERVICE AREA
           </motion.p>
@@ -36,7 +36,7 @@ export function ServiceAreaPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Kai&apos;s Run covers the Emerald Coast from Destin to Navarre — mobile slatmill
+            Kai&apos;s Run covers the Emerald Coast from Destin to Navarre - mobile slatmill
             conditioning at your driveway. No facility. No commute. Pick your city below for
             local details, neighborhoods, and booking.
           </motion.p>
@@ -51,7 +51,7 @@ export function ServiceAreaPageClient() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase text-center mb-4"
           >
             Service Cities
           </motion.p>
@@ -89,7 +89,7 @@ export function ServiceAreaPageClient() {
                   </p>
                   <Link
                     href={getServiceCityPath(city.slug)}
-                    className="inline-flex items-center font-body text-sm font-medium text-brand-teal hover:text-brand-offwhite transition-colors"
+                    className="inline-flex items-center font-body text-sm font-medium text-brand-teal-light hover:text-brand-offwhite transition-colors"
                   >
                     Mobile dog gym in {city.name} →
                   </Link>
@@ -130,7 +130,7 @@ export function ServiceAreaPageClient() {
               </Button>
               <a
                 href="tel:+18502185855"
-                className="text-brand-teal font-body hover:text-brand-teal/80 transition-colors"
+                className="text-brand-teal-light font-body hover:text-brand-teal-light/80 transition-colors"
               >
                 Call or text: 850-218-5855
               </a>
@@ -158,7 +158,7 @@ export function ServiceAreaPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-8"
           >
-            We&apos;re expanding coverage regularly. If your city isn&apos;t listed, reach out — we may already
+            We&apos;re expanding coverage regularly. If your city isn&apos;t listed, reach out - we may already
             serve your area or can add you to our expansion waitlist.
           </motion.p>
           <motion.div variants={fadeUp}>

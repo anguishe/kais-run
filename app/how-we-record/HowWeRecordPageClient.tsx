@@ -35,7 +35,7 @@ const sections: Section[] = [
       <>
         It is your dog and your driveway. Consent to record - video and the cameras&apos; built-in
         audio - is spelled out in the{' '}
-        <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+        <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
           session waiver
         </Link>{' '}
         before we start, because Florida is an all-party consent state for private conversations.
@@ -72,7 +72,7 @@ export function HowWeRecordPageClient() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-sm tracking-[0.25em] uppercase mb-6"
+            className="text-brand-teal-light font-body text-sm tracking-[0.25em] uppercase mb-6"
           >
             Transparency
           </motion.p>
@@ -196,7 +196,7 @@ export function HowWeRecordPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed"
           >
-            <Link href="/book/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
               Book an intro session
             </Link>
             , or ask about the Founding Athlete Program to make conditioning a regular part of your
@@ -207,13 +207,13 @@ export function HowWeRecordPageClient() {
             className="text-brand-gray font-body text-base"
           >
             See{' '}
-            <Link href="/pricing/" className="text-brand-teal underline-offset-2 hover:underline">
+            <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
               pricing
             </Link>{' '}
             or read the personal take on{' '}
             <Link
               href="/blog/why-we-record-every-session/"
-              className="text-brand-teal underline-offset-2 hover:underline"
+              className="text-brand-teal-light underline-offset-2 hover:underline"
             >
               why we record every session
             </Link>

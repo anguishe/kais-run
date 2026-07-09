@@ -412,7 +412,7 @@ export function Calculator() {
                     key={i}
                     className="flex gap-2 text-sm text-brand-gray bg-brand-black/40 rounded-lg px-4 py-3"
                   >
-                    <span className="text-brand-teal flex-shrink-0 mt-0.5 select-none">-</span>
+                    <span className="text-brand-teal-light flex-shrink-0 mt-0.5 select-none">-</span>
                     <p className="leading-relaxed">{note}</p>
                   </div>
                 ))}
@@ -427,13 +427,13 @@ export function Calculator() {
                 </p>
                 <p className="text-brand-gray text-sm leading-relaxed">
                   Here is what will -{' '}
-                  <Link href="/book/" className="text-brand-teal underline">
+                  <Link href="/book/" className="text-brand-teal-light underline">
                     book a structured conditioning session
                   </Link>{' '}
                   or read{' '}
                   <Link
                     href="/blog/how-to-tire-out-a-high-energy-dog/"
-                    className="text-brand-teal underline"
+                    className="text-brand-teal-light underline"
                   >
                     how to actually tire out a high-energy dog
                   </Link>
@@ -450,7 +450,7 @@ export function Calculator() {
                   consistency matters most.{' '}
                   <Link
                     href="/blog/dog-adolescence-phase/"
-                    className="text-brand-teal underline"
+                    className="text-brand-teal-light underline"
                   >
                     Read what is happening during dog adolescence and what actually helps.
                   </Link>
@@ -463,7 +463,7 @@ export function Calculator() {
               <div className="bg-brand-gold/10 border border-brand-gold/30 rounded-lg px-5 py-4">
                 <p className="text-brand-offwhite text-sm leading-relaxed">
                   In Florida summers, check the pavement first.{' '}
-                  <Link href="/tools/too-hot-to-walk/" className="text-brand-teal underline">
+                  <Link href="/tools/too-hot-to-walk/" className="text-brand-teal-light underline">
                     Use the pavement heat checker
                   </Link>{' '}
                   before any outdoor session.
@@ -478,7 +478,7 @@ export function Calculator() {
                   Settled dogs still benefit from regular structure.{' '}
                   <Link
                     href="/blog/why-structured-runs-matter/"
-                    className="text-brand-teal underline"
+                    className="text-brand-teal-light underline"
                   >
                     Why structured runs matter even for low-drive dogs.
                   </Link>

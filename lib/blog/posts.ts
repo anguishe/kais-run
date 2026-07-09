@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { categoryOf } from './categories';
 
 const POSTS_DIR = path.join(process.cwd(), 'content/blog');
 
@@ -7,7 +8,7 @@ export type BlogFrontmatter = {
   title: string;
   description: string;
   date: string;
-  dateModified?: string; // ISO date string — falls back to date if not set
+  dateModified?: string; // ISO date string - falls back to date if not set
   author?: string;
   /** Comma-separated meta keywords for this post. */
   keywords?: string;
@@ -129,8 +130,15 @@ export function getSortedPostMeta(): BlogPostMeta[] {
 }
 
 export function getRelatedPosts(currentSlug: string, limit = 2): BlogPostMeta[] {
+  const currentCategory = categoryOf(currentSlug);
   return getAllPostMeta()
     .filter((p) => p.slug !== currentSlug)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .sort((a, b) => {
+      // Shared-category peers first, then newest-first within each group.
+      const aShared = currentCategory !== null && categoryOf(a.slug) === currentCategory;
+      const bShared = currentCategory !== null && categoryOf(b.slug) === currentCategory;
+      if (aShared !== bShared) return aShared ? -1 : 1;
+      return a.date < b.date ? 1 : -1;
+    })
     .slice(0, limit);
 }

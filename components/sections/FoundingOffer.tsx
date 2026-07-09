@@ -7,9 +7,9 @@ import Button from '@/components/ui/Button';
 
 const benefits = [
   'Priority booking for all future sessions',
-  '"Founding Athlete" status — recognized first believers',
+  '"Founding Athlete" status - recognized first believers',
   'Personal Run Profile Card on your first session',
-  'One-time founding rate — never offered again',
+  'One-time founding rate - never offered again',
 ];
 
 export function FoundingOffer() {
@@ -31,7 +31,7 @@ export function FoundingOffer() {
 
           <motion.p
             variants={fadeUp}
-            className="text-brand-teal font-body text-xs tracking-[0.3em] uppercase mb-4"
+            className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-4"
           >
             LIMITED AVAILABILITY
           </motion.p>
@@ -47,7 +47,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-base md:text-lg font-body text-brand-gray max-w-2xl mb-10"
           >
-            A one-time founding offer — an introductory rate we will never offer again. For the 20 who believed first.
+            A one-time founding offer - an introductory rate we will never offer again. For the 20 who believed first.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mb-10">
@@ -64,7 +64,7 @@ export function FoundingOffer() {
           <motion.ul variants={fadeUp} className="space-y-3 mb-10">
             {benefits.map((benefit) => (
               <li key={benefit} className="flex items-start gap-3">
-                <span className="text-brand-teal mt-0.5 flex-shrink-0">
+                <span className="text-brand-teal-light mt-0.5 flex-shrink-0">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
@@ -89,7 +89,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-brand-gray text-xs font-body"
           >
-            Standard pricing is live now — Intro Session, Private Conditioning Session, and Session Packages are all bookable. See full pricing.
+            Standard pricing is live now - Intro Session, Private Conditioning Session, and Session Packages are all bookable. See full pricing.
           </motion.p>
         </motion.div>
       </motion.div>
