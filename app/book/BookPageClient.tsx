@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { trackFoundingAthlete } from '@/lib/googleAds';
@@ -40,13 +40,13 @@ function BookSpotsRemaining() {
 
   return (
     <p className="mx-auto mt-4 max-w-xl font-body text-lg text-brand-gold">
-      {spots.remaining} of {spots.total} spots remaining — this offer closes permanently when
+      {spots.remaining} of {spots.total} spots remaining - this offer closes permanently when
       they&apos;re gone.
     </p>
   );
 }
 
-function BookPageInner() {
+export default function BookPageClient() {
   const params = useSearchParams();
   const tier = params.get('tier');
   const isFounding = tier !== 'intro' && tier !== 'private' && tier !== 'packages';
@@ -144,33 +144,26 @@ function BookPageInner() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-brand-black pt-24">
-      <div className="mx-auto max-w-4xl px-6 pb-12 text-center">
-        <p className="mb-3 font-body text-sm tracking-[0.25em] text-brand-teal uppercase">
-          Destin · Fort Walton Beach · Niceville
-        </p>
-        <h1 className="mb-4 font-display text-5xl text-brand-offwhite md:text-7xl">
-          {isFounding ? 'Join the Founding Athlete Program' : 'Book Your Session'}
-        </h1>
+    <>
+      <div className="mx-auto max-w-4xl px-6 pb-8 text-center">
         <BookSpotsRemaining />
-        <div className="mx-auto mt-8 h-px w-16 bg-brand-teal" />
       </div>
 
       {isFounding && (
         <section className="mx-auto max-w-2xl px-6 pb-8">
-          <p className="font-body text-xs tracking-[0.28em] text-brand-teal uppercase">Founding Athlete</p>
+          <p className="font-body text-xs tracking-[0.28em] text-brand-teal-light uppercase">Founding Athlete</p>
           <h2 className="mt-3 font-display text-4xl text-brand-offwhite md:text-5xl">
-            $200 for 5 Sessions — $40 Effective
+            $200 for 5 Sessions - $40 Effective
           </h2>
           <p className="mt-4 font-body text-brand-gray">
-            A one-time founding rate for the first 20 dogs — structured slatmill conditioning delivered
+            A one-time founding rate for the first 20 dogs - structured slatmill conditioning delivered
             to your driveway.
           </p>
           <ul className="mt-6 space-y-2 text-left font-body text-sm text-brand-offwhite/80">
             <li>Priority booking when Kai&apos;s Run opens to the public</li>
-            <li>Founding Athlete status — recognized first believers</li>
+            <li>Founding Athlete status - recognized first believers</li>
             <li>Personal Run Profile Card on your first session</li>
-            <li>One-time rate — never offered again</li>
+            <li>One-time rate - never offered again</li>
           </ul>
         </section>
       )}
@@ -181,7 +174,7 @@ function BookPageInner() {
         </p>
         <p className="mx-auto mb-8 max-w-2xl text-center font-body text-sm text-brand-gray">
           Heads up - every session is{' '}
-          <Link href="/how-we-record/" className="text-brand-teal underline-offset-2 hover:underline">
+          <Link href="/how-we-record/" className="text-brand-teal-light underline-offset-2 hover:underline">
             filmed for your dog&apos;s safety
           </Link>
           , and a digital waiver (which includes recording consent) is required before the first
@@ -193,27 +186,6 @@ function BookPageInner() {
           style={{ minHeight: '700px' }}
         />
       </section>
-    </main>
-  );
-}
-
-function BookPageFallback() {
-  return (
-    <main className="min-h-screen bg-brand-black pt-24">
-      <div className="mx-auto max-w-4xl px-6 pb-12 text-center">
-        <p className="font-display text-5xl text-brand-offwhite md:text-7xl">
-          Join the Founding Athlete Program
-        </p>
-        <p className="mt-4 font-body text-brand-gray">Loading…</p>
-      </div>
-    </main>
-  );
-}
-
-export default function BookPageClient() {
-  return (
-    <Suspense fallback={<BookPageFallback />}>
-      <BookPageInner />
-    </Suspense>
+    </>
   );
 }
