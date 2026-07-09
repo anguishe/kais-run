@@ -6,14 +6,14 @@ import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FAQPageClient } from './FAQPageClient';
 
 export const metadata: Metadata = {
-  title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
+  title: "Slatmill Dog FAQ | Kai's Run Mobile Dog Gym Destin FL",
   description:
-    "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
+    "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts - for Kai's Run driveway sessions in Destin FL.",
   alternates: { canonical: 'https://kaisrun.xyz/faq/' },
   openGraph: {
-    title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
+    title: "Slatmill Dog FAQ | Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
+      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts - for Kai's Run driveway sessions in Destin FL.",
     type: 'website',
     url: 'https://kaisrun.xyz/faq/',
     locale: 'en_US',
@@ -22,15 +22,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
+        alt: "Kai's Run - Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Slatmill Dog FAQ — Kai's Run Mobile Dog Gym Destin FL",
+    title: "Slatmill Dog FAQ | Kai's Run Mobile Dog Gym Destin FL",
     description:
-      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts — for Kai's Run driveway sessions in Destin FL.",
+      "Straight answers on slatmill safety, reactive dogs, session length, waivers, cancellations, and discounts - for Kai's Run driveway sessions in Destin FL.",
     images: ['https://kaisrun.xyz/images/og-image.png'],
   },
 };
@@ -43,6 +43,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const faqPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': 'https://kaisrun.xyz/faq/#faq',
   mainEntity: FAQ_ENTRIES.map((entry) => ({
     '@type': 'Question',
     name: entry.q,

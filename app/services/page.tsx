@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
+import { serviceOffers } from '@/lib/schema/offers';
 import { ServicesPageClient } from './ServicesPageClient';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -12,11 +13,11 @@ const SERVICES_DESCRIPTION =
   'Private mobile slatmill conditioning at your driveway across Destin & the Emerald Coast. Intro sessions, private conditioning, and multi-session packages.';
 
 export const metadata: Metadata = {
-  title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
+  title: "Services | Kai's Run - Mobile Dog Gym Destin FL",
   description: SERVICES_DESCRIPTION,
   alternates: { canonical: 'https://kaisrun.xyz/services/' },
   openGraph: {
-    title: "Services | Kai's Run — Mobile Dog Gym Destin FL",
+    title: "Services | Kai's Run - Mobile Dog Gym Destin FL",
     description: SERVICES_DESCRIPTION,
     type: 'website',
     url: 'https://kaisrun.xyz/services/',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
+        alt: "Kai's Run - Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },
@@ -44,17 +45,7 @@ const serviceSchema = {
   serviceType: 'Dog Conditioning Session',
   provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
   areaServed: 'Okaloosa County, FL',
-  offers: [
-    { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Intro Session (2 dogs, same household)', price: '55', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Private Conditioning Session (1 dog)', price: '70', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Private Conditioning Session (2 dogs, same household)', price: '135', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '3-Session Package (1 dog)', price: '195', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '5-Session Package (1 dog)', price: '300', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '3-Session Package (2 dogs, same household)', price: '380', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '5-Session Package (2 dogs, same household)', price: '580', priceCurrency: 'USD' },
-  ],
+  offers: serviceOffers,
 };
 
 export default function ServicesPage() {

@@ -4,12 +4,12 @@ import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { AboutPageClient } from './AboutPageClient';
 
 export const metadata: Metadata = {
-  title: "About | Kai's Run — Mobile Dog Gym Destin FL",
+  title: "About | Kai's Run - Mobile Dog Gym Destin FL",
   description:
     "Travis built Kai's Run in Destin FL after his Rhodesian Ridgeback mix Kai needed more than walks. Mobile canine conditioning for the Emerald Coast.",
   alternates: { canonical: 'https://kaisrun.xyz/about/' },
   openGraph: {
-    title: "About | Kai's Run — Mobile Dog Gym Destin FL",
+    title: "About | Kai's Run - Mobile Dog Gym Destin FL",
     description:
       "Travis built Kai's Run in Destin FL after his Rhodesian Ridgeback mix Kai needed more than walks. Mobile canine conditioning for the Emerald Coast.",
     type: 'website',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
+        alt: "Kai's Run - Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },

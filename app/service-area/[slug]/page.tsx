@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: OG_IMAGE_URL,
           width: 1200,
           height: 630,
-          alt: `Kai's Run — Mobile Dog Gym in ${city.name}, FL`,
+          alt: `Kai's Run - Mobile Dog Gym in ${city.name}, FL`,
         },
       ],
     },

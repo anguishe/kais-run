@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
+import { pricingOffers } from '@/lib/schema/offers';
 import { PricingPageClient } from './PricingPageClient';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -9,7 +10,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const PRICING_DESCRIPTION =
-  "Kai's Run pricing: intro sessions from $35, private conditioning from $70, and 3- and 5-session packages. Founding Athlete: $200 for 5 sessions, limited to 20 dogs.";
+  "Straightforward pricing for mobile dog conditioning on the Emerald Coast. Intro Sessions, multi-session packs, and the Founding Athlete Program.";
 
 export const metadata: Metadata = {
   title: "Pricing | Kai's Run Mobile Dog Gym Destin FL",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
+        alt: "Kai's Run - Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
   },
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': 'https://kaisrun.xyz/pricing/#faq',
   mainEntity: [
     {
       '@type': 'Question',
@@ -55,7 +57,7 @@ const faqSchema = {
       name: 'What does a Private Conditioning Session cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 — two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
+        text: 'A Private Conditioning Session is $70 for one dog. Two dogs from the same household run $135 - two individual back-to-back sessions in one visit, up to 45 minutes each. No commitment required. Session Packages are also available for a lower per-session rate.',
       },
     },
     {
@@ -83,17 +85,7 @@ const pricingSchema = {
   serviceType: 'Mobile Dog Gym Conditioning',
   provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
   areaServed: 'Okaloosa County, FL',
-  offers: [
-    { '@type': 'Offer', name: 'Founding Athlete Program (5 sessions)', price: '200', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Intro Session (1 dog)', price: '35', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Intro Session (2 dogs, same household)', price: '55', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Private Conditioning Session (1 dog)', price: '70', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: 'Private Conditioning Session (2 dogs, same household)', price: '135', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '3-Session Package (1 dog)', price: '195', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '5-Session Package (1 dog)', price: '300', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '3-Session Package (2 dogs, same household)', price: '380', priceCurrency: 'USD' },
-    { '@type': 'Offer', name: '5-Session Package (2 dogs, same household)', price: '580', priceCurrency: 'USD' },
-  ],
+  offers: pricingOffers,
 };
 
 export default function PricingPage() {

@@ -77,11 +77,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="bg-brand-black pb-24 pt-28 md:pb-32 md:pt-32">
         <div className="mx-auto max-w-3xl px-6">
         <nav aria-label="Breadcrumb" className="mb-10 font-body text-sm text-brand-gray">
-          <Link href="/" className="text-brand-teal hover:text-brand-offwhite">
+          <Link href="/" className="text-brand-teal-light hover:text-brand-offwhite">
             Home
           </Link>
           <span className="mx-2 text-brand-gray/60">/</span>
-          <Link href="/blog/" className="text-brand-teal hover:text-brand-offwhite">
+          <Link href="/blog/" className="text-brand-teal-light hover:text-brand-offwhite">
             Blog
           </Link>
           <span className="mx-2 text-brand-gray/60">/</span>
@@ -89,22 +89,22 @@ export default async function BlogPostPage({ params }: PageProps) {
         </nav>
 
         <header className="border-b border-brand-teal/15 pb-10">
-          <p className="font-body text-xs uppercase tracking-[0.28em] text-brand-teal">Field notes</p>
+          <p className="font-body text-xs uppercase tracking-[0.28em] text-brand-teal-light">Field notes</p>
           <h1 className="mt-4 font-display text-5xl tracking-tight text-brand-offwhite md:text-7xl">
             {post.title}
           </h1>
           <p className="mt-6 font-body text-lg leading-relaxed text-brand-gray">{post.description}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-body text-sm text-brand-gray">
             <span>
-              <span className="text-brand-offwhite/90">Author</span> — {post.author ?? 'Travis'}
+              <span className="text-brand-offwhite/90">Author</span> - {post.author ?? 'Travis'}
             </span>
             {post.date ? (
               <time dateTime={post.date}>
-                <span className="text-brand-offwhite/90">Published</span> — {post.date}
+                <span className="text-brand-offwhite/90">Published</span> - {post.date}
               </time>
             ) : null}
             <span>
-              <span className="text-brand-offwhite/90">Read time</span> — {post.readTimeMinutes} min
+              <span className="text-brand-offwhite/90">Read time</span> - {post.readTimeMinutes} min
             </span>
           </div>
         </header>

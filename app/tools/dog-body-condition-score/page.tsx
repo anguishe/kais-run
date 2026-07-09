@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { BodyConditionChecker } from './BodyConditionChecker';
 
 const TITLE = "Dog Body Condition Score Checker (No Scale) | Kai's Run";
 const DESC =
-  "Answer three questions about your dog's ribs, waist, and profile to estimate its body condition score — the hands-on check vets use. No scale needed.";
+  "Answer three questions about your dog's ribs, waist, and profile to estimate its body condition score - the hands-on check vets use. No scale needed.";
 const CANONICAL = 'https://kaisrun.xyz/tools/dog-body-condition-score/';
 const OG_CARD = generatedOgUrl('Dog Body Condition Checker', 'Free Tool');
 
@@ -72,12 +73,19 @@ const faqItems = [
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': `${CANONICAL}#faq`,
   mainEntity: faqItems.map(({ q, a }) => ({
     '@type': 'Question',
     name: q,
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'Free Tools', path: '/tools/' },
+  { name: 'Dog Body Condition Score', path: '/tools/dog-body-condition-score/' },
+]);
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -96,7 +104,7 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
         <BodyConditionChecker />
         <p className="mt-6 font-body text-sm text-brand-gray text-center">
           Powered by{' '}
-          <a href="https://kaisrun.xyz/" className="text-brand-teal underline">
+          <a href="https://kaisrun.xyz/" className="text-brand-teal-light underline">
             Kai&apos;s Run
           </a>
         </p>
@@ -113,6 +121,10 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main className="mx-auto max-w-3xl px-6 py-16">
         <h1 className="font-display text-5xl text-brand-offwhite leading-tight">
@@ -140,11 +152,11 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
             conditioning - the dog sets the pace, so an out-of-shape dog is never forced past what
             its body can handle, and it is climate-controlled against the Florida heat. When you are
             ready to build the movement half of a weight plan,{' '}
-            <Link href="/book/" className="text-brand-teal underline">
+            <Link href="/book/" className="text-brand-teal-light underline">
               book an intro session
             </Link>{' '}
             or see{' '}
-            <Link href="/services/" className="text-brand-teal underline">
+            <Link href="/services/" className="text-brand-teal-light underline">
               what a session includes
             </Link>
             . For the diet half, talk to your vet - that part is theirs. We serve Destin, Fort
@@ -167,34 +179,34 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
         <section className="mt-20 font-body text-brand-gray leading-relaxed">
           <p>
             Want the reasoning behind the check? Read{' '}
-            <Link href="/blog/is-my-dog-overweight/" className="text-brand-teal underline">
+            <Link href="/blog/is-my-dog-overweight/" className="text-brand-teal-light underline">
               why the scale is the wrong number to watch
             </Link>
             . Once you know where your dog stands, dial in the right workload with{' '}
-            <Link href="/tools/dog-exercise-calculator/" className="text-brand-teal underline">
+            <Link href="/tools/dog-exercise-calculator/" className="text-brand-teal-light underline">
               the exercise calculator
             </Link>{' '}
             and read{' '}
             <Link
               href="/blog/how-much-exercise-does-my-dog-need/"
-              className="text-brand-teal underline"
+              className="text-brand-teal-light underline"
             >
               how much exercise your dog needs
             </Link>
             . Before you ramp anything on a heavier dog,{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal underline">
+            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
               read the exercise limit
             </Link>
             , and for older dogs,{' '}
-            <Link href="/blog/senior-dog-exercise/" className="text-brand-teal underline">
+            <Link href="/blog/senior-dog-exercise/" className="text-brand-teal-light underline">
               keeping an aging body moving the right way
             </Link>{' '}
             matters more. When you are ready,{' '}
-            <Link href="/book/" className="text-brand-teal underline">
+            <Link href="/book/" className="text-brand-teal-light underline">
               book a session
             </Link>{' '}
             or review{' '}
-            <Link href="/services/" className="text-brand-teal underline">
+            <Link href="/services/" className="text-brand-teal-light underline">
               what a session includes
             </Link>
             .

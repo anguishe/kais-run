@@ -10,7 +10,8 @@ export function buildServiceAreaSchema(city: {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${pageUrl}#localbusiness`,
-    name: `Kai's Run — ${city.name} FL`,
+    name: `Kai's Run - ${city.name} FL`,
+    telephone: '+18502185855',
     parentOrganization: { '@id': `${BASE_URL}/#business` },
     areaServed: {
       '@type': 'City',

@@ -12,11 +12,11 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 export const metadata: Metadata = {
-  title: "Free Dog Tools | Kai's Run — Emerald Coast FL",
+  title: "Free Dog Tools | Kai's Run - Emerald Coast FL",
   description: TOOLS_DESCRIPTION,
   alternates: { canonical: 'https://kaisrun.xyz/tools/' },
   openGraph: {
-    title: "Free Dog Tools | Kai's Run — Emerald Coast FL",
+    title: "Free Dog Tools | Kai's Run - Emerald Coast FL",
     description: TOOLS_DESCRIPTION,
     type: 'website',
     url: 'https://kaisrun.xyz/tools/',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Free dog tools for the Emerald Coast",
+        alt: "Kai's Run - Free dog tools for the Emerald Coast",
       },
     ],
   },
@@ -37,17 +37,23 @@ const tools = [
     href: '/tools/too-hot-to-walk/',
     title: 'Too Hot to Walk?',
     blurb: 'Enter the temperature and find out if the pavement is safe for your dog right now.',
+    detail:
+      'Enter your location and get a live verdict on whether the pavement is safe for paw pads right now. Built for Emerald Coast summers, where air temperature and asphalt temperature are two very different numbers.',
   },
   {
     href: '/tools/dog-exercise-calculator/',
     title: 'Dog Exercise Calculator',
     blurb: 'Estimate how much daily exercise your dog needs based on breed, age, and weight.',
+    detail:
+      "Answer a few questions about your dog's breed group, age, and energy level and get a daily target in minutes of real work. Useful for spotting the gap between the walks a dog gets and the work a dog needs.",
   },
   {
     href: '/tools/dog-body-condition-score/',
     title: 'Is My Dog Overweight?',
     blurb:
       "Skip the scale. A 30-second hands-on body check that estimates your dog's condition score - and tells you the next move.",
+    detail:
+      'A visual, hands-on guide for judging whether your dog is under, over, or at a healthy weight - the same 9-point framework veterinarians use. No scale required.',
   },
 ];
 
@@ -75,6 +81,7 @@ export default function ToolsPage() {
             >
               <h2 className="font-display text-2xl text-brand-gold">{tool.title}</h2>
               <p className="mt-2 font-body text-sm text-brand-gray">{tool.blurb}</p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-brand-gray/80">{tool.detail}</p>
             </Link>
           ))}
         </div>

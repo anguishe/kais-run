@@ -9,7 +9,8 @@ import DevTools from "@/components/DevTools";
 import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { GA4Script } from "@/components/ui/GA4Script";
-import { AdSenseLoader } from "@/components/ui/AdSenseLoader";
+import { offerCatalogItems } from "@/lib/schema/offers";
+import { SOCIAL_PROFILES } from "@/lib/site-social";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kaisrun.xyz/"),
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
         url: "https://kaisrun.xyz/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kai's Run — Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
+        alt: "Kai's Run - Mobile Dog Gym serving Destin, Fort Walton Beach & Niceville FL",
       },
     ],
     locale: "en_US",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kai's Run | Mobile Dog Gym — Destin FL",
+    title: "Kai's Run | Mobile Dog Gym - Destin FL",
     description: "Structured canine conditioning delivered to your driveway.",
     images: ["https://kaisrun.xyz/images/og-image.png"],
   },
@@ -68,7 +69,7 @@ const localBusinessJsonLd = {
   description:
     "Mobile canine conditioning service delivering self-powered slatmill sessions to driveways in Destin, Fort Walton Beach, and Niceville FL.",
   disambiguatingDescription:
-    "Kai's Run is a local mobile dog conditioning and slatmill fitness service in Destin, Florida. It is a canine exercise business — not a footwear, shoe, or apparel brand.",
+    "Kai's Run is a local mobile dog conditioning and slatmill fitness service in Destin, Florida. It is a canine exercise business - not a footwear, shoe, or apparel brand.",
   slogan: "Your dog deserves to run.",
   foundingDate: "2026",
   knowsAbout: [
@@ -82,17 +83,10 @@ const localBusinessJsonLd = {
   telephone: "+18502185855",
   email: "kaisrunmobile@gmail.com",
   image: "https://kaisrun.xyz/images/og-image.png",
-  logo: "https://kaisrun.xyz/images/logos/kr-logo-1.webp",
+  logo: "https://kaisrun.xyz/images/logos/kr-logo-square-512.png",
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: "Credit Card, Cash",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Destin",
-    addressRegion: "FL",
-    postalCode: "32541",
-    addressCountry: "US",
-  },
   geo: {
     "@type": "GeoCoordinates",
     latitude: 30.3935,
@@ -114,98 +108,7 @@ const localBusinessJsonLd = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Kai's Run Session Options",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Intro Session",
-          url: "https://kaisrun.xyz/services/",
-        },
-        price: "35.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Intro Session — Two Dogs",
-          url: "https://kaisrun.xyz/services/",
-        },
-        price: "55.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Founding Athlete Program",
-          url: "https://kaisrun.xyz/pricing/",
-        },
-        price: "200.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Private Conditioning Session",
-          url: "https://kaisrun.xyz/services/",
-        },
-        price: "70.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Private Conditioning Session — Two Dogs",
-          url: "https://kaisrun.xyz/services/",
-        },
-        price: "135.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "3-Session Package",
-          url: "https://kaisrun.xyz/pricing/",
-        },
-        price: "195.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "5-Session Package",
-          url: "https://kaisrun.xyz/pricing/",
-        },
-        price: "300.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "3-Session Package — Two Dogs",
-          url: "https://kaisrun.xyz/pricing/",
-        },
-        price: "380.00",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "5-Session Package — Two Dogs",
-          url: "https://kaisrun.xyz/pricing/",
-        },
-        price: "580.00",
-        priceCurrency: "USD",
-      },
-    ],
+    itemListElement: offerCatalogItems,
   },
   founder: {
     "@type": "Person",
@@ -213,11 +116,7 @@ const localBusinessJsonLd = {
     name: "Travis",
     url: "https://kaisrun.xyz/about/",
   },
-  sameAs: [
-    "https://www.facebook.com/people/Kais-Run-Mobile-Dog-Conditioning/61589361011885/",
-    "https://www.instagram.com/kaisrun",
-    "https://www.tiktok.com/@kaisrun",
-  ],
+  sameAs: SOCIAL_PROFILES.map((p) => p.url),
 };
 
 const websiteJsonLd = {
@@ -258,11 +157,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        {/* Consent Mode v2 default — deny all until the visitor accepts. Runs at
+            parse time, before any gtag('config') from GA4Script or GoogleAds. */}
+        <script
+          id="google-consent-default"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`,
+          }}
+        />
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
       </head>
       <body className="min-h-full flex flex-col font-body">
         <GA4Script />
-        <AdSenseLoader />
         <CookieConsent />
         <MicrosoftClarity />
         <Navbar />

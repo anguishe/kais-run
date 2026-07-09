@@ -4,8 +4,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: "Terms of Service | Kai's Run",
   description:
-    "Terms of Service for Kai's Run — mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
+    "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
   alternates: { canonical: 'https://kaisrun.xyz/terms/' },
+  openGraph: {
+    title: "Terms of Service | Kai's Run",
+    description:
+      "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
+    url: 'https://kaisrun.xyz/terms/',
+  },
 };
 
 export default function TermsPage() {
@@ -15,7 +21,7 @@ export default function TermsPage() {
         <h1 className="font-display text-4xl tracking-tight text-brand-offwhite mb-2">Terms of Service</h1>
         <p className="font-body text-sm text-brand-gray mb-8">Last updated: July 5, 2026</p>
 
-        <div className="space-y-6 font-body text-[15px] leading-relaxed text-brand-gray [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:tracking-tight [&_h2]:text-brand-offwhite [&_a]:text-brand-teal [&_a]:hover:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1">
+        <div className="space-y-6 font-body text-[15px] leading-relaxed text-brand-gray [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:tracking-tight [&_h2]:text-brand-offwhite [&_a]:text-brand-teal-light [&_a]:hover:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1">
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your use of the website{' '}
             <a href="https://kaisrun.xyz/">kaisrun.xyz</a> (the &quot;Site&quot;) and the mobile canine
@@ -34,8 +40,8 @@ export default function TermsPage() {
 
           <h2>Not veterinary or medical advice</h2>
           <p>
-            Content on this Site — including blog articles and free tools such as the exercise calculator,
-            pavement heat checker, and body condition estimator — is provided for general educational
+            Content on this Site - including blog articles and free tools such as the exercise calculator,
+            pavement heat checker, and body condition estimator - is provided for general educational
             purposes only. It is not veterinary advice and is not a substitute for consultation with a
             licensed veterinarian. Tool outputs are estimates based on the information you enter and general
             guidelines; always consult your veterinarian before starting or changing your dog&apos;s

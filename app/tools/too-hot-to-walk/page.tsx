@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
+import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { HeatChecker } from './HeatChecker';
 
 const TITLE = 'Too Hot to Walk Your Dog? Pavement Temperature Checker';
@@ -64,12 +65,19 @@ const faqItems = [
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': `${CANONICAL}#faq`,
   mainEntity: faqItems.map(({ q, a }) => ({
     '@type': 'Question',
     name: q,
     acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', path: '/' },
+  { name: 'Free Tools', path: '/tools/' },
+  { name: 'Too Hot to Walk?', path: '/tools/too-hot-to-walk/' },
+]);
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -86,7 +94,7 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
         <HeatChecker />
         <p className="mt-6 font-body text-sm text-brand-gray text-center">
           Powered by{' '}
-          <a href="https://kaisrun.xyz/" className="text-brand-teal underline">
+          <a href="https://kaisrun.xyz/" className="text-brand-teal-light underline">
             Kai&apos;s Run
           </a>
         </p>
@@ -103,6 +111,10 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main className="mx-auto max-w-3xl px-6 py-16">
         <h1 className="font-display text-5xl text-brand-offwhite leading-tight">
@@ -135,32 +147,32 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
         <section className="mt-20 font-body text-brand-gray leading-relaxed">
           <p>
             When the pavement is off-limits - whether to summer heat or a{' '}
-            <Link href="/blog/dog-thunderstorm-anxiety/" className="text-brand-teal underline">
+            <Link href="/blog/dog-thunderstorm-anxiety/" className="text-brand-teal-light underline">
               summer thunderstorm
             </Link>{' '}
             - the next question is what to do instead. A{' '}
-            <Link href="/blog/what-is-a-dog-slatmill/" className="text-brand-teal underline">
+            <Link href="/blog/what-is-a-dog-slatmill/" className="text-brand-teal-light underline">
               climate-controlled slatmill session
             </Link>{' '}
             keeps the workout going without the heat risk. Before you ramp intensity on any session,
             read the guide on{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal underline">
+            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
               whether you can over-exercise a dog
             </Link>
             . For the full data behind summer heat risk on the Emerald Coast, the post on{' '}
-            <Link href="/blog/too-hot-to-walk-your-dog/" className="text-brand-teal underline">
+            <Link href="/blog/too-hot-to-walk-your-dog/" className="text-brand-teal-light underline">
               walking dogs in hot weather
             </Link>{' '}
             goes deeper. If you want to dial in exercise volume for your specific dog,{' '}
-            <Link href="/tools/dog-exercise-calculator/" className="text-brand-teal underline">
+            <Link href="/tools/dog-exercise-calculator/" className="text-brand-teal-light underline">
               the exercise calculator
             </Link>{' '}
             is the other free tool here. When you are ready to schedule a session,{' '}
-            <Link href="/book/" className="text-brand-teal underline">
+            <Link href="/book/" className="text-brand-teal-light underline">
               book here
             </Link>{' '}
             or review{' '}
-            <Link href="/services/" className="text-brand-teal underline">
+            <Link href="/services/" className="text-brand-teal-light underline">
               what a session includes
             </Link>
             .
