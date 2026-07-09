@@ -18,6 +18,7 @@ export function CookieConsent() {
   const decline = () => {
     localStorage.setItem('cookie-consent', 'declined');
     setShow(false);
+    window.dispatchEvent(new Event('cookie-consent-declined'));
   };
 
   if (!show) return null;
@@ -27,7 +28,7 @@ export function CookieConsent() {
       <div className="mx-auto flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-body text-sm text-brand-gray">
           We use analytics cookies to improve the site.{' '}
-          <a href="/privacy/" className="text-brand-teal underline">Privacy Policy</a>
+          <a href="/privacy/" className="text-brand-teal-light underline">Privacy Policy</a>
         </p>
         <div className="flex gap-3">
           <button

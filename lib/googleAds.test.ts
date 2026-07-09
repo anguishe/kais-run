@@ -31,13 +31,13 @@ export const MOCK_CONVERSION_SCENARIOS = {
     envLabelKey: "NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL",
   },
   introSessionOneDog: {
-    description: "Intro session — single dog (matches ?type=intro&dogs=1 default)",
+    description: "Intro session - single dog (matches ?type=intro&dogs=1 default)",
     value: 35 as const,
     currency: "USD" as const satisfies CurrencyCode,
     envLabelKey: "NEXT_PUBLIC_INTRO_SESSION_LABEL",
   },
   introSessionTwoDogs: {
-    description: "Intro session — two dogs (?type=intro&dogs=2)",
+    description: "Intro session - two dogs (?type=intro&dogs=2)",
     value: 55 as const,
     currency: "USD" as const satisfies CurrencyCode,
     envLabelKey: "NEXT_PUBLIC_INTRO_SESSION_LABEL",

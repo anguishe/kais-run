@@ -1,8 +1,24 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
 const CLARITY_ID = 'wurwoh6v8a';
 
 export default function MicrosoftClarity() {
+  const [consented, setConsented] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      setConsented(true);
+    }
+    const handleConsent = () => setConsented(true);
+    window.addEventListener('cookie-consent-accepted', handleConsent);
+    return () => window.removeEventListener('cookie-consent-accepted', handleConsent);
+  }, []);
+
+  if (!consented) return null;
+
   return (
     <Script id="microsoft-clarity" strategy="afterInteractive">
       {`

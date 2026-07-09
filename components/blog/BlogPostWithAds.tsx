@@ -59,16 +59,16 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         className="border-t border-brand-charcoal pt-8 mt-8"
         aria-label="About the author"
       >
-        <p className="font-body text-xs uppercase tracking-[0.24em] text-brand-teal">Written by</p>
-        <p className="font-display text-brand-offwhite text-xl mt-2">Travis — Owner &amp; Conditioning Coach, Kai&apos;s Run</p>
+        <p className="font-body text-xs uppercase tracking-[0.24em] text-brand-teal-light">Written by</p>
+        <p className="font-display text-brand-offwhite text-xl mt-2">Travis - Owner &amp; Conditioning Coach, Kai&apos;s Run</p>
         <p className="text-brand-gray text-sm mt-2 leading-relaxed">
-          Travis owns and personally runs every Kai&apos;s Run session — assessing each dog&apos;s gait,
+          Travis owns and personally runs every Kai&apos;s Run session - assessing each dog&apos;s gait,
           drive, and recovery on a self-powered slatmill in driveways across Destin and the Emerald Coast.
           He started the service after his own high-drive dog, Kai (a Rhodesian Ridgeback mix), proved that
           two walks a day couldn&apos;t touch a dog bred to work. Everything here comes from hands-on
           conditioning of working and sporting breeds, not repackaged advice.{' '}
-          <a href="/about/" className="text-brand-teal hover:underline">More about Travis and Kai →</a>{' '}·{' '}
-          <a href="/contact/" className="text-brand-teal hover:underline">Contact</a>
+          <a href="/about/" className="text-brand-teal-light hover:underline">More about Travis and Kai →</a>{' '}·{' '}
+          <a href="/contact/" className="text-brand-teal-light hover:underline">Contact</a>
         </p>
       </aside>
 
@@ -78,7 +78,7 @@ export default async function BlogPostWithAds({ body, related }: BlogPostWithAds
         </h2>
         <p className="mx-auto mt-4 max-w-xl font-body text-brand-gray">
           We&apos;re accepting the first 20 dogs before we open.
-          Lock in 5 sessions for $200 — $40 each — before that rate disappears.
+          Lock in 5 sessions for $200 - $40 each - before that rate disappears.
           Travis brings the slatmill to your driveway. No facility, no drop-off, no group sessions.
         </p>
         <Link
