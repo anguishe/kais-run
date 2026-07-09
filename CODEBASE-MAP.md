@@ -12,7 +12,7 @@ Generated: 2026-06-19 · Auditor: Claude Code (Opus 4.8) · READ-ONLY recon
 - **Blog pipeline:** Filesystem-driven. Dropping `content/blog/<slug>.mdx` is the **entire** registration step. `lib/blog/posts.ts` is a **parser, not a registry** — you never add an entry. Related posts auto-derive (newest-first, not semantic). Sitemap + llms.txt are the only **manual** follow-ups. `VERIFIED` (lib/blog/posts.ts, app/blog/[slug]/page.tsx).
 - **Canonical host:** **Apex everywhere** — `https://kaisrun.xyz`, consistently, in every metadata block, schema `@id`, sitemap, robots, llms. `VERIFIED` (99 apex hits vs 2 www hits; the 2 www hits are in `public/_redirects` only). The recon brief's premise that "the decision is www / live emits apex" is itself out of date: the latest commit (`f76b08a fix: flip canonical host www → apex`) deliberately standardized on apex, and the authoritative `CLAUDE.md` agrees. **There is no www/apex gap in code today** — the only www strings are in a dead Cloudflare file. `SEO-STATUS.md` still claims "normalized to www" — that doc is wrong (§12).
 - **AdSense:** ~90% verification-ready. Loader script present sitewide with the **correct** pub ID `ca-pub-5399156622542127`; stale `ca-pub-6289405922667797` is **fully absent**; `ads.txt` correct; privacy policy has a compliant Advertising section. **Two blockers:** (1) loader script in `<head>` is **not consent-gated** (GA4 is — compliance asymmetry); (2) no ad units actually render — both insertion points are hard-disabled with `{false && …}` and placeholder `SLOT_ID_HERE`. No `google-adsense-account` meta tag (the client-param loader script substitutes for it).
-- **Biggest doc/code mismatches:** `AGENTS.md` (says GitHub Pages static export, `output:'export'`, `images.unoptimized`, no API routes, "add entry to `lib/blog/posts.ts`" — all stale, and it self-contradicts in a later addendum), the `kaisrun-context` skill (says GitHub Pages), `SEO-STATUS.md` (says www-canonical), `INTEGRATIONS.md` (Founding-20 → `mojrrvdd` Formspree form that **does not exist in source**).
+- **Biggest doc/code mismatches (all corrected in the 2026-07-08 doc-sync):** `AGENTS.md` (had said GitHub Pages static export, `output:'export'`, `images.unoptimized`, no API routes, "add entry to `lib/blog/posts.ts`" — all stale, and self-contradicted in a later addendum), the `kaisrun-context` skill (had said GitHub Pages), `SEO-STATUS.md` (had said www-canonical), `INTEGRATIONS.md` (Founding-20 → `mojrrvdd` Formspree form, provisioned in the Formspree account but **not wired in source**).
 
 ---
 
@@ -254,7 +254,7 @@ Reusable for new blog UI: `FaqAccordion`, `Button`, `ReadingProgressBar`, `Slatm
 
 ## 12. Stale-Doc Reconciliation Table
 
-Docs are known-stale; code is ground truth. One row per specific stale claim. (Not edited — this feeds a later doc-sync pass.)
+Docs are known-stale; code is ground truth. One row per specific stale claim. (Historical record — the doc-sync ran 2026-07-08 and corrected AGENTS.md, the kaisrun-context skill, SEO-STATUS.md, and INTEGRATIONS.md; rows below record the pre-sync state.)
 
 | Doc (line) | Stale claim | Code reality |
 |---|---|---|

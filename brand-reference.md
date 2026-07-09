@@ -106,8 +106,8 @@ brand-gray:     #9A9590
 
 **Style:**
 - Short declarative sentences
-- Plain dashes (—) not hyphens
-- No exclamation points in body copy
+- Spaced hyphens only ( - ). Em dashes are banned in all copy, metadata, and schema text.
+- Zero exclamation points in body copy
 - No hype language — the work sells itself
 - Active voice, present tense where possible
 

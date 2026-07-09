@@ -33,7 +33,7 @@ User submits form
 |---|---|---|---|
 | Footer signup | https://formspree.io/f/xykolrrr | footer-signup | `components/sections/WaitlistForm.tsx` via Footer |
 | Contact form | https://formspree.io/f/mvzllpwg | contact-inquiry | `components/sections/ContactFormSection.tsx` |
-| Founding 20 | https://formspree.io/f/mojrrvdd | founding-20 | `app/book/BookPageClient.tsx` (FoundingInlineForm) |
+| Founding 20 | https://formspree.io/f/mojrrvdd | founding-20 | Provisioned in Formspree, not currently wired in code |
 | Energy Guide | https://formspree.io/f/mpqbbwrl | energy-guide | `components/ui/LeadMagnetForm.tsx` |
 
 **Endpoint mapping is locked.** These were corrected once — do not remap without explicit confirmation.

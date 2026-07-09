@@ -2,7 +2,7 @@
 
 **Site:** https://kaisrun.xyz
 **Deployment:** GitHub Pages static export → Vercel SSR (migrated 2026-06-09)
-**Note:** All canonical, schema @id, OG url, and sitemap entries normalized to www (Prompt 4)
+**Note:** All canonical, schema @id, OG url, and sitemap entries normalized to apex (https://kaisrun.xyz, trailing slash) - www is a defect, never use it.
 **Audit date:** 2026-06-04
 **Overall score:** 56/100 (baseline for 1-month-old domain)
 **Indexing freeze:** started 2026-06-20 (after the "blog makeover" push, commit 3ef32e9) — deliberate code/content freeze to let Google re-crawl and stabilize. No non-imperative changes until lifted.

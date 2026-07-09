@@ -73,7 +73,8 @@ tiers unless explicitly instructed.
 - Business name: Kai's Run
 - NEVER USE: "Emerald Paws Athletic Club" — retired, purged, never regenerate
 - Origin dog: Kai (Rhodesian Ridgeback mix), owned by Travis
-- Tone: athletic, direct, premium — short sentences, active voice, em-dashes (—)
+- Tone: athletic, direct, premium - short sentences, active voice. Spaced hyphens only ( - ). Em dashes are banned in all copy, metadata, and schema text. Zero exclamation points in body copy.
+- Prices never appear in editorial body copy - offer names only, linked to /pricing/. Pricing surfaces (/pricing/, /services/ tier cards, schema offers) are exempt.
 - NEVER USE: pup, fur baby, pooch, furry friend, cutesy, spoil, pamper
 - Positioning: private one-on-one mobile canine conditioning — not dog walking, not daycare
 
