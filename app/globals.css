@@ -4,6 +4,7 @@
   --color-brand-black: #0F1117;
   --color-brand-charcoal: #1A1F2E;
   --color-brand-teal: #0A5C52;
+  --color-brand-teal-light: #17A08F;
   --color-brand-gold: #C9963A;
   --color-brand-offwhite: #F0EDE6;
   --color-brand-gray: #9A9590;
@@ -23,6 +24,19 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global keyboard focus ring — 2px brand-gold, offset. Mouse clicks (no
+   :focus-visible) stay clean; only keyboard/AT focus shows the outline. */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-brand-gold);
+    outline-offset: 2px;
+  }
 }
 
 /* Lenis: document scroll needs height auto; layout uses h-full on html which otherwise traps scroll */

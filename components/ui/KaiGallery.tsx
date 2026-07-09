@@ -58,7 +58,7 @@ export default function KaiGallery({ images, className }: Props) {
             <button
               type="button"
               onClick={() => setOpen(i)}
-              aria-label={`View larger — ${img.alt}`}
+              aria-label={`View larger - ${img.alt}`}
               className="group relative block aspect-[3/4] w-full overflow-hidden rounded-lg border border-brand-teal/15 bg-brand-charcoal focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold"
             >
               <img

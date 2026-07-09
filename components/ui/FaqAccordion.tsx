@@ -39,14 +39,15 @@ export function FaqAccordion({ items, emitSchema = true }: FaqAccordionProps) {
               className="flex w-full items-center justify-between py-4 text-left font-body text-brand-offwhite"
               onClick={() => setOpen(open === i ? null : i)}
               aria-expanded={open === i}
+              aria-controls={`faq-panel-${i}`}
             >
               <span className="font-medium">{item.question}</span>
-              <span className="ml-4 shrink-0 text-brand-teal">
+              <span className="ml-4 shrink-0 text-brand-teal-light">
                 {open === i ? '−' : '+'}
               </span>
             </button>
             {open === i && (
-              <div className="pb-4 font-body text-brand-gray text-sm leading-relaxed">
+              <div id={`faq-panel-${i}`} className="pb-4 font-body text-brand-gray text-sm leading-relaxed">
                 {item.answer}
               </div>
             )}
