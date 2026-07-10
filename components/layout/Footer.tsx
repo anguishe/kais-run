@@ -8,7 +8,7 @@ const quickLinks = [
   { href: '/pricing/', label: 'Pricing' },
   { href: '/about/', label: 'About' },
   { href: '/how-we-record/', label: 'How We Record' },
-  { href: '/equipment/julius-k9-idc-powerharness/', label: 'Equipment' },
+  { href: '/equipment/', label: 'Equipment' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/service-area/', label: 'Service Area' },
   { href: '/blog/', label: 'Blog' },

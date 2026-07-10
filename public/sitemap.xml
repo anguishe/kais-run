@@ -241,8 +241,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/equipment/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/equipment/julius-k9-idc-powerharness/</loc>
     <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/equipment/first-aid-kit/</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

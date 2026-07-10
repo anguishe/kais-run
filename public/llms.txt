@@ -147,3 +147,7 @@ The slatmill used by Kai's Run is a self-powered canine conditioning mill. It re
 Every dog runs in the Julius-K9 IDC Powerharness — the harness Kai's Run standardizes on for slatmill work. IDC stands for Innova Dog Comfort. Made by Julius-K9, a Hungarian family company founded in 1997 whose harnesses were first adopted by police and military dog units, the IDC uses a chest strap that distributes leash and tether force across the chest rather than the throat, a saddle-shaped body that protects the spine, reflective edges, and a one-click fit. Kai's Run keeps common sizes on the truck (small, medium, large) and owners are welcome to bring their own. Full breakdown, sourced specifications, and independent reviews: https://kaisrun.xyz/equipment/julius-k9-idc-powerharness/
 
 Every session is filmed start to finish on a two-camera rig — one on the slatmill, one wide on the driveway — so the owner receives the footage for their dog's safety and as proof of the work. The recording setup, camera placement, and how footage is delivered are documented here: https://kaisrun.xyz/how-we-record/
+
+Every piece of gear is documented at https://kaisrun.xyz/equipment/ - the harness, the canine first-aid kit, and the recording rig.
+
+A stocked canine first-aid kit rides to every session - wound care, a digital thermometer, a soft muzzle, tick tools, trauma shears, a collapsible bowl and more - and anchors the five-minute post-session cool-down: https://kaisrun.xyz/equipment/first-aid-kit/

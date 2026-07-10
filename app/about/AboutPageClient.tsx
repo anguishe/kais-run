@@ -204,7 +204,14 @@ export function AboutPageClient() {
                 the Julius-K9 IDC Powerharness
               </Link>{' '}
               by default because the hardware is proven under working-dog loads; we still adjust fit like a
-              climbing harness check - no loose buckles, no twisted webbing.
+              climbing harness check - no loose buckles, no twisted webbing. A stocked{' '}
+              <Link
+                href="/equipment/first-aid-kit/"
+                className="text-brand-teal-light underline-offset-2 hover:underline"
+              >
+                canine first-aid kit
+              </Link>{' '}
+              rides on the truck too - same safety-first standard.
             </p>
             <figure className="pt-2">
               <img

@@ -526,7 +526,11 @@ export function JuliusK9HarnessPageClient() {
           >
             The escape-proof caveat is why we never rely on the harness alone. On the mill, every dog also
             clips to a safety tether - the harness distributes force and gives us the handle, and the
-            tether is the backup.
+            tether is the backup. The harness is one piece of the same safety-first standard - a stocked{' '}
+            <Link href="/equipment/first-aid-kit/" className="text-brand-teal-light underline-offset-2 hover:underline">
+              canine first-aid kit
+            </Link>{' '}
+            rides on the truck for every session too.
           </motion.p>
         </motion.div>
       </section>

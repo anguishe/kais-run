@@ -381,7 +381,11 @@ export function ServicesPageClient() {
             <Link href="/how-we-record/" className="text-brand-teal-light underline-offset-2 hover:underline">
               recorded start to finish on two cameras
             </Link>{' '}
-            for safety and progress tracking.
+            for safety and progress tracking. A stocked{' '}
+            <Link href="/equipment/first-aid-kit/" className="text-brand-teal-light underline-offset-2 hover:underline">
+              canine first-aid kit
+            </Link>{' '}
+            rides along for every visit - same safety-first standard.
           </motion.p>
           <motion.p variants={fadeUp} className="text-center text-brand-offwhite">
             <Link href="/book/" className="text-brand-teal-light font-medium underline-offset-4 hover:underline">

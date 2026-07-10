@@ -11,7 +11,20 @@ const sections: Section[] = [
   {
     id: 'safety',
     heading: 'Safety is the reason, not a feature',
-    body: "When you hand your dog to someone for conditioning work, you should be able to see exactly what happened - not a summary, and not my word for it. So the cameras roll on every session, every time. If a dog ever moves wrong or has an off day, the record exists and we both have it - footage you could take to your vet if you ever needed to. It also keeps me honest and makes me better: I review my own sessions and catch things on the screen I can miss live.",
+    body: (
+      <>
+        When you hand your dog to someone for conditioning work, you should be able to see exactly what
+        happened - not a summary, and not my word for it. So the cameras roll on every session, every
+        time. If a dog ever moves wrong or has an off day, the record exists and we both have it -
+        footage you could take to your vet if you ever needed to. It also keeps me honest and makes me
+        better: I review my own sessions and catch things on the screen I can miss live. The same
+        safety-first standard rides in the truck as gear - including a{' '}
+        <Link href="/equipment/first-aid-kit/" className="text-brand-teal-light underline-offset-2 hover:underline">
+          stocked canine first-aid kit
+        </Link>{' '}
+        for every session.
+      </>
+    ),
   },
   {
     id: 'angles',
