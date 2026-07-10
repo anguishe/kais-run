@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/services/', label: 'Services' },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/about/', label: 'About' },
-  { href: '/equipment/julius-k9-idc-powerharness/', label: 'Equipment' },
+  { href: '/equipment/', label: 'Equipment' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/service-area/', label: 'Service Area' },
   { href: '/blog/', label: 'Blog' },
