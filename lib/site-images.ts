@@ -1,4 +1,4 @@
-/** Central paths for Kai's Run brand imagery (GitHub Pages / static export). */
+/** Central paths for Kai's Run brand imagery (Vercel SSR). */
 
 // Social / OG Image (1200×630 — see scripts/generate-og.mjs)
 export const OG_IMAGE_URL = '/images/og-image.png';
@@ -6,6 +6,10 @@ export const OG_IMAGE_URL = '/images/og-image.png';
 // Equipment page OG (1200×630)
 export const EQUIPMENT_JULIUS_K9_OG_URL =
   '/images/equipment/og-julius-k9-idc-powerharness.jpg';
+
+// First-aid kit page OG (1200×630)
+export const EQUIPMENT_FIRST_AID_KIT_OG_URL =
+  '/images/equipment/og-first-aid-kit.jpg';
 
 // How We Record page OG (1200×630) — absolute apex URL (used by OG, Twitter, and JSON-LD)
 export const HOW_WE_RECORD_OG_URL =
