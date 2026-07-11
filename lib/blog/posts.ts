@@ -129,16 +129,47 @@ export function getSortedPostMeta(): BlogPostMeta[] {
   return getAllPostMeta().sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+function parseKeywords(raw?: string): string[] {
+  if (!raw) return [];
+  return raw
+    .split(',')
+    .map((k) => k.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+/**
+ * Related posts ranked by topical relevance, not recency.
+ * Score: +3 per shared keyword (case-insensitive, distinct) + 2 if same category.
+ * Sort: score desc, then date desc, then slug asc (deterministic / reproducible builds).
+ * When every candidate scores 0 the comparator collapses to date-desc, i.e. the old
+ * recency behavior - so the related section is never empty. ponytail: no separate fallback branch.
+ */
 export function getRelatedPosts(currentSlug: string, limit = 2): BlogPostMeta[] {
+  const current = getPostBySlug(currentSlug);
   const currentCategory = categoryOf(currentSlug);
-  return getAllPostMeta()
-    .filter((p) => p.slug !== currentSlug)
-    .sort((a, b) => {
-      // Shared-category peers first, then newest-first within each group.
-      const aShared = currentCategory !== null && categoryOf(a.slug) === currentCategory;
-      const bShared = currentCategory !== null && categoryOf(b.slug) === currentCategory;
-      if (aShared !== bShared) return aShared ? -1 : 1;
-      return a.date < b.date ? 1 : -1;
+  const currentKeywords = new Set(parseKeywords(current?.keywords));
+
+  return getPostSlugs()
+    .map((slug) => getPostBySlug(slug))
+    .filter((p): p is BlogPost => p !== null && !p.draft && p.slug !== currentSlug)
+    .map((p) => {
+      const shared = new Set(parseKeywords(p.keywords).filter((k) => currentKeywords.has(k))).size;
+      const sameCategory = currentCategory !== null && categoryOf(p.slug) === currentCategory;
+      return { post: p, score: shared * 3 + (sameCategory ? 2 : 0) };
     })
-    .slice(0, limit);
+    .sort((a, b) => {
+      if (a.score !== b.score) return b.score - a.score; // relevance desc
+      if (a.post.date !== b.post.date) return a.post.date < b.post.date ? 1 : -1; // date desc
+      return a.post.slug < b.post.slug ? -1 : 1; // slug asc
+    })
+    .slice(0, limit)
+    .map(({ post: { slug, title, description, date, dateModified, author, readTimeMinutes } }) => ({
+      slug,
+      title,
+      description,
+      date,
+      dateModified,
+      author,
+      readTimeMinutes,
+    }));
 }

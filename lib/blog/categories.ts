@@ -15,6 +15,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
   'how-to-tire-out-a-high-energy-dog': 'Conditioning',
   'what-is-a-dog-slatmill': 'Conditioning',
   'what-to-expect-first-slatmill-session': 'Conditioning',
+  'ronzeil-slatmill-build': 'Conditioning',
   'why-structured-runs-matter': 'Conditioning',
   'why-we-record-every-session': 'Conditioning',
   'is-my-dog-overweight': 'Health',

@@ -199,6 +199,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/blog/ronzeil-slatmill-build/</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/tools/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -255,6 +261,12 @@
   <url>
     <loc>https://kaisrun.xyz/equipment/first-aid-kit/</loc>
     <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaisrun.xyz/equipment/ronzeil-slatmill/</loc>
+    <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

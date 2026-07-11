@@ -3,6 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Link from 'next/link';
 import SlatmillExplainer from '@/components/ui/SlatmillExplainer';
 import Figure from '@/components/ui/Figure';
+import { RonzeilAffiliateCta } from '@/components/ui/RonzeilAffiliateCta';
 
 const linkClass = 'text-brand-teal-light underline-offset-4 hover:text-brand-offwhite hover:underline';
 
@@ -75,4 +76,6 @@ export const blogMdxComponents: MdxProvidedComponents = {
   SlatmillExplainer: () => <SlatmillExplainer showHeading className="my-10" />,
   // <Figure src="/images/blog/<slug>/<name>.webp" alt caption ratio /> for captioned, framed images.
   Figure,
+  // <RonzeilAffiliateCta /> — self-contained affiliate block (FTC disclosure baked in).
+  RonzeilAffiliateCta,
 };

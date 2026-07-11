@@ -42,6 +42,15 @@ const cards: EquipmentCard[] = [
     title: 'The Two-Camera Recording Rig',
     line: 'Every session is filmed start to finish, for your dog\'s safety and so you can see the work.',
   },
+  {
+    href: '/equipment/ronzeil-slatmill/',
+    src: '/images/equipment/ronzeil-slatmill/kai-with-ronzeil-slatmill-hero.webp',
+    width: 1013,
+    height: 1800,
+    alt: 'Kai the Rhodesian Ridgeback mix with the Ronzeil Large Slatmill',
+    title: 'Ronzeil Large Slatmill',
+    line: 'The self-powered mill we bring to every session - assembled solo, tested by Bailey.',
+  },
 ];
 
 export function EquipmentHubPageClient() {

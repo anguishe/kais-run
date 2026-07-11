@@ -25,6 +25,11 @@ const nextConfig = {
         destination: '/blog/',
         permanent: true,
       },
+      {
+        source: '/equipment/ronzeil/',
+        destination: '/equipment/ronzeil-slatmill/',
+        permanent: true,
+      },
     ];
   },
   async headers() {

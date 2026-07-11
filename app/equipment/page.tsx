@@ -64,6 +64,18 @@ const collectionPageJsonLd = {
         url: 'https://kaisrun.xyz/equipment/first-aid-kit/',
         name: 'The Canine First-Aid Kit',
       },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        url: 'https://kaisrun.xyz/how-we-record/',
+        name: 'The Two-Camera Recording Rig',
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        url: 'https://kaisrun.xyz/equipment/ronzeil-slatmill/',
+        name: 'Ronzeil Large Slatmill',
+      },
     ],
   },
 };
