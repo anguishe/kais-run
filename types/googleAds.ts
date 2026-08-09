@@ -47,7 +47,7 @@ export type TrackingEvent =
   | "lead_capture";
 
 /** Minimal gtag surface used by this codebase. */
-export type GtagFn = (command: "event" | "config" | "js" | "set", ...args: unknown[]) => void;
+export type GtagFn = (command: "event" | "config" | "js" | "set" | "consent", ...args: unknown[]) => void;
 
 declare global {
   interface Window {

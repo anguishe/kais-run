@@ -1,23 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Script from 'next/script';
 
 const GA4_MEASUREMENT_ID = 'G-1P5ST40L2E';
 
 export function GA4Script() {
-  const [consented, setConsented] = useState(false);
-
   useEffect(() => {
-    if (localStorage.getItem('cookie-consent') === 'accepted') {
-      setConsented(true);
-    }
-    const handleConsent = () => setConsented(true);
-    window.addEventListener('cookie-consent-accepted', handleConsent);
-    return () => window.removeEventListener('cookie-consent-accepted', handleConsent);
+    // Consent Mode v2: the loader below runs unconditionally - the default-deny
+    // block in app/layout.tsx keeps pings cookieless until the visitor accepts,
+    // at which point this upgrades analytics_storage to granted.
+    const grant = () =>
+      window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
+    if (localStorage.getItem('cookie-consent') === 'accepted') grant();
+    window.addEventListener('cookie-consent-accepted', grant);
+    return () => window.removeEventListener('cookie-consent-accepted', grant);
   }, []);
-
-  if (!consented) return null;
 
   return (
     <>
