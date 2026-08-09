@@ -4,7 +4,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
+import { AffiliateBox } from '@/components/ui/AffiliateLink';
 import { faqItems } from './faq-items';
+
+const AMAZON_SEARCH_URL = 'https://www.amazon.com/s?k=julius+k9+idc+powerharness';
 
 export function JuliusK9HarnessPageClient() {
   return (
@@ -402,6 +405,17 @@ export function JuliusK9HarnessPageClient() {
             the details you cannot see in a listing photo, and those are exactly the details a counterfeit
             skips.
           </motion.p>
+          <motion.div variants={fadeUp} className="pt-2">
+            <AffiliateBox
+              href={AMAZON_SEARCH_URL}
+              product="julius_k9_idc_powerharness"
+              cta="Find the IDC Powerharness on Amazon"
+            />
+            <p className="mt-3 font-body text-sm text-brand-gray/80 leading-relaxed text-center">
+              Whatever listing you land on, check for the certified hangtag and an authorized seller -
+              and measure the chest before you order.
+            </p>
+          </motion.div>
           <motion.figure variants={fadeUp} className="pt-2">
             <img
               src="/images/equipment/julius-k9-idc-power-harness-orange-angled.webp"

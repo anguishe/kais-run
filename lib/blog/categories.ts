@@ -26,6 +26,8 @@ export const CATEGORY_MAP: Record<string, Category> = {
   'dog-thunderstorm-anxiety': 'Seasonal',
   'dog-reactive-on-leash': 'Behavior',
   'dog-park-not-tiring-dog-out': 'Conditioning',
+  'mobile-dog-gym-destin-fl': 'Conditioning',
+  'is-a-slatmill-safe-for-dogs': 'Conditioning',
 };
 
 export function categoryOf(slug: string): Category | null {

@@ -26,3 +26,19 @@ export function trackToolUse(tool: string, detail?: Record<string, string | numb
     window.clarity('event', `tool_use_${tool}`);
   }
 }
+
+/** Records an outbound affiliate-link click. Same consent gating as trackToolUse. */
+export function trackAffiliateClick(product: string) {
+  if (typeof window === 'undefined') return;
+
+  if (
+    localStorage.getItem('cookie-consent') === 'accepted' &&
+    typeof window.gtag === 'function'
+  ) {
+    window.gtag('event', 'affiliate_click', { product });
+  }
+
+  if (typeof window.clarity === 'function') {
+    window.clarity('event', `affiliate_click_${product}`);
+  }
+}

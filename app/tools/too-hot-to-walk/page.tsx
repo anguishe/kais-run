@@ -132,6 +132,32 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
           <HeatChecker />
         </div>
 
+        <section className="mt-20 font-body text-brand-gray leading-relaxed space-y-5">
+          <h2 className="font-display text-3xl text-brand-offwhite">How to read the results</h2>
+          <p>
+            The checker returns three numbers, and they answer different questions. Air temperature
+            is what the forecast told you this morning - it is the least useful of the three on its
+            own. Heat index is air temperature adjusted for humidity, and on the Gulf Coast humidity
+            is usually the number doing the damage - it tells you how hard your dog has to work to
+            shed heat, because a panting dog cools by evaporation and saturated air takes that tool
+            away. Pavement temperature is the estimate that protects the paws - asphalt holds and
+            radiates heat long after the air starts to drop, which is why a 6 PM walk can still burn
+            pads that a 7 AM walk never would.
+          </p>
+          <p>
+            Act on the worst number, not the friendliest one. If the pavement estimate is high but
+            the heat index is moderate, grass routes and shade solve it. If the heat index is the
+            problem, shorter duration and water breaks do not fix it - the air itself is the limit,
+            and the walk should move to early morning or indoors. And know the signs that the margin
+            is already gone: heavy relentless panting, a tongue wide and spooned at the tip, gums
+            turning deep red, wobble or sudden lag on the leash. That is not a rest-in-the-shade
+            situation - cooling and a vet call come first, because heatstroke moves fast and the
+            window for getting ahead of it is short. If your dog is brachycephalic, overweight,
+            senior, or dark-coated, treat every threshold on this page as if it arrives 5 degrees
+            earlier.
+          </p>
+        </section>
+
         <section className="mt-20">
           <h2 className="font-display text-3xl text-brand-offwhite mb-8">Common Questions</h2>
           <div className="space-y-8">
