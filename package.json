@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "generate:og": "node scripts/generate-og.mjs",
-    "generate:favicons": "node scripts/generate-favicons.mjs"
+    "generate:favicons": "node scripts/generate-favicons.mjs",
+    "check:schedule": "node scripts/check-blog-schedule.mjs"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
