@@ -82,12 +82,12 @@ export default function TermsPage() {
             without permission.
           </p>
 
-          <h2>Third-party links and advertising</h2>
+          <h2>Third-party links</h2>
           <p>
-            Our blog articles and free tool pages display advertising served by Google AdSense, and the Site
-            may link to third-party websites. We do not control third-party content or advertising and are
-            not responsible for it. See our <Link href="/privacy/">Privacy Policy</Link> for how advertising
-            cookies work and how to opt out.
+            This Site does not display advertising. Some equipment pages and posts contain affiliate links,
+            and the Site may link to third-party websites. We do not control third-party content and are not
+            responsible for it. See our <Link href="/privacy/">Privacy Policy</Link> for what we collect and
+            how to opt out.
           </p>
 
           <h2>Disclaimer of warranties</h2>

@@ -11,7 +11,7 @@ Generated: 2026-06-19 · Auditor: Claude Code (Opus 4.8) · READ-ONLY recon
 - **Hosting:** Vercel SSR. `next.config.js` has **no `output: 'export'`**, no `images.unoptimized`. Build = `next build`, start = `next start`, output `.next`. `VERIFIED` (next.config.js, package.json). Dead GitHub-Pages machinery still sits in the repo (`/out` build dir, `public/CNAME`, `public/.nojekyll`, `public/_redirects`).
 - **Blog pipeline:** Filesystem-driven. Dropping `content/blog/<slug>.mdx` is the **entire** registration step. `lib/blog/posts.ts` is a **parser, not a registry** — you never add an entry. Related posts auto-derive (newest-first, not semantic). Sitemap + llms.txt are the only **manual** follow-ups. `VERIFIED` (lib/blog/posts.ts, app/blog/[slug]/page.tsx).
 - **Canonical host:** **Apex everywhere** — `https://kaisrun.xyz`, consistently, in every metadata block, schema `@id`, sitemap, robots, llms. `VERIFIED` (99 apex hits vs 2 www hits; the 2 www hits are in `public/_redirects` only). The recon brief's premise that "the decision is www / live emits apex" is itself out of date: the latest commit (`f76b08a fix: flip canonical host www → apex`) deliberately standardized on apex, and the authoritative `CLAUDE.md` agrees. **There is no www/apex gap in code today** — the only www strings are in a dead Cloudflare file. `SEO-STATUS.md` still claims "normalized to www" — that doc is wrong (§12).
-- **AdSense:** ~90% verification-ready. Loader script present sitewide with the **correct** pub ID `ca-pub-5399156622542127`; stale `ca-pub-6289405922667797` is **fully absent**; `ads.txt` correct; privacy policy has a compliant Advertising section. **Two blockers:** (1) loader script in `<head>` is **not consent-gated** (GA4 is — compliance asymmetry); (2) no ad units actually render — both insertion points are hard-disabled with `{false && …}` and placeholder `SLOT_ID_HERE`. No `google-adsense-account` meta tag (the client-param loader script substitutes for it).
+- **AdSense:** removed entirely on 2026-09-01 (loader, units, `ads.txt`, policy copy). The site serves no display ads. See §4.
 - **Biggest doc/code mismatches (all corrected in the 2026-07-08 doc-sync):** `AGENTS.md` (had said GitHub Pages static export, `output:'export'`, `images.unoptimized`, no API routes, "add entry to `lib/blog/posts.ts`" — all stale, and self-contradicted in a later addendum), the `kaisrun-context` skill (had said GitHub Pages), `SEO-STATUS.md` (had said www-canonical), `INTEGRATIONS.md` (Founding-20 → `mojrrvdd` Formspree form, provisioned in the Formspree account but **not wired in source**).
 
 ---
@@ -122,20 +122,20 @@ Everything emits **apex `https://kaisrun.xyz`**. There is no live www emission. 
 
 ---
 
-## 4. AdSense State
+## 4. AdSense State: REMOVED (2026-09-01)
 
-`VERIFIED` across app/layout.tsx, components/ui/AdUnit.tsx, components/ui/MidArticleAd.tsx, components/blog/BlogPostWithAds.tsx, public/ads.txt, app/privacy/page.tsx.
+Display advertising is gone from this site. Deleted: `components/ui/AdSenseLoader.tsx`,
+`components/ui/AdUnit.tsx`, `components/ui/MidArticleAd.tsx`, `app/blog/layout.tsx`
+(existed only to mount the loader), and `public/ads.txt`. `BlogPostWithAds.tsx` was
+renamed `BlogPostBody.tsx` with the two ad slots removed. The Advertising sections in
+the privacy policy and terms were removed with it.
 
-- **Loader script:** present **sitewide** in `<head>` — `app/layout.tsx:188-192` `<script async src="…adsbygoogle.js?client=ca-pub-5399156622542127" crossOrigin>`. Not scoped to blog.
-- **Pub ID:** correct `ca-pub-5399156622542127` in layout:190 and `components/ui/AdUnit.tsx:38`. Stale `ca-pub-6289405922667797` = **fully absent** (grep clean). `ads.txt` = `google.com, pub-5399156622542127, DIRECT, f08c47fec0942fa0` ✔.
-- **Verification meta tag:** **no** `<meta name="google-adsense-account">`. The client-param loader script is the verification mechanism instead. (A separate Google Search Console verification meta is present: layout.tsx:50-52.)
-- **Ad units rendered:** **none today.** `components/blog/BlogPostWithAds.tsx:21-25` has both `<MidArticleAd slot="SLOT_ID_HERE"/>` and `<AdUnit slot="SLOT_ID_HERE" …/>` hard-disabled behind `{false && …}` with placeholder slot IDs. `AdUnit` (`<ins class="adsbygoogle">`) and `MidArticleAd` (portal-injects after the 2nd `<h2>`) both exist and are ready but dormant.
-- **Consent:** **asymmetric / a compliance gap.** The ad **units** are consent-gated (AdUnit.tsx:13-23 / MidArticleAd via AdUnit — both require `localStorage 'cookie-consent' === 'accepted'`, mirroring GA4). **But the loader `<script>` in layout `<head>` is NOT gated** — it loads for every visitor regardless of consent, unlike GA4 (`GA4Script.tsx` gates) and unlike the units. For GDPR/AdSense-consent parity the loader should also be deferred until `cookie-consent-accepted`.
-- **Privacy policy:** **AdSense-compliant.** `app/privacy/page.tsx:39-44` has a dedicated "Advertising" heading naming Google AdSense, third-party advertising cookies, DART-style personalized ads, and opt-out links (`google.com/settings/ads`, `aboutads.info/choices`, `policies.google.com/technologies/partner-sites`), plus "Ads appear on our blog content only."
+Do not reintroduce AdSense, `adsbygoogle`, `ca-pub-*`, or any display network without
+an explicit instruction from Travis. `components/GoogleAds.tsx` is Google Ads
+**conversion tracking** (`AW-*`) for paid campaigns, not AdSense, and stays.
 
-**To show ads ONLY on blog post pages, the single cleanest insertion point is `components/blog/BlogPostWithAds.tsx`** (flip the two `{false && …}` guards to real slot IDs). This component renders exclusively inside `app/blog/[slug]/page.tsx`, so ads stay confined to posts. (For the standalone dedicated post, you'd also wire it into `app/blog/how-to-tire-out-a-high-energy-dog/page.tsx`, which does not use `BlogPostWithAds`.) **Do not move the loader script** — it can stay sitewide, but should be consent-gated.
-
----
+Rationale: on a local service site a display unit earns cents while competing for the
+click that earns a booking or an affiliate commission. See docs/MONETIZATION.md.
 
 ## 5. Image Handling
 
@@ -213,7 +213,7 @@ Reusable for new blog UI: `FaqAccordion`, `Button`, `ReadingProgressBar`, `Slatm
 - **GA4:** `G-1P5ST40L2E`, hardcoded in `components/ui/GA4Script.tsx:5`. **Consent-gated** — renders nothing until `localStorage==='accepted'` or the `cookie-consent-accepted` event fires; then loads gtag via `next/script afterInteractive`.
 - **Microsoft Clarity:** `wurwoh6v8a`, hardcoded in `components/analytics/MicrosoftClarity.tsx:3`. Loaded via `next/script afterInteractive` — **NOT consent-gated** (loads immediately). (`.env.local.example` advertises `NEXT_PUBLIC_CLARITY_ID` but the component ignores env and hardcodes the ID — mismatch.)
 - **Google Ads (conversion gtag):** `components/GoogleAds.tsx`, mounted in layout `<head>` as `<GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />`. Renders nothing unless the env var is set. Conversion logic + dev logging in `lib/googleAds.ts` (+ `lib/googleAds.test.ts`). Not consent-gated.
-- **AdSense loader:** sitewide, **NOT consent-gated** (see §4).
+- **AdSense loader:** removed 2026-09-01 (see §4). No advertising scripts load anywhere.
 - **DevTools:** `components/DevTools.tsx` rendered only in `NODE_ENV==='development'` (layout.tsx:204).
 - **`NEXT_PUBLIC_*` env vars the app reads:** `NEXT_PUBLIC_GOOGLE_ADS_ID`, `NEXT_PUBLIC_SUBSCRIBE_URL`, `NEXT_PUBLIC_FOUNDING_ATHLETE_LABEL`, `NEXT_PUBLIC_INTRO_SESSION_LABEL`, `NEXT_PUBLIC_MEMBERSHIP_LABEL`, `NEXT_PUBLIC_LEAD_CAPTURE_LABEL`. Declared-but-unused in code: `NEXT_PUBLIC_CLARITY_ID`, `NEXT_PUBLIC_ADSENSE_PUB_ID` (both hardcoded instead). GA4 ID is hardcoded, not an env var.
 
@@ -278,7 +278,7 @@ Docs are known-stale; code is ground truth. One row per specific stale claim. (H
 
 ## Issues Noticed (recorded, NOT fixed)
 
-1. **AdSense loader not consent-gated** — `app/layout.tsx:188-192` loads `adsbygoogle.js` for all visitors regardless of cookie consent, while GA4 and the ad units are gated. GDPR/consent-parity gap.
+1. ~~AdSense loader not consent-gated~~ — resolved 2026-09-01 by removing AdSense entirely.
 2. **Pre-opening policy vs. published Intro pricing** — Intro Session $35/$55 Offers appear in `app/layout.tsx:104-124` schema and `public/llms.txt`, despite `CLAUDE.md` stating only the Founding offer should be public pre-launch.
 3. **Founding-20 form unwired** — `INTEGRATIONS.md`/skill claim a `mojrrvdd` Formspree founding form; it does not exist in source. The `founding-20` branch in `ContactFormSection.tsx:33-36` is dead (never instantiated with that tag).
 4. **Committed dead build artifact** — `/out/` (static-export output) is committed and stale; `public/_redirects`, `public/CNAME`, `public/.nojekyll` are GitHub-Pages relics inert on Vercel.
@@ -295,7 +295,7 @@ Docs are known-stale; code is ground truth. One row per specific stale claim. (H
 
 1. **Dash convention:** Is the rule em dashes (—) (per all repo docs + most content) or spaced hyphens (per the recon brief + the 2 newest posts)? The two disagree; pick one before the next content pass.
 2. **Canonical host:** Confirm **apex** is the final decision (code + CLAUDE.md say apex; SEO-STATUS.md says www). If apex, fix SEO-STATUS.md and ensure Vercel enforces www→apex 301.
-3. **AdSense go-live:** When slot IDs arrive, flip the two `{false && …}` guards in `BlogPostWithAds.tsx`; decide whether to consent-gate the loader script too.
+3. ~~AdSense go-live~~ — cancelled 2026-09-01. Monetization is bookings plus `/equipment/*` affiliate; see docs/MONETIZATION.md.
 4. **Pre-opening Intro pricing:** Should the $35/$55 Intro Offers be removed from layout schema + llms.txt until launch (per CLAUDE.md), or are they intentionally live?
 5. **Cleanup:** Safe to delete `/out/`, `public/_redirects`, `public/CNAME`, `public/.nojekyll`? (They appear fully inert on Vercel — confirm before removing.)
 6. **Sitemap/llms automation:** Adopt generated `app/sitemap.ts` + auto llms.txt, or keep manual?

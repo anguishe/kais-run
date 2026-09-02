@@ -2,17 +2,8 @@ import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { blogMdxComponents } from '@/components/blog/blogMdxComponents';
-import { AdUnit } from '@/components/ui/AdUnit';
-import { MidArticleAd } from '@/components/ui/MidArticleAd';
 
-// TODO(slot-ids): Replace these with the real AdSense slot IDs once Travis
-// creates the two ad units in the AdSense dashboard. The guards below are
-// enabled; AdUnit/MidArticleAd stay consent-gated internally, so no ad loads
-// until cookie consent is granted.
-const MID_ARTICLE_AD_SLOT = 'TODO_MID_ARTICLE_SLOT_ID';
-const FOOTER_AD_SLOT = 'TODO_FOOTER_AD_SLOT_ID';
-
-export type BlogPostWithAdsProps = {
+export type BlogPostBodyProps = {
   slug: string;
   /** MDX body without frontmatter. */
   body: string;
@@ -20,18 +11,19 @@ export type BlogPostWithAdsProps = {
 };
 
 /**
- * Renders blog MDX plus related posts and book CTA.
+ * Renders blog MDX plus related posts, author box, and the booking CTA.
+ *
+ * Ad-free by decision, not by omission. Display ads were removed sitewide in
+ * September 2026: on a local service site the article's job is to earn a
+ * booking or an equipment click, and a display unit competes with both for a
+ * few cents of RPM.
  */
-export default async function BlogPostWithAds({ body, related }: BlogPostWithAdsProps) {
+export default async function BlogPostBody({ body, related }: BlogPostBodyProps) {
   return (
     <>
       <div className="blog-article-body">
         {await MDXRemote({ source: body, components: blogMdxComponents })}
       </div>
-
-      <MidArticleAd slot={MID_ARTICLE_AD_SLOT} />
-
-      <AdUnit slot={FOOTER_AD_SLOT} className="my-8" />
 
       <section className="mt-16 border-t border-brand-teal/20 pt-16" aria-labelledby="related-heading">
         <h2 id="related-heading" className="font-display text-3xl tracking-wide text-brand-offwhite md:text-4xl">
