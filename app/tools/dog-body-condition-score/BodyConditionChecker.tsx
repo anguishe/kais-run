@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
 import {
   addEntry,
   clearHistory,
-  loadHistory,
-  saveHistory,
+  commitHistory,
+  getServerSnapshot,
+  getSnapshot,
+  subscribe,
   summarize,
   todayISO,
-  type BcsEntry,
 } from '@/lib/bcs/history';
 
 type Answer = 'A' | 'B' | 'C' | 'D';
@@ -232,26 +233,19 @@ export function BodyConditionChecker() {
   });
   const [result, setResult] = useState<{ bcs: number; band: Band; notes: string[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [history, setHistory] = useState<BcsEntry[]>([]);
   const [savedToday, setSavedToday] = useState(false);
-
-  // Read after mount, never during render: the server has no localStorage, and
-  // seeding state from it directly would mismatch on hydration.
-  useEffect(() => {
-    setHistory(loadHistory());
-  }, []);
+  // Subscribed rather than copied into state: localStorage is an external store,
+  // and the server snapshot is empty so hydration matches without an effect.
+  const history = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function saveCurrent() {
     if (!result) return;
-    const next = addEntry(history, { date: todayISO(), bcs: result.bcs });
-    setHistory(next);
-    saveHistory(next);
+    commitHistory(addEntry(history, { date: todayISO(), bcs: result.bcs }));
     setSavedToday(true);
   }
 
   function forgetAll() {
     clearHistory();
-    setHistory([]);
     setSavedToday(false);
   }
 

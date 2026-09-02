@@ -127,12 +127,51 @@ export function loadHistory(): BcsEntry[] {
   }
 }
 
-export function saveHistory(history: BcsEntry[]): void {
+function writeStorage(history: BcsEntry[]): void {
   try {
     window.localStorage.setItem(BCS_HISTORY_KEY, JSON.stringify(history));
   } catch {
     // Storage unavailable. The reading on screen is still correct.
   }
+}
+
+// --- useSyncExternalStore plumbing -----------------------------------------
+//
+// localStorage is an external mutable store, so the component subscribes to it
+// rather than copying it into state inside an effect. That keeps the server
+// snapshot (always empty) separate from the client one, so hydration matches
+// without a setState-in-effect round trip.
+
+const EMPTY: BcsEntry[] = [];
+const listeners = new Set<() => void>();
+let cache: BcsEntry[] | null = null;
+
+export function subscribe(onChange: () => void): () => void {
+  listeners.add(onChange);
+  return () => {
+    listeners.delete(onChange);
+  };
+}
+
+/**
+ * Must return a stable reference between calls or React re-renders forever, so
+ * the parsed array is cached and only replaced when something actually writes.
+ */
+export function getSnapshot(): BcsEntry[] {
+  if (cache === null) cache = loadHistory();
+  return cache;
+}
+
+/** The server has no storage, and neither does the first hydration pass. */
+export function getServerSnapshot(): BcsEntry[] {
+  return EMPTY;
+}
+
+/** Single write path: persist, update the cache, notify subscribers. */
+export function commitHistory(history: BcsEntry[]): void {
+  cache = history;
+  writeStorage(history);
+  for (const listener of listeners) listener();
 }
 
 export function clearHistory(): void {
@@ -141,4 +180,6 @@ export function clearHistory(): void {
   } catch {
     // Nothing to do.
   }
+  cache = EMPTY;
+  for (const listener of listeners) listener();
 }
