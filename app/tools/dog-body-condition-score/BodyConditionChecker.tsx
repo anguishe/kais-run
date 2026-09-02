@@ -1,9 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
+import {
+  addEntry,
+  clearHistory,
+  loadHistory,
+  saveHistory,
+  summarize,
+  todayISO,
+  type BcsEntry,
+} from '@/lib/bcs/history';
 
 type Answer = 'A' | 'B' | 'C' | 'D';
 type Band = 'underweight' | 'ideal' | 'slightlyOver' | 'overweight' | 'obese';
@@ -203,6 +212,13 @@ function modifierNotes(band: Band, mods: Record<ModifierKey, boolean>): string[]
   return notes;
 }
 
+function formatEntryDate(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return iso;
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
+}
+
 export function BodyConditionChecker() {
   const [answers, setAnswers] = useState<Record<'q1' | 'q2' | 'q3', Answer | null>>({
     q1: null,
@@ -216,6 +232,30 @@ export function BodyConditionChecker() {
   });
   const [result, setResult] = useState<{ bcs: number; band: Band; notes: string[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [history, setHistory] = useState<BcsEntry[]>([]);
+  const [savedToday, setSavedToday] = useState(false);
+
+  // Read after mount, never during render: the server has no localStorage, and
+  // seeding state from it directly would mismatch on hydration.
+  useEffect(() => {
+    setHistory(loadHistory());
+  }, []);
+
+  function saveCurrent() {
+    if (!result) return;
+    const next = addEntry(history, { date: todayISO(), bcs: result.bcs });
+    setHistory(next);
+    saveHistory(next);
+    setSavedToday(true);
+  }
+
+  function forgetAll() {
+    clearHistory();
+    setHistory([]);
+    setSavedToday(false);
+  }
+
+  const trend = summarize(history);
 
   function calculate() {
     if (!answers.q1 || !answers.q2 || !answers.q3) {
@@ -226,6 +266,7 @@ export function BodyConditionChecker() {
     const bcs = computeBcs(answers.q1, answers.q2, answers.q3);
     const band = bandFor(bcs);
     setResult({ bcs, band, notes: modifierNotes(band, mods) });
+    setSavedToday(false);
     trackToolUse('body-condition-score', { band });
   }
 
@@ -318,9 +359,67 @@ export function BodyConditionChecker() {
                 {note}
               </p>
             ))}
+
+            <div className="mt-5 border-t border-current/20 pt-4">
+              <button
+                type="button"
+                onClick={saveCurrent}
+                disabled={savedToday}
+                className="text-sm underline opacity-90 hover:opacity-100 disabled:no-underline disabled:opacity-60"
+              >
+                {savedToday ? 'Saved to this browser' : 'Save this score to track it'}
+              </button>
+              <p className="mt-2 text-xs opacity-70 leading-relaxed">
+                Stored in this browser only. Nothing is sent anywhere, and clearing your
+                browser data removes it.
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Saved readings */}
+      {history.length > 0 && (
+        <section className="mt-8 rounded-xl border border-brand-charcoal bg-brand-charcoal/60 p-6">
+          <h3 className="font-display text-xl tracking-wide text-brand-offwhite">Your saved scores</h3>
+
+          {trend.status === 'first' && (
+            <p className="mt-2 text-brand-gray text-sm leading-relaxed">
+              One reading saved. Body condition moves over months, not days - check again in
+              three or four weeks and the change will start to mean something.
+            </p>
+          )}
+
+          {trend.status === 'trend' && (
+            <>
+              <p className="mt-2 font-display text-2xl text-brand-gold leading-none">
+                {trend.headline}
+              </p>
+              <p className="mt-3 text-brand-gray text-sm leading-relaxed">{trend.detail}</p>
+            </>
+          )}
+
+          <ul className="mt-5 space-y-2">
+            {[...history].reverse().map((entry) => (
+              <li
+                key={entry.date}
+                className="flex items-baseline justify-between border-b border-brand-gray/15 pb-2 text-sm"
+              >
+                <span className="text-brand-gray">{formatEntryDate(entry.date)}</span>
+                <span className="font-display text-lg text-brand-offwhite">{entry.bcs} / 9</span>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            onClick={forgetAll}
+            className="mt-5 text-xs text-brand-gray underline hover:text-brand-offwhite"
+          >
+            Clear saved scores
+          </button>
+        </section>
+      )}
     </div>
   );
 }

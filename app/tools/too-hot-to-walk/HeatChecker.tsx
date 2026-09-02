@@ -9,9 +9,10 @@ import {
   pavementEstimateF,
   verdict as computeVerdict,
   safeWindows,
+  hourlyBands,
   PAVEMENT_SOURCE,
 } from '@/lib/heat/verdict';
-import type { Band, HourSample, Modifiers } from '@/lib/heat/verdict';
+import type { Band, HourBand, HourSample, Modifiers } from '@/lib/heat/verdict';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
 
 type WeatherData = {
@@ -42,6 +43,86 @@ const BAND_CARD: Record<Band, string> = {
   dangerous: 'bg-brand-danger text-white',
   'do-not-walk': 'bg-brand-black text-brand-gold border-2 border-brand-gold',
 };
+
+const BAND_BAR: Record<Band, string> = {
+  safe: 'bg-brand-teal',
+  watch: 'bg-brand-teal/55',
+  caution: 'bg-brand-gold',
+  dangerous: 'bg-brand-danger',
+  'do-not-walk': 'bg-brand-danger brightness-50',
+};
+
+const BAND_WORD: Record<Band, string> = {
+  safe: 'safe',
+  watch: 'walk with care',
+  caution: 'keep it short',
+  dangerous: 'dangerous',
+  'do-not-walk': 'do not walk',
+};
+
+/**
+ * The day at a glance. The two summary lines above it say "walk before 8 AM,
+ * safe after 7 PM" but hide the shape of the day - whether the evening window
+ * is twenty minutes or four hours, and how bad the middle actually gets. Every
+ * bar here is a full verdict for that hour with the dog's modifiers applied,
+ * so an at-risk dog visibly gets a narrower day than a fit one.
+ */
+function HourStrip({ hours }: { hours: HourBand[] }) {
+  if (hours.length === 0) return null;
+
+  const walkable = hours.filter((h) => h.walkable).length;
+  // Label roughly every 6th hour so the axis stays readable on a phone.
+  const step = Math.max(1, Math.round(hours.length / 4));
+
+  return (
+    <div className="mb-5 rounded-xl border border-brand-charcoal bg-brand-charcoal/60 p-5">
+      <div className="mb-1 flex items-baseline justify-between gap-3">
+        <h3 className="font-display text-xl tracking-wide text-brand-offwhite">Today, hour by hour</h3>
+        <span className="font-body text-xs text-brand-gray">
+          {walkable} of {hours.length} hours walkable
+        </span>
+      </div>
+      <p className="mb-4 font-body text-xs leading-relaxed text-brand-gray">
+        Each bar is a full verdict for that hour, including the conditions you checked above.
+      </p>
+
+      <ul className="flex items-end gap-[2px]" aria-label="Hourly walk safety for today">
+        {hours.map((h) => (
+          <li
+            key={h.hourISO}
+            title={`${h.label} - ${BAND_WORD[h.band]} (heat index ${h.heatIndexF}F, pavement ${h.pavementSunF}F in sun)`}
+            className="flex-1"
+          >
+            <span className="sr-only">
+              {h.label}: {BAND_WORD[h.band]}, heat index {h.heatIndexF}F, pavement {h.pavementSunF}F in sun
+            </span>
+            <span
+              aria-hidden="true"
+              className={`block w-full rounded-sm ${BAND_BAR[h.band]} ${h.walkable ? 'h-6' : 'h-10'}`}
+            />
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-2 flex justify-between font-body text-[11px] text-brand-gray">
+        {hours
+          .filter((_, i) => i % step === 0)
+          .map((h) => (
+            <span key={h.hourISO}>{h.label}</span>
+          ))}
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 font-body text-[11px] text-brand-gray">
+        {(['safe', 'watch', 'caution', 'dangerous', 'do-not-walk'] as Band[]).map((b) => (
+          <span key={b} className="flex items-center gap-1.5">
+            <span aria-hidden="true" className={`inline-block h-2.5 w-2.5 rounded-sm ${BAND_BAR[b]}`} />
+            {BAND_WORD[b]}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function HandTest({ className }: { className?: string }) {
   return (
@@ -98,7 +179,7 @@ export function HeatChecker() {
     const pavSun = pavementEstimateF(weather.tempF, 'sun');
     const pavShade = pavementEstimateF(weather.tempF, 'shade');
     const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
-    const windows = safeWindows(weather.hourly);
+    const windows = safeWindows(weather.hourly, modifiers);
     const windowLine = windows.allDayUnsafe
       ? 'No safe window today.'
       : [
@@ -259,7 +340,7 @@ export function HeatChecker() {
           const pavShade = pavementEstimateF(weather.tempF, 'shade');
           const pavDisplay = exposure === 'sun' ? pavSun : pavShade;
           const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
-          const windows = safeWindows(weather.hourly);
+          const windows = safeWindows(weather.hourly, modifiers);
           const isSafe = v.band === 'safe' || v.band === 'watch';
 
           return (
@@ -360,6 +441,11 @@ export function HeatChecker() {
           );
         })()}
       </AnimatePresence>
+
+      {/* Hour-by-hour strip */}
+      {checkState.status === 'done' && (
+        <HourStrip hours={hourlyBands(checkState.weather.hourly, modifiers)} />
+      )}
 
       {/* Copy result */}
       {checkState.status === 'done' && (
