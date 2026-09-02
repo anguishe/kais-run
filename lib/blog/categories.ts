@@ -28,6 +28,11 @@ export const CATEGORY_MAP: Record<string, Category> = {
   'dog-park-not-tiring-dog-out': 'Conditioning',
   'mobile-dog-gym-destin-fl': 'Conditioning',
   'is-a-slatmill-safe-for-dogs': 'Conditioning',
+  'dog-lost-fitness-over-summer': 'Conditioning',
+  'mental-stimulation-vs-exercise-dog': 'Conditioning',
+  'red-tide-dogs-emerald-coast': 'Seasonal',
+  'dog-halloween-door-safety': 'Seasonal',
+  'dog-walk-dark-after-time-change': 'Seasonal',
 };
 
 export function categoryOf(slug: string): Category | null {
