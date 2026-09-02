@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -7,6 +8,14 @@ export const metadata: Metadata = {
     "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
   alternates: { canonical: 'https://kaisrun.xyz/terms/' },
   openGraph: {
+    images: [
+      {
+        url: generatedOgUrl('Terms of Service', 'Legal'),
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Terms of Service",
+      },
+    ],
     title: "Terms of Service | Kai's Run",
     description:
       "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",

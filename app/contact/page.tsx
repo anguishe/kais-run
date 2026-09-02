@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import Link from 'next/link';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
@@ -8,6 +9,14 @@ export const metadata: Metadata = {
     "Reach Kai's Run - mobile canine conditioning across Destin and the Emerald Coast. Call, email, or send a message and Travis responds personally.",
   alternates: { canonical: 'https://kaisrun.xyz/contact/' },
   openGraph: {
+    images: [
+      {
+        url: generatedOgUrl("Contact Kai's Run", 'Get in touch'),
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Contact",
+      },
+    ],
     title: "Contact Kai's Run",
     description: 'Questions before booking a slatmill conditioning session? Reach Travis directly.',
     url: 'https://kaisrun.xyz/contact/',

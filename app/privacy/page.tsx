@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Kai's Run",
@@ -6,6 +7,14 @@ export const metadata: Metadata = {
     "Privacy policy for Kai's Run - mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
   alternates: { canonical: 'https://kaisrun.xyz/privacy/' },
   openGraph: {
+    images: [
+      {
+        url: generatedOgUrl('Privacy Policy', 'Legal'),
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Privacy Policy",
+      },
+    ],
     title: "Privacy Policy | Kai's Run",
     description:
       "Privacy policy for Kai's Run - mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
