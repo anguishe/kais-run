@@ -4,7 +4,7 @@ import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
 const TOOLS_DESCRIPTION =
-  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk your dog and estimate how much exercise your dog needs.';
+  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk, estimate how much exercise your dog needs, score its body condition, and plan a puppy\'s workload around its growth plates.';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Home', path: '/' },
@@ -36,16 +36,16 @@ const tools = [
   {
     href: '/tools/too-hot-to-walk/',
     title: 'Too Hot to Walk?',
-    blurb: 'Enter the temperature and find out if the pavement is safe for your dog right now.',
+    blurb: 'Live pavement verdict for your ZIP, plus an hour-by-hour read on the rest of the day.',
     detail:
-      'Enter your location and get a live verdict on whether the pavement is safe for paw pads right now. Built for Emerald Coast summers, where air temperature and asphalt temperature are two very different numbers.',
+      'Enter your location and get a live verdict on whether the pavement is safe for paw pads right now, then see the whole day as a strip - one bar per hour, colored by a full verdict for that hour with your dog\'s risk factors applied. Built for Emerald Coast summers, where air temperature and asphalt temperature are two very different numbers.',
   },
   {
     href: '/tools/dog-exercise-calculator/',
     title: 'Dog Exercise Calculator',
-    blurb: 'Estimate how much daily exercise your dog needs based on breed, age, and weight.',
+    blurb: 'Get a daily target by breed, age, and weight - and see how far short today actually is.',
     detail:
-      "Answer a few questions about your dog's breed group, age, and energy level and get a daily target in minutes of real work. Useful for spotting the gap between the walks a dog gets and the work a dog needs.",
+      "Answer a few questions about your dog's breed group, age, and energy level and get a daily target in minutes of real work. Tell it what your dog gets now and it names the gap in minutes per day and per week, which is usually the number that explains the restless evenings.",
   },
   {
     href: '/tools/dog-body-condition-score/',
@@ -53,7 +53,15 @@ const tools = [
     blurb:
       "Skip the scale. A 30-second hands-on body check that estimates your dog's condition score - and tells you the next move.",
     detail:
-      'A visual, hands-on guide for judging whether your dog is under, over, or at a healthy weight - the same 9-point framework veterinarians use. No scale required.',
+      'A visual, hands-on guide for judging whether your dog is under, over, or at a healthy weight - the same 9-point framework veterinarians use. No scale required, and you can save each reading in your own browser to watch the trend over a season.',
+  },
+  {
+    href: '/tools/puppy-exercise-planner/',
+    title: 'Puppy Exercise Planner',
+    blurb:
+      "How much a puppy can safely handle, by age and adult size - and what the five-minute rule is actually limiting.",
+    detail:
+      'Enter an age and an expected adult size to get the growth plate window for that build, a ceiling on forced repetitive work, and an explicit statement that self-directed play on soft ground is not the thing being capped. Includes what to avoid at each stage, and why stairs matter more than minutes.',
   },
 ];
 

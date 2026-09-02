@@ -26,10 +26,12 @@ const load = (rel) => import(pathToFileURL(path.join(process.cwd(), rel)).href);
 let verdictModule;
 let exerciseModule;
 let bcsModule;
+let puppyModule;
 try {
   verdictModule = await load('lib/heat/verdict.ts');
   exerciseModule = await load('lib/exercise/gap.ts');
   bcsModule = await load('lib/bcs/history.ts');
+  puppyModule = await load('lib/puppy/growth.ts');
 } catch (err) {
   console.log('Skipped: this Node cannot import TypeScript directly.');
   console.log(`Run with Node 22.6+ (current ${process.version}), or: node --experimental-strip-types scripts/check-tools.mjs`);
@@ -173,4 +175,50 @@ for (const t of [losing, flat]) {
 }
 
 console.log(`bcs trend:      ${losing.headline}`);
+// -------------------------------------------------------------------------
+// Puppy exercise planner
+// -------------------------------------------------------------------------
+const { puppyPlan, sizeClassForAdultWeight, SIZE_PROFILES } = puppyModule;
+
+assert.equal(sizeClassForAdultWeight(9), 'toy');
+assert.equal(sizeClassForAdultWeight(12), 'small', 'boundaries are inclusive at the low end');
+assert.equal(sizeClassForAdultWeight(50), 'large');
+assert.equal(sizeClassForAdultWeight(140), 'giant', 'giant has no upper bound');
+
+// Every size's stage boundaries line up with its own closure window, which is the
+// whole reason the tool asks for adult size instead of using one global number.
+for (const p of SIZE_PROFILES) {
+  const [lo, hi] = p.closureMonths;
+  assert.equal(puppyPlan(3, p.key).stage, 'under-four-months');
+  assert.equal(puppyPlan(lo - 1, p.key).stage, 'plates-open');
+  assert.equal(puppyPlan(lo, p.key).stage, 'plates-closing');
+  assert.equal(puppyPlan(hi, p.key).stage, 'plates-closed', `${p.key} clears at ${hi} months`);
+  assert.equal(puppyPlan(hi, p.key).monthsToCleared, 0);
+  assert.equal(puppyPlan(hi - 2, p.key).monthsToCleared, 2);
+}
+
+// A giant-breed puppy is still growing at an age where a toy breed is finished.
+assert.equal(puppyPlan(12, 'toy').stage, 'plates-closed');
+assert.equal(puppyPlan(12, 'giant').stage, 'plates-open');
+
+// The ceiling tracks the five-minute rule but is capped, and disappears entirely
+// once the skeleton is done - an adult held at puppy volumes is the other failure.
+assert.equal(puppyPlan(6, 'large').structuredCeilingMin, 30);
+assert.equal(puppyPlan(2, 'large').structuredCeilingMin, 10);
+assert.ok(puppyPlan(3, 'giant').structuredCeilingMin <= 15, 'under four months is capped hard');
+assert.equal(puppyPlan(24, 'large').structuredCeilingMin, 0, 'no age cap once mature');
+assert.equal(puppyPlan(24, 'large').sessionsPerDay, 0);
+
+// Every stage returns usable copy in brand voice.
+for (const age of [1, 6, 13, 24]) {
+  const plan = puppyPlan(age, 'large');
+  assert.ok(plan.green.length && plan.red.length, 'both lists populated');
+  assert.ok(plan.stageDetail.length > 80, 'stage detail explains the mechanism');
+  for (const text of [plan.stageDetail, plan.freePlay, ...plan.green, ...plan.red]) {
+    assert.ok(!text.includes('!'), 'no exclamation points in tool copy');
+    assert.ok(!text.includes('\u2014'), 'no em dashes in tool copy');
+  }
+}
+
+console.log(`puppy (7mo lg):  ${puppyPlan(7, 'large').stageHeadline}, ${puppyPlan(7, 'large').structuredCeilingMin} min ceiling`);
 console.log('\nTool checks OK.');

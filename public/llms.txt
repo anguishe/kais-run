@@ -130,6 +130,7 @@ Schedule availability varies. Book via the website or contact kaisrunmobile@gmai
 - Pavement heat and humidity checker for the Emerald Coast - check if it is safe to walk before you load the dog up: https://kaisrun.xyz/tools/too-hot-to-walk/
 - Dog exercise calculator - personalized daily target by drive level, age, and health flags: https://kaisrun.xyz/tools/dog-exercise-calculator/
 - Dog body condition score checker - a 30-second hands-on body check (no scale) that estimates whether your dog is over- or underweight and what to do next: https://kaisrun.xyz/tools/dog-body-condition-score/
+- Puppy exercise planner - safe workload by age and expected adult size, with growth plate closure windows and what the five-minute rule actually limits: https://kaisrun.xyz/tools/puppy-exercise-planner/
 - Tools index: https://kaisrun.xyz/tools/
 
 ## Contact and Booking
