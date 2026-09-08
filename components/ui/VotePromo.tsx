@@ -5,16 +5,25 @@ import { useCallback, useEffect, useState } from 'react';
 /**
  * Super Dad 2026 — first-round vote prompt, homepage only.
  *
- * Self-expiring: after ROUND_ENDS this renders nothing, so the campaign copy
- * cannot outlive the round it refers to. Delete the component after the season.
+ * Degrades in two stages: past ROUND_ENDS it drops the day count and keeps the vote
+ * button; past CAMPAIGN_ENDS it renders nothing at all. Delete it after the season.
  *
  * Deliberately NOT a full-screen interstitial. This is a mobile lead-gen page,
  * and an overlay covering the content would put both bookings and Google's
  * intrusive-interstitial guidance at risk. It sits in the corner instead.
  */
 
-// Thursday, September 17 2026, 7:00 PM PDT.
+// Current round's deadline — Thursday, September 17 2026, 7:00 PM PDT.
+// Bumping this is a nice-to-have, NOT load-bearing: past this date the card drops the day
+// count and keeps the vote button. Failing soft is deliberate. The expensive failure is Travis
+// advancing and nobody bumping the constant, which would silently delete the homepage's whole
+// vote path; a card that asks a few days too long after an elimination costs nothing.
+// Calendar if you do bump it: Sep17-24 · Sep24-Oct1 · Oct1-8 · Oct8-15 · wildcard Oct16-18 ·
+// Oct19-29 · Oct30-Nov5 · finals Nov6-12.
 const ROUND_ENDS = new Date('2026-09-18T02:00:00Z');
+// The one date that actually removes the card. Winner is announced by Dec 10; this is the same
+// date the founding-spot exit popup restores itself, so the two never overlap.
+const CAMPAIGN_ENDS = new Date('2026-12-11T00:00:00Z');
 const DISMISS_KEY = 'sd-vote-dismissed';
 
 export function VotePromo() {
@@ -22,8 +31,8 @@ export function VotePromo() {
   const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
+    if (Date.now() >= CAMPAIGN_ENDS.getTime()) return;
     const msLeft = ROUND_ENDS.getTime() - Date.now();
-    if (msLeft <= 0) return;
 
     let dismissed = false;
     let consentAnswered = false;
@@ -37,7 +46,7 @@ export function VotePromo() {
     }
     if (dismissed || !consentAnswered) return;
 
-    setDaysLeft(Math.ceil(msLeft / 86_400_000));
+    setDaysLeft(msLeft > 0 ? Math.ceil(msLeft / 86_400_000) : 0);
     const t = setTimeout(() => setShow(true), 1200);
     return () => clearTimeout(t);
   }, []);
@@ -82,12 +91,16 @@ export function VotePromo() {
         </svg>
       </button>
 
-      <div className="flex items-baseline gap-3">
-        <span className="font-display text-5xl leading-none text-brand-gold">{daysLeft}</span>
-        <span className="font-body text-sm text-brand-gray">
-          {daysLeft === 1 ? 'day left to vote' : 'days left to vote'}
-        </span>
-      </div>
+      {daysLeft > 0 ? (
+        <div className="flex items-baseline gap-3">
+          <span className="font-display text-5xl leading-none text-brand-gold">{daysLeft}</span>
+          <span className="font-body text-sm text-brand-gray">
+            {daysLeft === 1 ? 'day left to vote' : 'days left to vote'}
+          </span>
+        </div>
+      ) : (
+        <div className="font-display text-3xl leading-none text-brand-gold">Voting is open</div>
+      )}
 
       <p className="mt-2 font-body text-sm leading-snug text-brand-offwhite">
         Travis, who runs Kai&apos;s Run, is competing for a national Ace Hardware commercial
