@@ -30,6 +30,14 @@ const nextConfig = {
         destination: '/equipment/ronzeil-slatmill/',
         permanent: true,
       },
+      {
+        // Super Dad 2026 vote link — short, sayable URL for the campaign.
+        // permanent:false (307) on purpose: the competition can reissue the
+        // profile URL, and a 308 would be cached in browsers forever.
+        source: '/vote',
+        destination: 'https://yoursuperdad.org/travis-abadie-U8wI',
+        permanent: false,
+      },
     ];
   },
   async headers() {
