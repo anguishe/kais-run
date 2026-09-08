@@ -14,6 +14,7 @@ import { RecordingSection } from '@/components/sections/RecordingSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
+import { VotePromo } from '@/components/ui/VotePromo';
 
 export const metadata: Metadata = {
   title: "Kai's Run | Mobile Dog Gym Destin FL",
@@ -66,6 +67,7 @@ export default function Home() {
       <AboutSection />
       <FinalCTA />
       <ContactFormSection />
+      <VotePromo />
     </>
   );
 }
