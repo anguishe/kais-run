@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Super Dad 2026//Vote Reminder//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:vote-travis-super-dad-2026@kaisrun.xyz
+DTSTAMP:20260909T190000Z
+DTSTART:20260910T090000
+DURATION:PT5M
+RRULE:FREQ=DAILY;UNTIL=20261113T000000
+SUMMARY:Vote for Travis - Super Dad 2026
+DESCRIPTION:One free vote every 24 hours. Takes about ten seconds:\n\nhttps://kaisrun.xyz/vote/\n\nThe round totals reset, so yesterday's vote does not carry over. Benefits Children's Miracle Network.
+URL:https://kaisrun.xyz/vote/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Vote for Travis - Super Dad 2026
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR

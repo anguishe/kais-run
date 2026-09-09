@@ -31,10 +31,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        // Super Dad 2026 vote link — short, sayable URL for the campaign.
+        // Super Dad 2026. /vote/ is now a real page (app/vote/page.tsx) because the
+        // email-confirmation step is where most votes were being lost and a bare
+        // redirect could not explain it. /vote/go/ keeps the old skip-straight-there
+        // behaviour for anywhere we want no instructions.
         // permanent:false (307) on purpose: the competition can reissue the
         // profile URL, and a 308 would be cached in browsers forever.
-        source: '/vote',
+        source: '/vote/go',
         destination: 'https://yoursuperdad.org/travis-abadie-U8wI',
         permanent: false,
       },
