@@ -105,9 +105,9 @@ export default function VoteCta() {
             land in a minute.
           </li>
           <li>
-            <strong className="text-brand-gold">3.</strong> Come back tomorrow. One free vote
-            per person every 24 hours, and the round totals reset, so today&apos;s vote does
-            not carry over.
+            <strong className="text-brand-gold">3.</strong>{' '}
+            Come back tomorrow. One free vote per person every 24 hours, and the round totals
+            reset, so today&apos;s vote does not carry over.
           </li>
         </ol>
       )}
