@@ -9,6 +9,7 @@ import DevTools from "@/components/DevTools";
 import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { GA4Script } from "@/components/ui/GA4Script";
+import { Analytics } from "@vercel/analytics/next";
 import { offerCatalogItems } from "@/lib/schema/offers";
 import { SOCIAL_PROFILES } from "@/lib/site-social";
 
@@ -178,6 +179,8 @@ export default function RootLayout({
         <Footer />
         {process.env.NODE_ENV === "development" ? <DevTools /> : null}
         <ExitIntentPopup />
+        {/* Cookieless page views, so /vote traffic counts visitors who never answer the cookie banner. */}
+        <Analytics />
       </body>
     </html>
   );
