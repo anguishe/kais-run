@@ -1,6 +1,6 @@
 # Publishing - Fall 2026 Field Notes
 
-Five posts are written, committed, and scheduled. They publish themselves.
+Five posts are written, committed, and scheduled. They publish themselves - URL, blog index and sitemap - with no deploy.
 
 ## How scheduling works
 
@@ -14,7 +14,7 @@ To preview a scheduled post before its date, run `npm run dev` and open its URL.
 Scheduled and draft posts both render in development.
 
 Run `npm run check:schedule` any time to see the calendar, catch a slug missing
-from `CATEGORY_MAP`, and get paste-ready sitemap and llms.txt lines for anything
+from `CATEGORY_MAP`, and get the paste-ready llms.txt line for anything
 that has gone live but is not listed yet.
 
 ## The schedule
@@ -29,11 +29,12 @@ that has gone live but is not listed yet.
 
 ## On each publish day
 
-1. `npm run check:schedule` - it prints the exact sitemap and llms.txt lines to paste
-2. Paste them into `public/sitemap.xml` and `public/llms.txt`, commit, push
-3. Submit to IndexNow (the command is in the script output)
-4. GSC URL inspection on the new URL
-5. Post to Facebook, then drop the URL in the first comment within about a minute
+The post, `/blog/` and `/sitemap.xml` all flip on their own within the hour
+(`app/sitemap.ts` reads the same date gate; verified 2026-09-16 by running the
+production build with the clock moved past 9/22). What is left is distribution:
+
+1. Post to Facebook, then drop the URL in the first comment within about a minute
+2. Optional, any time that week: `npm run check:schedule` prints the `llms.txt` line to paste, then IndexNow + GSC URL inspection on the new URL
 
 ---
 
