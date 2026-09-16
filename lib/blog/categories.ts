@@ -30,6 +30,10 @@ export const CATEGORY_MAP: Record<string, Category> = {
   'is-a-slatmill-safe-for-dogs': 'Conditioning',
   'dog-lost-fitness-over-summer': 'Conditioning',
   'mental-stimulation-vs-exercise-dog': 'Conditioning',
+  // Winter 2026 drafts (draft: true, awaiting Travis) - harmless until a post exists and is published.
+  'can-my-dog-run-a-5k-with-me': 'Conditioning',
+  'is-a-dog-treadmill-worth-it': 'Conditioning',
+  'how-cold-is-too-cold-for-dogs': 'Seasonal',
   'red-tide-dogs-emerald-coast': 'Seasonal',
   'dog-halloween-door-safety': 'Seasonal',
   'dog-walk-dark-after-time-change': 'Seasonal',
