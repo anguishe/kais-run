@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { Calculator } from './Calculator';
+import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
 
 const TITLE = 'Dog Exercise Calculator - How Much Does My Dog Need?';
 const DESC =
@@ -54,7 +55,7 @@ const faqItems = [
   },
   {
     q: 'How long should I walk my puppy?',
-    a: "The widely cited guideline is roughly five minutes of exercise per month of age, up to twice daily. That is a rule of thumb, not a hard medical limit - growth plates in most breeds are not fully closed until 12 to 18 months, and high-impact repetitive loading before that point carries some risk. Keep sessions short, on soft surfaces, and stop well before the puppy shows fatigue. Two shorter sessions beat one long one.",
+    a: "The widely cited guideline is roughly five minutes of exercise per month of age, up to twice daily. That is a rule of thumb, not a hard medical limit - growth plates finish closing anywhere from about 8 months in toy breeds to 20 months in giant breeds, and high-impact repetitive loading before that point carries some risk. Keep sessions short, on soft surfaces, and stop well before the puppy shows fatigue. Two shorter sessions beat one long one.",
   },
   {
     q: 'Do working breeds need more exercise than other dogs?',
@@ -89,16 +90,12 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
 
   if (embed) {
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8">
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <style>{EMBED_CHROME_CSS}</style>
         <h1 className="font-display text-3xl text-brand-offwhite mb-6">{TITLE}</h1>
         <Calculator />
-        <p className="mt-6 font-body text-sm text-brand-gray text-center">
-          Powered by{' '}
-          <a href="https://kaisrun.xyz/" className="text-brand-teal-light underline">
-            Kai&apos;s Run
-          </a>
-        </p>
-      </main>
+        <EmbedCredit path="/tools/dog-exercise-calculator/" />
+      </div>
     );
   }
 
@@ -208,6 +205,12 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
             .
           </p>
         </section>
+        <EmbedThisTool
+          path="/tools/dog-exercise-calculator/"
+          iframeTitle="Dog exercise calculator"
+          credit="Dog exercise calculator"
+          height={1300}
+        />
       </main>
     </>
   );

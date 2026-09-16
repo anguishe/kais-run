@@ -103,10 +103,13 @@ export function computeTarget(input: ComputeInput): ComputeResult {
   if (stage === "puppy") {
     // ponytail: UK Kennel Club "five minutes per month of age, up to twice daily" rule of thumb -
     //   widely cited, not a hard medical limit; framed conservatively for developing joints.
-    const fiveMin = input.ageMonths * 5;
-    daily = [Math.max(5, fiveMin - 5), fiveMin];
+    // The rule caps ONE session, up to two a day (the puppy planner's model). It is a
+    // ceiling, not a target, so never recommend more than an adult of the same tier.
+    const fiveMin = Math.max(5, input.ageMonths * 5);
+    const adultHi = ADULT_BASELINE_MIN[tier][1];
+    daily = [Math.min(fiveMin, adultHi), Math.min(fiveMin * 2, adultHi)];
     notes.push(
-      `Puppy growth plates are still developing. The widely cited guideline is roughly 5 minutes per month of age, up to twice daily - this is a rule of thumb, not a hard medical limit. Keep sessions short, low-impact, and on forgiving surfaces.`
+      `Puppy growth plates are still developing. The widely cited guideline is roughly 5 minutes per month of age per session (${fiveMin} minutes at this age), up to twice daily, and never more than an adult of the same breed type needs. It is a rule of thumb, not a hard medical limit. Keep sessions short, low-impact, and on forgiving surfaces.`
     );
     notes.push(
       "Two short sessions (morning + evening) beat one long one for young dogs."
@@ -116,6 +119,9 @@ export function computeTarget(input: ComputeInput): ComputeResult {
     daily = [blo, bhi];
     notes.push(
       "Adolescent dogs (roughly 6-18 months) hit peak impulsivity before impulse control matures. A steady daily outlet keeps the teenage window manageable - consistency matters more than intensity."
+    );
+    notes.push(
+      "Large and giant breeds can still have open growth plates until 16 to 20 months. Keep repetitive, high-impact work light until then - the puppy exercise planner gives the window for your dog's adult size."
     );
   } else if (stage === "senior") {
     const [blo, bhi] = ADULT_BASELINE_MIN[tier];
