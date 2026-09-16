@@ -166,3 +166,15 @@ Unchanged: only after the Ronzeil affiliate converts.
 3. IndexNow for every new or changed URL (key `/1ce502e4baf14d7698a2ca357863925d.txt`).
 4. GSC (`sc-domain:kaisrun.xyz`) URL inspection → Request indexing on the fall posts, the puppy planner and the 6 slatmill posts.
 5. Schema check: Rich Results Test on one fall post and one tool.
+
+---
+
+## Log - 2026-09-16 (traffic focus: trailer not operational yet)
+
+Travis: the trailer is not mobile yet, so the blog and tools are for traffic and use-case until launch. Shipped the same day:
+- **Launch waitlist** (`components/ui/LaunchWaitlist.tsx`, 18f6423): email + city on every post and under every tool. Formspree `xykolrrr` `_tag launch-waitlist` + Mailchimp tags `launch-waitlist`, `city-<city>`, `src-<page>`. Read the list size as the Nov 4 number.
+- **GSC Request indexing, 10/10 accepted** (daily cap about 10): `/tools/puppy-exercise-planner/`, `/blog/dog-lost-fitness-over-summer/`, `/equipment/ronzeil-slatmill/`, `/blog/ronzeil-slatmill-build/`, `/blog/is-my-dog-overweight/`, `/blog/can-you-over-exercise-a-dog/`, `/blog/dog-park-not-tiring-dog-out/`, `/blog/dog-reactive-on-leash/`, `/blog/why-we-record-every-session/`, `/equipment/`. All were "URL is not on Google" before the request.
+- **GSC sitemap** `https://kaisrun.xyz/sitemap.xml` resubmitted (the 9/08 entry said Couldn't fetch; live URL now 200, 55 URLs). The old `sitemap.xml/` entry (last read 9/11) now 308s to it.
+- **Next indexing batch (any day, about 10):** `/equipment/first-aid-kit/`, `/services/`, `/contact/`, `/service-area/`, `/service-area/niceville/`, `/service-area/destin/`, `/service-area/fort-walton-beach/`, `/service-area/navarre/`, `/service-area/miramar-beach/`, `/service-area/santa-rosa-beach/`. Then the rest of the cities, and each scheduled post on its publish day (9/22 red tide first).
+- **Social kits** in `~/Projects/kais-run-tools-content/`: puppy planner kit built; the other three tools' carousels and shorts rebuilt (slides had been 300x375 with a stretched logo); 11 copy lines reworded to pre-opening; `WEEKLY-SHARE-PACK.md` = weekly FB group + Nextdoor posts + vet/groomer/rescue email, Mon 9/21 to 10/12.
+
