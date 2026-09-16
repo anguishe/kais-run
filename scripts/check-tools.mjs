@@ -4,11 +4,12 @@
  *
  * Guards the hourly logic behind the day strip, and pins down one thing that
  * surprised us: the walkable boundary is set by the PAVEMENT rule, not the heat
- * index. Sun pavement is air + 50F, so it crosses the 125F paw-burn threshold at
- * exactly 75F air - below any temperature where the heat index starts to bite.
+ * index. Sun pavement is air + 50F (inside SUN_HOURS), so it crosses the 125F
+ * paw-burn threshold at exactly 75F air - below any temperature where the heat
+ * index starts to bite. Outside SUN_HOURS the shade delta applies.
  *
- * That means the dog's risk modifiers shade every hour one band stricter but
- * never move the walk/no-walk line, and that is correct: a flat-faced dog is
+ * That means in full sun the dog's risk modifiers shade every hour one band stricter
+ * but never move the walk/no-walk line, and that is correct: a flat-faced dog is
  * worse at shedding heat, but hot asphalt burns every dog's pads the same. The
  * assertions below lock in both behaviors so a future change to either threshold
  * has to be deliberate.
@@ -70,12 +71,13 @@ assert.ok(plainWalkable > 0 && plainWalkable < 24, 'a summer day should be mixed
 const stricter = plain.filter((h, i) => h.band !== atRisk[i].band).length;
 assert.ok(stricter > 0, 'modifiers must change at least one hour band on the strip');
 
-// ...but they do not move the walk/no-walk line, because pavement binds first.
-assert.equal(
-  atRiskWalkable,
-  plainWalkable,
-  'pavement sets the walkable boundary, so modifiers shade bands without moving it',
-);
+// In full sun pavement binds first, so modifiers never move the line there. Out
+// of full sun the heat index binds, so an at-risk dog can lose a borderline
+// hour (8 AM here) - it must never gain one.
+assert.ok(atRiskWalkable <= plainWalkable, 'modifiers can only narrow the walkable hours');
+for (const [i, h] of plain.entries()) {
+  if (h.exposure === 'sun') assert.equal(atRisk[i].walkable, h.walkable, `${h.label}: in full sun pavement sets the line`);
+}
 
 // The boundary itself: 75F air is the first unwalkable temperature, from
 // pavementEstimateF(75, "sun") === 125 hitting the paw-burn threshold.
@@ -97,6 +99,22 @@ for (const h of plain) {
   assert.equal(h.walkable, legacy, `hour ${h.label} drifted from the original safe-window rule`);
 }
 assert.equal(pavementEstimateF(77, 'sun'), 127, 'Berens-based sun estimate is air + 50F');
+
+// A real Destin July day: nights never drop below 75F. Before exposureAt(), the
+// +50F full-sun delta was applied to 2 AM too, so this day had zero walkable
+// hours and the tool said "No safe window today" all summer.
+const julyNights = [79, 78, 78, 78, 78, 78, 79, 81, 83, 85, 87, 88, 89, 90, 90, 90, 89, 88, 86, 84, 83, 82, 81, 80].map(
+  (tempF, hour) => ({ hourISO: `2026-07-15T${String(hour).padStart(2, '0')}:00`, tempF, humidity: 80 }),
+);
+const julyBands = hourlyBands(julyNights);
+const julyWalkable = julyBands.filter((h) => h.walkable).length;
+console.log(`destin july:  ${julyWalkable} of 24 hours walkable, ${JSON.stringify(safeWindows(julyNights))}`);
+assert.ok(julyWalkable > 0, 'a Destin July day must have walkable night hours');
+assert.equal(julyBands[2].exposure, 'shade', '2 AM is not full sun');
+assert.ok(julyBands[2].pavementSunF < 125, '2 AM pavement must not read as paw-burn risk');
+assert.equal(julyBands[14].walkable, false, '2 PM in July is still unwalkable');
+assert.ok(!safeWindows(julyNights).allDayUnsafe, 'no false "No safe window today"');
+assert.equal(safeWindows(day.map((h) => ({ ...h, tempF: 60 }))).allDaySafe, true, 'a cool day reports all-day safe, not a blank window');
 
 // -------------------------------------------------------------------------
 // Exercise calculator: the deficit readout

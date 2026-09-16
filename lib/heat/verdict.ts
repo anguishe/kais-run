@@ -60,6 +60,19 @@ export function pavementEstimateF(airTempF: number, exposure: Exposure): number 
   return Math.round(airTempF + delta);
 }
 
+// ponytail: fixed clock window, not solar elevation. The +50F sun delta is a
+// full-sun figure; before mid-morning and after sunset asphalt is nowhere near
+// it, and applying it to 2 AM made every Gulf Coast summer night "unwalkable".
+// The end hour is late on purpose - asphalt holds heat until about sunset.
+// Tune SUN_HOURS if dawn or dusk verdicts look wrong.
+export const SUN_HOURS: [number, number] = [9, 20]; // local wall-clock hours, [start, end)
+
+/** hourISO is local wall time, e.g. "2026-07-15T14:00". */
+export function exposureAt(hourISO: string): Exposure {
+  const hh = Number(hourISO.slice(11, 13));
+  return hh >= SUN_HOURS[0] && hh < SUN_HOURS[1] ? "sun" : "shade";
+}
+
 const ORDER: Band[] = ["safe", "watch", "caution", "dangerous", "do-not-walk"];
 
 function stricter(band: Band, steps = 1): Band {
@@ -143,7 +156,9 @@ export type HourBand = {
   label: string;
   band: Band;
   heatIndexF: number;
+  /** Pavement estimate for this hour: full-sun delta inside SUN_HOURS, shade delta outside. */
   pavementSunF: number;
+  exposure: Exposure;
   walkable: boolean;
 };
 
@@ -161,7 +176,8 @@ export function hourlyBands(
 ): HourBand[] {
   return hourly.map((h) => {
     const hi = heatIndexF(h.tempF, h.humidity);
-    const pavementSunF = pavementEstimateF(h.tempF, "sun");
+    const exposure = exposureAt(h.hourISO);
+    const pavementSunF = pavementEstimateF(h.tempF, exposure);
     const v = verdict({ heatIndexF: hi, pavementSunF, modifiers });
     return {
       hourISO: h.hourISO,
@@ -169,6 +185,7 @@ export function hourlyBands(
       band: v.band,
       heatIndexF: hi,
       pavementSunF,
+      exposure,
       walkable: ORDER.indexOf(v.band) <= ORDER.indexOf("caution"),
     };
   });
@@ -187,10 +204,12 @@ export function safeWindows(
   morningBefore?: string;
   eveningAfter?: string;
   allDayUnsafe?: boolean;
+  allDaySafe?: boolean;
 } {
   const safe = hourlyBands(hourly, modifiers).map((h) => h.walkable);
 
   if (safe.every((s) => !s)) return { allDayUnsafe: true };
+  if (safe.every(Boolean)) return { allDaySafe: true };
 
   const result: { morningBefore?: string; eveningAfter?: string } = {};
 

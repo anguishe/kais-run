@@ -10,10 +10,16 @@ import {
   verdict as computeVerdict,
   safeWindows,
   hourlyBands,
+  exposureAt,
   PAVEMENT_SOURCE,
 } from '@/lib/heat/verdict';
 import type { Band, HourBand, HourSample, Modifiers } from '@/lib/heat/verdict';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
+
+/** Current Central wall-clock hour as "YYYY-MM-DDTHH:00" - every service-area city is Central. */
+function nowHourISO(): string {
+  return new Date().toLocaleString('sv-SE', { timeZone: 'America/Chicago' }).replace(' ', 'T').slice(0, 13) + ':00';
+}
 
 type WeatherData = {
   tempF: number;
@@ -90,11 +96,11 @@ function HourStrip({ hours }: { hours: HourBand[] }) {
         {hours.map((h) => (
           <li
             key={h.hourISO}
-            title={`${h.label} - ${BAND_WORD[h.band]} (heat index ${h.heatIndexF}F, pavement ${h.pavementSunF}F in sun)`}
+            title={`${h.label} - ${BAND_WORD[h.band]} (heat index ${h.heatIndexF}F, pavement ${h.pavementSunF}F ${h.exposure === 'sun' ? 'in sun' : 'out of full sun'})`}
             className="flex-1"
           >
             <span className="sr-only">
-              {h.label}: {BAND_WORD[h.band]}, heat index {h.heatIndexF}F, pavement {h.pavementSunF}F in sun
+              {h.label}: {BAND_WORD[h.band]}, heat index {h.heatIndexF}F, pavement {h.pavementSunF}F {h.exposure === 'sun' ? 'in sun' : 'out of full sun'}
             </span>
             <span
               aria-hidden="true"
@@ -158,8 +164,8 @@ export function HeatChecker() {
       // the raw ZIP fallback label.
       setCheckState({ status: 'done', weather, city: weather.city ?? cityLabel, zip });
       const hi = heatIndexF(weather.tempF, weather.humidity);
-      const pavSun = pavementEstimateF(weather.tempF, 'sun');
-      const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
+      const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
+      const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
       trackToolUse('heat-checker', { city: cityLabel, band: v.band });
     } catch {
       setCheckState({ status: 'error', kind: 'weather-unavailable' });
@@ -178,10 +184,13 @@ export function HeatChecker() {
     const hi = heatIndexF(weather.tempF, weather.humidity);
     const pavSun = pavementEstimateF(weather.tempF, 'sun');
     const pavShade = pavementEstimateF(weather.tempF, 'shade');
-    const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
+    const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
+    const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
     const windows = safeWindows(weather.hourly, modifiers);
     const windowLine = windows.allDayUnsafe
       ? 'No safe window today.'
+      : windows.allDaySafe
+      ? 'Safe to walk all day.'
       : [
           windows.morningBefore && `Walk before ${windows.morningBefore}`,
           windows.eveningAfter && `Walk after ${windows.eveningAfter}`,
@@ -212,8 +221,8 @@ export function HeatChecker() {
   let verdictKey = 'idle';
   if (checkState.status === 'done') {
     const hi = heatIndexF(checkState.weather.tempF, checkState.weather.humidity);
-    const pavSun = pavementEstimateF(checkState.weather.tempF, 'sun');
-    const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
+    const pavNow = pavementEstimateF(checkState.weather.tempF, exposureAt(nowHourISO()));
+    const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
     verdictKey = `${checkState.zip}-${v.band}`;
   }
 
@@ -339,7 +348,8 @@ export function HeatChecker() {
           const pavSun = pavementEstimateF(weather.tempF, 'sun');
           const pavShade = pavementEstimateF(weather.tempF, 'shade');
           const pavDisplay = exposure === 'sun' ? pavSun : pavShade;
-          const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavSun, modifiers });
+          const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
+          const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
           const windows = safeWindows(weather.hourly, modifiers);
           const isSafe = v.band === 'safe' || v.band === 'watch';
 
@@ -395,8 +405,9 @@ export function HeatChecker() {
                     {windows.eveningAfter && (
                       <p>Safe after <strong>{windows.eveningAfter}</strong></p>
                     )}
-                    {!windows.morningBefore && !windows.eveningAfter && (
-                      <p>Conditions are currently safe.</p>
+                    {windows.allDaySafe && <p>Safe to walk all day.</p>}
+                    {!windows.allDaySafe && !windows.morningBefore && !windows.eveningAfter && (
+                      <p>Check the hour-by-hour strip for the safe hours.</p>
                     )}
                   </>
                 )}
