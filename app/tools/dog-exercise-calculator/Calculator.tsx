@@ -492,7 +492,14 @@ export function Calculator() {
                   >
                     how to actually tire out a high-energy dog
                   </Link>
-                  .
+                  . Outside our service area,{' '}
+                  <Link
+                    href="/equipment/ronzeil-slatmill/"
+                    className="text-brand-teal-light underline"
+                  >
+                    the slatmill we run
+                  </Link>{' '}
+                  is how we cover it.
                 </p>
               </div>
             )}

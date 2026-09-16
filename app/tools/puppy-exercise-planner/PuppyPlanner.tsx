@@ -247,6 +247,13 @@ export function PuppyPlanner() {
                   ? 'Get an adult daily target'
                   : 'Why the behavior gets harder around now'}
               </Link>
+              {plan.stage !== 'under-four-months' && (
+                <Link href="/book/" className="text-sm text-brand-teal-light underline">
+                  {plan.stage === 'plates-closed'
+                    ? 'Book a conditioning session'
+                    : 'Book an introduction session'}
+                </Link>
+              )}
             </div>
           </motion.div>
         )}

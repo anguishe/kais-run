@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { BodyConditionChecker } from './BodyConditionChecker';
+import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
 
 const TITLE = "Dog Body Condition Score Checker (No Scale) | Kai's Run";
 const DESC =
@@ -97,18 +98,14 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
 
   if (embed) {
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8">
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <style>{EMBED_CHROME_CSS}</style>
         <h1 className="font-display text-3xl text-brand-offwhite mb-6">
           Is My Dog Overweight? The 30-Second Body Check
         </h1>
         <BodyConditionChecker />
-        <p className="mt-6 font-body text-sm text-brand-gray text-center">
-          Powered by{' '}
-          <a href="https://kaisrun.xyz/" className="text-brand-teal-light underline">
-            Kai&apos;s Run
-          </a>
-        </p>
-      </main>
+        <EmbedCredit path="/tools/dog-body-condition-score/" />
+      </div>
     );
   }
 
@@ -212,6 +209,12 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
             .
           </p>
         </section>
+        <EmbedThisTool
+          path="/tools/dog-body-condition-score/"
+          iframeTitle="Dog body condition score checker"
+          credit="Body condition score checker"
+          height={1200}
+        />
       </main>
     </>
   );

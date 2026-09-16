@@ -24,7 +24,7 @@ export function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-brand-charcoal border-t border-brand-teal/30 px-4 py-4">
+    <div data-cookie-banner className="fixed bottom-0 left-0 right-0 z-50 bg-brand-charcoal border-t border-brand-teal/30 px-4 py-4">
       <div className="mx-auto flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-body text-sm text-brand-gray">
           We use analytics cookies to improve the site.{' '}

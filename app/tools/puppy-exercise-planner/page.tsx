@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { PuppyPlanner } from './PuppyPlanner';
+import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
 
 const TITLE = "Puppy Exercise Planner - Growth Plates & the 5-Minute Rule | Kai's Run";
 const DESC =
@@ -101,18 +102,14 @@ export default async function PuppyExercisePlannerPage({ searchParams }: Props) 
 
   if (embed) {
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8">
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <style>{EMBED_CHROME_CSS}</style>
         <h1 className="font-display text-3xl text-brand-offwhite mb-6">
           Puppy Exercise Planner
         </h1>
         <PuppyPlanner />
-        <p className="mt-6 font-body text-sm text-brand-gray text-center">
-          Powered by{' '}
-          <a href="https://kaisrun.xyz/" className="text-brand-teal-light underline">
-            Kai&apos;s Run
-          </a>
-        </p>
-      </main>
+        <EmbedCredit path="/tools/puppy-exercise-planner/" />
+      </div>
     );
   }
 
@@ -213,6 +210,12 @@ export default async function PuppyExercisePlannerPage({ searchParams }: Props) 
             .
           </p>
         </section>
+        <EmbedThisTool
+          path="/tools/puppy-exercise-planner/"
+          iframeTitle="Puppy exercise planner"
+          credit="Puppy exercise planner"
+          height={1200}
+        />
       </main>
     </>
   );
