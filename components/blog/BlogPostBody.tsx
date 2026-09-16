@@ -70,7 +70,8 @@ export default async function BlogPostBody({ body, related }: BlogPostBodyProps)
         </h2>
         <p className="mx-auto mt-4 max-w-xl font-body text-brand-gray">
           We&apos;re accepting the first 20 dogs before we open.
-          Lock in 5 sessions for $200 - $40 each - before that rate disappears.
+          Founding Athlete pricing is a one-time offer for those dogs only -{' '}
+          <Link href="/pricing/" className="text-brand-teal-light hover:underline">see pricing</Link>.
           Travis brings the slatmill to your driveway. No facility, no drop-off, no group sessions.
         </p>
         <Link
