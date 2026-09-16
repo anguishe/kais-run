@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import BlogPostBody from '@/components/blog/BlogPostBody';
 import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { buildFaqSchema } from '@/lib/blog/faq-schema';
@@ -88,7 +88,7 @@ export default async function HowToTireOutHighEnergyDogPage() {
           </header>
 
           <div className="pt-12">
-            <BlogPostWithAds slug={SLUG} body={post.body} related={related} />
+            <BlogPostBody slug={SLUG} body={post.body} related={related} />
           </div>
         </div>
       </article>

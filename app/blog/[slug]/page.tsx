@@ -1,18 +1,27 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import BlogPostWithAds from '@/components/blog/BlogPostWithAds';
+import BlogPostBody from '@/components/blog/BlogPostBody';
 import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 import { buildArticleSchema } from '@/lib/blog/article-schema';
 import { buildFaqSchema } from '@/lib/blog/faq-schema';
 import { buildBlogPostMetadata } from '@/lib/blog/post-metadata';
-import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/blog/posts';
+import { getPostBySlug, getPublishedSlugs, getRelatedPosts, isPublished } from '@/lib/blog/posts';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
 const isDev = process.env.NODE_ENV === 'development';
 
+/**
+ * Regenerate hourly so a post dated in the future goes live on its own day
+ * without a deploy. Scheduling has no other moving parts - this line is what
+ * turns the date gate in lib/blog/posts.ts into a real publish schedule.
+ * ponytail: an hour of lag beats a cron job and a revalidate secret.
+ */
+export const revalidate = 3600;
+
+/** Drafts and not-yet-published posts 404 in production, render in dev for preview. */
 function isUnavailablePost(post: ReturnType<typeof getPostBySlug>): boolean {
-  return !post || (!!post.draft && !isDev);
+  return !post || (!isPublished(post) && !isDev);
 }
 
 /** Posts with a dedicated route under app/blog/<slug>/ — omit from dynamic static params. */
@@ -110,7 +119,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </header>
 
         <div className="pt-12">
-          <BlogPostWithAds slug={slug} body={post.body} related={related} />
+          <BlogPostBody slug={slug} body={post.body} related={related} />
         </div>
         </div>
       </article>

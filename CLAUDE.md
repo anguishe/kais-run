@@ -32,10 +32,16 @@ ALL of the following must use https://kaisrun.xyz (apex — never www):
 - llms.txt references
 - Any hardcoded domain string in app/, components/, lib/
 
-## AdSense
+## Advertising: NONE (removed 2026-09-01)
 
-- Correct pub ID: ca-pub-5399156622542127
-- If you see ca-pub-6289405922667797 anywhere: it is wrong — replace it
+- The site serves **no display ads**. AdSense was removed sitewide: loader,
+  ad units, `ads.txt`, and the privacy/terms disclosures.
+- Do **not** reintroduce AdSense, `adsbygoogle`, `ca-pub-*`, or any display network
+  without an explicit instruction from Travis.
+- `components/GoogleAds.tsx` is **Google Ads conversion tracking** (`AW-*`), not AdSense.
+  It stays — it measures paid campaigns and sets no ad inventory.
+- Monetization on this site is: booked sessions (primary) and affiliate links on
+  `/equipment/*` (secondary). See docs/MONETIZATION.md.
 
 ## Tailwind Tokens
 
@@ -91,7 +97,6 @@ Mary Esther · Navarre · Santa Rosa Beach · Bluewater Bay · Valparaiso
 - Mailchimp: Cloudflare Worker at kaisrun-subscribe.kaisrunmobile.workers.dev
   (Still the Mailchimp bridge — do not replace with /api/subscribe route without instruction)
 - Square Appointments widget: loaded via useEffect only, never next/script
-- AdSense pub: ca-pub-5399156622542127 (Auto Ads OFF — verification script only until approval)
 
 ## Blog Post Checklist Reminder
 

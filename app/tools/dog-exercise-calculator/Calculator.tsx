@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { BREEDS, type DriveTier, getLifeStage } from '@/lib/exercise/targets';
 import { computeTarget, type ComputeResult } from '@/lib/exercise/compute';
+import { exerciseGap, type ExerciseGap } from '@/lib/exercise/gap';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
 
 const TIER_LABELS: Record<DriveTier, string> = {
@@ -50,6 +51,7 @@ export function Calculator() {
   const [ageUnit, setAgeUnit] = useState<'months' | 'years'>('months');
   const [weightLb, setWeightLb] = useState('');
   const [activity, setActivity] = useState<'sedentary' | 'light' | 'active'>('light');
+  const [currentMin, setCurrentMin] = useState('');
   const [flags, setFlags] = useState({
     arthritis: false,
     overweight: false,
@@ -58,6 +60,7 @@ export function Calculator() {
   });
 
   const [result, setResult] = useState<ComputeResult | null>(null);
+  const [gap, setGap] = useState<ExerciseGap | null>(null);
   const [lifeStage, setLifeStage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -122,6 +125,9 @@ export function Calculator() {
     setResult(r);
     setLifeStage(stage);
 
+    const current = parseFloat(currentMin);
+    setGap(Number.isFinite(current) && current >= 0 ? exerciseGap(current, r.dailyMin) : null);
+
     const tier = showManualTier
       ? manualTier
       : (BREEDS.find((b) => b.name === selectedBreed)?.tier ?? 'moderate');
@@ -138,6 +144,7 @@ export function Calculator() {
     const text = [
       "Kai's Run - Dog Exercise Estimate",
       `Daily: ${result.dailyMin[0]}-${result.dailyMin[1]} min`,
+      ...(gap ? [`Currently: ${gap.currentMin} min/day - ${gap.headline}`] : []),
       `Structured: ${result.split.structuredMin[0]}-${result.split.structuredMin[1]} min`,
       `Play: ${result.split.playMin[0]}-${result.split.playMin[1]} min`,
       `Enrichment: ${result.split.enrichmentMin[0]}-${result.split.enrichmentMin[1]} min`,
@@ -263,6 +270,31 @@ export function Calculator() {
         />
       </div>
 
+      {/* Minutes today - optional, drives the gap readout */}
+      <div className="mb-6">
+        <label
+          htmlFor="current-minutes"
+          className="block text-brand-offwhite text-sm font-semibold mb-2"
+        >
+          Minutes of real exercise on a typical day{' '}
+          <span className="font-normal text-brand-gray">(optional)</span>
+        </label>
+        <input
+          id="current-minutes"
+          type="number"
+          min="0"
+          inputMode="numeric"
+          value={currentMin}
+          onChange={(e) => setCurrentMin(e.target.value)}
+          placeholder="e.g. 30"
+          className="w-full bg-brand-black border border-brand-gray/40 text-brand-offwhite px-4 py-3 rounded-lg focus:outline-none focus:border-brand-teal"
+        />
+        <p className="mt-2 text-brand-gray text-xs leading-relaxed">
+          Count walking, running, and structured work. Do not count backyard time or
+          time on a leash standing still. Leave it blank to skip the comparison.
+        </p>
+      </div>
+
       {/* Activity level */}
       <div className="mb-6">
         <label className="block text-brand-offwhite text-sm font-semibold mb-2">
@@ -353,6 +385,29 @@ export function Calculator() {
                 <span className="text-3xl ml-2">min</span>
               </p>
             </div>
+
+            {/* Gap against what the dog actually gets */}
+            {gap && (
+              <div
+                className={`rounded-lg border p-4 ${
+                  gap.status === 'short'
+                    ? 'border-brand-gold/50 bg-brand-gold/10'
+                    : 'border-brand-teal/40 bg-brand-teal/10'
+                }`}
+              >
+                <p className="text-brand-gray text-xs uppercase tracking-widest mb-1">
+                  Against your {gap.currentMin} minutes a day
+                </p>
+                <p
+                  className={`font-display text-3xl leading-none ${
+                    gap.status === 'short' ? 'text-brand-gold' : 'text-brand-teal-light'
+                  }`}
+                >
+                  {gap.headline}
+                </p>
+                <p className="mt-3 text-brand-gray text-sm leading-relaxed">{gap.detail}</p>
+              </div>
+            )}
 
             {/* Split */}
             <div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -7,6 +8,14 @@ export const metadata: Metadata = {
     "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
   alternates: { canonical: 'https://kaisrun.xyz/terms/' },
   openGraph: {
+    images: [
+      {
+        url: generatedOgUrl('Terms of Service', 'Legal'),
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Terms of Service",
+      },
+    ],
     title: "Terms of Service | Kai's Run",
     description:
       "Terms of Service for Kai's Run - mobile canine conditioning in Destin and the Emerald Coast, FL. Site use, bookings, disclaimers, and liability.",
@@ -82,12 +91,12 @@ export default function TermsPage() {
             without permission.
           </p>
 
-          <h2>Third-party links and advertising</h2>
+          <h2>Third-party links</h2>
           <p>
-            Our blog articles and free tool pages display advertising served by Google AdSense, and the Site
-            may link to third-party websites. We do not control third-party content or advertising and are
-            not responsible for it. See our <Link href="/privacy/">Privacy Policy</Link> for how advertising
-            cookies work and how to opt out.
+            This Site does not display advertising. Some equipment pages and posts contain affiliate links,
+            and the Site may link to third-party websites. We do not control third-party content and are not
+            responsible for it. See our <Link href="/privacy/">Privacy Policy</Link> for what we collect and
+            how to opt out.
           </p>
 
           <h2>Disclaimer of warranties</h2>

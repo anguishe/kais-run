@@ -241,6 +241,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kaisrun.xyz/tools/puppy-exercise-planner/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kaisrun.xyz/services/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>

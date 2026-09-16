@@ -137,17 +137,58 @@ function formatHour(hourISO: string): string {
   return `${h12} ${period}`;
 }
 
-// Contiguous hours safe to walk: heat index < 86 AND sun pavement < 125F.
-export function safeWindows(hourly: HourSample[]): {
+export type HourBand = {
+  hourISO: string;
+  /** "7 AM" - already localized for display. */
+  label: string;
+  band: Band;
+  heatIndexF: number;
+  pavementSunF: number;
+  walkable: boolean;
+};
+
+/**
+ * Run the full verdict for every forecast hour, modifiers included, so the
+ * day-long picture answers the same question the headline card answers.
+ *
+ * This is the whole reason the hourly view exists: a flat-faced senior dog does
+ * not get the same safe window as a fit adult, and until this function existed
+ * the window math ignored the modifier checkboxes entirely.
+ */
+export function hourlyBands(
+  hourly: HourSample[],
+  modifiers?: Modifiers,
+): HourBand[] {
+  return hourly.map((h) => {
+    const hi = heatIndexF(h.tempF, h.humidity);
+    const pavementSunF = pavementEstimateF(h.tempF, "sun");
+    const v = verdict({ heatIndexF: hi, pavementSunF, modifiers });
+    return {
+      hourISO: h.hourISO,
+      label: formatHour(h.hourISO),
+      band: v.band,
+      heatIndexF: hi,
+      pavementSunF,
+      walkable: ORDER.indexOf(v.band) <= ORDER.indexOf("caution"),
+    };
+  });
+}
+
+/**
+ * Contiguous hours safe to walk. With no modifiers this is identical to the old
+ * "heat index < 86 AND sun pavement < 125F" rule, because a band at or below
+ * "caution" means exactly that. Passing modifiers narrows the window by the same
+ * one step the headline verdict uses.
+ */
+export function safeWindows(
+  hourly: HourSample[],
+  modifiers?: Modifiers,
+): {
   morningBefore?: string;
   eveningAfter?: string;
   allDayUnsafe?: boolean;
 } {
-  const safe = hourly.map(
-    (h) =>
-      heatIndexF(h.tempF, h.humidity) < 86 &&
-      pavementEstimateF(h.tempF, "sun") < 125,
-  );
+  const safe = hourlyBands(hourly, modifiers).map((h) => h.walkable);
 
   if (safe.every((s) => !s)) return { allDayUnsafe: true };
 

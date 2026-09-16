@@ -6,6 +6,9 @@ import FieldNotesIndex from '@/components/blog/FieldNotesIndex';
 
 export const metadata = buildBlogListingMetadata();
 
+/** Matches the post route so a scheduled post reaches the index the same day. */
+export const revalidate = 3600;
+
 export default function BlogIndexPage() {
   const posts = getSortedPostMeta();
   const blogIndexSchema = buildBlogIndexSchema(posts);

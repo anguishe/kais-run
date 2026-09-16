@@ -83,15 +83,20 @@ Tags must exactly match: `contact-inquiry`, `founding-20`, `energy-guide`, `foot
 > All `NEXT_PUBLIC_` variables must be set in the **Vercel dashboard** → Project → Settings → Environment Variables. Variables not set in Vercel will be undefined in production.
 ---
 
-## AdSense
+## AdSense: REMOVED (2026-09-01)
 
-- Publisher ID: ca-pub-5399156622542127 (CONFIRMED CORRECT from dashboard)
-- Status: Verification script live in root layout `<head>` — Auto Ads OFF
-- Ad slot IDs: NOT YET OBTAINED — pending AdSense approval
-- BlogPostWithAds.tsx: ad units are commented out with TODO until slot IDs received
-- When slot IDs are received: uncomment ad units in BlogPostWithAds.tsx and replace
-  the slot prop value with the real slot ID (format: "1234567890")
-- ads.txt: located at public/ads.txt — contains ca-pub-5399156622542127
+Display advertising is gone from this site. Deleted: `components/ui/AdSenseLoader.tsx`,
+`components/ui/AdUnit.tsx`, `components/ui/MidArticleAd.tsx`, `app/blog/layout.tsx`
+(existed only to mount the loader), and `public/ads.txt`. `BlogPostWithAds.tsx` was
+renamed `BlogPostBody.tsx` with the two ad slots removed. The Advertising sections in
+the privacy policy and terms were removed with it.
+
+Do not reintroduce AdSense, `adsbygoogle`, `ca-pub-*`, or any display network without
+an explicit instruction from Travis. `components/GoogleAds.tsx` is Google Ads
+**conversion tracking** (`AW-*`) for paid campaigns, not AdSense, and stays.
+
+Rationale: on a local service site a display unit earns cents while competing for the
+click that earns a booking or an affiliate commission. See docs/MONETIZATION.md.
 
 ---
 

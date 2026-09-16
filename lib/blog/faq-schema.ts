@@ -3,8 +3,11 @@
  *
  * Convention in content/blog/*.mdx: an H2 titled "## FAQ" or
  * "## Frequently Asked Questions", followed by question/answer pairs where each
- * question is a bold line (`**Question?**`) and the answer is the plain
- * paragraph(s) beneath it, until the next bold question or the next `## ` heading.
+ * question is a bold lead-in (`**Question?**`). The answer may follow on the same
+ * line or in the paragraph(s) beneath it, and runs until the next bold question or
+ * the next `## ` heading. Both layouts appear across the post library, so both are
+ * supported - matching only the standalone-line form silently dropped FAQPage
+ * schema from every post that wrote the answer inline.
  *
  * Returns null when no FAQ section (or fewer than 2 pairs) is found, so callers
  * can conditionally render the schema.
@@ -12,7 +15,7 @@
 
 const FAQ_HEADING = /^##\s+(faq|frequently asked questions)\s*$/i;
 const NEXT_H2 = /^##\s+/;
-const QUESTION_LINE = /^\*\*(.+?)\*\*\s*$/;
+const QUESTION_LINE = /^\*\*(.+?)\*\*[ \t]*(.*)$/;
 
 /** Strip inline markdown (links, bold/italic, code) down to plain text for schema. */
 function toPlainText(md: string): string {
@@ -67,6 +70,8 @@ export function extractFaqPairs(body: string): FaqPair[] {
     if (qMatch) {
       flush();
       currentQ = qMatch[1];
+      // Inline answer on the same line as the question, e.g. `**Q?** A.`
+      if (qMatch[2].trim()) answerBuf.push(qMatch[2].trim());
     } else if (currentQ && raw) {
       answerBuf.push(raw);
     }

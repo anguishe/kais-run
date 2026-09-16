@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generatedOgUrl } from '@/lib/blog/post-metadata';
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Kai's Run",
@@ -6,6 +7,14 @@ export const metadata: Metadata = {
     "Privacy policy for Kai's Run - mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
   alternates: { canonical: 'https://kaisrun.xyz/privacy/' },
   openGraph: {
+    images: [
+      {
+        url: generatedOgUrl('Privacy Policy', 'Legal'),
+        width: 1200,
+        height: 630,
+        alt: "Kai's Run - Privacy Policy",
+      },
+    ],
     title: "Privacy Policy | Kai's Run",
     description:
       "Privacy policy for Kai's Run - mobile dog gym serving Destin, Fort Walton Beach, Niceville, and Miramar Beach FL. How we collect and use your information.",
@@ -43,12 +52,6 @@ export default function PrivacyPage() {
 <span data-custom-class="heading_1">Cookies and session tools</span><br><br>
 <span data-custom-class="body_text">We may use Microsoft Clarity on this Site to understand how visitors interact with pages (for example, heatmaps and session recordings). Clarity and similar tools may set cookies or read technical data such as device type, approximate location derived from IP address, and on-site navigation paths. You can use browser controls to block cookies where supported.</span><br><br>
 <span data-custom-class="body_text">We also use Google Analytics 4 to understand how visitors use the site - which pages get read, which tools get used, and where visitors arrive from. Google Analytics only runs after you accept cookies, and it is switched off if you decline. Data is processed by Google under its own privacy policy.</span><br><br>
-<span data-custom-class="heading_1">Advertising</span><br><br>
-<span data-custom-class="body_text">This site uses Google AdSense, a third-party advertising service provided by Google, to display ads on our blog articles. Google and its partners use cookies and similar technologies to serve ads based on your prior visits to this and other websites.</span><br><br>
-<span data-custom-class="body_text">Google&apos;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and other sites on the internet. Third-party vendors, including Google, use cookies to serve ads based on someone&apos;s past visits to this website.</span><br><br>
-<span data-custom-class="body_text">You can opt out of personalized advertising by visiting Google Ads Settings at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer nofollow" data-custom-class="link">https://www.google.com/settings/ads</a> . You can also opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer nofollow" data-custom-class="link">https://www.aboutads.info/choices</a> .</span><br><br>
-<span data-custom-class="body_text">For more information about how Google uses data when you use our partners&apos; sites or apps, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer nofollow" data-custom-class="link">https://policies.google.com/technologies/partner-sites</a> .</span><br><br>
-<span data-custom-class="body_text">We do not control the cookies or data collected by Google or its advertising partners. Ads appear only on our blog articles. Our booking, pricing, and service pages do not serve ads, and ads are not shown to visitors who decline cookies.</span><br><br>
 <span data-custom-class="heading_1">Affiliate links</span><br><br>
 <span data-custom-class="body_text">Some equipment pages and posts on this site contain affiliate links - we earn a commission on qualifying purchases at no extra cost to you, and we only link gear we actually run.</span><br><br>
 <span data-custom-class="heading_1">Session video recording</span><br><br>

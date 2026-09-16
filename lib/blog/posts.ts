@@ -7,6 +7,11 @@ const POSTS_DIR = path.join(process.cwd(), 'content/blog');
 export type BlogFrontmatter = {
   title: string;
   description: string;
+  /**
+   * Publish date, YYYY-MM-DD. This is also the schedule gate: a post dated in the
+   * future is written, committed, and deployed, but stays invisible until that day
+   * arrives. See isPublished().
+   */
   date: string;
   dateModified?: string; // ISO date string - falls back to date if not set
   author?: string;
@@ -30,6 +35,32 @@ export type BlogPostMeta = BlogFrontmatter & {
 function isDraft(data: Record<string, string>): boolean {
   const val = data.draft?.trim().toLowerCase();
   return val === 'true' || val === '1' || val === 'yes';
+}
+
+/**
+ * Today in the market's timezone as YYYY-MM-DD. en-CA formats as ISO, so the
+ * result string-compares directly against frontmatter dates - no Date parsing,
+ * no UTC drift that would flip a post live a few hours early on the Gulf Coast.
+ */
+function todayISO(): string {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+}
+
+/**
+ * A post is live when it is not a draft and its date has arrived. Scheduling is
+ * the date field doing double duty - write the post now, date it later, and it
+ * publishes itself. Routes carrying `export const revalidate` pick the change up
+ * within the revalidate window with no deploy.
+ *
+ * A post with no date is treated as live so legacy files can never vanish.
+ */
+export function isPublished(
+  post: { draft?: boolean; date?: string },
+  today: string = todayISO(),
+): boolean {
+  if (post.draft) return false;
+  if (!post.date) return true;
+  return post.date.slice(0, 10) <= today;
 }
 
 export type BlogPost = BlogPostMeta & {
@@ -105,14 +136,14 @@ export function getPostBySlug(slug: string): BlogPost | null {
 export function getPublishedSlugs(): string[] {
   return getPostSlugs().filter((slug) => {
     const post = getPostBySlug(slug);
-    return post !== null && !post.draft;
+    return post !== null && isPublished(post);
   });
 }
 
 export function getAllPostMeta(): BlogPostMeta[] {
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
-    .filter((p): p is BlogPost => p !== null && !p.draft)
+    .filter((p): p is BlogPost => p !== null && isPublished(p))
     .map(({ slug, title, description, date, dateModified, author, readTimeMinutes }) => ({
       slug,
       title,
@@ -151,7 +182,7 @@ export function getRelatedPosts(currentSlug: string, limit = 2): BlogPostMeta[] 
 
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
-    .filter((p): p is BlogPost => p !== null && !p.draft && p.slug !== currentSlug)
+    .filter((p): p is BlogPost => p !== null && isPublished(p) && p.slug !== currentSlug)
     .map((p) => {
       const shared = new Set(parseKeywords(p.keywords).filter((k) => currentKeywords.has(k))).size;
       const sameCategory = currentCategory !== null && categoryOf(p.slug) === currentCategory;
