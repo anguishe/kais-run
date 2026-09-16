@@ -1,6 +1,6 @@
-# Publishing - Fall 2026 Field Notes
+# Publishing - Fall + Winter 2026 Field Notes
 
-Five posts are written, committed, and scheduled. They publish themselves - URL, blog index and sitemap - with no deploy.
+Eight posts are written, committed, and scheduled (the winter three approved by Travis 2026-09-16). They publish themselves - URL, blog index and sitemap - with no deploy.
 
 ## How scheduling works
 
@@ -26,6 +26,9 @@ that has gone live but is not listed yet.
 | 2026-10-08 | `mental-stimulation-vs-exercise-dog` | Evergreen, fills the biggest gap in the library |
 | 2026-10-22 | `dog-halloween-door-safety` | Nine days before Halloween, Saturday Oct 31 |
 | 2026-10-29 | `dog-walk-dark-after-time-change` | Three days before the clocks fall back on Nov 1 |
+| 2026-11-12 | `can-my-dog-run-a-5k-with-me` | Two weeks before Thanksgiving turkey trots; evergreen for spring 5Ks |
+| 2026-11-24 | `is-a-dog-treadmill-worth-it` | Before Black Friday and holiday gift shopping; slatmill purchase-intent cluster |
+| 2026-12-10 | `how-cold-is-too-cold-for-dogs` | Indexed ahead of the late-Dec and January cold snaps |
 
 ## On each publish day
 
@@ -135,3 +138,63 @@ Link in the first comment.
 #Destin #EmeraldCoast #Niceville
 
 **First comment:** https://kaisrun.xyz/blog/dog-walk-dark-after-time-change/
+
+---
+
+## 6. Nov 12 - Turkey trot
+
+Your dog would run the whole turkey trot with you. That is not the same thing as being able to.
+
+The heart and lungs are rarely what gives out. It is the pads, the tendons, and a gait that quietly falls apart around mile two, usually while the owner is too busy suffering to notice.
+
+Plenty of races do not allow dogs at all. If yours does, the start line is the riskiest minute of the morning.
+
+There is a right way to get a dog to 3.1 miles, and two weeks out is not it.
+
+Full breakdown - link in the first comment.
+
+- Kai. My human says I cannot run the turkey trot because I would pull him through the first mile and then want to discuss it. I maintain that the first mile is the only part that matters.
+
+#Destin #EmeraldCoast #FortWaltonBeach
+
+**First comment:** https://kaisrun.xyz/blog/can-my-dog-run-a-5k-with-me/
+
+---
+
+## 7. Nov 24 - Is a mill worth it
+
+A dog treadmill can be the best thing you ever buy a high-drive dog. It can also be the heaviest shelf in your garage.
+
+The difference is not the brand. It is four questions worth answering before you order one, and the fourth is the one that decides it.
+
+I own a slatmill. I put it together in my garage and got the legs wrong three times. I would still tell some of you not to buy one.
+
+If a dog treadmill is on anybody's list this holiday season, read this first.
+
+Link in the first comment.
+
+- Kai. I have spent more time on the mill than anyone in this household, and I fully support the purchase of more mills. My human says that is not a neutral opinion.
+
+#Destin #EmeraldCoast #DogsOfDestin
+
+**First comment:** https://kaisrun.xyz/blog/is-a-dog-treadmill-worth-it/
+
+Do not claim a sale or deal unless Ronzeil actually runs one.
+
+---
+
+## 8. Dec 10 - Cold on this coast
+
+The number on the thermometer is the least useful thing about a cold morning on this coast.
+
+A dry 38 degrees is a brisk walk. A 48-degree afternoon with a north wind and a dog fresh out of the bay is a cold dog. And the dogs that feel it most around here are the ones built best for summer.
+
+But the bigger story is not a warning. For the next three months, the thing that limits your dog's exercise the rest of the year is gone, and a lot of dogs spend those months on the couch anyway.
+
+Full breakdown - link in the first comment.
+
+- Kai. I was built for heat, and I would like that entered into the record every time it is 41 degrees.
+
+#Destin #EmeraldCoast #Niceville
+
+**First comment:** https://kaisrun.xyz/blog/how-cold-is-too-cold-for-dogs/
