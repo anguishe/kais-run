@@ -12,7 +12,7 @@
 ---
 
 ## CRITICAL - Fix Immediately
-### C1 · Merge `feat/demonetize-and-seo-2026-09` into main and deploy (needs Travis's go: deploy is public)
+### C1 · Merge `feat/demonetize-and-seo-2026-09` into main and deploy (needs Travis's go: deploy is public) — ✅ 2026-09-16 (1797fb4)
 **Files:** the branch (8 commits). Verified 2026-09-16 in a temporary worktree:
 - clean merge
 - build passes, 61/61 pages
@@ -38,12 +38,12 @@ Combine C1 with H1-H3 in the same deploy, then run IndexNow on the new URLs and 
 ---
 
 ## HIGH - This Week (by Sun 9/20)
-### H1 · Publish the two seasonal posts on deploy, not 3-9 days before their events
+### H1 · Publish the two seasonal posts on deploy, not 3-9 days before their events — ❎ Travis kept the scheduled dates (10/22, 10/29)
 **Files:** frontmatter `date:` in `content/blog/dog-halloween-door-safety.mdx` (10-22) and `content/blog/dog-walk-dark-after-time-change.mdx` (10-29)
 **Impact:** with zero backlinks, new URLs wait weeks for a crawl, so posts dated this close to Halloween and the clock change won't be indexed in time.
 **Fix:** set both dates to the deploy date. Keep the Facebook posts in `PUBLISHING.md` on their original dates, since the URL can be live before the social push. `red-tide` (9/22) and `mental-stimulation` (10/08) can stay as scheduled. **Travis decision:** if he'd rather keep the drip, move them to 9/29 and 10/6 instead.
 
-### H2 · Fix the heat checker's night hours
+### H2 · Fix the heat checker's night hours — ✅ 2026-09-16 (7c9ca08)
 **File:** `lib/heat/verdict.ts` (`hourlyBands`, ~line 164 on the branch)
 **Impact:** Destin summer nights stay above 75F, and the tool currently marks those hours as paw-burn risk. It says "No safe window today" for most of summer, which is the core question it exists to answer, and it can't be pitched to vets in that state.
 **Fix:**
@@ -59,7 +59,7 @@ const pavementSunF = pavementEstimateF(h.tempF, exposureAt(h.hourISO));
 ```
 Also fix the "Conditions are currently safe." fallback at `HeatChecker.tsx:399` so it cannot render inside a non-safe card. Add a July-night case to `scripts/check-tools.mjs` (low 78, high 90, humidity 80): expect walkable hours to be at least 1.
 
-### H3 · Link the slatmill cluster to the affiliate page
+### H3 · Link the slatmill cluster to the affiliate page — ✅ 2026-09-16 (c052a47)
 **Files:**
 - `content/blog/what-is-a-dog-slatmill.mdx`
 - `content/blog/is-a-slatmill-safe-for-dogs.mdx`
@@ -71,12 +71,12 @@ Also fix the "Conditions are currently safe." fallback at `HeatChecker.tsx:399` 
 **Impact:** these posts hold about 125 of the blog's impressions at positions 9-15. It's the only blog cluster near page 1, and none of them links to `/equipment/ronzeil-slatmill/`.
 **Fix:** one sentence per post, placed where the mill is described, linking to `/equipment/ronzeil-slatmill/` ("the mill we run, and why"). Link the internal page, not Ronzeil directly: the disclosure and `rel="sponsored"` live there. No prices in the sentence.
 
-### H4 · Take the price out of the post-footer CTA
+### H4 · Take the price out of the post-footer CTA — ✅ 2026-09-16 (c052a47)
 **File:** `components/blog/BlogPostBody.tsx` (after merge)
 **Impact:** CLAUDE.md says "Prices never appear in editorial body copy". The live text is "Lock in 5 sessions for $200 - $40 each".
 **Fix:** use the offer name only, linked to `/pricing/`, e.g. "Founding Athlete Program - limited to 20 dogs. See pricing."
 
-### H5 · Travis: four answers, about 5 minutes each
+### H5 · Travis: four answers, about 5 minutes each — answered 9/16: KAI26 active, no Amazon tag, no GBP yet, Bing property exists; Ronzeil commission rate still unknown
 1. **Ronzeil:** is the affiliate link active, and what does it pay per sale? (MONETIZATION.md step 3)
 2. **Amazon Associates:** does an account and tag exist? If yes, set `NEXT_PUBLIC_AMAZON_TAG` in Vercel. The Julius-K9 page routes 7 posts' readers to a link that earns nothing today. If no, leave it alone; it's small money.
 3. **GBP:** is the Google Business Profile verified yet? It was unverified on 9/01.
@@ -85,17 +85,17 @@ Also fix the "Conditions are currently safe." fallback at `HeatChecker.tsx:399` 
 ---
 
 ## MEDIUM - Before 2026-10-21 (beta ends)
-### M1 · Make scheduled publishing actually hands-off
+### M1 · Make scheduled publishing actually hands-off — ✅ 2026-09-16 (3934fe4, verified with a faked clock)
 **Files:** delete `public/sitemap.xml`, add `app/sitemap.ts`
 **Impact:** today each publish date still needs a hand-edited sitemap, a commit and a deploy. Generating the sitemap from the same `isPublished` gate the blog already uses makes a dated post go live and enter the sitemap within the hour, with no deploy. That's the single change that makes post-11/04 upkeep light.
 **Fix:** `app/sitemap.ts` returns the static routes + published posts (via `lib/blog/posts.ts`) + city pages + tools + equipment, with trailing slashes and apex URLs, and `export const revalidate = 3600`. Keep `llms.txt` manual and refresh it once a month.
 
-### M2 · Queue the winter posts now, dated through January
+### M2 · Queue the winter posts now, dated through January — ✅ 3 approved + scheduled 11/12, 11/24, 12/10 (15afcfd)
 **Skill:** `kaisrun-blog-post` (topic research, 1,250+ words, Facebook copy)
 **Impact:** once M1 ships, posts written in October publish themselves through WoW launch and after. Travis's weekly job is the pre-written Facebook post.
 **Fix:** 4-6 posts dated roughly every 2 weeks from 11/05 to mid-January, each with its Facebook copy appended to `docs/PUBLISHING.md`. Topics come from the skill's research, not guesses. Leave out the Snowbird tier, which is still gated.
 
-### M3 · Make the embeds earn links, and make the tools static
+### M3 · Make the embeds earn links, and make the tools static — ✅ embed snippet + chrome-free embed mode 2026-09-16 (7f8f7fe); tools still dynamic (static conversion skipped: no traffic to speed up)
 **Files:** new `app/tools/<tool>/embed/page.tsx` ×4 (chrome-less layout), `app/tools/<tool>/page.tsx` ×4 (drop the `searchParams` read, add an "Embed this tool" block)
 **Impact:** BACKLINK-PLAN Tier 4 (vets, groomers, rescues) only produces links if the host page carries a plain `<a>` outside the iframe. Moving embed to its own route also makes the 4 tool pages static and cacheable.
 **Fix:** the copy block each tool page offers:
@@ -105,11 +105,11 @@ Also fix the "Conditions are currently safe." fallback at `HeatChecker.tsx:399` 
 ```
 Point the old `?embed=1` URLs at `/embed/` with a redirect, so nothing already embedded breaks. The in-frame "Powered by" link gets `target="_blank"`. The embed layout has no navbar, footer form, cookie banner, popup, GA4 or Clarity.
 
-### M4 · One puppy answer across the site
+### M4 · One puppy answer across the site — ✅ 2026-09-16 (4c69f06)
 **Files:** `lib/exercise/compute.ts`, `lib/puppy/growth.ts`, `content/blog/is-a-slatmill-safe-for-dogs.mdx`
 **Fix:** decide per session vs per day and the growth-plate range, then make all three say the same thing. The calculator should defer to the planner for dogs under 18 months on giant breeds.
 
-### M5 · Next steps from the tools
+### M5 · Next steps from the tools — ✅ 2026-09-16 (7f8f7fe); first-aid buy link skipped (no Amazon tag)
 **Files:** `app/tools/dog-body-condition-score/*`, `app/tools/puppy-exercise-planner/*`, and all tool result states
 **Fix:**
 - Add a `/book/` CTA to the BCS and puppy results (the only two without one).
@@ -125,11 +125,11 @@ Retitle the tool pages and cards toward the tool wording, e.g. "Pavement Heat Ch
 ### L2 · Hygiene (one commit)
 - CLAUDE.md:98 → `lib/blog/categories.ts`.
 - Replace CLAUDE.md's AdSense section with "Removed 2026-09-01. Do not reintroduce."
-- Ronzeil Sources link with the affiliate code (`RonzeilSlatmillPageClient.tsx:364`).
+- ✅ Ronzeil Sources link with the affiliate code (dffffad).
 - FAQ for `ronzeil-slatmill-build`.
 - The 4 `set-state-in-effect` lint errors.
 - In-body `/book/` link in the 4 posts that lack one.
-- BCS "Obese" label boundary.
+- ❎ BCS "Obese" label boundary: not a defect, scores round to the half point and 7.5 rounds to 8.
 - "Climate-controlled" wording.
 - Check the `app/api/heat/route.ts` hourly label against 3-hour data if `OPENWEATHER` is set in Vercel.
 
