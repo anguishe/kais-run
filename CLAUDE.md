@@ -100,7 +100,7 @@ Mary Esther · Navarre · Santa Rosa Beach · Bluewater Bay · Valparaiso
 
 ## Blog Post Checklist Reminder
 
-Every new blog post requires a `CATEGORY_MAP` entry in `components/blog/FieldNotesIndex.tsx` — omitting it causes the post to disappear from all category filters on /blog.
+Every new blog post requires a `CATEGORY_MAP` entry in `lib/blog/categories.ts` — omitting it causes the post to disappear from all category filters on /blog.
 
 ## Pre-Flight Pattern for Every Task
 
