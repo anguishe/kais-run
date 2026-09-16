@@ -361,9 +361,9 @@ export function RonzeilSlatmillPageClient() {
             <li>
               Ronzeil - slatmill product information:{' '}
               <a
-                href="https://www.ronzeil.com/"
+                href="https://www.ronzeil.com/?aff=hLEgGt3gup"
                 target="_blank"
-                rel="nofollow noopener"
+                rel="sponsored nofollow noopener"
                 className="text-brand-teal-light underline-offset-2 hover:underline break-words"
               >
                 ronzeil.com
