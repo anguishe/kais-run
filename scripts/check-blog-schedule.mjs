@@ -121,13 +121,15 @@ assert.equal(isPublished({ date: today }), true, 'a post dated today must be liv
 assert.equal(isPublished({ date: '2020-01-01', draft: true }), false, 'draft always wins');
 assert.equal(isPublished({}), true, 'a dateless legacy post must never vanish');
 
-// public/sitemap.xml and public/llms.txt are maintained by hand, so a
+// public/llms.txt is maintained by hand, so a
 // self-publishing post reaches the site before it reaches either file. Print the
 // exact lines to paste rather than making anyone reconstruct them. Deliberately a
 // warning, not a failure - the post is live and working either way.
 const sitemapXml = fs.existsSync(SITEMAP_FILE) ? fs.readFileSync(SITEMAP_FILE, 'utf8') : '';
 const llmsTxt = fs.existsSync(LLMS_FILE) ? fs.readFileSync(LLMS_FILE, 'utf8') : '';
-const unlisted = live.filter((p) => !sitemapXml.includes(`/blog/${p.slug}/`));
+// app/sitemap.ts generates the sitemap from the same date gate, so this check only
+// applies if a hand-maintained public/sitemap.xml ever comes back.
+const unlisted = sitemapXml ? live.filter((p) => !sitemapXml.includes(`/blog/${p.slug}/`)) : [];
 const unlistedLlms = live.filter((p) => !llmsTxt.includes(`/blog/${p.slug}/`));
 
 if (unlisted.length || unlistedLlms.length) {
