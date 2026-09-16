@@ -4,6 +4,7 @@ import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { BodyConditionChecker } from './BodyConditionChecker';
 import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = "Dog Body Condition Score Checker (No Scale) | Kai's Run";
 const DESC =
@@ -140,6 +141,7 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
 
         <div className="mt-10 bg-brand-charcoal rounded-xl p-6 sm:p-8">
           <BodyConditionChecker />
+          <LaunchWaitlist source="tool-dog-body-condition-score" />
         </div>
 
         <section className="mt-20 font-body text-brand-gray leading-relaxed">

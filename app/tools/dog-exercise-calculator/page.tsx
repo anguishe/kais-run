@@ -4,6 +4,7 @@ import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { Calculator } from './Calculator';
 import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = 'Dog Exercise Calculator - How Much Does My Dog Need?';
 const DESC =
@@ -126,6 +127,7 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
 
         <div className="mt-10 bg-brand-charcoal rounded-xl p-6 sm:p-8">
           <Calculator />
+          <LaunchWaitlist source="tool-dog-exercise-calculator" />
         </div>
 
         <section className="mt-20">

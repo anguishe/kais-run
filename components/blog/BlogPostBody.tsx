@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { blogMdxComponents } from '@/components/blog/blogMdxComponents';
+import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 export type BlogPostBodyProps = {
   slug: string;
@@ -18,7 +19,7 @@ export type BlogPostBodyProps = {
  * booking or an equipment click, and a display unit competes with both for a
  * few cents of RPM.
  */
-export default async function BlogPostBody({ body, related }: BlogPostBodyProps) {
+export default async function BlogPostBody({ slug, body, related }: BlogPostBodyProps) {
   return (
     <>
       <div className="blog-article-body">
@@ -63,6 +64,8 @@ export default async function BlogPostBody({ body, related }: BlogPostBodyProps)
           <a href="/contact/" className="text-brand-teal-light hover:underline">Contact</a>
         </p>
       </aside>
+
+      <LaunchWaitlist source={`blog-${slug}`} />
 
       <section className="mt-16 rounded-xl border border-brand-teal/30 bg-brand-charcoal/60 px-6 py-10 text-center">
         <h2 className="font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">

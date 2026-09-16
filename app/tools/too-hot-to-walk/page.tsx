@@ -4,6 +4,7 @@ import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { HeatChecker } from './HeatChecker';
 import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = 'Too Hot to Walk Your Dog? Pavement Temperature Checker';
 const DESC =
@@ -127,6 +128,7 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
 
         <div className="mt-10">
           <HeatChecker />
+          <LaunchWaitlist source="tool-too-hot-to-walk" />
         </div>
 
         <section className="mt-20 font-body text-brand-gray leading-relaxed space-y-5">

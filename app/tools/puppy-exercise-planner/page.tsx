@@ -4,6 +4,7 @@ import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { PuppyPlanner } from './PuppyPlanner';
 import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = "Puppy Exercise Planner - Growth Plates & the 5-Minute Rule | Kai's Run";
 const DESC =
@@ -144,6 +145,7 @@ export default async function PuppyExercisePlannerPage({ searchParams }: Props) 
 
         <div className="mt-10 bg-brand-charcoal rounded-xl p-6 sm:p-8">
           <PuppyPlanner />
+          <LaunchWaitlist source="tool-puppy-exercise-planner" />
         </div>
 
         <section className="mt-20 font-body text-brand-gray leading-relaxed">
