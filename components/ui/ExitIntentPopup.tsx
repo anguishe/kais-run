@@ -4,15 +4,12 @@ import Link from 'next/link';
 import { setBookIntentSource } from '@/lib/bookIntent';
 
 /**
- * PAUSED for the Super Dad 2026 campaign.
+ * PAUSED. Paused first for the Super Dad 2026 homepage vote card (removed
+ * 2026-09-24); it stays paused because it sells a priced founding package and
+ * the trailer is not operational yet. Before PAUSED_UNTIL passes, either push
+ * the date or rewrite this as a waitlist prompt with no price.
  *
- * The homepage now runs VotePromo (a vote prompt for the competition), and two
- * overlays competing for the same visitor converts worse than either alone.
- * This popup returns to normal automatically on the date below.
- *
- * TO RE-ENABLE EARLY: delete PAUSED_UNTIL and the early return in the mouseleave
- * effect. Do that the day Travis is eliminated — every day this stays off is
- * founding-spot conversions the site is not capturing.
+ * TO RE-ENABLE: delete PAUSED_UNTIL and the early return in the mouseleave effect.
  */
 const PAUSED_UNTIL = new Date('2026-12-11T00:00:00Z'); // winner announced by Dec 10
 
