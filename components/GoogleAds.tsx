@@ -52,9 +52,9 @@ export default function GoogleAds({ conversionId }: GoogleAdsProps) {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-ads-gtag-init" strategy="afterInteractive">
+      <Script id="google-ads-gtag-init" strategy="lazyOnload">
         {`
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
