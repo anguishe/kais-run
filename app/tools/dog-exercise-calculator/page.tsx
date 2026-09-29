@@ -203,6 +203,16 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
             to hear first when structured sessions open.
           </p>
         </section>
+        <p className="mt-12 font-body text-brand-gray">
+          More free tools:{' '}
+          <Link href="/tools/dog-beach-checker/" className="text-brand-teal-light underline">
+            Where can your dog legally run near the water?
+          </Link>
+          {' '}·{' '}
+          <Link href="/tools/" className="text-brand-teal-light underline">
+            all tools
+          </Link>
+        </p>
         <EmbedThisTool
           path="/tools/dog-exercise-calculator/"
           iframeTitle="Dog exercise calculator"

@@ -137,6 +137,8 @@ Not yet. Kai's Run is not taking dogs yet. Join the launch list at https://kaisr
 - Dog exercise calculator - personalized daily target by drive level, age, and health flags: https://kaisrun.xyz/tools/dog-exercise-calculator/
 - Dog body condition score checker - a 30-second hands-on body check (no scale) that estimates whether your dog is over- or underweight and what to do next: https://kaisrun.xyz/tools/dog-body-condition-score/
 - Puppy exercise planner - safe workload by age and expected adult size, with growth plate closure windows and what the five-minute rule actually limits: https://kaisrun.xyz/tools/puppy-exercise-planner/
+- Emerald Coast Dog Beach Checker - is a dog allowed on this beach right now, by spot, with the ordinance and last-verified date for each rule: https://kaisrun.xyz/tools/dog-beach-checker/
+  Summary (verified 2026-09-28): no dogs on any Okaloosa County public beach (County Code Sec. 5-25(a)(6)) or City of Destin beach (City Code Sec. 4-7(a)(6)); Walton County allows leashed dogs 3:30 PM to 8:30 AM year-round, only for county property owners and permanent residents with a permit (Sec. 22-31, Ord. 2025-22); no dogs on Navarre Beach (Santa Rosa County Sec. 4-37(b)), state park beaches (Rule 62D-2.014(13), F.A.C.) or Gulf Islands National Seashore beaches; legal Gulf sand for visitors = the two Pensacola Beach dog beaches (Escambia Sec. 10-24) and the west side of the Panama City Beach City Pier (PCB Sec. 7-9).
 - Tools index: https://kaisrun.xyz/tools/
 
 ## Contact and Launch List

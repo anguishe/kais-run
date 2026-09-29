@@ -28,11 +28,15 @@ let verdictModule;
 let exerciseModule;
 let bcsModule;
 let puppyModule;
+let beachRules;
+let beachVerdict;
 try {
   verdictModule = await load('lib/heat/verdict.ts');
   exerciseModule = await load('lib/exercise/gap.ts');
   bcsModule = await load('lib/bcs/history.ts');
   puppyModule = await load('lib/puppy/growth.ts');
+  beachRules = await load('lib/beach/rules.ts');
+  beachVerdict = await load('lib/beach/verdict.ts');
 } catch (err) {
   console.log('Skipped: this Node cannot import TypeScript directly.');
   console.log(`Run with Node 22.6+ (current ${process.version}), or: node --experimental-strip-types scripts/check-tools.mjs`);
@@ -239,4 +243,66 @@ for (const age of [1, 6, 13, 24]) {
 }
 
 console.log(`puppy (7mo lg):  ${puppyPlan(7, 'large').stageHeadline}, ${puppyPlan(7, 'large').structuredCeilingMin} min ceiling`);
+// --- Dog Beach Checker (lib/beach) ------------------------------------------
+{
+  const { SPOTS, spotById, CHANGE_LOG } = beachRules;
+  const { verdictFor, wallFromLocalInput, sunTimes } = beachVerdict;
+  const at = (s) => wallFromLocalInput(s);
+  const walton = spotById('walton-public');
+  const pcolaWest = spotById('pcola-west');
+
+  // Walton: permit window is 3:30 PM to 8:30 AM, [start, end).
+  const w329 = verdictFor(walton, { resident: true, at: at('2026-10-01T15:29') });
+  assert.equal(w329.verdict, 'closed-now');
+  assert.equal(w329.nextLegalWindow.startLabel, 'today 3:30 PM');
+  assert.equal(w329.nextLegalWindow.minutesUntil, 1);
+  assert.equal(verdictFor(walton, { resident: true, at: at('2026-10-01T15:30') }).verdict, 'allowed-window');
+  assert.equal(verdictFor(walton, { resident: true, at: at('2026-10-01T02:00') }).verdict, 'allowed-window');
+  assert.equal(verdictFor(walton, { resident: true, at: at('2026-10-01T08:30') }).verdict, 'closed-now');
+  // Visitors never qualify, at any hour, and always get alternatives.
+  for (const t of ['2026-10-01T06:00', '2026-10-01T18:00']) {
+    const v = verdictFor(walton, { resident: false, at: at(t) });
+    assert.equal(v.verdict, 'not-allowed');
+    assert.ok(v.alternatives.length > 0);
+  }
+
+  // Pensacola Beach: sunrise-to-sunset in winter. Sunrise on 2027-01-10 is about
+  // 6:46 AM CST, so 6:30 is before it (the spec's "07:00 before sunrise" case is
+  // after sunrise; 6:30 is the real pre-sunrise check).
+  const jan = sunTimes(2027, 1, 10, pcolaWest.lat, pcolaWest.lon);
+  assert.ok(jan.sunrise > 6 * 60 + 35 && jan.sunrise < 6 * 60 + 55, `Jan sunrise ${jan.sunrise}`);
+  assert.equal(verdictFor(pcolaWest, { resident: false, at: at('2027-01-10T06:30') }).verdict, 'closed-now');
+  assert.equal(verdictFor(pcolaWest, { resident: false, at: at('2027-01-10T07:00') }).verdict, 'allowed');
+  assert.equal(verdictFor(pcolaWest, { resident: false, at: at('2027-01-10T18:00') }).verdict, 'closed-now');
+  // Summer: the 7 AM rule, not sunrise.
+  const jul = verdictFor(pcolaWest, { resident: false, at: at('2026-07-01T06:30') });
+  assert.equal(jul.verdict, 'closed-now');
+  assert.equal(jul.nextLegalWindow.startLabel, 'today 7:00 AM');
+  assert.equal(verdictFor(pcolaWest, { resident: false, at: at('2026-07-01T07:00') }).verdict, 'allowed');
+
+  const anyTime = at('2026-10-01T12:00');
+  assert.equal(verdictFor(spotById('destin-city'), { resident: true, at: anyTime }).verdict, 'not-allowed');
+  assert.equal(verdictFor(spotById('okaloosa-island'), { resident: false, at: anyTime }).verdict, 'not-allowed');
+  assert.equal(verdictFor(spotById('navarre-beach'), { resident: false, at: anyTime }).verdict, 'not-allowed');
+  assert.equal(verdictFor(spotById('henderson-sp'), { resident: false, at: anyTime }).verdict, 'trails-only');
+  assert.equal(verdictFor(spotById('crab-island'), { resident: false, at: anyTime }).verdict, 'unverified');
+  assert.equal(verdictFor(spotById('pcb-pier'), { resident: false, at: anyTime }).verdict, 'allowed');
+
+  // Data hygiene: ids unique, alternatives resolve, no fees/fines/em dashes/exclamation points.
+  const ids = new Set();
+  for (const s of SPOTS) {
+    assert.ok(!ids.has(s.id), `duplicate spot id ${s.id}`);
+    ids.add(s.id);
+  }
+  for (const s of SPOTS) {
+    for (const alt of s.alternatives) assert.ok(ids.has(alt), `${s.id} -> unknown alternative ${alt}`);
+    const text = JSON.stringify(s) + JSON.stringify(CHANGE_LOG);
+    assert.ok(!text.includes('—'), `${s.id}: no em dashes`);
+    assert.ok(!text.includes('!'), `${s.id}: no exclamation points`);
+    assert.ok(!/\$\s?\d/.test(text), `${s.id}: never publish a fee or fine amount`);
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(s.verifiedOn), `${s.id}: verifiedOn date`);
+  }
+  console.log(`beach:           ${SPOTS.length} spots, Walton 3:29 PM resident -> ${w329.verdict}`);
+}
+
 console.log('\nTool checks OK.');

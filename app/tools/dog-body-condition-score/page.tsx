@@ -202,6 +202,16 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
             to hear first when sessions open.
           </p>
         </section>
+        <p className="mt-12 font-body text-brand-gray">
+          More free tools:{' '}
+          <Link href="/tools/dog-beach-checker/" className="text-brand-teal-light underline">
+            Dog Beach Checker - which Emerald Coast beaches allow dogs
+          </Link>
+          {' '}·{' '}
+          <Link href="/tools/" className="text-brand-teal-light underline">
+            all tools
+          </Link>
+        </p>
         <EmbedThisTool
           path="/tools/dog-body-condition-score/"
           iframeTitle="Dog body condition score checker"

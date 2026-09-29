@@ -4,7 +4,7 @@ import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
 const TOOLS_DESCRIPTION =
-  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk, estimate how much exercise your dog needs, score its body condition, and plan a puppy\'s workload around its growth plates.';
+  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk, see which beaches allow dogs, estimate how much exercise your dog needs, score its body condition, and plan a puppy\'s workload around its growth plates.';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Home', path: '/' },
@@ -62,6 +62,14 @@ const tools = [
       "How much a puppy can safely handle, by age and adult size - and what the five-minute rule is actually limiting.",
     detail:
       'Enter an age and an expected adult size to get the growth plate window for that build, a ceiling on forced repetitive work, and an explicit statement that self-directed play on soft ground is not the thing being capped. Includes what to avoid at each stage, and why stairs matter more than minutes.',
+  },
+  {
+    href: '/tools/dog-beach-checker/',
+    title: 'Dog Beach Checker',
+    blurb:
+      'Can your dog go on this beach right now? Destin, 30A, Navarre, Pensacola Beach and PCB, with the ordinance behind each answer.',
+    detail:
+      'Pick a spot and get a verdict for this hour: allowed, closed until a set time, trails only, or not allowed at all. Handles the Walton County permit window, Pensacola Beach dog beach hours by season, and sends you to the nearest legal alternative with an approximate drive time. Every rule shows its source and the date it was last checked.',
   },
 ];
 

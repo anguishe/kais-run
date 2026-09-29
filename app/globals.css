@@ -100,3 +100,27 @@ html.lenis body {
   line-height: 1.5;
   text-align: center;
 }
+
+/* Embeddable tools: ?theme=light swaps the brand tokens for light host pages. */
+.embed-light {
+  --color-brand-black: #FFFFFF;
+  --color-brand-charcoal: #F3F1EC;
+  --color-brand-offwhite: #0F1117;
+  --color-brand-gray: #4A4744;
+  --color-brand-teal-light: #0A5C52;
+  background-color: #FFFFFF;
+  color: #0F1117;
+}
+
+/* "Print this rule" / "Print" buttons: print only the result card. */
+@media print {
+  body.print-beach-result * { visibility: hidden; }
+  body.print-beach-result #beach-result,
+  body.print-beach-result #beach-result * { visibility: visible; }
+  body.print-beach-result #beach-result {
+    position: absolute; left: 0; top: 0; width: 100%;
+    border: 1px solid #000; background: #fff !important;
+  }
+  body.print-beach-result #beach-result * { color: #000 !important; background: transparent !important; }
+  body.print-beach-result .beach-print-hide { display: none !important; }
+}

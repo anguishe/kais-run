@@ -32,6 +32,8 @@ export type ServiceCityPage = {
   crossLinks?: Array<{ slug: ServiceCitySlug; name: string }>;
   hubTeaser: string;
   closingHook: string;
+  /** One line on local beach rules, linked to the Dog Beach Checker preset to `spot`. */
+  beachNote?: { text: string; spot: string };
 };
 
 export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
@@ -54,6 +56,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Summer heat and humidity make outdoor runs risky for dogs who do not know when to quit. The mobile unit keeps sessions controlled while still loading real cardiovascular work. High-drive breeds common in Destin - ridgebacks, shepherds, dock-diving retrievers, cattle dogs - need sustained aerobic output, not another sniff loop on the harbor walk. A 30–45 minute slatmill session loads the system the way natural running does, with the dog controlling every step.",
       "Holiday Isle and Crystal Beach rentals see the same story every peak week: the humans are sun-tired, the dog is not. Henderson Beach walks are enrichment, not conditioning. Destin Commons and the mid-town corridors fill with families who chose this coast for quality of life - and quality of life includes a dog who can settle at dinner. You get a progress photo and written recap within an hour after each visit. Your dog comes home measurably tired.",
     ],
+    beachNote: {
+      text: 'Dogs are not allowed on Destin or Okaloosa County public beaches, leashed or not.',
+      spot: 'destin-city',
+    },
     closingHook:
       "Destin is home base for Kai's Run - the anchor of the route and the schedule.",
     crossLinks: [
@@ -86,6 +92,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Shift work and TDY timelines do not align with facility hours. A mobile dog gym that parks in your driveway removes the commute variable entirely. Cinco Bayou and Mary Esther addresses batch with Okaloosa Island routes so confirmation usually arrives within a couple of hours of booking. Ocean City and the north-side corridors follow the same geographic routing - we tell you honestly if an address fits the day's map before you pay.",
       "We route geographically across Fort Walton Beach and the surrounding communities so booking stays predictable even when deployment timelines shift. Active-duty military, veterans, reserves, Guard, and first responders receive the Military & First Responder Discount - 10% off all paid sessions and packages, excluding the Intro Session - mention your status when you book. Rabies vaccination and a digital waiver are required before the first session; Julius K9 harnesses are on the truck in common sizes.",
     ],
+    beachNote: {
+      text: 'Dogs are not allowed on the Okaloosa Island or Fort Walton Beach Gulf beaches; the fenced dog park at Liza Jackson Park is the legal off-leash option.',
+      spot: 'fwb-gulf',
+    },
     closingHook:
       "Fort Walton Beach anchors the western half of the route, and its morning slots go first.",
   },
@@ -138,6 +148,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "A walk on the Gulf side is enrichment - salt air, new smells, decompression. It rarely holds a steady heart rate long enough to count as conditioning for a dog bred to work. A 30–45 minute slatmill session concentrates real aerobic load into a bounded appointment: warm-up, working sets, cool-down, with the dog driving the belt at its own pace. No motor forces speed. The dog slows to recover and stops when it is done. That self-regulation matters for reactive or noise-sensitive dogs who fall apart in a group daycare setting.",
       "We pull up to your driveway, or to your rental's accessible parking area, and set up in shade or inside the temperature-controlled mobile unit - no facility to drive to, no check-in line, no other dog in the space. Travis handles the hookup, monitors the whole session, and sends a progress photo with a plain-language recap within an hour. Rabies vaccination and a signed digital waiver are required before the first visit. Julius K9 harnesses ride on the truck in common sizes. Your dog goes back inside calm instead of pacing the tile at 10 p.m.",
     ],
+    beachNote: {
+      text: 'Miramar Beach sand is Walton County: leashed dogs only for permit-holding residents and property owners, 3:30 PM to 8:30 AM. Renters cannot get a permit.',
+      spot: 'walton-public',
+    },
     closingHook:
       "Miramar Beach mornings beat the Highway 98 traffic and the pavement heat in one move.",
   },
@@ -164,6 +178,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "A walk to the Baytowne marina is a nice loop, but it is enrichment, not conditioning - sightlines, other dogs, salt air, and a heart rate that never settles into real work. A slatmill session loads sustained aerobic output in 30–45 minutes with a clear warm-up and cool-down, and the dog controls every step on a self-powered belt with no motor. For a shepherd or malinois with gears left at 9 p.m., that bounded private session is the difference between a dog that settles at dinner and one that patrols the condo.",
       "We schedule around your availability and your village's access rules. If your unit allows a vehicle at the door, that is where we set up; if not, we work from a nearby permitted area and keep the session inside the air-conditioned mobile unit against Florida heat. One dog, no other animals, no distractions - the structure is identical wherever the truck parks. Travis handles setup, monitors the run, and sends a progress photo and plain-language recap within an hour. Rabies vaccination and a signed waiver are required before the first visit.",
     ],
+    beachNote: {
+      text: 'Sandestin-area public beaches follow the Walton County rule: permit-holding residents and property owners only, 3:30 PM to 8:30 AM.',
+      spot: 'walton-public',
+    },
     closingHook:
       "Inside Sandestin's gates, the self-powered rig runs near-silent - no generator, no noise complaints.",
   },
@@ -242,6 +260,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Beach walks at Navarre Beach are enrichment and decompression. They rarely deliver the structured load a working dog needs before the household can settle. Slatmill sessions run 30–45 minutes door-to-door with warm-up, working sets, and cool-down. The dog controls pace on a belt with no motor. You get a progress photo and written recap within an hour. We route Navarre addresses geographically with Fort Walton Beach and Mary Esther visits.",
       "Military, veteran, and first responder households receive the Military & First Responder Discount - 10% off all paid sessions and packages, excluding the Intro Session - mention your status when you book. Rabies vaccination and a digital waiver are required before the first session. Julius K9 harnesses are on the truck in common sizes. Summer heat makes outdoor runs risky for dogs who do not self-limit - the mobile unit keeps work controlled while still loading real cardiovascular output.",
     ],
+    beachNote: {
+      text: 'Navarre Beach is closed to dogs, and there is no official dog beach in Santa Rosa County.',
+      spot: 'navarre-beach',
+    },
     closingHook:
       "Navarre marks the western edge of the service area - early booking holds the best windows.",
   },
@@ -269,6 +291,10 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Vacation rental schedules rarely align with dog park hours or daylight suitable for hard exercise. A slatmill session at your door fits between beach time and checkout stress.",
       "Santa Rosa Beach dog owners work around rules most of the county never thinks about. Walton County requires an annual permit, open only to county residents and property owners, before a dog touches the sand, and even then the dog must be leashed and the hours run 3:30 p.m. to 8:30 a.m. - so in summer the afternoon end of that window lands right when the heat peaks and the walk gets cancelled anyway. That leaves the leashed loops of the Eastern Lake Trail in Point Washington State Forest, where soft sand slows a big dog to a trudge, or a fenced dog park shared with every visiting dog on 30A in high season. A slatmill session in your own driveway ignores all of it. No permit, no trailhead drive, no tourist-season crowding - measured work at your house, on your schedule.",
     ],
+    beachNote: {
+      text: 'Walton County beaches allow leashed dogs only for permit-holding residents and property owners, 3:30 PM to 8:30 AM.',
+      spot: 'walton-public',
+    },
     closingHook:
       "Santa Rosa Beach sessions are best booked early in the day, before the 30A heat closes the window.",
   },

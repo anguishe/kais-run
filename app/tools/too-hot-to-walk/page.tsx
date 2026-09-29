@@ -199,6 +199,16 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
             to hear first when climate-controlled driveway sessions open.
           </p>
         </section>
+        <p className="mt-12 font-body text-brand-gray">
+          More free tools:{' '}
+          <Link href="/tools/dog-beach-checker/" className="text-brand-teal-light underline">
+            Heading to the beach? Check if dogs are allowed
+          </Link>
+          {' '}·{' '}
+          <Link href="/tools/" className="text-brand-teal-light underline">
+            all tools
+          </Link>
+        </p>
         <EmbedThisTool
           path="/tools/too-hot-to-walk/"
           iframeTitle="Too hot to walk your dog? Pavement heat checker"

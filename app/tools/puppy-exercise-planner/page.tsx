@@ -208,6 +208,16 @@ export default async function PuppyExercisePlannerPage({ searchParams }: Props) 
             to hear first when sessions open.
           </p>
         </section>
+        <p className="mt-12 font-body text-brand-gray">
+          More free tools:{' '}
+          <Link href="/tools/dog-beach-checker/" className="text-brand-teal-light underline">
+            Planning a beach day with a puppy? Check which beaches allow dogs first
+          </Link>
+          {' '}·{' '}
+          <Link href="/tools/" className="text-brand-teal-light underline">
+            all tools
+          </Link>
+        </p>
         <EmbedThisTool
           path="/tools/puppy-exercise-planner/"
           iframeTitle="Puppy exercise planner"

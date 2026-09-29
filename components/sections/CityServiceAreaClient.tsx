@@ -100,14 +100,26 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
               </div>
             ))}
 
+            {city.beachNote && (
+              <p>
+                {city.beachNote.text}{' '}
+                <Link
+                  href={`/tools/dog-beach-checker/?spot=${city.beachNote.spot}`}
+                  className="text-brand-teal-light underline-offset-2 hover:underline"
+                >
+                  Check the dog beach rules
+                </Link>
+                .
+              </p>
+            )}
+
             <p>
               {city.closingHook}{' '}
-              The{' '}
-              <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
-                Founding Athlete Program
+              Kai&apos;s Run is not taking dogs yet -{' '}
+              <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
+                join the launch list
               </Link>{' '}
-              is capped at 20 dogs across the entire service area - when the spots are gone, they are
-              gone.
+              to hear first when sessions open here.
             </p>
           </motion.div>
 
