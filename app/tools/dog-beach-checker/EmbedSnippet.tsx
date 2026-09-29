@@ -77,6 +77,16 @@ export default function EmbedSnippet() {
       >
         {copied ? 'Copied' : 'Copy embed code'}
       </button>
+      <p className="mt-6 font-body text-brand-gray">
+        Rental host?{' '}
+        <a
+          href={`/tools/dog-beach-checker/card/${spot ? `?spot=${spot}` : ''}`}
+          className="text-brand-teal-light underline"
+        >
+          Print a guest card for the house binder
+        </a>{' '}
+        with the rule for this beach, the nearest legal alternatives, and a QR code to the live rule.
+      </p>
     </section>
   );
 }

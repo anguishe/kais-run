@@ -26,6 +26,14 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Embeds moved from ?embed=1 on the canonical page to static /embed/ routes
+        // (2026-09-28) so the canonical tool pages can be static. Old snippets keep working.
+        source: '/tools/:tool/',
+        has: [{ type: 'query', key: 'embed', value: '1' }],
+        destination: '/tools/:tool/embed/',
+        permanent: true,
+      },
+      {
         source: '/equipment/ronzeil/',
         destination: '/equipment/ronzeil-slatmill/',
         permanent: true,

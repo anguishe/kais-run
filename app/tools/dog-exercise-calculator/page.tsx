@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { Calculator } from './Calculator';
-import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import EmbedThisTool from '@/components/tools/EmbedThisTool';
 import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = 'Dog Exercise Calculator - How Much Does My Dog Need?';
@@ -81,25 +81,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Dog Exercise Calculator', path: '/tools/dog-exercise-calculator/' },
 ]);
 
-type Props = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function DogExerciseCalculatorPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const embed = sp.embed === '1';
-
-  if (embed) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-8">
-        <style>{EMBED_CHROME_CSS}</style>
-        <h1 className="font-display text-3xl text-brand-offwhite mb-6">{TITLE}</h1>
-        <Calculator />
-        <EmbedCredit path="/tools/dog-exercise-calculator/" />
-      </div>
-    );
-  }
-
+export default function DogExerciseCalculatorPage() {
   return (
     <>
       <script

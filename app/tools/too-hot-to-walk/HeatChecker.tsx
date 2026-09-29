@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { CITIES } from '@/lib/heat/cities';
@@ -11,6 +11,7 @@ import {
   safeWindows,
   hourlyBands,
   exposureAt,
+  splitDays,
   PAVEMENT_SOURCE,
 } from '@/lib/heat/verdict';
 import type { Band, HourBand, HourSample, Modifiers } from '@/lib/heat/verdict';
@@ -73,7 +74,7 @@ const BAND_WORD: Record<Band, string> = {
  * bar here is a full verdict for that hour with the dog's modifiers applied,
  * so an at-risk dog visibly gets a narrower day than a fit one.
  */
-function HourStrip({ hours }: { hours: HourBand[] }) {
+function HourStrip({ hours, title = 'Today, hour by hour' }: { hours: HourBand[]; title?: string }) {
   if (hours.length === 0) return null;
 
   const walkable = hours.filter((h) => h.walkable).length;
@@ -83,7 +84,7 @@ function HourStrip({ hours }: { hours: HourBand[] }) {
   return (
     <div className="mb-5 rounded-xl border border-brand-charcoal bg-brand-charcoal/60 p-5">
       <div className="mb-1 flex items-baseline justify-between gap-3">
-        <h3 className="font-display text-xl tracking-wide text-brand-offwhite">Today, hour by hour</h3>
+        <h3 className="font-display text-xl tracking-wide text-brand-offwhite">{title}</h3>
         <span className="font-body text-xs text-brand-gray">
           {walkable} of {hours.length} hours walkable
         </span>
@@ -92,7 +93,7 @@ function HourStrip({ hours }: { hours: HourBand[] }) {
         Each bar is a full verdict for that hour, including the conditions you checked above.
       </p>
 
-      <ul className="flex items-end gap-[2px]" aria-label="Hourly walk safety for today">
+      <ul className="flex items-end gap-[2px]" aria-label={`Hourly walk safety - ${title}`}>
         {hours.map((h) => (
           <li
             key={h.hourISO}
@@ -139,13 +140,75 @@ function HandTest({ className }: { className?: string }) {
   );
 }
 
+// Shareable state: ?zip=32541&m=bs (b brachycephalic, s senior, d dark coat, o overweight).
+const MOD_CODES: [keyof Modifiers, string][] = [
+  ['brachycephalic', 'b'],
+  ['senior', 's'],
+  ['darkCoat', 'd'],
+  ['overweight', 'o'],
+];
+
+function encodeMods(m: Modifiers): string {
+  return MOD_CODES.filter(([k]) => m[k]).map(([, c]) => c).join('');
+}
+
+function decodeMods(code: string | null): Modifiers {
+  const out: Modifiers = {};
+  if (!code) return out;
+  for (const [k, c] of MOD_CODES) if (code.includes(c)) out[k] = true;
+  return out;
+}
+
+function shareLink(zip: string, m: Modifiers): string {
+  const p = new URLSearchParams({ zip });
+  const code = encodeMods(m);
+  if (code) p.set('m', code);
+  return `https://kaisrun.xyz/tools/too-hot-to-walk/?${p.toString()}`;
+}
+
+/** "Walk before 8 AM / Safe after 7 PM" for one day of samples. */
+function windowSummary(hours: HourSample[], modifiers: Modifiers): string {
+  if (hours.length === 0) return '';
+  const w = safeWindows(hours, modifiers);
+  if (w.allDayUnsafe) return 'No safe window.';
+  if (w.allDaySafe) return 'Safe to walk all day.';
+  return [w.morningBefore && `Walk before ${w.morningBefore}`, w.eveningAfter && `safe after ${w.eveningAfter}`]
+    .filter(Boolean)
+    .join(', ') + '.';
+}
+
 export function HeatChecker() {
   const [exposure, setExposure] = useState<'sun' | 'shade'>('sun');
   const [modifiers, setModifiers] = useState<Modifiers>({});
   const [zipInput, setZipInput] = useState('');
   const [checkState, setCheckState] = useState<CheckState>({ status: 'idle' });
   const [copied, setCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+
+  // A shared link (?zip=&m=) reruns the same check on load. Read from
+  // window.location, not useSearchParams, so the page stays static with no Suspense.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const zip = (p.get('zip') ?? '').replace(/\D/g, '').slice(0, 5);
+    const mods = decodeMods(p.get('m'));
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time preset from a shared link
+    if (Object.keys(mods).length) setModifiers(mods);
+    if (zip.length === 5) {
+      setZipInput(zip);
+      const known = CITIES.find((c) => c.zip === zip);
+      run(zip, known?.city ?? zip);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function copyLink() {
+    if (checkState.status !== 'done') return;
+    navigator.clipboard.writeText(shareLink(checkState.zip, modifiers)).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    });
+  }
 
   async function run(zip: string, cityLabel: string) {
     setCheckState({ status: 'loading' });
@@ -163,6 +226,13 @@ export function HeatChecker() {
       // Prefer the city name the API resolved (geocoded ZIPs return it) over
       // the raw ZIP fallback label.
       setCheckState({ status: 'done', weather, city: weather.city ?? cityLabel, zip });
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set('zip', zip);
+        window.history.replaceState(null, '', url.toString());
+      } catch {
+        /* history blocked in some embeds - the Copy link button still works */
+      }
       const hi = heatIndexF(weather.tempF, weather.humidity);
       const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
       const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
@@ -186,7 +256,9 @@ export function HeatChecker() {
     const pavShade = pavementEstimateF(weather.tempF, 'shade');
     const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
     const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
-    const windows = safeWindows(weather.hourly, modifiers);
+    const days = splitDays(weather.hourly);
+    const windows = safeWindows(days[0]?.hours ?? [], modifiers);
+    const tomorrowLine = days[1] ? `Tomorrow: ${windowSummary(days[1].hours, modifiers)}` : '';
     const windowLine = windows.allDayUnsafe
       ? 'No safe window today.'
       : windows.allDaySafe
@@ -206,9 +278,10 @@ export function HeatChecker() {
       `Pavement sun: ${pavSun}F | Pavement shade: ${pavShade}F`,
       v.reason,
       windowLine,
+      tomorrowLine,
       '',
       PAVEMENT_SOURCE,
-      'kaisrun.xyz/tools/too-hot-to-walk/',
+      shareLink(checkState.zip, modifiers),
     ].join('\n');
 
     navigator.clipboard.writeText(text).then(() => {
@@ -350,7 +423,9 @@ export function HeatChecker() {
           const pavDisplay = exposure === 'sun' ? pavSun : pavShade;
           const pavNow = pavementEstimateF(weather.tempF, exposureAt(nowHourISO()));
           const v = computeVerdict({ heatIndexF: hi, pavementSunF: pavNow, modifiers });
-          const windows = safeWindows(weather.hourly, modifiers);
+          const days = splitDays(weather.hourly);
+          const windows = safeWindows(days[0]?.hours ?? [], modifiers);
+          const tomorrow = days[1];
           const isSafe = v.band === 'safe' || v.band === 'watch';
 
           return (
@@ -411,6 +486,11 @@ export function HeatChecker() {
                     )}
                   </>
                 )}
+                {tomorrow && (
+                  <p className="mt-2 opacity-90">
+                    Tomorrow: {windowSummary(tomorrow.hours, modifiers)}
+                  </p>
+                )}
               </div>
 
               {/* 7-second test */}
@@ -454,9 +534,16 @@ export function HeatChecker() {
       </AnimatePresence>
 
       {/* Hour-by-hour strip */}
-      {checkState.status === 'done' && (
-        <HourStrip hours={hourlyBands(checkState.weather.hourly, modifiers)} />
-      )}
+      {checkState.status === 'done' &&
+        splitDays(checkState.weather.hourly)
+          .slice(0, 2)
+          .map((day, i) => (
+            <HourStrip
+              key={day.date}
+              title={i === 0 ? 'Today, hour by hour' : 'Tomorrow, hour by hour'}
+              hours={hourlyBands(day.hours, modifiers)}
+            />
+          ))}
 
       {/* Copy result */}
       {checkState.status === 'done' && (
@@ -465,6 +552,14 @@ export function HeatChecker() {
           className="text-sm text-brand-gray hover:text-brand-offwhite border border-brand-charcoal px-4 py-2 rounded-lg transition-colors"
         >
           {copied ? 'Copied' : 'Copy result'}
+        </button>
+      )}
+      {checkState.status === 'done' && (
+        <button
+          onClick={copyLink}
+          className="ml-3 text-sm text-brand-gray hover:text-brand-offwhite border border-brand-charcoal px-4 py-2 rounded-lg transition-colors"
+        >
+          {linkCopied ? 'Link copied' : 'Copy link to this check'}
         </button>
       )}
     </div>

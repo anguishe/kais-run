@@ -208,3 +208,106 @@ export function puppyPlan(ageMonths: number, size: SizeClass): PuppyPlan {
     ],
   };
 }
+
+/**
+ * "Is this OK for my puppy right now?" lookup. One verdict per stage, conservative,
+ * and consistent with the stage copy above (Krontveit 2012: stairs early = more hip
+ * dysplasia; off-leash play on soft uneven ground = less). Forced, repetitive,
+ * high-impact work is what gets limited - not self-directed play.
+ */
+export type ActivityVerdict = "ok" | "small-doses" | "skip";
+
+export const ACTIVITY_VERDICT_LABEL: Record<ActivityVerdict, string> = {
+  ok: "OK",
+  "small-doses": "In small doses",
+  skip: "Skip for now",
+};
+
+export type Activity = {
+  key: string;
+  name: string;
+  byStage: Record<Stage, { verdict: ActivityVerdict; note: string }>;
+};
+
+export const ACTIVITIES: Activity[] = [
+  {
+    key: "stairs",
+    name: "Stairs",
+    byStage: {
+      "under-four-months": { verdict: "skip", note: "Carry the puppy. Regular stair use this young is linked to more hip dysplasia." },
+      "plates-open": { verdict: "small-doses", note: "A few flights a day at a walk, on a leash, never racing up or down." },
+      "plates-closing": { verdict: "small-doses", note: "Fine at a walk. Keep stair sprints and games off the list until the plates close." },
+      "plates-closed": { verdict: "ok", note: "Normal stair use is fine for a mature dog." },
+    },
+  },
+  {
+    key: "fetch",
+    name: "Fetch",
+    byStage: {
+      "under-four-months": { verdict: "small-doses", note: "A few short rolls on grass. No long throws, no leaping catches." },
+      "plates-open": { verdict: "small-doses", note: "A handful of low throws on grass. Repeated sprint, brake and twist is the load to limit." },
+      "plates-closing": { verdict: "small-doses", note: "Build the number of throws slowly and keep catches low." },
+      "plates-closed": { verdict: "ok", note: "Warm up first and keep high catches to a few per session." },
+    },
+  },
+  {
+    key: "jogging",
+    name: "Jogging with you",
+    byStage: {
+      "under-four-months": { verdict: "skip", note: "Too young for any forced pace on a leash." },
+      "plates-open": { verdict: "skip", note: "Leashed jogging is forced, repetitive work. Wait for the plates to close." },
+      "plates-closing": { verdict: "small-doses", note: "Short, easy jogs on soft ground after a vet check, building week to week." },
+      "plates-closed": { verdict: "ok", note: "Build distance gradually, the same way you would for yourself." },
+    },
+  },
+  {
+    key: "swimming",
+    name: "Swimming",
+    byStage: {
+      "under-four-months": { verdict: "small-doses", note: "Short supervised paddles in calm, shallow water with an easy way out." },
+      "plates-open": { verdict: "ok", note: "Low impact and good work. Keep it short, supervised, and rinse off salt or pool water." },
+      "plates-closing": { verdict: "ok", note: "Good conditioning without impact. Watch for fatigue in open water." },
+      "plates-closed": { verdict: "ok", note: "One of the best low-impact options. A life jacket helps on boat days." },
+    },
+  },
+  {
+    key: "beach-sand",
+    name: "Beach sand",
+    byStage: {
+      "under-four-months": { verdict: "small-doses", note: "Short free play on firm, wet sand. Long walks in soft sand are hard on young joints." },
+      "plates-open": { verdict: "small-doses", note: "Soft sand loads joints harder than it looks. Keep it short and let the puppy set the pace." },
+      "plates-closing": { verdict: "small-doses", note: "Build time on soft sand gradually and skip sand sprints." },
+      "plates-closed": { verdict: "ok", note: "Soft sand is hard work. Build up to it and watch hot sand in summer." },
+    },
+  },
+  {
+    key: "agility-jumps",
+    name: "Agility jumps",
+    byStage: {
+      "under-four-months": { verdict: "skip", note: "No jumping. Ground-level foundation games only." },
+      "plates-open": { verdict: "skip", note: "Jump landings are the load growth plates handle worst. Keep bars on the ground." },
+      "plates-closing": { verdict: "small-doses", note: "Low bars only, a few reps, soft landing surface." },
+      "plates-closed": { verdict: "ok", note: "Raise heights gradually with a warm-up every time." },
+    },
+  },
+  {
+    key: "tug",
+    name: "Tug",
+    byStage: {
+      "under-four-months": { verdict: "ok", note: "Gentle, low to the ground, and let the puppy set the pull. Never lift it off its feet." },
+      "plates-open": { verdict: "ok", note: "Keep the toy low and the pull steady, no whipping side to side." },
+      "plates-closing": { verdict: "ok", note: "Fine with the same low, steady rules." },
+      "plates-closed": { verdict: "ok", note: "Good strength work with a solid release cue." },
+    },
+  },
+  {
+    key: "hikes",
+    name: "Hikes",
+    byStage: {
+      "under-four-months": { verdict: "small-doses", note: "A short sniff wander on soft trail, or carry the puppy part of the way." },
+      "plates-open": { verdict: "small-doses", note: "Short, self-paced, soft trails. Turn back before the puppy is tired, not after." },
+      "plates-closing": { verdict: "small-doses", note: "Moderate distances, building week to week." },
+      "plates-closed": { verdict: "ok", note: "Build distance and elevation gradually." },
+    },
+  },
+];

@@ -230,3 +230,19 @@ export function safeWindows(
 
   return result;
 }
+
+/**
+ * Groups hourly samples by local calendar date ("YYYY-MM-DD" prefix of hourISO),
+ * in order. The API returns today + tomorrow (forecast_days=2); every per-day
+ * helper here (safeWindows, hourlyBands) expects one day at a time.
+ */
+export function splitDays(hourly: HourSample[]): { date: string; hours: HourSample[] }[] {
+  const out: { date: string; hours: HourSample[] }[] = [];
+  for (const h of hourly) {
+    const date = h.hourISO.slice(0, 10);
+    const last = out[out.length - 1];
+    if (last && last.date === date) last.hours.push(h);
+    else out.push({ date, hours: [h] });
+  }
+  return out;
+}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { BodyConditionChecker } from './BodyConditionChecker';
-import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import EmbedThisTool from '@/components/tools/EmbedThisTool';
 import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = "Dog Body Condition Score Checker (No Scale) | Kai's Run";
@@ -89,27 +89,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Dog Body Condition Score', path: '/tools/dog-body-condition-score/' },
 ]);
 
-type Props = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function DogBodyConditionScorePage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const embed = sp.embed === '1';
-
-  if (embed) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-8">
-        <style>{EMBED_CHROME_CSS}</style>
-        <h1 className="font-display text-3xl text-brand-offwhite mb-6">
-          Is My Dog Overweight? The 30-Second Body Check
-        </h1>
-        <BodyConditionChecker />
-        <EmbedCredit path="/tools/dog-body-condition-score/" />
-      </div>
-    );
-  }
-
+export default function DogBodyConditionScorePage() {
   return (
     <>
       <script

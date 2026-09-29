@@ -4,6 +4,7 @@ import { useState, useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
+import { targetWeightRange, TARGET_SOURCE } from '@/lib/bcs/target';
 import {
   addEntry,
   clearHistory,
@@ -81,11 +82,12 @@ const BAND_CARD: Record<Band, string> = {
 };
 
 const BAND_LABEL: Record<Band, string> = {
-  underweight: 'Underweight (1-3)',
-  ideal: 'Ideal (4-5)',
-  slightlyOver: 'Slightly over (6)',
+  // Labels match bandFor() cut points, including the half-point scores.
+  underweight: 'Underweight (1-3.5)',
+  ideal: 'Ideal (4-5.5)',
+  slightlyOver: 'Slightly over (6-6.5)',
   overweight: 'Overweight (7)',
-  obese: 'Obese (8-9)',
+  obese: 'Obese (7.5-9)',
 };
 
 const BAND_VERDICT: Record<Band, string> = {
@@ -231,6 +233,7 @@ export function BodyConditionChecker() {
     thickCoat: false,
   });
   const [result, setResult] = useState<{ bcs: number; band: Band; notes: string[] } | null>(null);
+  const [weightInput, setWeightInput] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [savedToday, setSavedToday] = useState(false);
   // Subscribed rather than copied into state: localStorage is an external store,
@@ -315,6 +318,30 @@ export function BodyConditionChecker() {
         </div>
       </div>
 
+      {/* Optional weight, for a target range */}
+      <div className="mb-8">
+        <label htmlFor="bcs-weight" className="font-display text-lg text-brand-offwhite tracking-wide">
+          Current weight (optional)
+        </label>
+        <p className="text-brand-gray text-sm mt-1 mb-3 leading-relaxed">
+          Add your dog&apos;s last weigh-in and a dog that reads over ideal gets a target weight range.
+        </p>
+        <div className="flex items-center gap-2">
+          <input
+            id="bcs-weight"
+            type="number"
+            inputMode="decimal"
+            min={1}
+            max={350}
+            placeholder="e.g. 72"
+            value={weightInput}
+            onChange={(e) => setWeightInput(e.target.value)}
+            className="w-32 px-4 py-2 rounded-lg bg-brand-charcoal border border-brand-charcoal text-brand-offwhite placeholder:text-brand-gray focus:border-brand-teal focus:outline-none"
+          />
+          <span className="text-brand-gray text-sm">lb</span>
+        </div>
+      </div>
+
       {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
 
       <button
@@ -343,6 +370,32 @@ export function BodyConditionChecker() {
 
             <h4 className="font-display text-lg tracking-wide mb-1">Verdict</h4>
             <p className="text-sm opacity-90 mb-4 leading-relaxed">{BAND_VERDICT[result.band]}</p>
+
+            {(() => {
+              const lb = parseFloat(weightInput);
+              if (!Number.isFinite(lb) || lb <= 0) return null;
+              const range = targetWeightRange(lb, result.bcs);
+              if (range) {
+                return (
+                  <div className="mb-4 rounded-lg border border-current/30 p-4">
+                    <h4 className="font-display text-lg tracking-wide mb-1">Target weight range</h4>
+                    <p className="text-sm opacity-90 leading-relaxed">
+                      About <strong>{range.lowLb} to {range.highLb} lb</strong>, from {lb} lb today. Lose it
+                      slowly - your vet sets the pace and the food side, and confirms the real target.
+                    </p>
+                    <p className="mt-2 text-xs opacity-70 leading-relaxed">{TARGET_SOURCE}</p>
+                  </div>
+                );
+              }
+              if (result.band === 'ideal') {
+                return (
+                  <p className="mb-4 text-sm opacity-90 leading-relaxed">
+                    At {lb} lb and an ideal score, the goal is to hold this weight. Re-check monthly.
+                  </p>
+                );
+              }
+              return null;
+            })()}
 
             <h4 className="font-display text-lg tracking-wide mb-1">Plan</h4>
             <p className="text-sm opacity-90 leading-relaxed">{BAND_PLAN[result.band]}</p>

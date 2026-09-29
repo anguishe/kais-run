@@ -3,7 +3,21 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { puppyPlan, SIZE_PROFILES, type PuppyPlan, type SizeClass } from '@/lib/puppy/growth';
+import {
+  puppyPlan,
+  SIZE_PROFILES,
+  ACTIVITIES,
+  ACTIVITY_VERDICT_LABEL,
+  type ActivityVerdict,
+  type PuppyPlan,
+  type SizeClass,
+} from '@/lib/puppy/growth';
+
+const ACTIVITY_CHIP: Record<ActivityVerdict, string> = {
+  ok: 'bg-brand-teal text-white',
+  'small-doses': 'bg-brand-gold text-brand-black',
+  skip: 'bg-brand-danger text-white',
+};
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
 
 export function PuppyPlanner() {
@@ -221,6 +235,34 @@ export function PuppyPlanner() {
                   ))}
                 </ul>
               </div>
+            </div>
+
+            <div>
+              <h3 className="font-display text-lg text-brand-offwhite tracking-wide mb-1">
+                Is this OK for my puppy right now?
+              </h3>
+              <p className="text-brand-gray text-xs mb-3">For this age and size.</p>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {ACTIVITIES.map((a) => {
+                  const v = a.byStage[plan.stage];
+                  return (
+                    <li key={a.key} className="rounded-lg border border-white/10 p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-brand-offwhite text-sm font-medium">{a.name}</span>
+                        <span className={`rounded px-2 py-0.5 text-xs font-semibold ${ACTIVITY_CHIP[v.verdict]}`}>
+                          {ACTIVITY_VERDICT_LABEL[v.verdict]}
+                        </span>
+                      </div>
+                      <p className="mt-1 text-brand-gray text-xs leading-relaxed">{v.note}</p>
+                      {a.key === 'beach-sand' && (
+                        <Link href="/tools/dog-beach-checker/" className="mt-1 inline-block text-xs text-brand-teal-light underline">
+                          Most beaches here ban dogs - check a spot
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
             <p className="text-brand-gray text-xs leading-relaxed border-t border-brand-gray/20 pt-4">

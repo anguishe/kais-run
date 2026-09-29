@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { HeatChecker } from './HeatChecker';
-import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import EmbedThisTool from '@/components/tools/EmbedThisTool';
 import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = 'Too Hot to Walk Your Dog? Pavement Temperature Checker';
@@ -81,25 +81,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Too Hot to Walk?', path: '/tools/too-hot-to-walk/' },
 ]);
 
-type Props = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function TooHotToWalkPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const embed = sp.embed === '1';
-
-  if (embed) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-8">
-        <style>{EMBED_CHROME_CSS}</style>
-        <h1 className="font-display text-3xl text-brand-offwhite mb-6">{TITLE}</h1>
-        <HeatChecker />
-        <EmbedCredit path="/tools/too-hot-to-walk/" />
-      </div>
-    );
-  }
-
+export default function TooHotToWalkPage() {
   return (
     <>
       <script
@@ -213,6 +195,7 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
           path="/tools/too-hot-to-walk/"
           iframeTitle="Too hot to walk your dog? Pavement heat checker"
           credit="Pavement heat checker"
+          presetHint="To open it on your town, add ?zip= and your ZIP to the end of the iframe URL (for example embed/?zip=32578). It checks as soon as the page loads."
           height={1100}
         />
       </main>

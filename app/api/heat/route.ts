@@ -26,7 +26,7 @@ async function fromOpenMeteo(lat: number, lon: number): Promise<Weather> {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
     `&current=temperature_2m,relative_humidity_2m,apparent_temperature` +
     `&hourly=temperature_2m,relative_humidity_2m` +
-    `&temperature_unit=fahrenheit&timezone=auto&forecast_days=1`;
+    `&temperature_unit=fahrenheit&timezone=auto&forecast_days=2`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`open-meteo ${res.status}`);
   const d = await res.json();
@@ -59,9 +59,9 @@ async function fromOpenWeather(
   if (!fcRes.ok) throw new Error(`owm forecast ${fcRes.status}`);
   const cur = await curRes.json();
   const fc = await fcRes.json();
-  // ponytail: OWM forecast is 3-hour steps; first day only keeps it comparable
-  // to Open-Meteo's 24 single hours. Good enough for the safe-window heuristic.
-  const list = ((fc.list ?? []) as { dt: number; main: { temp: number; humidity: number; feels_like: number } }[]).slice(0, 8);
+  // ponytail: OWM forecast is 3-hour steps; 16 steps covers today + tomorrow like
+  // Open-Meteo's forecast_days=2. Clients group by local date (splitDays).
+  const list = ((fc.list ?? []) as { dt: number; main: { temp: number; humidity: number; feels_like: number } }[]).slice(0, 16);
   // OWM forecast returns the location's UTC offset in city.timezone (seconds).
   const tzOffset: number = typeof fc.city?.timezone === "number" ? fc.city.timezone : 0;
   return {

@@ -7,6 +7,8 @@ import { BREEDS, type DriveTier, getLifeStage } from '@/lib/exercise/targets';
 import { computeTarget, type ComputeResult } from '@/lib/exercise/compute';
 import { exerciseGap, type ExerciseGap } from '@/lib/exercise/gap';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
+import { weeklyPlan, dayTotal, planToIcs, type PlanDay } from '@/lib/exercise/plan';
+import { printOnlyTarget } from '@/lib/printTarget';
 
 const TIER_LABELS: Record<DriveTier, string> = {
   low: 'Low drive',
@@ -64,6 +66,7 @@ export function Calculator() {
   const [lifeStage, setLifeStage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [plan, setPlan] = useState<PlanDay[] | null>(null);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -131,6 +134,8 @@ export function Calculator() {
     const tier = showManualTier
       ? manualTier
       : (BREEDS.find((b) => b.name === selectedBreed)?.tier ?? 'moderate');
+
+    setPlan(weeklyPlan(r, { tier, lowImpact: flags.arthritis || flags.heartResp }));
 
     trackToolUse('exercise-calculator', {
       tier,
@@ -373,7 +378,7 @@ export function Calculator() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="mt-10 bg-brand-charcoal rounded-xl border border-brand-teal/30 p-6 space-y-6"
+            className="print-target mt-10 bg-brand-charcoal rounded-xl border border-brand-teal/30 p-6 space-y-6"
           >
             {/* Daily target */}
             <div className="text-center">
@@ -450,6 +455,45 @@ export function Calculator() {
               </h3>
               <p className="text-brand-gray text-sm leading-relaxed">{result.weeklyShape}</p>
             </div>
+
+            {/* 7-day plan: printable, and downloadable as weekly calendar reminders */}
+            {plan && (
+              <div>
+                <h3 className="font-display text-lg text-brand-offwhite mb-2 tracking-wide">
+                  Your 7-day plan
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-sm text-brand-gray">
+                    <thead className="text-brand-offwhite">
+                      <tr>
+                        <th scope="col" className="py-1 pr-3 font-medium">Day</th>
+                        <th scope="col" className="py-1 pr-3 font-medium">Focus</th>
+                        <th scope="col" className="py-1 pr-3 font-medium">Structured</th>
+                        <th scope="col" className="py-1 pr-3 font-medium">Play</th>
+                        <th scope="col" className="py-1 pr-3 font-medium">Enrichment</th>
+                        <th scope="col" className="py-1 font-medium">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {plan.map((d) => (
+                        <tr key={d.day} className="border-t border-white/5">
+                          <th scope="row" className="py-1.5 pr-3 font-medium text-brand-offwhite">{d.day}</th>
+                          <td className="py-1.5 pr-3">{d.label}</td>
+                          <td className="py-1.5 pr-3">{d.structuredMin ? `${d.structuredMin} min` : '-'}</td>
+                          <td className="py-1.5 pr-3">{d.playMin} min</td>
+                          <td className="py-1.5 pr-3">{d.enrichmentMin} min</td>
+                          <td className="py-1.5">{dayTotal(d)} min</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="mt-2 text-xs text-brand-gray">
+                  Minutes are the middle of each range above. Lighter days are part of the plan, not a
+                  missed day.
+                </p>
+              </div>
+            )}
 
             {/* Mechanism */}
             <div>
@@ -552,10 +596,10 @@ export function Calculator() {
             </div>
 
             {/* Print / copy fridge card */}
-            <div className="flex gap-3">
+            <div className="print-hide flex flex-wrap gap-3">
               <button
                 type="button"
-                onClick={() => window.print()}
+                onClick={printOnlyTarget}
                 className="flex-1 border border-brand-gray/40 text-brand-gray text-sm py-2.5 rounded-lg hover:border-brand-teal hover:text-brand-offwhite transition-colors"
               >
                 Print fridge card
@@ -567,6 +611,24 @@ export function Calculator() {
               >
                 {copied ? 'Copied' : 'Copy result'}
               </button>
+              {plan && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const blob = new Blob([planToIcs(plan, new Date())], { type: 'text/calendar' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'dog-exercise-plan.ics';
+                    a.click();
+                    setTimeout(() => URL.revokeObjectURL(url), 1000);
+                    trackToolUse('exercise-calculator', { action: 'ics' });
+                  }}
+                  className="flex-1 border border-brand-gray/40 text-brand-gray text-sm py-2.5 rounded-lg hover:border-brand-teal hover:text-brand-offwhite transition-colors"
+                >
+                  Add plan to calendar
+                </button>
+              )}
             </div>
           </motion.div>
         )}

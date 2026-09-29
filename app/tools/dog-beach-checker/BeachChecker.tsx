@@ -19,10 +19,12 @@ import {
   heatIndexF,
   pavementEstimateF,
   safeWindows,
+  splitDays,
   verdict as heatVerdict,
 } from '@/lib/heat/verdict';
 import type { HourSample } from '@/lib/heat/verdict';
 import { trackToolUse } from '@/lib/analytics/trackToolUse';
+import { printOnlyTarget } from '@/lib/printTarget';
 
 const SITE = 'https://kaisrun.xyz';
 const PAGE = '/tools/dog-beach-checker/';
@@ -128,7 +130,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
         const hi = heatIndexF(d.tempF, d.humidity);
         const pav = pavementEstimateF(d.tempF, exposureAt(nowHourISO()));
         const v = heatVerdict({ heatIndexF: hi, pavementSunF: pav });
-        const w = safeWindows(d.hourly);
+        const w = safeWindows(splitDays(d.hourly)[0]?.hours ?? []);
         const windowLine = w.allDayUnsafe
           ? 'No safe walking window left today.'
           : w.allDaySafe
@@ -172,16 +174,6 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
     } catch {
       /* clipboard blocked - the URL is still in the address bar on the main page */
     }
-  };
-
-  const printRule = () => {
-    document.body.classList.add('print-beach-result');
-    const done = () => {
-      document.body.classList.remove('print-beach-result');
-      window.removeEventListener('afterprint', done);
-    };
-    window.addEventListener('afterprint', done);
-    window.print();
   };
 
   const alternatives = (result?.alternatives ?? [])
@@ -260,7 +252,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
         </div>
       </div>
 
-      <div id="beach-result" aria-live="polite" className="rounded-xl border border-white/10 bg-brand-charcoal/60 p-5">
+      <div id="beach-result" aria-live="polite" className="print-target rounded-xl border border-white/10 bg-brand-charcoal/60 p-5">
         {!result ? (
           <p className="font-body text-brand-gray">Checking the rule for {spot.short}.</p>
         ) : (
@@ -325,7 +317,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
             )}
 
             {alternatives.length > 0 && (
-              <div className="beach-print-hide">
+              <div className="print-hide">
                 <h3 className="font-display text-2xl text-brand-offwhite">Nearest legal alternatives</h3>
                 <ul className="mt-3 grid gap-3 sm:grid-cols-3">
                   {alternatives.map((alt) => {
@@ -360,7 +352,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
             )}
 
             {isNow && conditions.status === 'done' && (
-              <div className="beach-print-hide rounded-lg border border-brand-gold/30 bg-brand-gold/10 p-3 font-body text-sm text-brand-offwhite">
+              <div className="print-hide rounded-lg border border-brand-gold/30 bg-brand-gold/10 p-3 font-body text-sm text-brand-offwhite">
                 <p>
                   <strong>Conditions now:</strong> {conditions.line} {conditions.windowLine}
                 </p>
@@ -375,7 +367,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
             )}
 
             {(result.verdict === 'not-allowed' || result.verdict === 'closed-now' || result.verdict === 'trails-only') && (
-              <p className="beach-print-hide font-body text-sm">
+              <p className="print-hide font-body text-sm">
                 <Link
                   href="/tools/dog-exercise-calculator/"
                   className="text-brand-teal-light underline"
@@ -386,7 +378,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
               </p>
             )}
 
-            <div className="beach-print-hide flex flex-wrap gap-3 pt-2">
+            <div className="print-hide flex flex-wrap gap-3 pt-2">
               <button
                 type="button"
                 onClick={copyLink}
@@ -397,7 +389,7 @@ export function BeachChecker({ embed = false }: { embed?: boolean }) {
               {!embed && (
                 <button
                   type="button"
-                  onClick={printRule}
+                  onClick={printOnlyTarget}
                   className="border border-white/20 px-4 py-2 font-body text-sm text-brand-offwhite hover:border-brand-teal"
                 >
                   Print this rule

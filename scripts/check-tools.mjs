@@ -30,6 +30,8 @@ let bcsModule;
 let puppyModule;
 let beachRules;
 let beachVerdict;
+let planModule;
+let targetModule;
 try {
   verdictModule = await load('lib/heat/verdict.ts');
   exerciseModule = await load('lib/exercise/gap.ts');
@@ -37,6 +39,8 @@ try {
   puppyModule = await load('lib/puppy/growth.ts');
   beachRules = await load('lib/beach/rules.ts');
   beachVerdict = await load('lib/beach/verdict.ts');
+  planModule = await load('lib/exercise/plan.ts');
+  targetModule = await load('lib/bcs/target.ts');
 } catch (err) {
   console.log('Skipped: this Node cannot import TypeScript directly.');
   console.log(`Run with Node 22.6+ (current ${process.version}), or: node --experimental-strip-types scripts/check-tools.mjs`);
@@ -303,6 +307,57 @@ console.log(`puppy (7mo lg):  ${puppyPlan(7, 'large').stageHeadline}, ${puppyPla
     assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(s.verifiedOn), `${s.id}: verifiedOn date`);
   }
   console.log(`beach:           ${SPOTS.length} spots, Walton 3:29 PM resident -> ${w329.verdict}`);
+}
+
+// --- Tool upgrades 2026-09-28 -------------------------------------------------
+{
+  // Heat: the API now returns two days; per-day helpers get one day at a time.
+  const { splitDays, safeWindows: sw } = verdictModule;
+  const twoDays = [...day, ...day.map((h) => ({ ...h, hourISO: h.hourISO.replace('2026-07-15', '2026-07-16') }))];
+  const split = splitDays(twoDays);
+  assert.equal(split.length, 2);
+  assert.equal(split[0].hours.length, 24);
+  assert.deepEqual(sw(split[1].hours), sw(day), 'tomorrow windows computed like today');
+  // A humid 78F night stays walkable (night pavement uses the shade delta).
+  const night = verdictModule.hourlyBands([{ hourISO: '2026-07-15T02:00', tempF: 78, humidity: 90 }]);
+  assert.equal(night[0].exposure, 'shade');
+
+  // Exercise: 7-day plan always has 7 days and lighter days per tier.
+  const { weeklyPlan, planToIcs } = planModule;
+  const fakeResult = { split: { structuredMin: [40, 60], playMin: [20, 30], enrichmentMin: [15, 20] } };
+  const working = weeklyPlan(fakeResult, { tier: 'working', lowImpact: false });
+  assert.equal(working.length, 7);
+  assert.equal(working.filter((d) => d.kind === 'structured').length, 6);
+  assert.equal(weeklyPlan(fakeResult, { tier: 'moderate', lowImpact: false }).filter((d) => d.kind === 'light').length, 2);
+  assert.equal(weeklyPlan(fakeResult, { tier: 'low', lowImpact: false }).filter((d) => d.kind === 'rest').length, 3);
+  const gentle = weeklyPlan(fakeResult, { tier: 'working', lowImpact: true });
+  for (let i = 1; i < gentle.length; i++) {
+    assert.ok(!(gentle[i].structuredMin && gentle[i - 1].structuredMin), 'no back-to-back work days for low-impact dogs');
+  }
+  const ics = planToIcs(working, new Date('2026-09-28T12:00:00Z'));
+  assert.equal((ics.match(/BEGIN:VEVENT/g) ?? []).length, 7);
+  assert.ok(ics.includes('RRULE:FREQ=WEEKLY;BYDAY=MO'));
+
+  // BCS: target range only above ideal, always a range, lower than today.
+  const { targetWeightRange } = targetModule;
+  assert.equal(targetWeightRange(60, 5), null);
+  assert.equal(targetWeightRange(40, 3), null);
+  const r7 = targetWeightRange(80, 7);
+  assert.ok(r7.lowLb < r7.highLb && r7.highLb < 80, `80 lb at BCS 7 -> ${r7.lowLb}-${r7.highLb}`);
+  assert.equal(r7.lowLb, 64);
+  assert.equal(r7.highLb, 70);
+
+  // Puppy: every activity covers every stage, in brand voice.
+  const { ACTIVITIES } = puppyModule;
+  for (const a of ACTIVITIES) {
+    for (const stage of ['under-four-months', 'plates-open', 'plates-closing', 'plates-closed']) {
+      const v = a.byStage[stage];
+      assert.ok(v && ['ok', 'small-doses', 'skip'].includes(v.verdict), `${a.key} ${stage}`);
+      assert.ok(!v.note.includes('!') && !v.note.includes('—'), `${a.key} copy`);
+    }
+  }
+  assert.equal(ACTIVITIES.find((a) => a.key === 'stairs').byStage['under-four-months'].verdict, 'skip');
+  console.log(`upgrades:        plan ${working.length} days, BCS 80 lb @7 -> ${r7.lowLb}-${r7.highLb} lb, ${ACTIVITIES.length} puppy activities`);
 }
 
 console.log('\nTool checks OK.');

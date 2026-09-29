@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { generatedOgUrl } from '@/lib/blog/post-metadata';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 import { PuppyPlanner } from './PuppyPlanner';
-import EmbedThisTool, { EMBED_CHROME_CSS, EmbedCredit } from '@/components/tools/EmbedThisTool';
+import EmbedThisTool from '@/components/tools/EmbedThisTool';
 import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = "Puppy Exercise Planner - Growth Plates & the 5-Minute Rule | Kai's Run";
@@ -74,6 +74,18 @@ const faqItems = [
     q: 'My puppy still has energy after its walk. Am I under-exercising it?',
     a: 'Probably not physically, and this is the hardest part of raising a young dog. A puppy that is still wired after its walk usually needs sleep and mental work rather than more miles - training sessions, scent games, and enforced naps drain a young dog without loading its joints. The physical ceiling is real; the mental one is not.',
   },
+  {
+    q: 'Can my puppy go to the beach?',
+    a: 'Yes, in small doses where dogs are allowed. Soft sand loads young joints harder than grass, so keep beach time short and self-paced until the growth plates close, and let the puppy stop when it wants to. On the Emerald Coast most public beaches ban dogs entirely, so check the spot first.',
+  },
+  {
+    q: 'Is fetch OK for a puppy?',
+    a: 'A few short, low throws on grass are fine. What to limit is the repeated sprint, brake and twist, and leaping catches, which load growth plates hardest. Once the plates close, fetch is fine with a warm-up and a cap on high catches.',
+  },
+  {
+    q: 'Can puppies swim?',
+    a: 'Yes. Swimming is low impact and one of the better options for a growing dog. Keep sessions short and supervised, pick calm water with an easy way out, and rinse off salt or pool water afterward.',
+  },
 ];
 
 const faqSchema = {
@@ -93,27 +105,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Puppy Exercise Planner', path: '/tools/puppy-exercise-planner/' },
 ]);
 
-type Props = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function PuppyExercisePlannerPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const embed = sp.embed === '1';
-
-  if (embed) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-8">
-        <style>{EMBED_CHROME_CSS}</style>
-        <h1 className="font-display text-3xl text-brand-offwhite mb-6">
-          Puppy Exercise Planner
-        </h1>
-        <PuppyPlanner />
-        <EmbedCredit path="/tools/puppy-exercise-planner/" />
-      </div>
-    );
-  }
-
+export default function PuppyExercisePlannerPage() {
   return (
     <>
       <script

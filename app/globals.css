@@ -112,15 +112,15 @@ html.lenis body {
   color: #0F1117;
 }
 
-/* "Print this rule" / "Print" buttons: print only the result card. */
+/* Tool print buttons (lib/printTarget.ts): print only the .print-target element. */
 @media print {
-  body.print-beach-result * { visibility: hidden; }
-  body.print-beach-result #beach-result,
-  body.print-beach-result #beach-result * { visibility: visible; }
-  body.print-beach-result #beach-result {
+  body.print-target-only * { visibility: hidden; }
+  body.print-target-only .print-target,
+  body.print-target-only .print-target * { visibility: visible; }
+  body.print-target-only .print-target {
     position: absolute; left: 0; top: 0; width: 100%;
-    border: 1px solid #000; background: #fff !important;
+    border: 1px solid #000; background: #fff !important; transform: none !important;
   }
-  body.print-beach-result #beach-result * { color: #000 !important; background: transparent !important; }
-  body.print-beach-result .beach-print-hide { display: none !important; }
+  body.print-target-only .print-target * { color: #000 !important; background: transparent !important; border-color: #999 !important; }
+  body.print-target-only .print-hide { display: none !important; }
 }

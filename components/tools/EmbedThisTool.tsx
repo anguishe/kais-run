@@ -1,3 +1,5 @@
+import CopyButton from './CopyButton';
+
 const SITE = 'https://kaisrun.xyz';
 
 /**
@@ -18,12 +20,19 @@ export function EmbedCredit({ path }: { path: string }) {
   );
 }
 
-type Props = { path: string; iframeTitle: string; credit: string; height: number };
+type Props = {
+  path: string;
+  iframeTitle: string;
+  credit: string;
+  height: number;
+  /** One line telling hosts which ?presets the embed route accepts. */
+  presetHint?: string;
+};
 
-export default function EmbedThisTool({ path, iframeTitle, credit, height }: Props) {
-  // ponytail: <pre> with select-all instead of a copy button - one click selects, no client JS.
+export default function EmbedThisTool({ path, iframeTitle, credit, height, presetHint }: Props) {
+  // Static /embed/ route per tool: the canonical page stays static and cacheable.
   const snippet =
-    `<iframe src="${SITE}${path}?embed=1" width="100%" height="${height}" style="border:0" loading="lazy" title="${iframeTitle}"></iframe>\n` +
+    `<iframe src="${SITE}${path}embed/" width="100%" height="${height}" style="border:0" loading="lazy" title="${iframeTitle}"></iframe>\n` +
     `<p>${credit} by <a href="${SITE}${path}">Kai's Run</a></p>`;
   return (
     <section className="mt-16">
@@ -33,10 +42,11 @@ export default function EmbedThisTool({ path, iframeTitle, credit, height }: Pro
         Paste the code below where it should appear - it stays current as the tool improves. Adjust
         the height if your page needs more room.
       </p>
+      {presetHint && <p className="mt-2 font-body text-sm text-brand-gray">{presetHint}</p>}
       <pre className="mt-4 select-all whitespace-pre-wrap break-all rounded-lg bg-brand-charcoal p-4 font-mono text-xs text-brand-offwhite">
         {snippet}
       </pre>
-      <p className="mt-2 font-body text-xs text-brand-gray">Click the box once to select all of it, then copy.</p>
+      <CopyButton text={snippet} />
     </section>
   );
 }
