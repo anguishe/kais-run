@@ -339,15 +339,15 @@ export function RonzeilSlatmillPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
           >
-            Rather have the mill come to you - that is the entire business. Book an Intro Session and
-            your dog meets the Ronzeil on his own terms.
+            Rather have the mill come to you - that is what Kai&apos;s Run is being built for. We are
+            not taking dogs yet. Join the launch list to hear first when driveway sessions open.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <Link
               href="/book/"
               className="bg-brand-teal text-white px-8 py-3 font-medium tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
             >
-              Book an Intro Session
+              Join the Launch List
             </Link>
           </motion.div>
         </motion.div>

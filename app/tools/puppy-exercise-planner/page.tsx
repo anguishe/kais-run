@@ -201,15 +201,11 @@ export default async function PuppyExercisePlannerPage({ searchParams }: Props) 
             <Link href="/tools/too-hot-to-walk/" className="text-brand-teal-light underline">
               whether the pavement is safe
             </Link>{' '}
-            - young paw pads are softer than adult ones. When you are ready,{' '}
+            - young paw pads are softer than adult ones. Kai&apos;s Run is not taking dogs yet -{' '}
             <Link href="/book/" className="text-brand-teal-light underline">
-              book an intro session
+              join the launch list
             </Link>{' '}
-            or review{' '}
-            <Link href="/services/" className="text-brand-teal-light underline">
-              what a session includes
-            </Link>
-            .
+            to hear first when sessions open.
           </p>
         </section>
         <EmbedThisTool

@@ -25,28 +25,18 @@ export function FinalCTA() {
           variants={fadeUp}
           className="text-base md:text-lg font-body text-brand-gray max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          High-drive dogs deserve structured exercise. Not just a walk.
+          High-drive dogs deserve structured exercise. Not just a walk. Kai&apos;s Run is not taking dogs yet - the launch list hears first.
         </motion.p>
 
         <motion.div
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
-          <Button
-            href="/book/"
-            variant="secondary"
-            className="text-base px-10 py-4"
-            bookIntentSource="final-cta-intro"
-          >
-            Book Intro Session - $35
+          <Button href="/book/" variant="primary" className="text-base px-10 py-4">
+            Join the Launch List
           </Button>
-          <Button
-            href="/book?offer=founding"
-            variant="primary"
-            className="text-base px-10 py-4"
-            bookIntentSource="final-cta-founding"
-          >
-            Join the Founding 20
+          <Button href="/tools/" variant="secondary" className="text-base px-10 py-4">
+            Try the Free Dog Tools
           </Button>
         </motion.div>
 

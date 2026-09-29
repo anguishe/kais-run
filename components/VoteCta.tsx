@@ -38,6 +38,7 @@ export default function VoteCta() {
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser storage after mount so SSR and first client render match
     setSaved(read());
     setReady(true);
     const t = setInterval(() => setNow(Date.now()), 60 * 1000);

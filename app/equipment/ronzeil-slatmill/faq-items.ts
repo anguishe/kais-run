@@ -36,6 +36,6 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Do I need my own slatmill to work with Kai\'s Run?',
     answer:
-      'No. The entire point of the business is that the mill comes to you. We bring the Ronzeil to your driveway for private one-on-one conditioning - book an Intro Session and your dog meets it on his own terms.',
+      'No. The entire point of the business is that the mill comes to you. At launch, we bring the Ronzeil to your driveway for private one-on-one conditioning. Kai\'s Run is not taking dogs yet - join the launch list at kaisrun.xyz/book/ to hear first.',
   },
 ];

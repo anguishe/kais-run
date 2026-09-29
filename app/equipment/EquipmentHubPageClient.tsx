@@ -140,7 +140,7 @@ export function EquipmentHubPageClient() {
               href="/book/"
               className="inline-block bg-brand-teal text-white px-8 py-3 font-display text-2xl tracking-wider hover:bg-brand-teal/90 transition-colors rounded-sm"
             >
-              Book a session
+              Join the launch list
             </Link>
           </motion.div>
         </motion.div>

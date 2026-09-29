@@ -81,7 +81,7 @@ export default function ContactPage() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-brand-offwhite/90">Book a session:</span>{' '}
+                  <span className="text-brand-offwhite/90">Launch list (not taking dogs yet):</span>{' '}
                   <Link href="/book/" className="text-brand-teal-light hover:underline">kaisrun.xyz/book</Link>
                 </li>
               </ul>

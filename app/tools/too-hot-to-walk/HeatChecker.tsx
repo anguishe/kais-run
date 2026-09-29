@@ -430,14 +430,14 @@ export function HeatChecker() {
               ) : (
                 <div>
                   <p className="text-sm mb-3">
-                    Pavement is not an option today. A climate-controlled session is.
+                    Pavement is not an option today. Move the work indoors or wait for the evening window.
                   </p>
                   <div className="flex gap-4">
                     <Link
-                      href="/book/"
+                      href="/tools/dog-exercise-calculator/"
                       className="text-xs underline opacity-90 hover:opacity-100"
                     >
-                      Book a session
+                      Plan indoor work
                     </Link>
                     <Link
                       href="/blog/too-hot-to-walk-your-dog/"

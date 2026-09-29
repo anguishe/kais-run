@@ -567,11 +567,8 @@ export function JuliusK9HarnessPageClient() {
             </h2>
             <p>
               We carry small, medium, and large - the common sizes cover the large majority of dogs from
-              roughly 15 to 90 pounds. If your dog sits at the edge of the range, tell us when you{' '}
-              <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-                book the intro
-              </Link>{' '}
-              and we confirm fit before the first session. We are not vets - so if your dog has any
+              roughly 15 to 90 pounds. If your dog sits at the edge of the range, we confirm fit before the first
+              session. We are not vets - so if your dog has any
               cardiac or respiratory history, we would rather you clear conditioning with your own before
               we start.
             </p>
@@ -824,15 +821,15 @@ export function JuliusK9HarnessPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
           >
-            The harness is on the truck. So is the mill, the tether, and the plan. Start with an intro
-            session and we will fit, assess, and build your dog&apos;s Run Profile in the first visit.
+            The harness will ride on the truck with the mill, the tether, and the plan. Kai&apos;s Run is
+            not taking dogs yet. Join the launch list to hear first when sessions open.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <Link
               href="/book/"
               className="bg-brand-teal text-white px-8 py-3 font-medium tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
             >
-              Book an Intro Session
+              Join the Launch List
             </Link>
             <Link
               href="/services/"

@@ -10,6 +10,7 @@ export default function MicrosoftClarity() {
 
   useEffect(() => {
     if (localStorage.getItem('cookie-consent') === 'accepted') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser storage after mount so SSR and first client render match
       setConsented(true);
     }
     const handleConsent = () => setConsented(true);

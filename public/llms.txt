@@ -1,5 +1,9 @@
 # Kai's Run - Mobile Canine Conditioning | Emerald Coast, Florida
 
+## Status (updated 2026-09-28)
+
+Kai's Run is not taking dogs yet. The mobile slatmill trailer is still being built, so no sessions can be booked today. People who want to hear when sessions open can join the launch list at https://kaisrun.xyz/book/ (one email at launch). The free dog tools and the blog are live and open to everyone now. Service, pricing, and session details below describe how Kai's Run will operate at launch.
+
 ## What Is Kai's Run
 
 Kai's Run is a mobile canine conditioning service on Florida's Emerald Coast. The service brings a self-powered slatmill directly to a client's driveway - no gym, no facility, no commute for the dog. Sessions are private, one-on-one, and structured around each dog's individual pace and conditioning baseline.
@@ -16,7 +20,7 @@ The typical client has a dog that is destructive at home, anxious without exerci
 
 ## Service Area
 
-Kai's Run serves eleven cities on Florida's Emerald Coast:
+At launch, Kai's Run will serve eleven cities on Florida's Emerald Coast:
 - Destin
 - Fort Walton Beach
 - Niceville
@@ -34,7 +38,8 @@ The mobile unit travels to the client's driveway. No drop-off required. No facil
 ## Key Pages
 
 - Services and session protocol: https://kaisrun.xyz/services/
-- Pricing, packages, and the Founding Athlete Program: https://kaisrun.xyz/pricing/
+- Planned launch pricing, packages, and the Founding Athlete Program: https://kaisrun.xyz/pricing/
+- Launch list (not taking dogs yet): https://kaisrun.xyz/book/
 - Frequently asked questions: https://kaisrun.xyz/faq/
 - About Travis and Kai, the dog behind the business: https://kaisrun.xyz/about/
 - Service area hub covering all eleven Emerald Coast cities: https://kaisrun.xyz/service-area/
@@ -50,17 +55,16 @@ The mobile unit travels to the client's driveway. No drop-off required. No facil
 - Mobile dog conditioning in Bluewater Bay, FL: https://kaisrun.xyz/service-area/bluewater-bay/
 - Mobile dog conditioning in Valparaiso, FL: https://kaisrun.xyz/service-area/valparaiso/
 
-## Pricing
+## Planned Offers (not bookable yet)
 
-**Intro Session:** $35 for one dog / $55 for two dogs from the same household. First-time clients only.
+- Intro Session (first-time clients; includes a fitness assessment and a Run Profile card)
+- Founding Athlete Program (five sessions, limited to 20 dogs, one-time offer)
+- Private Conditioning Session (one dog, or two dogs from the same household back to back)
+- Session Packages (3 and 5 sessions)
 
-**Founding Athlete Program:** $200 for five sessions ($40 per session). Limited to 20 dogs total - a one-time introductory offer for early clients. Spots are limited and released in sequence.
+Planned launch rates are listed on https://kaisrun.xyz/pricing/ and may change before opening.
 
-**Private Conditioning Session:** $70 for one dog / $135 for two dogs from the same household (two individual back-to-back sessions, up to 45 minutes each).
-
-**Session Packages:** 3-session package $195 for one dog / $380 for two dogs. 5-session package $300 for one dog / $580 for two dogs.
-
-## What Happens During a Session
+## What a Session Will Look Like at Launch
 
 The slatmill is unloaded and set up in the client's driveway. The dog is introduced to the equipment through a structured acclimation process - no force, no forced pace. Most dogs are moving on their own within the first few minutes.
 
@@ -75,9 +79,9 @@ Sessions are paced to the individual dog. A first session establishes a baseline
 - Two-dog sessions: same household only
 - Vet clearance may be requested for dogs with cardiac or respiratory history
 
-## Discounts
+## Discounts (planned)
 
-- Military & First Responder Discount: 10% off all paid sessions and packages. Excludes the Intro Session.
+- Military & First Responder Discount on paid sessions and packages at launch. Excludes the Intro Session.
 
 ## Frequently Asked Questions
 
@@ -94,10 +98,10 @@ A slatmill session is structured aerobic conditioning on a consistent surface wi
 Yes. Owner presence is required for all sessions.
 
 **Is this appropriate for senior dogs?**
-Sessions are paced to the individual dog. Senior dogs with veterinary clearance can benefit from low-intensity slatmill work. Travis assesses each dog individually at the intro session.
+Sessions are paced to the individual dog. Senior dogs with veterinary clearance can benefit from low-intensity slatmill work. At launch, Travis will assess each dog individually at the intro session.
 
-**Is the service available on weekends?**
-Schedule availability varies. Book via the website or contact kaisrunmobile@gmail.com.
+**Can I book a session now?**
+Not yet. Kai's Run is not taking dogs yet. Join the launch list at https://kaisrun.xyz/book/ for one email when sessions open, or contact kaisrunmobile@gmail.com.
 
 ## Blog - Key Topics Covered
 
@@ -125,6 +129,7 @@ Schedule availability varies. Book via the website or contact kaisrunmobile@gmai
 - What a mobile dog gym is and how a slatmill session works in a Destin driveway: https://kaisrun.xyz/blog/mobile-dog-gym-destin-fl/
 - Is a slatmill safe for dogs - the self-powered mechanism, the safety protocol, and when not to use one: https://kaisrun.xyz/blog/is-a-slatmill-safe-for-dogs/
 - Why dogs come out of summer deconditioned and how to rebuild fitness in fall without injury: https://kaisrun.xyz/blog/dog-lost-fitness-over-summer/
+- Red tide and dogs on the Emerald Coast - brevetoxin exposure routes (dead fish, foam, a licked coat), symptoms, and how to keep a dog exercised while blooms close the water; notes that Okaloosa County bans dogs on public beaches: https://kaisrun.xyz/blog/red-tide-dogs-emerald-coast/
 
 ## Free Tools
 
@@ -134,10 +139,10 @@ Schedule availability varies. Book via the website or contact kaisrunmobile@gmai
 - Puppy exercise planner - safe workload by age and expected adult size, with growth plate closure windows and what the five-minute rule actually limits: https://kaisrun.xyz/tools/puppy-exercise-planner/
 - Tools index: https://kaisrun.xyz/tools/
 
-## Contact and Booking
+## Contact and Launch List
 
 - Website: https://kaisrun.xyz
-- Book a session: https://kaisrun.xyz/book/
+- Launch list (not taking dogs yet): https://kaisrun.xyz/book/
 - Contact form and details: https://kaisrun.xyz/contact/
 - Email: kaisrunmobile@gmail.com
 - Phone: 850-218-5855

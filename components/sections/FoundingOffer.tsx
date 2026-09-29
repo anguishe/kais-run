@@ -76,12 +76,11 @@ export function FoundingOffer() {
 
           <motion.div variants={fadeUp} className="mb-6">
             <Button
-              href="/book?offer=founding"
+              href="/book/"
               variant="primary"
               className="text-base px-12 py-5 w-full sm:w-auto"
-              bookIntentSource="founding-offer-section"
             >
-              Claim Your Founding Spot
+              Join the Launch List
             </Button>
           </motion.div>
 
@@ -89,7 +88,7 @@ export function FoundingOffer() {
             variants={fadeUp}
             className="text-brand-gray text-xs font-body"
           >
-            Standard pricing is live now - Intro Session, Private Conditioning Session, and Session Packages are all bookable. See full pricing.
+            Kai&apos;s Run is not taking dogs yet. The launch list hears first when founding spots open.
           </motion.p>
         </motion.div>
       </motion.div>

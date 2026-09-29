@@ -196,15 +196,11 @@ export default async function DogExerciseCalculatorPage({ searchParams }: Props)
             >
               body condition score check
             </Link>{' '}
-            is the companion tool. When you are ready to put a program in place,{' '}
+            is the companion tool. Kai&apos;s Run is not taking dogs yet -{' '}
             <Link href="/book/" className="text-brand-teal-light underline">
-              book a session
+              join the launch list
             </Link>{' '}
-            or review{' '}
-            <Link href="/pricing/" className="text-brand-teal-light underline">
-              pricing
-            </Link>
-            .
+            to hear first when structured sessions open.
           </p>
         </section>
         <EmbedThisTool

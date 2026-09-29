@@ -146,20 +146,15 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
 
         <section className="mt-20 font-body text-brand-gray leading-relaxed">
           <p>
-            The check tells you where your dog stands. The movement side of the fix is what we do.
-            Kai&apos;s Run brings a self-powered slatmill to your driveway for private, one-on-one
-            conditioning - the dog sets the pace, so an out-of-shape dog is never forced past what
-            its body can handle, and it is climate-controlled against the Florida heat. When you are
-            ready to build the movement half of a weight plan,{' '}
+            The check tells you where your dog stands. The movement side of the fix is what Kai&apos;s
+            Run is being built for: a self-powered slatmill brought to your driveway for private,
+            one-on-one conditioning - the dog sets the pace, so an out-of-shape dog is never forced
+            past what its body can handle. Kai&apos;s Run is not taking dogs yet.{' '}
             <Link href="/book/" className="text-brand-teal-light underline">
-              book an intro session
+              Join the launch list
             </Link>{' '}
-            or see{' '}
-            <Link href="/services/" className="text-brand-teal-light underline">
-              what a session includes
-            </Link>
-            . For the diet half, talk to your vet - that part is theirs. We serve Destin, Fort
-            Walton Beach, Niceville, and the rest of the Emerald Coast.
+            to hear first when sessions open in Destin, Fort Walton Beach, Niceville, and the rest of
+            the Emerald Coast. For the diet half, talk to your vet - that part is theirs.
           </p>
         </section>
 
@@ -200,15 +195,11 @@ export default async function DogBodyConditionScorePage({ searchParams }: Props)
             <Link href="/blog/senior-dog-exercise/" className="text-brand-teal-light underline">
               keeping an aging body moving the right way
             </Link>{' '}
-            matters more. When you are ready,{' '}
+            matters more. Kai&apos;s Run is not taking dogs yet -{' '}
             <Link href="/book/" className="text-brand-teal-light underline">
-              book a session
+              join the launch list
             </Link>{' '}
-            or review{' '}
-            <Link href="/services/" className="text-brand-teal-light underline">
-              what a session includes
-            </Link>
-            .
+            to hear first when sessions open.
           </p>
         </section>
         <EmbedThisTool

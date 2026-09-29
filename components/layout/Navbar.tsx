@@ -105,7 +105,7 @@ export default function Navbar() {
                 href="/book/"
                 className="bg-brand-teal text-white px-5 py-2 font-medium text-sm tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
               >
-                Book Now
+                Join the Launch List
               </Link>
             </div>
 
@@ -180,7 +180,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="bg-brand-teal text-white px-8 py-3 font-display text-2xl tracking-wider hover:bg-brand-teal/90 transition-colors inline-block"
                 >
-                  Book Now
+                  Join the Launch List
                 </Link>
               </motion.div>
             </motion.div>

@@ -10,7 +10,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const SERVICES_DESCRIPTION =
-  'Private mobile slatmill conditioning at your driveway across Destin & the Emerald Coast. Intro sessions, private conditioning, and multi-session packages.';
+  "Planned private mobile slatmill conditioning at your driveway across Destin & the Emerald Coast. Not taking dogs yet - join the launch list.";
 
 export const metadata: Metadata = {
   title: "Services | Kai's Run - Mobile Dog Gym Destin FL",

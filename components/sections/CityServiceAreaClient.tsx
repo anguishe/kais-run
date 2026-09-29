@@ -128,9 +128,9 @@ export function CityServiceAreaClient({ city }: CityServiceAreaClientProps) {
             <Link href="/blog/" className="text-brand-teal-light underline-offset-2 hover:underline">
               conditioning blog
             </Link>
-            , then{' '}
+            , or{' '}
             <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              book your intro online
+              join the launch list
             </Link>
             . View all{' '}
             <Link href="/service-area/" className="text-brand-teal-light underline-offset-2 hover:underline">

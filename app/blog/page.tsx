@@ -36,18 +36,18 @@ export default function BlogIndexPage() {
           <FieldNotesIndex posts={posts} />
 
           <section className="mt-20 rounded-xl border border-brand-teal/30 bg-brand-charcoal/60 px-6 py-10 text-center md:mt-24">
-            <p className="font-body text-sm uppercase tracking-[0.25em] text-brand-teal-light">Ready when you are</p>
+            <p className="font-body text-sm uppercase tracking-[0.25em] text-brand-teal-light">Not taking dogs yet</p>
             <h2 className="mt-3 font-display text-4xl tracking-tight text-brand-offwhite md:text-5xl">
-              Book a session
+              Get the launch email
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-body text-brand-gray">
-              Bring structured conditioning to your driveway - Destin, Fort Walton Beach & Niceville.
+              Kai&apos;s Run is not taking dogs yet. Join the launch list and hear first when conditioning opens in Destin, Fort Walton Beach & Niceville.
             </p>
             <Link
               href="/book/"
               className="mt-8 inline-flex items-center justify-center rounded-md bg-brand-teal px-10 py-4 font-body font-medium text-white transition hover:bg-brand-teal/90"
             >
-              Book now
+              Join the launch list
             </Link>
           </section>
         </div>

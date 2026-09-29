@@ -5,9 +5,8 @@ import { setBookIntentSource } from '@/lib/bookIntent';
 
 /**
  * PAUSED. Paused first for the Super Dad 2026 homepage vote card (removed
- * 2026-09-24); it stays paused because it sells a priced founding package and
- * the trailer is not operational yet. Before PAUSED_UNTIL passes, either push
- * the date or rewrite this as a waitlist prompt with no price.
+ * 2026-09-24). Rewritten 2026-09-28 as a launch-list prompt with no price
+ * (business parked, not taking dogs). Still paused until PAUSED_UNTIL.
  *
  * TO RE-ENABLE: delete PAUSED_UNTIL and the early return in the mouseleave effect.
  */
@@ -72,18 +71,18 @@ export function ExitIntentPopup() {
           Before you go
         </p>
         <h2 id="exit-intent-title" className="mb-3 font-display text-3xl text-brand-offwhite">
-          Join the Founding 20 - $200
+          Get one email at launch
         </h2>
         <p className="mb-6 font-body text-brand-gray text-sm">
-          Five structured slatmill sessions at $40 each - delivered to your driveway. A one-time
-          founding rate for the first 20 dogs. Never offered again.
+          Kai&apos;s Run is not taking dogs yet. Join the launch list and you hear first when
+          driveway conditioning opens near you. One email, nothing else.
         </p>
         <Link
-          href="/book/?offer=founding#founding-checkout"
+          href="/book/"
           className="block w-full rounded bg-brand-teal py-3 font-display text-lg tracking-wider text-brand-offwhite hover:opacity-90"
-          onClick={() => setBookIntentSource('exit-intent-founding')}
+          onClick={() => setBookIntentSource('exit-intent-launch-list')}
         >
-          Claim Your Founding Spot
+          Join the Launch List
         </Link>
         <button
           className="mt-3 font-body text-xs text-brand-gray underline"

@@ -5,6 +5,11 @@ export type FaqEntry = { q: string; a: string };
 
 export const FAQ_ENTRIES: FaqEntry[] = [
   {
+    q: "Is Kai's Run taking dogs now?",
+    a:
+      "Not yet. The mobile slatmill trailer is still being built, so there is nothing to book today. The answers below describe how sessions will run at launch. [[LINK:/book/|Join the launch list]] and you get one email when sessions open in your town. Until then, the [[LINK:/tools/|free dog tools]] are open to everyone.",
+  },
+  {
     q: 'What is a slatmill - and how is it different from a motorized treadmill?',
     a:
       "A slatmill is a non-motorized treadmill: your dog drives the belt with their own gait. There is no hidden motor setting a minimum speed, no belt that keeps moving when they hesitate, and no human deciding today's 'mph.' That matters for biomechanics - dogs self-select cadence, adjust stride length naturally, and can decelerate the instant something feels off. On a motorized unit, even a well-intentioned operator can ask for speed the dog would not choose on their own. Our sessions use that self-paced work to build cardiovascular fitness and mental satisfaction without fighting the machine. If you want the full breakdown of how we structure sessions, read [[LINK:/services/|what we do on a visit]].",
@@ -12,7 +17,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'What breeds benefit most from Kai\'s Run?',
     a:
-      "High-drive sporting, working, and terrier lines often take to the mill immediately - they are built for repeated effort and clear feedback loops. That said, we work with any dog that needs structured output, from compact athletes in the 20 lb range to large dogs north of 120 lbs when the harness and mill geometry fit safely. Dogs should be at least four months old, and we flag active heartworm or serious cardiac disease before we load work. The question is less 'breed on paper' and more 'energy budget in real life.' If your dog is bored, reactive from frustration, or simply not tired after long walks, [[LINK:/book/|book an intro]] and we will assess gait, confidence, and recovery in the first visit.",
+      "High-drive sporting, working, and terrier lines often take to the mill immediately - they are built for repeated effort and clear feedback loops. That said, we work with any dog that needs structured output, from compact athletes in the 20 lb range to large dogs north of 120 lbs when the harness and mill geometry fit safely. Dogs should be at least four months old, and we flag active heartworm or serious cardiac disease before we load work. The question is less 'breed on paper' and more 'energy budget in real life.' If your dog is bored, reactive from frustration, or simply not tired after long walks, [[LINK:/book/|join the launch list]] - at launch, the first visit assesses gait, confidence, and recovery.",
   },
   {
     q: 'Is the slatmill safe for my dog?',
@@ -27,7 +32,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'What if my dog is reactive, anxious, or noise-sensitive?',
     a:
-      "Private driveway work is the default - no lobby, no pack of unfamiliar dogs, no bouncing tennis balls in a daycare window. Many reactive dogs relax faster when the only job is forward motion in a controlled space they can step away from at will. We do not rush the first hookup; we let the dog investigate the unit, reward small wins, and build trust before asking for sustained running. If your dog needs extra space from neighbors on the street, tell us when you book so we can position the rig to minimize triggers. Ready to try? [[LINK:/book/|Start with the intro session]].",
+      "Private driveway work is the default - no lobby, no pack of unfamiliar dogs, no bouncing tennis balls in a daycare window. Many reactive dogs relax faster when the only job is forward motion in a controlled space they can step away from at will. We do not rush the first hookup; we let the dog investigate the unit, reward small wins, and build trust before asking for sustained running. If your dog needs extra space from neighbors on the street, tell us when you book so we can position the rig to minimize triggers. We are not taking dogs yet - [[LINK:/book/|join the launch list]] to hear first.",
   },
   {
     q: 'How long is a session - and do I need to stay?',
@@ -77,7 +82,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     q: 'How do I book - intro, single session, bundle, or membership?',
     a:
-      "Everything runs through Square Appointments on [[LINK:/book/|Book]]. Choose intro if you are new, performance for drop-in conditioning, or apply bundle and membership credits after you purchase them. Pick a time, drop your address, and we confirm routing. If you are not sure which path to pick, start with the intro - it includes assessment, Run Profile card, and the first real data point on how your dog responds to structured work.",
+      "Kai's Run is not taking dogs yet, so there is nothing to book today. [[LINK:/book/|Join the launch list]] and you get one email when sessions open. At launch, booking will run online: intro first if you are new, then single sessions or packages.",
   },
 ];
 

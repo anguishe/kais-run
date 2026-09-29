@@ -120,13 +120,13 @@ export function ServiceAreaPageClient() {
               Route-Based Scheduling
             </h2>
             <p className="text-brand-gray font-body text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-              We route geographically to maximize efficiency and availability. Book online and we&apos;ll
-              confirm your area is available for your chosen time slot. Most addresses are confirmed
-              within 2 hours of booking.
+              Kai&apos;s Run is not taking dogs yet. At launch, sessions will be routed geographically
+              across these towns. Join the launch list and you get one email when the trailer reaches
+              your area.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="service-area-cta">
-                Book Your Session
+              <Button href="/book/" variant="primary" className="px-10 py-4">
+                Join the Launch List
               </Button>
               <a
                 href="tel:+18502185855"

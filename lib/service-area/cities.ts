@@ -121,7 +121,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym in Miramar Beach, FL | Kai's Run",
     description:
-      "Slatmill conditioning at Miramar Beach driveways - Grand Boulevard, Silver Sands, Maravilla. Private sessions for high-drive dogs on 30A. Book online.",
+      "Slatmill conditioning at Miramar Beach driveways - Grand Boulevard, Silver Sands, Maravilla. Private sessions for high-drive dogs on 30A. Launch list open now.",
     h1: 'Mobile Dog Gym in Miramar Beach, FL',
     eyebrow: 'Miramar Beach · 30A Corridor',
     neighborhoodsLabel: 'Neighborhoods we serve in Miramar Beach',
@@ -199,7 +199,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym Mary Esther FL | Kai's Run",
     description:
-      "Kai's Run delivers private slatmill conditioning to Mary Esther, FL. Structured exercise for high-drive dogs - no drop-off, no group sessions. Book online.",
+      "Kai's Run delivers private slatmill conditioning to Mary Esther, FL. Structured exercise for high-drive dogs - no drop-off, no group sessions. Launch list open now.",
     h1: 'Mobile Dog Conditioning in Mary Esther, FL',
     eyebrow: 'Mary Esther · Choctaw Bay',
     neighborhoodsLabel: 'Neighborhoods we serve in Mary Esther',
@@ -225,7 +225,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym Navarre FL | Kai's Run",
     description:
-      "Kai's Run brings mobile canine conditioning to Navarre, FL. Private slatmill sessions for high-drive dogs delivered to your driveway. Book an intro online.",
+      "Kai's Run brings mobile canine conditioning to Navarre, FL. Private slatmill sessions for high-drive dogs delivered to your driveway. Launch list open now.",
     h1: 'Mobile Dog Conditioning in Navarre, FL',
     eyebrow: 'Navarre · Quiet Side of the Emerald Coast',
     neighborhoodsLabel: 'Neighborhoods we serve in Navarre',
@@ -267,7 +267,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
       "Snowbird and seasonal population swings mean dogs arrive for a month, then leave, then return - energy budgets that do not care about your rental calendar. Kai's Run brings a self-powered slatmill to your driveway or accessible parking area for private conditioning: one dog, air-conditioned unit, no facility drop-off. Beach cottages often have large active dogs - ridgebacks, retrievers, shepherds - that need more than a sand walk between rental check-in and dinner.",
       "30A traffic and parking make facility commutes a project. The mobile model removes that variable entirely. Travis sets up on level ground, runs a structured 30–45 minute session with warm-up and cool-down, and sends a progress photo within an hour. The dog drives the belt at their own pace. No motor forces speed. No other dogs in the space.",
       "Vacation rental schedules rarely align with dog park hours or daylight suitable for hard exercise. A slatmill session at your door fits between beach time and checkout stress.",
-      "Santa Rosa Beach dog owners work around rules most of the county never thinks about. Walton County requires a paid annual permit before a dog touches the sand, and even then the hours run 4 p.m. to 8 a.m. through spring and summer - the exact window when the heat peaks and the walk gets cancelled anyway. That leaves the leashed loops of the Eastern Lake Trail in Point Washington State Forest, where soft sand slows a big dog to a trudge, or a fenced dog park shared with every visiting dog on 30A in high season. A slatmill session in your own driveway ignores all of it. No permit, no trailhead drive, no tourist-season crowding - measured work at your house, on your schedule.",
+      "Santa Rosa Beach dog owners work around rules most of the county never thinks about. Walton County requires an annual permit, open only to county residents and property owners, before a dog touches the sand, and even then the dog must be leashed and the hours run 3:30 p.m. to 8:30 a.m. - so in summer the afternoon end of that window lands right when the heat peaks and the walk gets cancelled anyway. That leaves the leashed loops of the Eastern Lake Trail in Point Washington State Forest, where soft sand slows a big dog to a trudge, or a fenced dog park shared with every visiting dog on 30A in high season. A slatmill session in your own driveway ignores all of it. No permit, no trailhead drive, no tourist-season crowding - measured work at your house, on your schedule.",
     ],
     closingHook:
       "Santa Rosa Beach sessions are best booked early in the day, before the 30A heat closes the window.",
@@ -305,7 +305,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym Valparaiso FL | Kai's Run",
     description:
-      "Kai's Run serves Valparaiso, FL with private mobile canine conditioning. Slatmill sessions for working dogs and high-drive breeds - book online.",
+      "Kai's Run serves Valparaiso, FL with private mobile canine conditioning. Slatmill sessions for working dogs and high-drive breeds - launch list open now.",
     h1: 'Mobile Dog Conditioning in Valparaiso, FL',
     eyebrow: 'Valparaiso · Eglin AFB Edge',
     neighborhoodsLabel: 'Neighborhoods we serve in Valparaiso',

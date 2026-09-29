@@ -37,6 +37,12 @@ export const CATEGORY_MAP: Record<string, Category> = {
   'red-tide-dogs-emerald-coast': 'Seasonal',
   'dog-halloween-door-safety': 'Seasonal',
   'dog-walk-dark-after-time-change': 'Seasonal',
+  // Q4 2026 / Jan 2027 drafts (docs/BLOG-PLAN-2026-Q4.md) - awaiting Travis's approval.
+  'overtired-puppy-witching-hour': 'Behavior',
+  'why-does-my-dog-pull-on-the-leash': 'Behavior',
+  'how-to-build-muscle-on-a-dog': 'Conditioning',
+  'can-you-take-your-dog-to-the-beach-destin': 'Seasonal',
+  'why-does-my-dog-get-zoomies': 'Behavior',
 };
 
 export function categoryOf(slug: string): Category | null {

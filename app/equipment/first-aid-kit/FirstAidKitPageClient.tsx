@@ -326,23 +326,16 @@ export function FirstAidKitPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
           >
-            If you want a real workout for your dog delivered to your driveway, with the preparation
-            to back it up, start with an{' '}
-            <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              Intro Session
-            </Link>{' '}
-            or claim a spot in the{' '}
-            <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              Founding Athlete Program
-            </Link>{' '}
-            while they last. We serve Destin, Fort Walton Beach, Niceville and the surrounding coast.
+            Kai&apos;s Run is not taking dogs yet. When driveway sessions open in Destin, Fort Walton
+            Beach, Niceville and the surrounding coast, this kit rides along on every visit. Join the
+            launch list to hear first.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
             <Link
               href="/book/"
               className="bg-brand-teal text-white px-8 py-3 font-medium tracking-wide hover:shadow-[0_0_20px_rgba(10,92,82,0.5)] transition-all duration-300 rounded-sm"
             >
-              Book a session
+              Join the launch list
             </Link>
             <Link
               href="/services/"

@@ -131,11 +131,11 @@ export function AboutPageClient() {
                 <Link href="/services/" className="text-brand-teal-light underline-offset-2 hover:underline">
                   Services
                 </Link>
-                , then grab an intro on{' '}
+                . Kai&apos;s Run is not taking dogs yet -{' '}
                 <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-                  Book
-                </Link>
-                .
+                  join the launch list
+                </Link>{' '}
+                to hear first when it opens.
               </p>
               <p>
                 You should not have to take my word for what happens to your dog. Two cameras record
@@ -420,24 +420,24 @@ export function AboutPageClient() {
             variants={fadeUp}
             className="text-5xl md:text-6xl font-display tracking-tight mb-6"
           >
-            Book Your First Session
+            Be First When It Opens
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-10 max-w-2xl mx-auto"
           >
-            Experience the difference structured conditioning makes - start with the intro, or scan{' '}
+            Kai&apos;s Run is not taking dogs yet. Join the launch list for one email when sessions open, or scan{' '}
             <Link href="/faq/" className="text-brand-teal-light underline-offset-2 hover:underline">
               FAQs
             </Link>{' '}
             if you still have questions.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="about-cta">
-              Book Intro - $35
+            <Button href="/book/" variant="primary" className="px-10 py-4">
+              Join the Launch List
             </Button>
-            <Button href="/pricing" variant="secondary" className="px-10 py-4">
-              View All Pricing
+            <Button href="/tools/" variant="secondary" className="px-10 py-4">
+              Try the Free Tools
             </Button>
           </motion.div>
         </motion.div>

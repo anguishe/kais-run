@@ -38,7 +38,8 @@ export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed"
           >
-            Everything you need to know about mobile slatmill sessions.
+            Everything you need to know about mobile slatmill sessions. Kai&apos;s Run is not taking
+            dogs yet - these answers describe how sessions will run at launch.
           </motion.p>
         </motion.div>
       </section>
@@ -64,9 +65,9 @@ export function FAQPageClient({ faqAccordion }: FAQPageClientProps) {
             variants={fadeUp}
             className="mt-12 text-center text-base md:text-lg font-body text-brand-gray"
           >
-            Ready to book?{' '}
+            Kai&apos;s Run is not taking dogs yet.{' '}
             <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              Intro sessions start at $35 →
+              Join the launch list →
             </Link>
           </motion.p>
         </motion.div>

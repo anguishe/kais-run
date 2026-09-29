@@ -47,10 +47,7 @@ const sections: Section[] = [
     body: (
       <>
         It is your dog and your driveway. Consent to record - video and the cameras&apos; built-in
-        audio - is spelled out in the{' '}
-        <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-          session waiver
-        </Link>{' '}
+        audio - is spelled out in the session waiver
         before we start, because Florida is an all-party consent state for private conversations.
         Publishing anything with your dog in it publicly is a separate, opt-in yes. The default is
         that your footage stays private to you, and you can request clips or the fuller footage of
@@ -209,11 +206,11 @@ export function HowWeRecordPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed"
           >
+            Kai&apos;s Run is not taking dogs yet.{' '}
             <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              Book an intro session
-            </Link>
-            , or ask about the Founding Athlete Program to make conditioning a regular part of your
-            dog&apos;s routine. Serving Destin, Fort Walton Beach, Niceville, and the Emerald Coast.
+              Join the launch list
+            </Link>{' '}
+            to hear first when sessions open in Destin, Fort Walton Beach, Niceville, and the Emerald Coast.
           </motion.p>
           <motion.p
             variants={fadeUp}

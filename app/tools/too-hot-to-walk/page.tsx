@@ -192,15 +192,11 @@ export default async function TooHotToWalkPage({ searchParams }: Props) {
             <Link href="/tools/dog-exercise-calculator/" className="text-brand-teal-light underline">
               the exercise calculator
             </Link>{' '}
-            is the other free tool here. When you are ready to schedule a session,{' '}
+            is the other free tool here. Kai&apos;s Run is not taking dogs yet -{' '}
             <Link href="/book/" className="text-brand-teal-light underline">
-              book here
+              join the launch list
             </Link>{' '}
-            or review{' '}
-            <Link href="/services/" className="text-brand-teal-light underline">
-              what a session includes
-            </Link>
-            .
+            to hear first when climate-controlled driveway sessions open.
           </p>
         </section>
         <EmbedThisTool

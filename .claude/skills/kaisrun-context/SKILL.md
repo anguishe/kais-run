@@ -8,27 +8,27 @@
 
 ## Project Identity
 
-- **Business:** Kai's Run — mobile canine conditioning, Destin FL
+- **Business:** Kai's Run - mobile canine conditioning, Destin FL
 - **Stack:** Next.js 16 App Router, TypeScript, Tailwind CSS v4, Framer Motion v12
-- **Hosting:** Vercel SSR (Next.js App Router) — API routes and server actions work; `redirects()` and `headers()` are active in `next.config.js`. No static export (`output: 'export'` is gone).
+- **Hosting:** Vercel SSR (Next.js App Router) - API routes and server actions work; `redirects()` and `headers()` are active in `next.config.js`. No static export (`output: 'export'` is gone).
 - **Repo:** anguishe/kais-run
 - **Live domain:** https://kaisrun.xyz (trailing slash on all URLs)
-- **Build:** `npm run build` → `.next` (Vercel-managed) — always verify exit code 0
+- **Build:** `npm run build` → `.next` (Vercel-managed) - always verify exit code 0
 
 ---
 
 ## Hard Constraints (Never Violate)
 
-1. **No `next/image`** — use plain `<img>` tags only
-2. **API routes work (Vercel SSR)** — but forms intentionally stay on the Formspree + Cloudflare Worker pattern; no `/api/*` migration without instruction
-3. **301 redirects via `redirects()` in `next.config.js`** — Vercel executes them (no Cloudflare rule or meta-refresh needed)
-4. **No static export** — never reintroduce `output: 'export'`; hosting is Vercel SSR
-5. **Never use "Emerald Paws Athletic Club"** — retired brand, fully purged
-6. **No `@import` for Google Fonts in CSS** — use `<link>` preload in `layout.tsx`
-7. **No `priority` prop on Navbar logo** — LCP bandwidth conflict
-8. **No Disallow: /book/ in robots.txt** — booking page must be indexable
-9. **No Mailchimp API calls from client** — must go through Cloudflare Worker
-10. **No `aggregateRating` with placeholder values** — add only when real reviews exist
+1. **No `next/image`** - use plain `<img>` tags only
+2. **API routes work (Vercel SSR)** - but forms intentionally stay on the Formspree + Cloudflare Worker pattern; no `/api/*` migration without instruction
+3. **301 redirects via `redirects()` in `next.config.js`** - Vercel executes them (no Cloudflare rule or meta-refresh needed)
+4. **No static export** - never reintroduce `output: 'export'`; hosting is Vercel SSR
+5. **Never use "Emerald Paws Athletic Club"** - retired brand, fully purged
+6. **No `@import` for Google Fonts in CSS** - use `<link>` preload in `layout.tsx`
+7. **No `priority` prop on Navbar logo** - LCP bandwidth conflict
+8. **No Disallow: /book/ in robots.txt** - booking page must be indexable
+9. **No Mailchimp API calls from client** - must go through Cloudflare Worker
+10. **No `aggregateRating` with placeholder values** - add only when real reviews exist
 
 ---
 
@@ -36,10 +36,10 @@
 
 | Product | Price |
 |---|---|
-| Intro Session — 1 dog | $35 |
-| Intro Session — 2 dogs (same household) | $55 |
+| Intro Session - 1 dog | $35 |
+| Intro Session - 2 dogs (same household) | $55 |
 | Founding Athlete Program | $200 / 5 sessions |
-| Standard walk-up | TBD — "pricing announced after Founding closes" |
+| Standard walk-up | TBD - "pricing announced after Founding closes" |
 
 ---
 
@@ -47,7 +47,7 @@
 
 ```
 app/                        Next.js App Router pages
-app/layout.tsx              Root layout — LocalBusiness schema, font preload, GA4
+app/layout.tsx              Root layout - LocalBusiness schema, font preload, GA4
 app/page.tsx                Homepage (server component)
 app/blog/[slug]/page.tsx    Blog post renderer
 app/service-area/[slug]/    City landing pages
@@ -81,7 +81,7 @@ WebSite:   https://kaisrun.xyz/#website
 |---|---|---|
 | Footer signup | xykolrrr | footer-signup |
 | Contact | mvzllpwg | contact-inquiry |
-| Founding 20 | mojrrvdd — provisioned in Formspree, not currently wired in code | founding-20 |
+| Founding 20 | mojrrvdd - provisioned in Formspree, not currently wired in code | founding-20 |
 | Energy Guide | mpqbbwrl | energy-guide |
 
 Cloudflare Worker: `kaisrun-subscribe.kaisrunmobile.workers.dev`
@@ -110,7 +110,7 @@ Fonts: `font-display` (Bebas Neue) · `font-body` (DM Sans)
 
 ## Voice Rules
 
-- Short declarative sentences. Plain dashes (—). No exclamation points.
+- Short declarative sentences. Spaced hyphens ( - ) only - em dashes (U+2014) are banned in all copy, metadata, schema, and docs. No exclamation points.
 - Use: dog, high-drive dog, athlete, session, conditioning, slatmill
 - Never: furry friend, pup, pooch, fur baby, cutesy
 
@@ -120,6 +120,7 @@ Fonts: `font-display` (Bebas Neue) · `font-body` (DM Sans)
 - [ ] Minimum 1,200 words
 - [ ] At least 3 internal links
 - [ ] BlogPosting + BreadcrumbList JSON-LD
-- [ ] Entry in `lib/blog/posts.ts`
-- [ ] Sitemap + llms.txt updated
+- [ ] `CATEGORY_MAP` entry in `lib/blog/categories.ts` (posts.ts reads the MDX directly); `npm run check:schedule` passes
+- [ ] Ends with the most relevant free tool link, then the launch-list line (`#launch-list`); no `/book/` CTAs while the business is parked
+- [ ] llms.txt line added once live (sitemap is generated by app/sitemap.ts)
 - [ ] IndexNow pinged post-deploy

@@ -6,6 +6,7 @@ export function CookieConsent() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser storage after mount so SSR and first client render match
     if (!localStorage.getItem('cookie-consent')) setShow(true);
   }, []);
 

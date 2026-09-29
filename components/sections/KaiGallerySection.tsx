@@ -102,14 +102,14 @@ export function KaiGallerySection() {
               high-drive dog a real job, and the rest of the day gets easier.
             </p>
             <p className="mt-5 font-body leading-relaxed text-brand-gray">
-              The same structured conditioning is what we bring to your driveway.
+              The same structured conditioning is what Kai&apos;s Run will bring to your driveway. We are not taking dogs yet.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
               <Link
-                href="/book/?offer=founding#founding-checkout"
+                href="/book/"
                 className="rounded bg-brand-teal px-6 py-3 font-display text-lg tracking-wider text-brand-offwhite hover:opacity-90"
               >
-                Claim a Founding Spot
+                Join the Launch List
               </Link>
               <Link
                 href="/about/"

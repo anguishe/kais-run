@@ -54,6 +54,15 @@ export const blogMdxComponents: MdxProvidedComponents = {
     <pre className="mb-8 overflow-x-auto rounded-lg border border-brand-teal/20 bg-brand-black p-4 text-sm" {...props} />
   ),
   hr: () => <hr className="my-12 border-brand-teal/20" />,
+  // GFM tables (remark-gfm). Wrapper scrolls sideways on phones instead of the page.
+  table: (props) => (
+    <div className="mb-8 overflow-x-auto rounded-lg border border-brand-teal/20">
+      <table className="w-full border-collapse text-left font-body text-base text-brand-gray" {...props} />
+    </div>
+  ),
+  thead: (props) => <thead className="bg-brand-charcoal text-brand-offwhite" {...props} />,
+  th: (props) => <th className="border-b border-brand-teal/30 px-4 py-3 font-semibold" {...props} />,
+  td: (props) => <td className="border-b border-white/5 px-4 py-3 align-top" {...props} />,
   // Markdown ![](...) — plain <img> with explicit dims + lazy/async so inline images stay CLS-safe.
   // Asset swap path: public/images/blog/<slug>/<name>.webp
   img: ({ src, alt, width, height, style, ...rest }) => {

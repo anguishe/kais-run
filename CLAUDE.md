@@ -40,8 +40,9 @@ ALL of the following must use https://kaisrun.xyz (apex — never www):
   without an explicit instruction from Travis.
 - `components/GoogleAds.tsx` is **Google Ads conversion tracking** (`AW-*`), not AdSense.
   It stays — it measures paid campaigns and sets no ad inventory.
-- Monetization on this site is: booked sessions (primary) and affiliate links on
-  `/equipment/*` (secondary). See docs/MONETIZATION.md.
+- Business is PARKED (2026-09-28): not taking dogs. Goal now = traffic to blog + free
+  tools, launch-list signups, and future ads/tool monetization (gated on Travis).
+  Current monetization: affiliate links on `/equipment/*` only. See docs/MONETIZATION.md.
 
 ## Tailwind Tokens
 
@@ -56,16 +57,23 @@ ALL of the following must use https://kaisrun.xyz (apex — never www):
 
 Fonts: font-display = Bebas Neue · font-body = DM Sans
 
-## Business Stage: PRE-OPENING (standard pricing live)
+## Business Stage: PARKED (since 2026-09-28)
 
-Founding Athlete Program remains the priority offer ($200/5 sessions, capped at 20 dogs).
-Travis has explicitly authorized publishing standard pricing — Intro Session, Private
-Conditioning Session, and Session Packages are now live and promoted site-wide. Monthly
-Memberships (Tier 4) and the Snowbird Package (Tier 5) are still NOT published or promoted
-until Travis announces them. Do not add CTAs, pricing copy, or schema for those unlaunched
-tiers unless explicitly instructed.
+Kai's Run is **not taking dogs yet**. The trailer is not operational. Travis approved (2026-09-28):
+- Every "Book Now" / booking CTA is now **"Join the Launch List"** and points to `/book/`.
+  `/book/` stays live (no 404s) but renders the launch list (`LaunchWaitlist source="book-page"`)
+  plus the free tools, not the Square widget. The old widget page is in git history
+  (`app/book/BookPageClient.tsx`, removed 2026-09-28) for when sessions open.
+- Blog posts end with a `**Free tool:**` line, then the launch-list line
+  ("Kai's Run is not taking dogs yet. [Join the launch list](#launch-list) ..."). No `/book/` or
+  intro-session CTAs in posts.
+- `/pricing/`, `/services/`, `/faq/` and `public/llms.txt` carry a "not taking dogs yet" notice;
+  rates on `/pricing/` are labelled planned launch rates.
+- **No prices in copy** anywhere new (standing rule). `/pricing/` tier cards and schema offers are
+  the only surfaces that still show numbers.
+- Do not reintroduce booking CTAs until Travis says sessions are open.
 
-## Pricing Rules (LOCKED)
+## Pricing Rules (LOCKED, planned launch rates - not bookable while parked)
 
 - Founding Athlete: $200 / 5 sessions ($40 effective) — limited 20 dogs, one-time offer, NO lifetime rate lock
 - Intro Session: $35 (1 dog) / $55 (2 dogs, same household) — includes fitness assessment, "Run Profile" card, and a protein treat after the session
@@ -80,7 +88,7 @@ tiers unless explicitly instructed.
 - NEVER USE: "Emerald Paws Athletic Club" — retired, purged, never regenerate
 - Origin dog: Kai (Rhodesian Ridgeback mix), owned by Travis
 - Tone: athletic, direct, premium - short sentences, active voice. Spaced hyphens only ( - ). Em dashes are banned in all copy, metadata, and schema text. Zero exclamation points in body copy.
-- Prices never appear in editorial body copy - offer names only, linked to /pricing/. Pricing surfaces (/pricing/, /services/ tier cards, schema offers) are exempt.
+- Prices never appear in editorial body copy. Pricing surfaces (/pricing/, /services/ tier cards, schema offers) are exempt.
 - NEVER USE: pup, fur baby, pooch, furry friend, cutesy, spoil, pamper
 - Positioning: private one-on-one mobile canine conditioning — not dog walking, not daycare
 
@@ -99,6 +107,8 @@ Mary Esther · Navarre · Santa Rosa Beach · Bluewater Bay · Valparaiso
 - Square Appointments widget: loaded via useEffect only, never next/script
 
 ## Blog Post Checklist Reminder
+
+The MDX pipeline runs `remark-gfm` (tables render; single-tilde strikethrough is off).
 
 Every new blog post requires a `CATEGORY_MAP` entry in `lib/blog/categories.ts` — omitting it causes the post to disappear from all category filters on /blog.
 

@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
@@ -163,6 +164,17 @@ export function PricingPageClient() {
             Intro sessions from $35. Founding Athlete: $200 for 5 sessions - limited to 20 dogs.
             Private Conditioning Sessions from $70.
           </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 mx-auto max-w-2xl rounded-lg border border-brand-gold/40 bg-brand-gold/10 px-5 py-4 font-body text-base text-brand-offwhite"
+          >
+            Kai&apos;s Run is not taking dogs yet. These are the planned launch rates and may change
+            before opening. Nothing is bookable today -{' '}
+            <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
+              join the launch list
+            </Link>{' '}
+            to hear first.
+          </motion.p>
         </motion.div>
       </section>
 
@@ -300,12 +312,11 @@ export function PricingPageClient() {
                   </p>
 
                   <Button
-                    href={'disabled' in tier && tier.disabled ? undefined : `/book?tier=${tier.id}`}
+                    href={'disabled' in tier && tier.disabled ? undefined : '/book/'}
                     variant={tier.id === 'founding' ? 'primary' : 'secondary'}
                     className={`text-center w-full mt-auto ${'disabled' in tier && tier.disabled ? 'pointer-events-none opacity-50' : ''}`}
-                    bookIntentSource={'disabled' in tier && tier.disabled ? undefined : `pricing-tier-${tier.id}`}
                   >
-                    {'disabled' in tier && tier.disabled ? 'Sold Out' : tier.id === 'founding' ? 'Select' : 'Book'}
+                    {'disabled' in tier && tier.disabled ? 'Sold Out' : 'Join the Launch List'}
                   </Button>
                 </motion.div>
               </Fragment>
@@ -450,22 +461,17 @@ export function PricingPageClient() {
             variants={fadeUp}
             className="text-5xl md:text-6xl font-display tracking-tight mb-6"
           >
-            Ready to Get Started?
+            Want the First Email?
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-10"
           >
-            Book your first session and experience the difference.
+            Kai&apos;s Run is not taking dogs yet. The launch list hears first when sessions open.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <Button
-              href="/book/"
-              variant="primary"
-              className="px-12 py-5 text-base"
-              bookIntentSource="pricing-footer-cta"
-            >
-              Book Now
+            <Button href="/book/" variant="primary" className="px-12 py-5 text-base">
+              Join the Launch List
             </Button>
           </motion.div>
         </motion.div>

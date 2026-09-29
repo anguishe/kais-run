@@ -14,7 +14,7 @@ const quickLinks = [
   { href: '/blog/', label: 'Blog' },
   { href: '/tools/', label: 'Tools' },
   { href: '/contact/', label: 'Contact' },
-  { href: '/book/', label: 'Book Now' },
+  { href: '/book/', label: 'Launch List' },
 ];
 
 const serviceCityLinks = [

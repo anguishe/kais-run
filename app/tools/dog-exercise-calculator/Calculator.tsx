@@ -481,25 +481,21 @@ export function Calculator() {
                   A neighborhood walk will not cover this.
                 </p>
                 <p className="text-brand-gray text-sm leading-relaxed">
-                  Here is what will -{' '}
-                  <Link href="/book/" className="text-brand-teal-light underline">
-                    book a structured conditioning session
-                  </Link>{' '}
-                  or read{' '}
+                  Here is what will - structured conditioning work. Read{' '}
                   <Link
                     href="/blog/how-to-tire-out-a-high-energy-dog/"
                     className="text-brand-teal-light underline"
                   >
                     how to actually tire out a high-energy dog
                   </Link>
-                  . Outside our service area,{' '}
+                  . To do it at home,{' '}
                   <Link
                     href="/equipment/ronzeil-slatmill/"
                     className="text-brand-teal-light underline"
                   >
                     the slatmill we run
                   </Link>{' '}
-                  is how we cover it.
+                  is the one Kai trains on.
                 </p>
               </div>
             )}

@@ -249,9 +249,7 @@ export function PuppyPlanner() {
               </Link>
               {plan.stage !== 'under-four-months' && (
                 <Link href="/book/" className="text-sm text-brand-teal-light underline">
-                  {plan.stage === 'plates-closed'
-                    ? 'Book a conditioning session'
-                    : 'Book an introduction session'}
+                  Join the Kai&apos;s Run launch list
                 </Link>
               )}
             </div>

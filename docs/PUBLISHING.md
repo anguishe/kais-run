@@ -1,6 +1,6 @@
 # Publishing - Fall + Winter 2026 Field Notes
 
-Eight posts are written, committed, and scheduled (the winter three approved by Travis 2026-09-16). They publish themselves - URL, blog index and sitemap - with no deploy.
+Eight posts are written, committed, and scheduled (the winter three approved by Travis 2026-09-16). Five more (12/17 through 2/11) are drafts awaiting approval - see docs/APPROVAL-PACKAGE-2026-09-28.md. They publish themselves - URL, blog index and sitemap - with no deploy.
 
 ## How scheduling works
 
@@ -29,6 +29,11 @@ that has gone live but is not listed yet.
 | 2026-11-12 | `can-my-dog-run-a-5k-with-me` | Two weeks before Thanksgiving turkey trots; evergreen for spring 5Ks |
 | 2026-11-24 | `is-a-dog-treadmill-worth-it` | Before Black Friday and holiday gift shopping; slatmill purchase-intent cluster |
 | 2026-12-10 | `how-cold-is-too-cold-for-dogs` | Indexed ahead of the late-Dec and January cold snaps |
+| 2026-12-17 | `overtired-puppy-witching-hour` | DRAFT, uncommitted, awaiting Travis - a week before Christmas puppies come home |
+| 2027-01-05 | `why-does-my-dog-pull-on-the-leash` | DRAFT, uncommitted, awaiting Travis - first Tuesday of Walk Your Dog Month |
+| 2027-01-14 | `how-to-build-muscle-on-a-dog` | DRAFT, uncommitted, awaiting Travis - mid-January, the one heat-free stretch for a 6-8 week build |
+| 2027-01-28 | `can-you-take-your-dog-to-the-beach-destin` | DRAFT, uncommitted, awaiting Travis - snowbird season. **GATED: `/tools/dog-beach-checker/` must be live by 2027-01-21, or move this date** |
+| 2027-02-11 | `why-does-my-dog-get-zoomies` | DRAFT, uncommitted, awaiting Travis - evergreen; links the Beach Checker, same gate |
 
 ## On each publish day
 
@@ -198,3 +203,105 @@ Full breakdown - link in the first comment.
 #Destin #EmeraldCoast #Niceville
 
 **First comment:** https://kaisrun.xyz/blog/how-cold-is-too-cold-for-dogs/
+
+---
+
+## 9. Dec 17 - Overtired puppy (DRAFT, awaiting Travis)
+
+Your new puppy is not bouncing off the walls because it has too much energy. It is bouncing off the walls because it has not slept.
+
+Every evening around six, the sweetest dog in the house turns into a set of needles with a motor. Most people answer it with a round of fetch. That is the one move that makes it worse.
+
+Owners in a big UK study reported their 16-week-old puppies sleeping about 11 hours a day. The number most vets and trainers give is a lot higher than that. The gap between those two numbers has a name, and every new puppy owner meets it.
+
+If there is a puppy coming home this Christmas, read this before the first week is out. Link in the first comment.
+
+- Kai. I have been told I was a difficult puppy. I have no memory of this, and I would like to see the evidence.
+
+#Destin #EmeraldCoast #DogsOfDestin
+
+**First comment:** https://kaisrun.xyz/blog/overtired-puppy-witching-hour/
+
+Worth a second share 12/26 or 12/27, when the Christmas puppies are home.
+
+---
+
+## 10. Jan 5 - Leash pulling (DRAFT, awaiting Travis)
+
+Your dog does not pull because it thinks it is in charge. You are walking at the worst possible speed for it.
+
+Dogs have three gears. People have two. A comfortable human walk lands right in the gap between a dog's walk and its trot, so the dog tries the trot, and the leash goes tight.
+
+Then the pull gets it to the next mailbox, and you have paid it to do it again.
+
+There is also a harness study on this with a result most people would not guess, and it changes what you should clip the leash to.
+
+January is Walk Your Dog Month. Make the walk worth taking. Link in the first comment.
+
+- Kai. My human says I pull. I would describe it as leading. We have agreed to disagree, and he has bought a new harness.
+
+#Destin #EmeraldCoast #FortWaltonBeach
+
+**First comment:** https://kaisrun.xyz/blog/why-does-my-dog-pull-on-the-leash/
+
+---
+
+## 11. Jan 14 - Build muscle (DRAFT, awaiting Travis)
+
+Two walks a day will keep the muscle your dog has. It will not build any more.
+
+"His back legs look skinny. We walk him every day." I hear some version of that a lot, and the walks are not the problem. They are the wrong tool for the job.
+
+Muscle only grows when it is asked for something new. There is university research showing which movements actually load a dog's hind end, and one thing owners buy for this made the muscles work less, not more.
+
+And if the loss came on fast, or on one side, the first stop is the vet, not the gym.
+
+Full breakdown - link in the first comment.
+
+- Kai. My human keeps putting his hands on my back legs and writing things down. I have been told the numbers are going up.
+
+#Destin #EmeraldCoast #DogsOfDestin
+
+**First comment:** https://kaisrun.xyz/blog/how-to-build-muscle-on-a-dog/
+
+---
+
+## 12. Jan 28 - Dog beaches near Destin (DRAFT, awaiting Travis)
+
+Your dog is not allowed on a single public beach in Okaloosa County. Leash or no leash, resident or visitor.
+
+Every winter somebody down for a couple of months with their dog asks me which beach to use. The honest answer is shorter than they want.
+
+Walton County does allow dogs, but only with a permit most visitors cannot get, and only during hours half the internet has wrong. Navarre is a no. The state parks are a no.
+
+There are a few places a visiting dog can legally put its feet in the Gulf. I put the whole coast in one place, with the actual ordinance behind every rule.
+
+Link in the first comment.
+
+- Kai. I have lived in Okaloosa County my entire life and have never legally set foot on the beach. I have made my peace with this.
+
+#Destin #EmeraldCoast #30A
+
+**First comment:** https://kaisrun.xyz/blog/can-you-take-your-dog-to-the-beach-destin/
+
+GATED: post only if `/tools/dog-beach-checker/` is live (target 2027-01-21), and re-verify the county rules that week. No fee or fine amounts in the caption.
+
+---
+
+## 13. Feb 11 - Zoomies (DRAFT, awaiting Travis)
+
+The nightly zoomies are not your dog being weird. They are your dog telling you what its day was missing.
+
+Nine o'clock, dishes done, you finally sit down. The dog stands up, tucks its tail, and the rug ends up in the kitchen.
+
+Zoomies are normal, and a vet school puts the real risk somewhere most people never look. But the timing is the useful part. A dog that laps the house after a bath is shaking something off. A dog that does it every night at the same time is spending energy the day never asked for.
+
+Full breakdown - link in the first comment.
+
+- Kai. My human wrote a whole post about running in circles. For the record, I do my running on a mill, in a straight line, like a professional.
+
+#Destin #EmeraldCoast #DogsOfDestin
+
+**First comment:** https://kaisrun.xyz/blog/why-does-my-dog-get-zoomies/
+
+The post links `/tools/dog-beach-checker/`; same gate as section 12.

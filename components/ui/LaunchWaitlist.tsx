@@ -82,6 +82,7 @@ export default function LaunchWaitlist({ source }: { source: string }) {
 
   return (
     <section
+      id="launch-list"
       aria-labelledby={`launch-waitlist-${slug(source)}`}
       className="my-12 rounded-xl border border-brand-gold/30 bg-brand-charcoal/60 px-6 py-8"
     >

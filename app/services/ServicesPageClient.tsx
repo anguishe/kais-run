@@ -74,8 +74,8 @@ const services = [
 const steps = [
   {
     number: '01',
-    title: 'Book Online',
-    description: 'Choose your session type and pick a time that works for you.',
+    title: 'Join the Launch List',
+    description: 'Kai\'s Run is not taking dogs yet. Get one email when sessions open near you.',
   },
   {
     number: '02',
@@ -138,16 +138,12 @@ export function ServicesPageClient() {
             className="text-brand-gray font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             Performance conditioning for high-drive dogs. Not dog walking. Not daycare.
-            Structured athletic sessions - at your door. When you are ready to compare rates
-            or lock a time, jump to{' '}
-            <Link href="/pricing/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              pricing
-            </Link>{' '}
-            or{' '}
+            Structured athletic sessions - at your door. Kai&apos;s Run is not taking dogs yet;
+            this page describes the sessions planned for launch.{' '}
             <Link href="/book/" className="text-brand-teal-light underline-offset-2 hover:underline">
-              booking
-            </Link>
-            .
+              Join the launch list
+            </Link>{' '}
+            to hear first when they open.
           </motion.p>
         </motion.div>
       </section>
@@ -389,7 +385,7 @@ export function ServicesPageClient() {
           </motion.p>
           <motion.p variants={fadeUp} className="text-center text-brand-offwhite">
             <Link href="/book/" className="text-brand-teal-light font-medium underline-offset-4 hover:underline">
-              Book your intro
+              Join the launch list
             </Link>{' '}
             ·{' '}
             <Link href="/pricing/" className="text-brand-teal-light font-medium underline-offset-4 hover:underline">
@@ -444,14 +440,14 @@ export function ServicesPageClient() {
             variants={fadeUp}
             className="text-brand-gray font-body text-lg mb-10"
           >
-            Book your intro session and see the difference structured conditioning makes.
+            Kai&apos;s Run is not taking dogs yet. Join the launch list and you hear first when sessions open.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/book/" variant="primary" className="px-10 py-4" bookIntentSource="services-cta">
-              Book a Session
+            <Button href="/book/" variant="primary" className="px-10 py-4">
+              Join the Launch List
             </Button>
-            <Button href="/pricing" variant="secondary" className="px-10 py-4">
-              View Pricing
+            <Button href="/tools/" variant="secondary" className="px-10 py-4">
+              Try the Free Tools
             </Button>
           </motion.div>
         </motion.div>

@@ -10,7 +10,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 const PRICING_DESCRIPTION =
-  "Straightforward pricing for mobile dog conditioning on the Emerald Coast. Intro Sessions, multi-session packs, and the Founding Athlete Program.";
+  "Planned launch pricing for mobile dog conditioning on the Emerald Coast. Kai's Run is not taking dogs yet - join the launch list to hear first.";
 
 export const metadata: Metadata = {
   title: "Pricing | Kai's Run Mobile Dog Gym Destin FL",

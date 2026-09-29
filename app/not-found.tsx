@@ -33,7 +33,7 @@ export default function NotFound() {
       </nav>
       <div className="mt-10">
         <Button href="/book/" variant="primary" className="bg-brand-gold text-brand-black hover:shadow-[0_0_20px_rgba(201,150,58,0.5)]">
-          Book Now
+          Join the Launch List
         </Button>
       </div>
     </main>

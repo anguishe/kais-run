@@ -141,11 +141,7 @@ const BAND_PLAN: Record<Band, React.ReactNode> = {
       <Link href="/tools/dog-exercise-calculator/" className="underline">
         the exercise calculator
       </Link>
-      . On the Emerald Coast,{' '}
-      <Link href="/book/" className="underline">
-        a structured session
-      </Link>{' '}
-      covers the movement half for you.
+      .
     </>
   ),
   overweight: (
@@ -156,11 +152,7 @@ const BAND_PLAN: Record<Band, React.ReactNode> = {
       and I will not guess at numbers that a professional should own. The movement side is a steady,
       controlled outlet: an overweight dog needs consistent low-to-moderate work, not a sudden hard
       push that its joints and heart are not ready for. That balance - real movement without
-      overloading a body carrying extra weight - is exactly what a{' '}
-      <Link href="/book/" className="underline">
-        structured, self-paced session
-      </Link>{' '}
-      is built for. Before you ramp anything, read{' '}
+      overloading a body carrying extra weight - is exactly what structured, self-paced work is built for. Before you ramp anything, read{' '}
       <Link href="/blog/can-you-over-exercise-a-dog/" className="underline">
         how to read the exercise limit
       </Link>

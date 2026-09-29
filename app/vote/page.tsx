@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import VoteCta from '@/components/VoteCta';
 
-// Not a Kai's Run service page — it is a short, sayable URL for the Super Dad 2026 vote
+// Not a Kai's Run service page - it is a short, sayable URL for the Super Dad 2026 vote
 // drive that print, QR codes and the Flock case site all point at. Kept out of the index
 // so it never competes with the business pages for kaisrun.xyz's own terms.
 export const metadata: Metadata = {
-  title: 'Vote for Travis — Super Dad 2026',
+  title: 'Vote for Travis - Super Dad 2026',
   description:
     'One free vote a day for Travis in Super Dad 2026, benefiting Children’s Miracle Network. Confirm the email once, then it is one tap a day.',
   alternates: { canonical: 'https://kaisrun.xyz/vote/' },
   robots: { index: false, follow: true },
   openGraph: {
-    title: 'Vote free, once a day — Super Dad 2026',
+    title: 'Vote free, once a day - Super Dad 2026',
     description:
       'Three taps. Confirm the email once. Then it is one tap a day until November.',
     url: 'https://kaisrun.xyz/vote/',
@@ -53,7 +53,7 @@ export default function VotePage() {
 
         <p className="mt-12 text-sm text-brand-gray">
           Extra votes can be bought as a donation to Children&apos;s Miracle Network.
-          Genuinely optional — the free daily vote is the ask, and it is what this page is
+          Genuinely optional - the free daily vote is the ask, and it is what this page is
           for.{' '}
           <a
             href="https://yoursuperdad.org/competitor/group/sd-xmxr"
