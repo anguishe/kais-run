@@ -33,7 +33,9 @@ export default function GoogleAds({ conversionId }: GoogleAdsProps) {
       });
     };
 
-    if (localStorage.getItem("cookie-consent") === "accepted") setConsent("granted");
+    const stored = localStorage.getItem("cookie-consent");
+    if (stored === "accepted") setConsent("granted");
+    else if (stored === "declined") setConsent("denied");
 
     const onAccept = () => setConsent("granted");
     const onDecline = () => setConsent("denied");

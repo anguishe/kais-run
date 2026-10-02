@@ -7,9 +7,9 @@ const GA4_MEASUREMENT_ID = 'G-1P5ST40L2E';
 
 export function GA4Script() {
   useEffect(() => {
-    // Consent Mode v2: the loader below runs unconditionally - the default-deny
-    // block in app/layout.tsx keeps pings cookieless until the visitor accepts,
-    // at which point this upgrades analytics_storage to granted.
+    // Consent Mode v2: the loader below runs unconditionally. Defaults live in
+    // app/layout.tsx (denied in EEA/UK/CH, granted elsewhere); accepting grants
+    // here, declining denies via GoogleAds.tsx.
     const grant = () =>
       window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
     if (localStorage.getItem('cookie-consent') === 'accepted') grant();

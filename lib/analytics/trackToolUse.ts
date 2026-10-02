@@ -9,14 +9,15 @@ declare global {
 
 /**
  * Records a free-tool interaction. Mirrors the site analytics setup:
- * GA4 is consent-gated (only fires when cookie-consent === 'accepted'),
+ * GA4 fires unless the visitor declined (EEA/UK/CH visitors who haven't
+ * accepted are kept cookieless by the consent default in app/layout.tsx).
  * Clarity is ungated.
  */
 export function trackToolUse(tool: string, detail?: Record<string, string | number>) {
   if (typeof window === 'undefined') return;
 
   if (
-    localStorage.getItem('cookie-consent') === 'accepted' &&
+    localStorage.getItem('cookie-consent') !== 'declined' &&
     typeof window.gtag === 'function'
   ) {
     window.gtag('event', 'tool_use', { tool, ...detail });
@@ -32,7 +33,7 @@ export function trackAffiliateClick(product: string) {
   if (typeof window === 'undefined') return;
 
   if (
-    localStorage.getItem('cookie-consent') === 'accepted' &&
+    localStorage.getItem('cookie-consent') !== 'declined' &&
     typeof window.gtag === 'function'
   ) {
     window.gtag('event', 'affiliate_click', { product });

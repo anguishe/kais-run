@@ -158,12 +158,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        {/* Consent Mode v2 default — deny all until the visitor accepts. Runs at
-            parse time, before any gtag('config') from GA4Script or GoogleAds. */}
+        {/* Consent Mode v2 defaults, run at parse time before any gtag('config').
+            EEA/UK/CH: everything denied until the visitor accepts (opt-in).
+            Elsewhere: analytics on by default, Decline turns it off (opt-out);
+            ad storage stays denied everywhere. A global analytics deny hid
+            almost all traffic from GA4 (same bug fixed on bashsnippets 2026-10-02). */}
         <script
           id="google-consent-default"
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500,region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});gtag('consent','default',{ad_storage:'denied',analytics_storage:'granted',ad_user_data:'denied',ad_personalization:'denied'});`,
           }}
         />
         <GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />
