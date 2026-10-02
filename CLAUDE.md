@@ -99,7 +99,7 @@ Mary Esther · Navarre · Santa Rosa Beach · Bluewater Bay · Valparaiso
 
 ## Integrations
 
-- GA4: G-1P5ST40L2E — Consent Mode v2, region-scoped (2026-10-02): EEA/UK/CH opt-in; elsewhere analytics granted by default and the banner's Decline opts out. Ad storage denied everywhere. Never revert to a global analytics deny (it hid ~all traffic).
+- GA4: G-NWMG7SJ274 (property 557170383, anguisheh1 account 393326874, alongside BHM/Saltwater/BashSnippets; replaced the draft G-1P5ST40L2E on 2026-10-02) — Consent Mode v2, region-scoped (2026-10-02): EEA/UK/CH opt-in; elsewhere analytics granted by default and the banner's Decline opts out. Ad storage denied everywhere. Never revert to a global analytics deny (it hid ~all traffic).
 - Microsoft Clarity: wurwoh6v8a
 - Formspree endpoints: see INTEGRATIONS.md
 - Mailchimp: Cloudflare Worker at kaisrun-subscribe.kaisrunmobile.workers.dev

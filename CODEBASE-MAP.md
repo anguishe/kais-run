@@ -210,7 +210,7 @@ Reusable for new blog UI: `FaqAccordion`, `Button`, `ReadingProgressBar`, `Slatm
 `VERIFIED` (components/ui/CookieConsent.tsx, GA4Script.tsx, analytics/MicrosoftClarity.tsx, GoogleAds.tsx, DevTools.tsx, lib/googleAds.ts).
 
 - **Consent gate:** `components/ui/CookieConsent.tsx` — banner shows when `localStorage 'cookie-consent'` is unset. Accept → sets `'accepted'` and **dispatches `window` event `'cookie-consent-accepted'`**. Decline → sets `'declined'`, fires no event. This event name is the gating signal across the app.
-- **GA4:** `G-1P5ST40L2E`, hardcoded in `components/ui/GA4Script.tsx:5`. **Consent-gated** — renders nothing until `localStorage==='accepted'` or the `cookie-consent-accepted` event fires; then loads gtag via `next/script afterInteractive`.
+- **GA4:** `G-NWMG7SJ274` (was draft `G-1P5ST40L2E` until 2026-10-02), hardcoded in `components/ui/GA4Script.tsx:5`. **Consent-gated** — renders nothing until `localStorage==='accepted'` or the `cookie-consent-accepted` event fires; then loads gtag via `next/script afterInteractive`.
 - **Microsoft Clarity:** `wurwoh6v8a`, hardcoded in `components/analytics/MicrosoftClarity.tsx:3`. Loaded via `next/script afterInteractive` — **NOT consent-gated** (loads immediately). (`.env.local.example` advertises `NEXT_PUBLIC_CLARITY_ID` but the component ignores env and hardcodes the ID — mismatch.)
 - **Google Ads (conversion gtag):** `components/GoogleAds.tsx`, mounted in layout `<head>` as `<GoogleAds conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID} />`. Renders nothing unless the env var is set. Conversion logic + dev logging in `lib/googleAds.ts` (+ `lib/googleAds.test.ts`). Not consent-gated.
 - **AdSense loader:** removed 2026-09-01 (see §4). No advertising scripts load anywhere.

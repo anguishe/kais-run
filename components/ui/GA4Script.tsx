@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Script from 'next/script';
 
-const GA4_MEASUREMENT_ID = 'G-1P5ST40L2E';
+const GA4_MEASUREMENT_ID = 'G-NWMG7SJ274'; // property 557170383 under anguisheh1 (2026-10-02); replaced draft G-1P5ST40L2E
 
 export function GA4Script() {
   useEffect(() => {

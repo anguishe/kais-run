@@ -64,7 +64,7 @@ Tags must exactly match: `contact-inquiry`, `founding-20`, `energy-guide`, `foot
 
 | Service | ID/Key | Status |
 |---|---|---|
-| Google Analytics 4 | G-1P5ST40L2E | ✅ Live |
+| Google Analytics 4 | G-NWMG7SJ274 (property 557170383, anguisheh1) | ✅ Live since 2026-10-02 (old draft G-1P5ST40L2E removed) |
 | Microsoft Clarity | wurwoh6v8a | ✅ Live |
 | Google Search Console | Verification key: suiO-1Ptv6S8pmMU60QJiNoNnlwQfzXBV2F0UurKxrg | ✅ Verified |
 
