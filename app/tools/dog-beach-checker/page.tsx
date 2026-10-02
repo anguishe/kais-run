@@ -20,9 +20,11 @@ import EmbedSnippet from './EmbedSnippet';
 // their publish day without a deploy.
 export const revalidate = 86400;
 
-const TITLE = 'Can My Dog Go to the Beach? Destin, 30A, Navarre & Pensacola Dog Beach Checker';
+// Page H1 keeps every beach town; the SERP <title> is the short form (site-gate: <= 65 chars).
+const H1 = 'Can My Dog Go to the Beach? Destin, 30A, Navarre & Pensacola Dog Beach Checker';
+const TITLE = 'Can My Dog Go to the Beach? Destin & 30A Dog Beach Checker';
 const DESC =
-  'Pick a beach and see if your dog is allowed right now - Okaloosa, Destin, Walton permit hours (3:30 PM to 8:30 AM), Navarre, Pensacola Beach and PCB dog beaches, with the ordinance for each.';
+  'Pick a beach and see if your dog is allowed now - Okaloosa, Destin, Walton permit hours, Navarre, Pensacola Beach and PCB dog beaches, with each ordinance.';
 const CANONICAL = 'https://kaisrun.xyz/tools/dog-beach-checker/';
 const OG_CARD = generatedOgUrl('Dog Beach Checker', 'Free Tool');
 
@@ -151,7 +153,7 @@ export default function DogBeachCheckerPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="font-display text-5xl text-brand-offwhite leading-tight">{TITLE}</h1>
+        <h1 className="font-display text-5xl text-brand-offwhite leading-tight">{H1}</h1>
         <p className="mt-6 font-body text-lg text-brand-offwhite leading-relaxed">
           Not in Okaloosa County or Destin. Walton allows permit holders 3:30 PM to 8:30 AM. Visitors can
           use the Pensacola Beach and Panama City Beach dog beaches.

@@ -73,7 +73,7 @@ export default function SlatmillExplainer({
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-brand-black/60" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-black/40 via-transparent to-brand-black/40" />
         </div>
-        <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+        <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
           {SLATMILL_ILLUSTRATION_CAPTION}
         </figcaption>
       </figure>
@@ -82,7 +82,7 @@ export default function SlatmillExplainer({
         {body}
       </div>
 
-      <p className="mt-6 text-center font-body text-xs uppercase tracking-[0.2em] text-brand-teal-light/80">
+      <p className="mt-6 text-center font-body text-xs uppercase tracking-[0.2em] text-brand-teal-muted">
         One dog at a time - every Kai&apos;s Run session is private.
       </p>
     </div>

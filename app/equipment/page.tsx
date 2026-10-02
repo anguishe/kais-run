@@ -6,7 +6,7 @@ import { EquipmentHubPageClient } from './EquipmentHubPageClient';
 const PAGE_URL = 'https://kaisrun.xyz/equipment/';
 
 const DESCRIPTION =
-  "The gear behind every Kai's Run session - the Julius-K9 IDC Powerharness, a canine first-aid kit, and a two-camera recording rig. Chosen for safety, built for real work.";
+  "The gear behind every Kai's Run session - the Julius-K9 IDC Powerharness, a canine first-aid kit, and a two-camera rig. Chosen for safety, built for work.";
 
 export const metadata: Metadata = {
   title: "Equipment We Run | Kai's Run",

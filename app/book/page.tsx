@@ -9,7 +9,7 @@ import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
 const TITLE = "Join the Launch List | Kai's Run";
 const DESC =
-  "Kai's Run is not taking dogs yet. Join the launch list for one email when mobile slatmill conditioning opens in Destin, Fort Walton Beach, Niceville, and the Emerald Coast.";
+  "Kai's Run is not taking dogs yet. Join the launch list for one email when mobile slatmill conditioning opens in Destin, Fort Walton Beach, and Niceville.";
 
 export const metadata: Metadata = {
   title: TITLE,

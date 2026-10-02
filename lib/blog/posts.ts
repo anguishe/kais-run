@@ -6,6 +6,11 @@ const POSTS_DIR = path.join(process.cwd(), 'content/blog');
 
 export type BlogFrontmatter = {
   title: string;
+  /**
+   * Optional SERP <title> when the headline (H1, schema headline) runs long.
+   * Keep it <= 60 chars; scripts/check-meta.mjs fails the build past 65.
+   */
+  metaTitle?: string;
   description: string;
   /**
    * Publish date, YYYY-MM-DD. This is also the schedule gate: a post dated in the
@@ -106,6 +111,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const raw = fs.readFileSync(file, 'utf8');
   const { data, content } = parseSimpleFrontmatter(raw);
   const title = data.title ?? slug;
+  const metaTitle = data.metaTitle?.trim() || undefined;
   const description = data.description ?? '';
   const date = data.date ?? '';
   const dateModified = data.dateModified ?? undefined;
@@ -119,6 +125,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
   return {
     slug,
     title,
+    metaTitle,
     description,
     date,
     dateModified,

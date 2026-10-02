@@ -115,7 +115,7 @@ export default function PrivacyPage() {
         }
         .privacy-content [data-custom-class='link'],
         .privacy-content [data-custom-class='link'] * {
-          color: #0A5C52 !important;
+          color: #17A08F !important;
           font-size: 14px !important;
           font-family: Arial !important;
           word-break: break-word !important;
@@ -148,7 +148,7 @@ export default function PrivacyPage() {
           padding-left: 1.5rem !important;
         }
         .privacy-content a {
-          color: #0A5C52 !important;
+          color: #17A08F !important;
         }
         .privacy-content span[style*="display: block"] {
           display: none !important;

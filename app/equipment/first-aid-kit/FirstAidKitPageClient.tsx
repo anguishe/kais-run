@@ -56,7 +56,7 @@ export function FirstAidKitPageClient() {
             fetchPriority="high"
             className="w-full rounded-xl border border-brand-teal/15"
           />
-          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
             The kit that rides with the equipment to every driveway.
           </figcaption>
         </motion.figure>
@@ -160,7 +160,7 @@ export function FirstAidKitPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               The kit laid out - wound care, a thermometer, a soft muzzle, tools and field extras.
             </figcaption>
           </motion.figure>
@@ -214,7 +214,7 @@ export function FirstAidKitPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               Open and packed - right there for the end-of-session check.
             </figcaption>
           </motion.figure>
@@ -349,7 +349,7 @@ export function FirstAidKitPageClient() {
 
       {/* Kai sign-off */}
       <section className="py-12 px-6 bg-brand-charcoal border-t border-brand-teal/10">
-        <p className="max-w-3xl mx-auto text-center font-body text-sm italic text-brand-gray/80 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-center font-body text-sm italic text-brand-gray-muted leading-relaxed">
           Kai says: I have never once needed the muzzle. I remain deeply offended it is in there. -
           Kai
         </p>

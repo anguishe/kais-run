@@ -72,7 +72,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
                 {featured.title}
               </h2>
               <p className="mt-4 max-w-xl font-body text-brand-gray line-clamp-3">{featured.description}</p>
-              <p className="mt-6 font-body text-xs uppercase tracking-[0.2em] text-brand-gray/80">
+              <p className="mt-6 font-body text-xs uppercase tracking-[0.2em] text-brand-gray-muted">
                 {formatDate(featured.date)} · {featured.readTimeMinutes} min read
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
                       {post.title}
                     </h3>
                     <p className="mt-2 font-body text-sm text-brand-gray line-clamp-2">{post.description}</p>
-                    <p className="mt-4 pt-1 font-body text-[0.7rem] uppercase tracking-[0.18em] text-brand-gray/75">
+                    <p className="mt-4 pt-1 font-body text-[0.7rem] uppercase tracking-[0.18em] text-brand-gray-muted">
                       {formatDate(post.date)} · {post.readTimeMinutes} min read
                     </p>
                   </div>

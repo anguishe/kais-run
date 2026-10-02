@@ -8,6 +8,10 @@
   --color-brand-gold: #C9963A;
   --color-brand-offwhite: #F0EDE6;
   --color-brand-gray: #9A9590;
+  /* AA-safe muted text (2026-10-02 site-gate). Solid hexes, not opacity modifiers:
+     gray/80 and teal-light/80 measured 3.6-4.5:1. Both hold >= 4.6:1 on charcoal. */
+  --color-brand-gray-muted: #8B8783;
+  --color-brand-teal-muted: #169889;
   --color-brand-danger: #B23A2E;
 
   --font-display: 'Bebas Neue', sans-serif;
@@ -108,6 +112,8 @@ html.lenis body {
   --color-brand-offwhite: #0F1117;
   --color-brand-gray: #4A4744;
   --color-brand-teal-light: #0A5C52;
+  --color-brand-gray-muted: #4A4744;
+  --color-brand-teal-muted: #0A5C52;
   background-color: #FFFFFF;
   color: #0F1117;
 }

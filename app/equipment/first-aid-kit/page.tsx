@@ -9,7 +9,7 @@ const PAGE_URL = 'https://kaisrun.xyz/equipment/first-aid-kit/';
 const OG_IMAGE = `https://kaisrun.xyz${EQUIPMENT_FIRST_AID_KIT_OG_URL}`;
 
 const DESCRIPTION =
-  'A stocked canine first-aid kit travels to every Kai\'s Run session - wound care, thermometer, muzzle, tick tools, trauma shears and more. Conditioning done responsibly.';
+  'A stocked canine first-aid kit travels to every Kai\'s Run session - wound care, thermometer, muzzle, tick tools, trauma shears. Conditioning done responsibly.';
 
 export const metadata: Metadata = {
   title: "The First-Aid Kit That Rides to Every Session | Kai's Run",

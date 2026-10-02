@@ -4,7 +4,7 @@ import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
 
 const TOOLS_DESCRIPTION =
-  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk, see which beaches allow dogs, estimate how much exercise your dog needs, score its body condition, and plan a puppy\'s workload around its growth plates.';
+  'Free dog tools for Emerald Coast owners. Check if it is too hot to walk, which beaches allow dogs, how much exercise your dog needs, and a puppy\'s safe load.';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Home', path: '/' },
@@ -97,7 +97,7 @@ export default function ToolsPage() {
             >
               <h2 className="font-display text-2xl text-brand-gold">{tool.title}</h2>
               <p className="mt-2 font-body text-sm text-brand-gray">{tool.blurb}</p>
-              <p className="mt-3 font-body text-sm leading-relaxed text-brand-gray/80">{tool.detail}</p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-brand-gray-muted">{tool.detail}</p>
             </Link>
           ))}
         </div>
