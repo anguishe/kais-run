@@ -125,7 +125,7 @@ export function ContactFormSection({
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: -8 }}
-              className="font-body text-base md:text-lg text-[#0A5C52] text-center md:text-left"
+              className="font-body text-base md:text-lg text-brand-teal-light text-center md:text-left"
             >
               Got it. Travis will be back to you within 24 hours - usually faster.
             </motion.p>

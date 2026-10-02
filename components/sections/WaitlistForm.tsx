@@ -264,7 +264,7 @@ function WaitlistFormFields({ buttonLabel = 'Join the Waitlist' }: WaitlistFormP
             initial="hidden"
             animate="visible"
             exit={{ opacity: 0, y: -8 }}
-            className="font-body text-base md:text-lg text-[#0A5C52] leading-snug"
+            className="font-body text-base md:text-lg text-brand-teal-light leading-snug"
           >
             {waitlistSuccessCopy}
           </motion.p>
