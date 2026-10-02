@@ -527,7 +527,7 @@ export function Calculator() {
                 <p className="text-brand-gray text-sm leading-relaxed">
                   Here is what will - structured conditioning work. Read{' '}
                   <Link
-                    href="/blog/how-to-tire-out-a-high-energy-dog/"
+                    href="/blog/high-energy-dog-breeds-exercise-guide/"
                     className="text-brand-teal-light underline"
                   >
                     how to actually tire out a high-energy dog

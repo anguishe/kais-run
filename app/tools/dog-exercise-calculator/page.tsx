@@ -142,7 +142,7 @@ export default function DogExerciseCalculatorPage() {
             </Link>{' '}
             goes deeper on the working and high-drive tiers.{' '}
             <Link
-              href="/blog/how-to-tire-out-a-high-energy-dog/"
+              href="/blog/high-energy-dog-breeds-exercise-guide/"
               className="text-brand-teal-light underline"
             >
               How to actually tire out a high-energy dog
@@ -151,7 +151,7 @@ export default function DogExerciseCalculatorPage() {
           </p>
           <p>
             If you are watching the ceiling,{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
+            <Link href="/blog/how-much-exercise-does-my-dog-need/" className="text-brand-teal-light underline">
               can you over-exercise a dog
             </Link>{' '}
             walks through the warning signals. For settled dogs,{' '}

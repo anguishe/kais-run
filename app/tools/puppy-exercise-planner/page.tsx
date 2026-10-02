@@ -148,7 +148,7 @@ export default function PuppyExercisePlannerPage() {
             workload that waits until the skeleton is finished. If you want to know how that first
             session actually goes, read{' '}
             <Link
-              href="/blog/what-to-expect-first-slatmill-session/"
+              href="/blog/is-a-slatmill-safe-for-dogs/"
               className="text-brand-teal-light underline"
             >
               what to expect from a first slatmill session
@@ -186,7 +186,7 @@ export default function PuppyExercisePlannerPage() {
               why a puppy stops listening around eight months
             </Link>
             . For the ceiling on the other end, read{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
+            <Link href="/blog/how-much-exercise-does-my-dog-need/" className="text-brand-teal-light underline">
               whether you can over-exercise a dog
             </Link>
             , and before any warm-weather outing here, check{' '}

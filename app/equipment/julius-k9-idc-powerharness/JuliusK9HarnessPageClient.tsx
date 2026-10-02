@@ -578,7 +578,7 @@ export function JuliusK9HarnessPageClient() {
               it does not pull or restrict, it just means that if a dog decides to bail sideways, nothing
               bad happens. We walk through the whole first-session sequence in{' '}
               <Link
-                href="/blog/what-to-expect-first-slatmill-session/"
+                href="/blog/is-a-slatmill-safe-for-dogs/"
                 className="text-brand-teal-light underline-offset-2 hover:underline"
               >
                 what to expect from a first slatmill session

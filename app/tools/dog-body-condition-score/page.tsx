@@ -168,7 +168,7 @@ export default function DogBodyConditionScorePage() {
               how much exercise your dog needs
             </Link>
             . Before you ramp anything on a heavier dog,{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
+            <Link href="/blog/how-much-exercise-does-my-dog-need/" className="text-brand-teal-light underline">
               read the exercise limit
             </Link>
             , and for older dogs,{' '}

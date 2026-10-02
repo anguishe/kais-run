@@ -19,6 +19,20 @@ const nextConfig = {
         destination: '/blog/dog-treadmill-vs-walk-comparison/',
         permanent: true,
       },
+      // 2026-10-02 consolidation: Google indexed ~1 post per intent and dropped these
+      // overlapping siblings (indexing audit, ~/Projects/docs/indexing-audit-2026-10-02).
+      // Their unique content was merged into the surviving post.
+      ...[
+        ['calm-dog-during-fireworks', 'dog-thunderstorm-anxiety'],
+        ['what-is-a-dog-slatmill', 'is-a-slatmill-safe-for-dogs'],
+        ['what-to-expect-first-slatmill-session', 'is-a-slatmill-safe-for-dogs'],
+        ['how-to-tire-out-a-high-energy-dog', 'high-energy-dog-breeds-exercise-guide'],
+        ['can-you-over-exercise-a-dog', 'how-much-exercise-does-my-dog-need'],
+      ].map(([from, to]) => ({
+        source: `/blog/${from}`,
+        destination: `/blog/${to}/`,
+        permanent: true,
+      })),
       {
         // welcome post deleted (thin/announcement filler) — send legacy links to the blog index
         source: '/blog/welcome',

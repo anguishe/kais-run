@@ -502,7 +502,7 @@ export function HeatChecker() {
               {/* CTA */}
               {isSafe ? (
                 <Link
-                  href="/blog/what-is-a-dog-slatmill/"
+                  href="/blog/is-a-slatmill-safe-for-dogs/"
                   className="text-xs underline opacity-80 hover:opacity-100"
                 >
                   What is a slatmill?

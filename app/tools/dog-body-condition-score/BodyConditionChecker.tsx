@@ -155,7 +155,7 @@ const BAND_PLAN: Record<Band, React.ReactNode> = {
       controlled outlet: an overweight dog needs consistent low-to-moderate work, not a sudden hard
       push that its joints and heart are not ready for. That balance - real movement without
       overloading a body carrying extra weight - is exactly what structured, self-paced work is built for. Before you ramp anything, read{' '}
-      <Link href="/blog/can-you-over-exercise-a-dog/" className="underline">
+      <Link href="/blog/how-much-exercise-does-my-dog-need/" className="underline">
         how to read the exercise limit
       </Link>
       , because an overweight dog is the one you most need to avoid pushing too hard too fast.

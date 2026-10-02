@@ -158,12 +158,12 @@ export default function TooHotToWalkPage() {
               summer thunderstorm
             </Link>{' '}
             - the next question is what to do instead. A{' '}
-            <Link href="/blog/what-is-a-dog-slatmill/" className="text-brand-teal-light underline">
+            <Link href="/blog/is-a-slatmill-safe-for-dogs/" className="text-brand-teal-light underline">
               climate-controlled slatmill session
             </Link>{' '}
             keeps the workout going without the heat risk. Before you ramp intensity on any session,
             read the guide on{' '}
-            <Link href="/blog/can-you-over-exercise-a-dog/" className="text-brand-teal-light underline">
+            <Link href="/blog/how-much-exercise-does-my-dog-need/" className="text-brand-teal-light underline">
               whether you can over-exercise a dog
             </Link>
             . For the full data behind summer heat risk on the Emerald Coast, the post on{' '}

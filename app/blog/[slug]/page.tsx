@@ -25,7 +25,7 @@ function isUnavailablePost(post: ReturnType<typeof getPostBySlug>): boolean {
 }
 
 /** Posts with a dedicated route under app/blog/<slug>/ — omit from dynamic static params. */
-const DEDICATED_POST_SLUGS = new Set(['how-to-tire-out-a-high-energy-dog']);
+const DEDICATED_POST_SLUGS = new Set<string>([]);
 
 type PageProps = {
   params: Promise<{ slug: string }>;
