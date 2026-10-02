@@ -5,7 +5,7 @@ import { BodyConditionChecker } from '../BodyConditionChecker';
 // Static embed route (replaces ?embed=1 on the main page, which forced the canonical
 // page to render dynamically). Legacy ?embed=1 URLs redirect here (next.config.js).
 export const metadata: Metadata = {
-  title: "Is My Dog Overweight? The 30-Second Body Check (embed) | Kai's Run",
+  title: "Is My Dog Overweight? 30-Second Body Check (embed) | Kai's Run",
   alternates: { canonical: 'https://kaisrun.xyz/tools/dog-body-condition-score/' },
   robots: { index: false, follow: true },
 };

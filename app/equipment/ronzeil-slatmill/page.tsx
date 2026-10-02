@@ -9,7 +9,7 @@ const OG_IMAGE =
 
 const TITLE = "Ronzeil Large Slatmill - The Mill We Run | Kai's Run";
 const DESCRIPTION =
-  'The Ronzeil Large Slatmill is the self-powered mill behind every Kai\'s Run conditioning session on the Emerald Coast. Why we chose it, what it does, and how to get one.';
+  'The Ronzeil Large Slatmill is the self-powered mill behind every Kai\'s Run conditioning session. Why we chose it, what it does, and how to get one.';
 
 export const metadata: Metadata = {
   title: TITLE,

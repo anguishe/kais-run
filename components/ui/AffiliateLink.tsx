@@ -51,7 +51,7 @@ export function AffiliateBox({ href, product, cta }: AffiliateBoxProps) {
       >
         {cta}
       </AffiliateLink>
-      <p className="mt-4 font-body text-xs text-brand-gray/80 leading-relaxed">
+      <p className="mt-4 font-body text-xs text-brand-gray-muted leading-relaxed">
         {AMAZON_TAG
           ? 'Affiliate disclosure: as an Amazon Associate, Kai’s Run earns from qualifying purchases made through this link, at no extra cost to you. We only link gear we run on our own truck.'
           : 'This is a plain link to Amazon - Kai’s Run currently earns nothing from it. We only link gear we run on our own truck.'}

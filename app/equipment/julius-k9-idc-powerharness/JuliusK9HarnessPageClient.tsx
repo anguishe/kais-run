@@ -58,7 +58,7 @@ export function JuliusK9HarnessPageClient() {
             height={800}
             className="w-full rounded-xl border border-brand-teal/15"
           />
-          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
             Kai in the IDC Powerharness - the harness the business is built around.
           </figcaption>
         </motion.figure>
@@ -206,7 +206,7 @@ export function JuliusK9HarnessPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               The IDC in three of the nine sizes Julius-K9 makes.
             </figcaption>
           </motion.figure>
@@ -264,7 +264,7 @@ export function JuliusK9HarnessPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               The chest strap and reflective edge that carry the load forward, up close.
             </figcaption>
           </motion.figure>
@@ -325,7 +325,7 @@ export function JuliusK9HarnessPageClient() {
               </tbody>
             </table>
           </motion.div>
-          <motion.p variants={fadeUp} className="mt-4 font-body text-xs text-brand-gray/70">
+          <motion.p variants={fadeUp} className="mt-4 font-body text-xs text-brand-gray-muted">
             Source: Julius-K9 official IDC Powerharness size chart. The three sizes we keep on the truck cover
             the Mini through size 2 band - the majority of conditioning dogs.
           </motion.p>
@@ -411,7 +411,7 @@ export function JuliusK9HarnessPageClient() {
               product="julius_k9_idc_powerharness"
               cta="Find the IDC Powerharness on Amazon"
             />
-            <p className="mt-3 font-body text-sm text-brand-gray/80 leading-relaxed text-center">
+            <p className="mt-3 font-body text-sm text-brand-gray-muted leading-relaxed text-center">
               Whatever listing you land on, check for the certified hangtag and an authorized seller -
               and measure the chest before you order.
             </p>
@@ -426,7 +426,7 @@ export function JuliusK9HarnessPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               Our small, medium, and large IDC harnesses - genuine, with the certified hangtags a counterfeit cannot copy.
             </figcaption>
           </motion.figure>
@@ -624,7 +624,7 @@ export function JuliusK9HarnessPageClient() {
               decoding="async"
               className="w-full rounded-xl border border-brand-teal/15"
             />
-            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+            <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
               Bailey, unbothered - the harness becomes a non-event within a session or two.
             </figcaption>
           </motion.figure>
@@ -891,7 +891,7 @@ export function JuliusK9HarnessPageClient() {
               </a>
             </li>
           </ul>
-          <p className="mt-6 text-brand-gray/70 font-body text-xs leading-relaxed">
+          <p className="mt-6 text-brand-gray-muted font-body text-xs leading-relaxed">
             Kai&apos;s Run is not affiliated with or sponsored by Julius-K9. We are a customer that uses the
             harness in our conditioning work.
           </p>

@@ -54,7 +54,8 @@ export function buildBlogPostMetadata(post: BlogPost): Metadata {
   const ogDescription = post.ogDescription?.trim() || post.description;
 
   return {
-    title: buildPageTitle(post.title),
+    // metaTitle keeps a long curiosity headline on the page while the SERP title stays short.
+    title: buildPageTitle(post.metaTitle ?? post.title),
     description: post.description,
     keywords,
     alternates: { canonical },

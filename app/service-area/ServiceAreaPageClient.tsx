@@ -84,7 +84,7 @@ export function ServiceAreaPageClient() {
                   <p className="text-brand-gray font-body text-sm leading-relaxed mb-6 flex-1">
                     {city.hubTeaser}
                   </p>
-                  <p className="text-brand-gray/80 font-body text-xs mb-6">
+                  <p className="text-brand-gray-muted font-body text-xs mb-6">
                     {city.neighborhoods.join(' · ')}
                   </p>
                   <Link
@@ -130,7 +130,7 @@ export function ServiceAreaPageClient() {
               </Button>
               <a
                 href="tel:+18502185855"
-                className="text-brand-teal-light font-body hover:text-brand-teal-light/80 transition-colors"
+                className="text-brand-teal-light font-body hover:text-brand-teal-muted transition-colors"
               >
                 Call or text: 850-218-5855
               </a>

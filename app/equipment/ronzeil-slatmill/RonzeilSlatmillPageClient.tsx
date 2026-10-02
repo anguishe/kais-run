@@ -57,7 +57,7 @@ export function RonzeilSlatmillPageClient() {
             height={1800}
             className="w-full rounded-xl border border-brand-teal/15"
           />
-          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray/80">
+          <figcaption className="mt-3 text-center font-body text-xs tracking-wide text-brand-gray-muted">
             Kai sizing up the Ronzeil during final assembly - the mill the business is built around.
           </figcaption>
         </motion.figure>
@@ -370,7 +370,7 @@ export function RonzeilSlatmillPageClient() {
               </a>
             </li>
           </ul>
-          <p className="mt-6 text-brand-gray/70 font-body text-xs leading-relaxed">
+          <p className="mt-6 text-brand-gray-muted font-body text-xs leading-relaxed">
             Kai&apos;s Run is a Ronzeil affiliate. Purchases through our link earn us a commission at
             no extra cost to you.
           </p>

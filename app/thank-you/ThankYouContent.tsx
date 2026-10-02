@@ -127,7 +127,7 @@ export default function ThankYouContent() {
           </p>
           <a
             href="tel:+18502185855"
-            className="text-brand-teal-light font-body text-lg hover:text-brand-teal-light/80 transition-colors"
+            className="text-brand-teal-light font-body text-lg hover:text-brand-teal-muted transition-colors"
           >
             Call or text: 850-218-5855
           </a>

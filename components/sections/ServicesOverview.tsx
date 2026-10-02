@@ -83,7 +83,7 @@ export function ServicesOverview() {
         <motion.div variants={fadeUp} className="mt-12">
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 text-brand-teal-light font-body text-sm hover:text-brand-teal-light/80 transition-colors"
+            className="inline-flex items-center gap-2 text-brand-teal-light font-body text-sm hover:text-brand-teal-muted transition-colors"
           >
             View full pricing details
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

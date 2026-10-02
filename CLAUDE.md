@@ -54,6 +54,9 @@ ALL of the following must use https://kaisrun.xyz (apex — never www):
 | brand-gold | #C9963A |
 | brand-offwhite | #F0EDE6 |
 | brand-gray | #9A9590 |
+| brand-gray-muted | #8B8783 (AA-safe muted text, replaces gray/70-/80) |
+| brand-teal-light | #17A08F |
+| brand-teal-muted | #169889 (AA-safe teal label, replaces teal-light/80) |
 
 Fonts: font-display = Bebas Neue · font-body = DM Sans
 
@@ -131,4 +134,17 @@ Every new blog post requires a `CATEGORY_MAP` entry in `lib/blog/categories.ts` 
   - Sitemap URLs return 200 (no redirects) and are self-canonical.
   - JSON-LD parses, and its `@id` references resolve.
   - Text contrast ≥ 4.5:1 (3:1 only for ≥ 24px or bold ≥ 18.66px). Check every new color/opacity pairing, especially muted grays and brand accents on dark or brand backgrounds.
+- **AA-safe text pairs (2026-10-02).** Text sits on three dark surfaces: `brand-black` `#0F1117`, `bg-brand-charcoal/40` over black (`#131720`), and `brand-charcoal` `#1A1F2E` (the lightest; `/60`, `/70`, `/95` fall between). Use these and nothing dimmer for readable text:
+
+  | Text class | Hex | on black | on charcoal/40 | on charcoal |
+  |---|---|---|---|---|
+  | `text-brand-offwhite` | `#F0EDE6` | 16.1 | 15.3 | 14.0 |
+  | `text-brand-gold` | `#C9963A` | 7.1 | 6.8 | 6.2 |
+  | `text-brand-gray` (body copy) | `#9A9590` | 6.4 | 6.0 | 5.5 |
+  | `text-brand-teal-light` (links, eyebrows) | `#17A08F` | 5.8 | 5.5 | 5.1 |
+  | `text-brand-gray-muted` (captions, meta, disclaimers) | `#8B8783` | 5.3 | 5.0 | 4.6 |
+  | `text-brand-teal-muted` (small teal labels, link hover) | `#169889` | 5.3 | 5.0 | 4.6 |
+
+  Banned for text: `text-brand-gray/70`-`/80` (3.4-4.5:1), `text-brand-teal-light/80` (3.7-4.3:1), and `brand-teal` `#0A5C52` on any dark surface (2.1-2.4:1; it is a background color, and white/offwhite on it is 7.9/6.7:1). These are what the 2026-10-02 gate flagged. Muted tokens are solid hexes in `app/globals.css` `@theme` (with `.embed-light` overrides), not opacity modifiers. Pure-punctuation separators (`/`, arrows) may stay dimmer; axe skips them.
+- **Build-time meta check.** `npm run build` runs `scripts/check-meta.mjs` as the first `postbuild` step, before the IndexNow ping (also `npm run check:meta`). It fails the build on a missing title or description, title > 65, description > 160, or a duplicate title across indexable pages, and it also checks every `content/blog/*.mdx` frontmatter, scheduled posts included (they publish via ISR with no build). Blog titles get the ` | Kai's Run` suffix only when the result is <= 60. When a headline runs long, keep `title` (H1 + schema headline) and add a `metaTitle:` frontmatter line (<= 60) for the SERP title. Tool pages with a long H1 keep a separate `H1` constant (see `app/tools/dog-beach-checker/page.tsx`).
 - **Business-state changes** (parked/reopened, prices, phone, address, photo permissions): update schema, default metadata/OG copy, and this file in the same change.

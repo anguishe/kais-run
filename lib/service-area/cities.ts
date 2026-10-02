@@ -217,7 +217,7 @@ export const SERVICE_CITY_PAGES: ServiceCityPage[] = [
     state: 'FL',
     title: "Mobile Dog Gym Mary Esther FL | Kai's Run",
     description:
-      "Kai's Run delivers private slatmill conditioning to Mary Esther, FL. Structured exercise for high-drive dogs - no drop-off, no group sessions. Launch list open now.",
+      "Kai's Run delivers private slatmill conditioning to Mary Esther, FL. Structured exercise for high-drive dogs - no drop-off, no group sessions. Launch list open.",
     h1: 'Mobile Dog Conditioning in Mary Esther, FL',
     eyebrow: 'Mary Esther · Choctaw Bay',
     neighborhoodsLabel: 'Neighborhoods we serve in Mary Esther',

@@ -6,9 +6,9 @@ import { PuppyPlanner } from './PuppyPlanner';
 import EmbedThisTool from '@/components/tools/EmbedThisTool';
 import LaunchWaitlist from '@/components/ui/LaunchWaitlist';
 
-const TITLE = "Puppy Exercise Planner - Growth Plates & the 5-Minute Rule | Kai's Run";
+const TITLE = "Puppy Exercise Planner - Growth Plates & 5-Minute Rule";
 const DESC =
-  "How much exercise a puppy can safely handle, by age and adult size. Shows when growth plates close, what the five-minute rule actually limits, and what to avoid at each stage.";
+  "How much exercise a puppy can safely handle, by age and adult size. When growth plates close, what the five-minute rule limits, and what to avoid at each stage.";
 const CANONICAL = 'https://kaisrun.xyz/tools/puppy-exercise-planner/';
 const OG_CARD = generatedOgUrl('Puppy Exercise Planner', 'Free Tool');
 
