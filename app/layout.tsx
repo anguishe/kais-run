@@ -10,7 +10,7 @@ import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { GA4Script } from "@/components/ui/GA4Script";
 import { Analytics } from "@vercel/analytics/next";
-import { offerCatalogItems } from "@/lib/schema/offers";
+import { offerCatalogItems, SESSIONS_BOOKABLE } from "@/lib/schema/offers";
 import { SOCIAL_PROFILES } from "@/lib/site-social";
 
 export const metadata: Metadata = {
@@ -85,9 +85,14 @@ const localBusinessJsonLd = {
   email: "kaisrunmobile@gmail.com",
   image: "https://kaisrun.xyz/images/og-image.png",
   logo: "https://kaisrun.xyz/images/logos/kr-logo-square-512.png",
-  priceRange: "$$",
-  currenciesAccepted: "USD",
-  paymentAccepted: "Credit Card, Cash",
+  // Price and payment fields are emitted only while sessions are bookable.
+  ...(SESSIONS_BOOKABLE
+    ? {
+        priceRange: "$$",
+        currenciesAccepted: "USD",
+        paymentAccepted: "Credit Card, Cash",
+      }
+    : {}),
   geo: {
     "@type": "GeoCoordinates",
     latitude: 30.3935,
@@ -106,11 +111,16 @@ const localBusinessJsonLd = {
     { "@type": "City", name: "Navarre", addressRegion: "FL" },
     { "@type": "City", name: "Mary Esther", addressRegion: "FL" },
   ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Kai's Run Session Options",
-    itemListElement: offerCatalogItems,
-  },
+  // No OfferCatalog while parked: nothing can be purchased.
+  ...(SESSIONS_BOOKABLE
+    ? {
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Kai's Run Session Options",
+          itemListElement: offerCatalogItems,
+        },
+      }
+    : {}),
   founder: {
     "@type": "Person",
     "@id": "https://kaisrun.xyz/about/#travis",

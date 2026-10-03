@@ -14,6 +14,16 @@
  * shape, collapse this to a single name + array.
  */
 
+/**
+ * PARKED-STATE SWITCH for structured data. While false, no page emits Offer /
+ * OfferCatalog nodes, priceRange or payment fields in JSON-LD: nothing is
+ * bookable, so schema must not advertise purchasable sessions. The price data
+ * below stays as the single source for the visible "planned launch rates".
+ * Flip to true in the same change that reopens booking (see CLAUDE.md,
+ * "Business-state changes").
+ */
+export const SESSIONS_BOOKABLE: boolean = false;
+
 const BASE_URL = 'https://kaisrun.xyz';
 
 const SESSION_OFFERS = [

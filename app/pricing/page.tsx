@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
-import { pricingOffers } from '@/lib/schema/offers';
+import { pricingOffers, SESSIONS_BOOKABLE } from '@/lib/schema/offers';
 import { PricingPageClient } from './PricingPageClient';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -85,7 +85,8 @@ const pricingSchema = {
   serviceType: 'Mobile Dog Gym Conditioning',
   provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
   areaServed: 'Okaloosa County, FL',
-  offers: pricingOffers,
+  // Offers are emitted only while sessions are bookable (parked: none).
+  ...(SESSIONS_BOOKABLE ? { offers: pricingOffers } : {}),
 };
 
 export default function PricingPage() {
