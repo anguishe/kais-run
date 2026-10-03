@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { OG_IMAGE_URL } from '@/lib/site-images';
 import { buildBreadcrumbJsonLd } from '@/lib/seo/breadcrumb-schema';
-import { serviceOffers } from '@/lib/schema/offers';
+import { serviceOffers, SESSIONS_BOOKABLE } from '@/lib/schema/offers';
 import { ServicesPageClient } from './ServicesPageClient';
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -45,7 +45,8 @@ const serviceSchema = {
   serviceType: 'Dog Conditioning Session',
   provider: { '@type': 'LocalBusiness', name: "Kai's Run" },
   areaServed: 'Okaloosa County, FL',
-  offers: serviceOffers,
+  // Offers are emitted only while sessions are bookable (parked: none).
+  ...(SESSIONS_BOOKABLE ? { offers: serviceOffers } : {}),
 };
 
 export default function ServicesPage() {

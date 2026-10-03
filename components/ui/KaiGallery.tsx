@@ -7,6 +7,10 @@ export type KaiImage = {
   alt: string;
   width?: number;
   height?: number;
+  /** Optional 450px-wide variant (scripts/generate-gallery-thumbs.mjs) served to the grid; the lightbox always uses `src`. */
+  thumb?: string;
+  /** Optional 720px-wide variant for 3x phones and retina desktops, same script. */
+  thumb2x?: string;
 };
 
 type Props = {
@@ -62,7 +66,15 @@ export default function KaiGallery({ images, className }: Props) {
               className="group relative block aspect-[3/4] w-full overflow-hidden rounded-lg border border-brand-teal/15 bg-brand-charcoal focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold"
             >
               <img
-                src={img.src}
+                src={img.thumb ?? img.src}
+                srcSet={
+                  img.thumb
+                    ? [`${img.thumb} 450w`, img.thumb2x && `${img.thumb2x} 720w`, `${img.src} 900w`]
+                        .filter(Boolean)
+                        .join(', ')
+                    : undefined
+                }
+                sizes={img.thumb ? '(min-width: 640px) 33vw, 50vw' : undefined}
                 alt={img.alt}
                 width={img.width ?? 900}
                 height={img.height ?? 1600}

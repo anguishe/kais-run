@@ -7,6 +7,7 @@ import { FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
 import config from '@/public/data/config.json';
 
 type FoundingSpots = {
+  enabled: boolean;
   total: number;
   remaining: number;
 };
@@ -14,7 +15,10 @@ type FoundingSpots = {
 // Build-time seed from the local static config so the prerendered HTML already
 // shows the live number instead of a skeleton; the client fetch only reconciles
 // if config.json changed after the build.
+// `enabled` (default OFF) gates the whole counter: while the business is parked
+// and no spots are actually being sold, the scarcity counter must not render.
 const SEED: FoundingSpots = {
+  enabled: config.foundingSpots.enabled ?? false,
   total: FOUNDING_SPOTS_TOTAL,
   remaining: config.foundingSpots.remaining,
 };
@@ -33,9 +37,10 @@ export default function SpotsCounter({ standalone = false }: Props) {
         if (!res.ok) throw new Error('Failed to load spots config');
         return res.json();
       })
-      .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
+      .then((data: { foundingSpots?: { enabled?: boolean; total?: number; remaining?: number } }) => {
         const fs = data.foundingSpots;
         setSpots({
+          enabled: fs?.enabled ?? false,
           total: fs?.total ?? FOUNDING_SPOTS_TOTAL,
           remaining: fs?.remaining ?? SEED.remaining,
         });
@@ -43,7 +48,10 @@ export default function SpotsCounter({ standalone = false }: Props) {
       .catch(() => setSpots(SEED));
   }, []);
 
-  const { total, remaining } = spots;
+  const { enabled, total, remaining } = spots;
+
+  if (!enabled) return null;
+
   const sold = total - remaining;
   const pct = (sold / total) * 100;
 

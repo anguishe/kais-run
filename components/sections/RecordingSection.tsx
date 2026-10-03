@@ -23,7 +23,7 @@ export function RecordingSection() {
             className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden"
           >
             <img
-              src="/images/how-we-record-reveal-card.jpg"
+              src="/images/how-we-record-reveal-card.webp"
               alt="A recorded Kai's Run session shown on screen"
               width={1080}
               height={1350}

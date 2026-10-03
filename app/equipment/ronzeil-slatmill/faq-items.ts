@@ -2,6 +2,8 @@
 // and mirrored into FAQPage JSON-LD in page.tsx. Keep the two in sync by importing
 // this array in both places.
 
+import { RONZEIL_PROMO_CODE, RONZEIL_PROMO_DISCOUNT } from '@/lib/affiliates';
+
 export type FaqItem = {
   question: string;
   answer: string;
@@ -31,7 +33,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Can I buy a Ronzeil slatmill for my own home?',
     answer:
-      'You can. We are a Ronzeil affiliate - our link is on this page and the code KAI26 takes 18% off your entire order. We earn a commission at no extra cost to you, and we only recommend gear we run ourselves.',
+      `You can. We are a Ronzeil affiliate - our link is on this page and the code ${RONZEIL_PROMO_CODE} takes ${RONZEIL_PROMO_DISCOUNT}. We earn a commission at no extra cost to you, and we only recommend gear we run ourselves.`,
   },
   {
     question: 'Do I need my own slatmill to work with Kai\'s Run?',

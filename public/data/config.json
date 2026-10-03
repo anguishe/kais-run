@@ -1,5 +1,6 @@
 {
   "foundingSpots": {
+    "enabled": false,
     "total": 20,
     "remaining": 9,
     "lastUpdated": "2026-07-13"

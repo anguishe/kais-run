@@ -11,6 +11,7 @@
     "lint": "eslint",
     "generate:og": "node scripts/generate-og.mjs",
     "generate:favicons": "node scripts/generate-favicons.mjs",
+    "generate:gallery-thumbs": "node scripts/generate-gallery-thumbs.mjs",
     "check:schedule": "node scripts/check-blog-schedule.mjs",
     "check:tools": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-tools.mjs"
   },

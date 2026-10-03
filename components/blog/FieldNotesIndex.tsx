@@ -37,10 +37,9 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
 
   if (!featured) return null;
 
-  // whileInView reveals — instant (no transform) when the user prefers reduced motion.
-  const solo = reduceMotion
-    ? {}
-    : { variants: fadeUp, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, margin: '-80px' } };
+  // Above-the-fold (featured card + filter row) paints statically with the CSS-only
+  // .kr-rise entrance - never opacity 0, so the blog index LCP does not wait on JS.
+  // Below-fold grid keeps its framer whileInView reveal, instant under reduced motion.
   const grid = reduceMotion
     ? {}
     : { variants: stagger, initial: 'hidden' as const, whileInView: 'visible' as const, viewport: { once: true, margin: '-80px' } };
@@ -49,7 +48,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
   return (
     <div className="mt-14 md:mt-16">
       {/* Featured entry — hidden when a category filter is active so the hero never shows off-category. */}
-      {active === 'All' && <motion.article {...solo} className="group">
+      {active === 'All' && <article className="kr-rise group">
         <Link
           href={`/blog/${featured.slug}/`}
           className="block overflow-hidden rounded-2xl border border-brand-teal/20 border-t-2 border-t-brand-gold bg-brand-charcoal/40 transition duration-300 hover:-translate-y-1 hover:border-brand-teal/45"
@@ -78,10 +77,10 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
             </div>
           </div>
         </Link>
-      </motion.article>}
+      </article>}
 
       {/* Category chips — teal active state; filters the grid client-side. */}
-      <motion.div {...solo} className="mt-12 flex flex-wrap gap-2.5" role="group" aria-label="Filter field notes by category">
+      <div className="kr-rise mt-12 flex flex-wrap gap-2.5" role="group" aria-label="Filter field notes by category">
         {FILTERS.map((label) => {
           const isActive = active === label;
           return (
@@ -100,7 +99,7 @@ export default function FieldNotesIndex({ posts }: { posts: BlogPostMeta[] }) {
             </button>
           );
         })}
-      </motion.div>
+      </div>
 
       {/* Post grid — 1 / 2 / 3 columns, staggered reveal. */}
       {filtered.length === 0 ? (

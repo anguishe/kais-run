@@ -1,5 +1,11 @@
 // Ronzeil affiliate pitch - self-contained, no required props. FTC-compliant:
 // the disclosure sits directly beneath the link/code (adjacency requirement).
+import {
+  RONZEIL_AFFILIATE_URL,
+  RONZEIL_PROMO_CODE,
+  RONZEIL_PROMO_DISCOUNT,
+} from '@/lib/affiliates';
+
 export function RonzeilAffiliateCta() {
   return (
     <div className="rounded-xl border border-brand-gold/30 bg-brand-charcoal p-6 md:p-10">
@@ -12,7 +18,7 @@ export function RonzeilAffiliateCta() {
       </p>
       <div className="mt-6">
         <a
-          href="https://www.ronzeil.com/?aff=hLEgGt3gup"
+          href={RONZEIL_AFFILIATE_URL}
           target="_blank"
           rel="sponsored nofollow noopener"
           className="inline-block bg-brand-gold text-brand-black px-8 py-3 font-medium tracking-wide rounded-sm hover:shadow-[0_0_20px_rgba(201,150,58,0.4)] transition-all duration-300"
@@ -25,7 +31,8 @@ export function RonzeilAffiliateCta() {
         </p>
       </div>
       <p className="mt-6 font-body text-brand-offwhite text-base md:text-lg">
-        Promo code <span className="font-medium text-brand-gold">KAI26</span> - 18% off your entire order
+        Promo code <span className="font-medium text-brand-gold">{RONZEIL_PROMO_CODE}</span> -{' '}
+        {RONZEIL_PROMO_DISCOUNT}
       </p>
     </div>
   );

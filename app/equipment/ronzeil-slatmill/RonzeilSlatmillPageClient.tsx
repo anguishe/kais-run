@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '@/lib/variants';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { RonzeilAffiliateCta } from '@/components/ui/RonzeilAffiliateCta';
+import { RONZEIL_AFFILIATE_URL } from '@/lib/affiliates';
 import { faqItems } from './faq-items';
 
 export function RonzeilSlatmillPageClient() {
@@ -361,7 +362,7 @@ export function RonzeilSlatmillPageClient() {
             <li>
               Ronzeil - slatmill product information:{' '}
               <a
-                href="https://www.ronzeil.com/?aff=hLEgGt3gup"
+                href={RONZEIL_AFFILIATE_URL}
                 target="_blank"
                 rel="sponsored nofollow noopener"
                 className="text-brand-teal-light underline-offset-2 hover:underline break-words"
