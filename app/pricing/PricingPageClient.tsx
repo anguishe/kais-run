@@ -10,6 +10,7 @@ import { FOUNDING_SPOTS_TOTAL } from '@/lib/constants';
 import config from '@/public/data/config.json';
 
 type FoundingSpots = {
+  enabled: boolean;
   total: number;
   remaining: number;
 };
@@ -94,6 +95,7 @@ const faqItems = [
 
 export function PricingPageClient() {
   const [spots, setSpots] = useState<FoundingSpots>({
+    enabled: config.foundingSpots.enabled ?? false,
     total: FOUNDING_SPOTS_TOTAL,
     remaining: config.foundingSpots.remaining,
   });
@@ -104,19 +106,26 @@ export function PricingPageClient() {
         if (!res.ok) throw new Error('Failed to load spots config');
         return res.json();
       })
-      .then((data: { foundingSpots?: { total?: number; remaining?: number } }) => {
+      .then((data: { foundingSpots?: { enabled?: boolean; total?: number; remaining?: number } }) => {
         const fs = data.foundingSpots;
         setSpots({
+          enabled: fs?.enabled ?? false,
           total: fs?.total ?? FOUNDING_SPOTS_TOTAL,
           remaining: fs?.remaining ?? config.foundingSpots.remaining,
         });
       })
       .catch(() => {
-        setSpots({ total: FOUNDING_SPOTS_TOTAL, remaining: config.foundingSpots.remaining });
+        setSpots({
+          enabled: config.foundingSpots.enabled ?? false,
+          total: FOUNDING_SPOTS_TOTAL,
+          remaining: config.foundingSpots.remaining,
+        });
       });
   }, []);
 
-  const { total: TOTAL_SPOTS, remaining: SPOTS_REMAINING } = spots;
+  // The live spots counter only renders when the config flag is ON (it is OFF
+  // while the business is parked and no founding spots are being sold).
+  const { enabled: SPOTS_ENABLED, total: TOTAL_SPOTS, remaining: SPOTS_REMAINING } = spots;
   const sold = TOTAL_SPOTS - SPOTS_REMAINING;
   const pct = (sold / TOTAL_SPOTS) * 100;
 
@@ -127,10 +136,14 @@ export function PricingPageClient() {
     price: '$200 for 5 sessions ($40 per session)',
     duration: '5 sessions, 30–45 min each',
     includes: ['5 full sessions', 'Limited to 20 dogs', 'Never offered again'],
-    bestFor: 'Locking in the lowest rate before Founding spots run out',
-    highlight: SPOTS_REMAINING === 0 ? 'SOLD OUT' : `${SPOTS_REMAINING} of ${TOTAL_SPOTS} remaining`,
-    highlightColor: SPOTS_REMAINING === 0 ? 'text-brand-gray' : 'text-brand-gold',
-    disabled: SPOTS_REMAINING === 0,
+    bestFor: SPOTS_ENABLED
+      ? 'Locking in the lowest rate before Founding spots run out'
+      : 'Locking in the lowest planned launch rate',
+    highlight: SPOTS_ENABLED
+      ? (SPOTS_REMAINING === 0 ? 'SOLD OUT' : `${SPOTS_REMAINING} of ${TOTAL_SPOTS} remaining`)
+      : 'Not open yet - join the launch list to hear first',
+    highlightColor: SPOTS_ENABLED && SPOTS_REMAINING === 0 ? 'text-brand-gray' : 'text-brand-gold',
+    disabled: SPOTS_ENABLED && SPOTS_REMAINING === 0,
   };
 
   const allTiers = [foundingTier, ...standardTiers];
@@ -178,8 +191,8 @@ export function PricingPageClient() {
         </motion.div>
       </section>
 
-      {/* Founding Athlete Banner */}
-      {SPOTS_REMAINING > 0 && (
+      {/* Founding Athlete Banner - only when the live counter is enabled */}
+      {SPOTS_ENABLED && SPOTS_REMAINING > 0 && (
         <section className="bg-brand-charcoal py-8 px-6">
           <motion.div
             variants={stagger}
