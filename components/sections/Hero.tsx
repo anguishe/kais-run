@@ -1,9 +1,13 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { fadeUp, stagger } from '@/lib/variants';
 import Button from '@/components/ui/Button';
 
+/*
+ * Server component on purpose - this is the homepage LCP block.
+ * No framer-motion here: the old initial="hidden" animate="visible" kept the
+ * H1 at opacity 0 until the JS bundle hydrated (mobile LCP 6.5s). The entrance
+ * is now the CSS-only .kr-rise (transform only, never hidden, reduced-motion
+ * safe), so the hero paints with the server HTML. Below-fold sections keep
+ * their framer whileInView reveals.
+ */
 export function Hero() {
   return (
     <section className="grain-overlay relative min-h-screen flex items-end bg-brand-black overflow-hidden">
@@ -28,56 +32,42 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
       </div>
 
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-32"
-      >
+      <div className="kr-rise relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-32">
         {/* Teal accent rule */}
-        <motion.div variants={fadeUp} className="w-16 h-px bg-brand-teal mb-6" />
+        <div className="w-16 h-px bg-brand-teal mb-6" />
 
-        <motion.p
-          variants={fadeUp}
-          className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-8"
-        >
+        <p className="text-brand-teal-light font-body text-xs tracking-[0.3em] uppercase mb-8">
           Destin · Fort Walton Beach · Niceville
-        </motion.p>
+        </p>
 
-        <motion.h1
-          variants={fadeUp}
-          className="font-display text-7xl md:text-[120px] lg:text-[160px] tracking-tight leading-[0.85] mb-8 text-brand-offwhite"
-        >
+        <h1 className="font-display text-7xl md:text-[120px] lg:text-[160px] tracking-tight leading-[0.85] mb-8 text-brand-offwhite">
           YOUR DOG
           <br />
           <span className="text-brand-teal-light">DESERVES</span>
           <br />
           TO RUN.
-        </motion.h1>
+        </h1>
 
-        <motion.p variants={fadeUp} className="entity-statement">
+        <p className="entity-statement">
           Kai&apos;s Run is Destin&apos;s only mobile dog slatmill service - we bring a
           self-powered conditioning treadmill to your driveway in Destin, Fort Walton
           Beach, and Niceville FL.
-        </motion.p>
+        </p>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-base md:text-lg font-body text-brand-gray max-w-xl mb-12 leading-relaxed"
-        >
+        <p className="text-base md:text-lg font-body text-brand-gray max-w-xl mb-12 leading-relaxed">
           Structured canine conditioning. Delivered to your driveway.{' '}
           Not a dog walk. A performance session.
-        </motion.p>
+        </p>
 
-        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Button href="/book/" variant="primary" className="text-base px-10 py-4">
             Join the Launch List
           </Button>
           <Button href="/tools/" variant="secondary" className="text-base px-10 py-4">
             Try the Free Dog Tools
           </Button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

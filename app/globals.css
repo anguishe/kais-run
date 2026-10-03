@@ -65,6 +65,27 @@ html.lenis body {
   pointer-events: none;
 }
 
+/*
+ * Above-the-fold entrance: CSS-only rise so LCP content paints before JS.
+ * Transform only - opacity NEVER starts below 1, so server HTML is readable
+ * with zero hydration. Replaces framer-motion initial="hidden" on hero-type
+ * blocks (framer kept the LCP text at opacity 0 until the bundle hydrated).
+ */
+@keyframes kr-rise {
+  from { transform: translateY(24px); }
+  to { transform: translateY(0); }
+}
+
+.kr-rise {
+  animation: kr-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kr-rise {
+    animation: none;
+  }
+}
+
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-5%, -10%); }
