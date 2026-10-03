@@ -19,7 +19,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/hero-main.webp"
-          alt="Kai running at full speed on professional dog treadmill"
+          alt="Tan short-coated dog standing in profile inside a dark cargo van"
           width={1264}
           height={848}
           fetchPriority="high"
