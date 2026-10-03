@@ -15,7 +15,9 @@ const root = join(__dirname, "..");
 const srcDir = join(root, "public/images/kai");
 const outDir = join(srcDir, "thumbs");
 
-const THUMB_WIDTH = 450; // 2x the mobile 2-col render width — crisp on retina
+// 450 = 2x the mobile 2-col render width; 720 = what 3x phones and retina
+// desktops pick, so no DPR ever falls through to the 900x1600 originals.
+const THUMB_WIDTHS = [450, 720];
 
 const names = [
   "kai-running-toward-camera",
@@ -29,10 +31,12 @@ const names = [
 await mkdir(outDir, { recursive: true });
 
 for (const name of names) {
-  const out = join(outDir, `${name}-450.webp`);
-  const info = await sharp(join(srcDir, `${name}.webp`))
-    .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
-    .webp({ quality: 72 })
-    .toFile(out);
-  console.log(`[gallery-thumbs] ${name}-450.webp ${info.width}x${info.height} ${(info.size / 1024).toFixed(0)} KB`);
+  for (const width of THUMB_WIDTHS) {
+    const out = join(outDir, `${name}-${width}.webp`);
+    const info = await sharp(join(srcDir, `${name}.webp`))
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: width === 450 ? 72 : 68 })
+      .toFile(out);
+    console.log(`[gallery-thumbs] ${name}-${width}.webp ${info.width}x${info.height} ${(info.size / 1024).toFixed(0)} KB`);
+  }
 }

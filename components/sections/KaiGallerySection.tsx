@@ -10,31 +10,37 @@ const galleryImages: KaiImage[] = [
   {
     src: '/images/kai/kai-running-toward-camera.webp',
     thumb: '/images/kai/thumbs/kai-running-toward-camera-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-running-toward-camera-720.webp',
     alt: 'Kai, a Rhodesian Ridgeback mix, running at full stride across the grass',
   },
   {
     src: '/images/kai/kai-looking-up.webp',
     thumb: '/images/kai/thumbs/kai-looking-up-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-looking-up-720.webp',
     alt: 'Kai mid-turn with his tongue out, looking up at the camera',
   },
   {
     src: '/images/kai/kai-trail-profile.webp',
     thumb: '/images/kai/thumbs/kai-trail-profile-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-trail-profile-720.webp',
     alt: 'Kai moving along a coastal hedge line in profile',
   },
   {
     src: '/images/kai/kai-coastal-trail.webp',
     thumb: '/images/kai/thumbs/kai-coastal-trail-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-coastal-trail-720.webp',
     alt: 'Kai working a shaded Emerald Coast trail',
   },
   {
     src: '/images/kai/kai-mid-stride.webp',
     thumb: '/images/kai/thumbs/kai-mid-stride-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-mid-stride-720.webp',
     alt: 'Kai mid-stride with a front paw lifted and ears back',
   },
   {
     src: '/images/kai/kai-golden-light.webp',
     thumb: '/images/kai/thumbs/kai-golden-light-450.webp',
+    thumb2x: '/images/kai/thumbs/kai-golden-light-720.webp',
     alt: 'Kai walking into late-day light along the treeline',
   },
 ];
